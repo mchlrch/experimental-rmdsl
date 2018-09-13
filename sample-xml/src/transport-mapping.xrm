@@ -1,0 +1,18 @@
+//http://rml.io/spec.html#example-XML
+import transport.*
+
+logical-source transport {
+	type xml;
+	source "http://www.example.com/Transport.xml";
+    iterator "/transport/bus";
+
+	referenceables {
+		busId "/transport/bus@id"
+		stopId "/transport/bus/route/stop@id"
+		stop "/transport/bus/route/stop"
+	}	
+}
+
+map TransportMapping from transport {
+	iri "http://trans.example.com/{0}" busId
+}

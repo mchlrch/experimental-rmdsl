@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.zazuko.experimental.rmdsl
+Bundle-ManifestVersion: 2
+Bundle-Name: com.zazuko.experimental.rmdsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.zazuko.experimental.rmdsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-9
+Export-Package: com.zazuko.experimental.rmdsl.rdfMapping,
+ com.zazuko.experimental.rmdsl.parser.antlr.internal,
+ com.zazuko.experimental.rmdsl.scoping,
+ com.zazuko.experimental.rmdsl.rdfMapping.util,
+ com.zazuko.experimental.rmdsl.rdfMapping.impl,
+ com.zazuko.experimental.rmdsl.parser.antlr,
+ com.zazuko.experimental.rmdsl.serializer,
+ com.zazuko.experimental.rmdsl,
+ com.zazuko.experimental.rmdsl.validation,
+ com.zazuko.experimental.rmdsl.services,
+ com.zazuko.experimental.rmdsl.generator
+Import-Package: org.apache.log4j

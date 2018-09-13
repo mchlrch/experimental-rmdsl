@@ -1,0 +1,34 @@
+source-group WSD_STABS_SCP_ARCHIV_DBA {
+	type rdb;
+
+    logical-source RECS_rico {
+        source "WSD_STABS_SCP_ARCHIV_DBA.RECS_rico";
+
+        referenceables {
+            P2 "RIC_P2"
+            P17 "RIC_P17"
+            P3 "RIC_P3"
+            P4_CONTENT "RIC_P4_CONTENT"
+            P6 "RIC_P6"
+            P8 "RIC_P8"
+            P9 "RIC_P9"
+            P16 "RIC_P16"
+            P18_APPROVAL "RIC_P18_APPROVAL"
+            P18_RETENTION_PERIOD "RIC_P18_RETENTION_PERIOD"
+            P19_ACCESSIBILITY "RIC_P19_ACCESSIBILITY"
+            P19_PHYSICAL_USABILITY "RIC_P19_PHYSICAL_USABILITY"
+            P23 "RIC_P23"
+        }
+    }
+    
+    logical-source DESCRIPTORS {
+    	source "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS";
+    	
+    	referenceables {
+    		ID "DESC_ID"
+    		DESCRIPTOR "DESCRIPTOR"
+			THESAURUS "THESAURUS"
+    	}
+    }
+
+}

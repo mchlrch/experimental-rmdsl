@@ -1,0 +1,18 @@
+// http://rml.io/spec.html#example-CSV
+import airport.*
+
+logical-source airport {
+	type csv;
+	source "http://www.example.com/Airport.csv";
+	
+	referenceables {
+		id "id"
+		stop "stop"
+		latitude "latitude"
+		longitude " longitude"
+	}
+}
+
+map AirportMapping from airport {
+	iri "http://airport.example.com/{0}" id
+}

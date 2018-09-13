@@ -1,0 +1,7 @@
+//https://github.com/zazuko/fso-lod/blob/master/config/eCH0071.ttl
+
+import eCH0071.municipalities.*
+
+map eCH0071.municipalities {
+	iri "http://classifications.data.admin.ch/municipalityversion/{0}" historyMunicipalityId
+}

@@ -1,0 +1,26 @@
+source-group eCH0071 {
+	type xml;
+    source "input/eCH0071/eCH0071_170402.xml";
+
+    logical-source municipalities {
+        iterator "/eCH-0071:nomenclature/municipalities/municipality";
+
+        referenceables {
+            historyMunicipalityId "/municipality/historyMunicipalityId"
+            districtHistId "/municipality/districtHistId"
+            cantonAbbreviation "/municipality/cantonAbbreviation"
+            municipalityId "/municipality/municipalityId"
+            municipalityLongName "/municipality/municipalityLongName"
+            municipalityShortName "/municipality/municipalityShortName"
+        }
+    }
+
+    logical-source districts {
+        iterator "/eCH-0071:nomenclature/districts/district";
+
+        referenceables {
+            districtAdmissionDate "/district/districtAdmissionDate"
+            districtAdmissionNumber "/district/districtAdmissionNumber"
+        }
+    }
+}

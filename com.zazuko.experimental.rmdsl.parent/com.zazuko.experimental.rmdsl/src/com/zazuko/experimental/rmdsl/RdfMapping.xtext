@@ -1,0 +1,51 @@
+grammar com.zazuko.experimental.rmdsl.RdfMapping with org.eclipse.xtext.common.Terminals
+
+generate rdfMapping "http://www.zazuko.com/experimental/rmdsl/RdfMapping"
+
+Domainmodel :
+    (elements+=Element)*;
+  
+Element:
+    Import | SourceTypesDefinition | SourceGroup | LogicalSource | Mapping;
+
+SourceTypesDefinition: {SourceTypesDefinition}
+	'source-types' '{'
+		(types+=SourceType)*
+	'}';
+
+SourceType:
+	name=ID 'referenceFormulation' referenceFormulation=STRING;
+  
+SourceGroup:
+    'source-group' name=ID '{'
+    	'type' type=[SourceType] ';'
+    	('source' source=STRING ';')?
+    	(logicalSources+=LogicalSource)*
+    '}';
+    
+LogicalSource:
+	'logical-source' name=ID '{'
+		('type' type=[SourceType] ';')?
+		('source' source=STRING ';')?
+		('iterator' iterator=STRING ';')?
+		'referenceables' '{'
+			(referencables+=Referenceable)*
+	    '}'
+	'}';
+
+Referenceable:	
+    name=ID value=STRING;
+    
+Mapping:
+	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
+		'iri' pattern=STRING reference=[Referenceable|QualifiedName]
+	'}';
+	
+Import:
+    'import' importedNamespace=QualifiedNameWithWildcard;
+    
+QualifiedNameWithWildcard:
+    QualifiedName '.*'?;
+
+QualifiedName:
+    ID ('.' ID)*;

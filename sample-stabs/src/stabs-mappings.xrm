@@ -1,0 +1,12 @@
+//https://github.com/zazuko/staatsarchiv-bs/blob/master/pdstavs13t/oracle-mapping.ttl
+
+import WSD_STABS_SCP_ARCHIV_DBA.RECS_rico.*
+import WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS.*
+
+map WSD_STABS_SCP_ARCHIV_DBA.RECS_rico {
+	iri "record/{0}" P2
+}
+
+map WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS {
+	iri "concept/{0}" ID
+}
