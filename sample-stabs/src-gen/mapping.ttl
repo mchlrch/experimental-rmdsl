@@ -1,4 +1,92 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+PREFIX rr: <http://www.w3.org/ns/r2rml#>.
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#>.
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#>.
 
+// TODO: insert prefixes from vocabularies in-use
+
+<#RecordSet>
+	rml:logicalSource [  
+		rml:source "WSD_STABS_SCP_ARCHIV_DBA.RECS_rico" ;
+		rml:referenceFormulation rr:SQL2008
+	];
+
+	rr:subjectMap [
+		rr:template "record/{RIC_P2}";
+		rr:class skos:Concept;
+	];
+
+
+<#Concept>
+	rml:logicalSource [  
+		rml:source "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS" ;
+		rml:referenceFormulation rr:SQL2008
+	];
+
+	rr:subjectMap [
+		rr:template "concept/{DESC_ID}";
+		rr:class ric:RecordSet;
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate skos:notation;
+		rr:objectMap [
+			rml:reference "RIC_P17";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:title;
+		rr:objectMap [
+			rml:reference "RIC_P3";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:scopeAndContent;
+		rr:objectMap [
+			rml:reference "RIC_P4_CONTENT";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:contentType;
+		rr:objectMap [
+			rml:reference "RIC_P6";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:qualityOfInformation;
+		rr:objectMap [
+			rml:reference "RIC_P8";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:date;
+		rr:objectMap [
+			rml:reference "RIC_P9";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:characteristic_Physical;
+		rr:objectMap [
+			rml:reference "RIC_P16";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:approval;
+		rr:objectMap [
+			rml:reference "RIC_P18_APPROVAL";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:retentionPeriod;
+		rr:objectMap [
+			rml:reference "RIC_P18_RETENTION_PERIOD";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];

@@ -15,4 +15,10 @@ logical-source airport {
 
 map AirportMapping from airport {
 	iri "http://airport.example.com/{0}" id
+	
+	a transit.Stop
+	
+	transit.route stop
+	wgs84_pos.lat latitude
+	wgs84_pos.long longitude	
 }

@@ -13,6 +13,22 @@ logical-source transport {
 	}	
 }
 
+vocabulary transit {
+	prefix "transit:" "http://vocab.org/transit/terms/";	
+	classes Stop;
+	properties stop;
+}
+
+vocabulary rdfs {
+	prefix "rdfs:" "http://www.w3.org/2000/01/rdf-schema#";
+	properties label;
+}
+
 map TransportMapping from transport {
 	iri "http://trans.example.com/{0}" busId
+		
+	a transit.Stop
+		
+	transit.stop stopId
+	rdfs.label stop	
 }
