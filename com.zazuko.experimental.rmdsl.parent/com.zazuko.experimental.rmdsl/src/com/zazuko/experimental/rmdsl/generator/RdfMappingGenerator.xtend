@@ -8,6 +8,13 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping
+import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource
+import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty
+import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary
+import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
+import java.util.List
 import java.text.MessageFormat
 
 /**
@@ -27,28 +34,84 @@ class RdfMappingGenerator extends AbstractGenerator {
 	}
 	
 	def prefixes() '''
-		@prefix rr: <http://www.w3.org/ns/r2rml#>.
-		@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
-		@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+		PREFIX rr: <http://www.w3.org/ns/r2rml#>.
+		PREFIX rml: <http://semweb.mmlab.be/ns/rml#>.
+		PREFIX ql: <http://semweb.mmlab.be/ns/ql#>.
+
+		// TODO: insert prefixes from vocabularies in-use
 		
 	'''
 	
+	// TODO source might be defined in sourceGroup OR directly in logicalSource	
 	def triplesMap(Mapping m) '''
 		<#«m.name»>
-		  rml:logicalSource [
-«««		  TODO source might be defined in sourceGroup OR directly in logicalSource
-		    rml:source "«m.source.source»" ;
-««« TODO		    rml:iterator "/transport/bus";
-		    rml:referenceFormulation «m.source.type.referenceFormulation» 
-		  ];
-		  rr:subjectMap [
-		    rr:template "«m.subjectIri»";
-		    # rr:class foo:Bar 
-		  ];
-	    
+			rml:logicalSource [  
+				rml:source "«m.source.sourceOrParentSource»" ;
+««« TODO        rml:iterator "/transport/bus";
+				rml:referenceFormulation «m.source.typeOrParentType?.referenceFormulation»
+			];
+
+			rr:subjectMap [
+				rr:template "«m.subjectIri»";
+				rr:class «m.typePrefixLabel»«m.typeName»;
+			];
+		
+			«FOR pom : m.poMappings»
+				«pom.predicateObjectMap»
+			«ENDFOR»
 	'''
+	
+	def predicateObjectMap(PredicateObjectMapping pom) '''
+		rr:predicateObjectMap [
+			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name»;
+			rr:objectMap [
+				rml:reference "«pom.reference.value»";
+				// TODO: rr:datatype xsd:FOO
+			]
+		];
+	'''
+	
+	def typePrefixLabel(Mapping m) {
+		m.subjectTypeMappings.first?.type?.vocabulary?.prefix?.label;		
+	}
+	def typeName(Mapping m) {
+		m.subjectTypeMappings.first?.type?.name;
+	}	
+	
+	def <T> first(List<T> l) {
+		if (l !== null && ! l.empty) {
+			l.iterator.next();
+		} else {
+			null;
+		}
+	}
 	
 	def subjectIri(Mapping m) {		
 		MessageFormat.format(m.pattern, '''{«m.reference.value»}''');
+	}
+	
+	// TODO: it's brittle, make it robust
+	def sourceOrParentSource(LogicalSource ls) {
+		if (ls.source !== null) {
+			ls.source;
+		} else {
+			(ls.eContainer as SourceGroup)?.source;
+		}
+	}
+	
+	// TODO: it's brittle, make it robust
+	def typeOrParentType(LogicalSource ls) {
+		if (ls.type !== null) {
+			ls.type;
+		} else {
+			(ls.eContainer as SourceGroup)?.type;
+		}
+	}
+	
+	def vocabulary(RdfClass it) {
+		eContainer as Vocabulary;
+	}
+	def vocabulary(RdfProperty it) {
+		eContainer as Vocabulary;
 	}
 }

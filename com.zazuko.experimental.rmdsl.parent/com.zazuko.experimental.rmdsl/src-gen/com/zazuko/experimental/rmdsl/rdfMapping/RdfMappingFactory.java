@@ -87,6 +87,42 @@ public interface RdfMappingFactory extends EFactory
   Referenceable createReferenceable();
 
   /**
+   * Returns a new object of class '<em>Vocabulary</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Vocabulary</em>'.
+   * @generated
+   */
+  Vocabulary createVocabulary();
+
+  /**
+   * Returns a new object of class '<em>Prefix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Prefix</em>'.
+   * @generated
+   */
+  Prefix createPrefix();
+
+  /**
+   * Returns a new object of class '<em>Rdf Property</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rdf Property</em>'.
+   * @generated
+   */
+  RdfProperty createRdfProperty();
+
+  /**
+   * Returns a new object of class '<em>Rdf Class</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rdf Class</em>'.
+   * @generated
+   */
+  RdfClass createRdfClass();
+
+  /**
    * Returns a new object of class '<em>Mapping</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +130,24 @@ public interface RdfMappingFactory extends EFactory
    * @generated
    */
   Mapping createMapping();
+
+  /**
+   * Returns a new object of class '<em>Subject Type Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Subject Type Mapping</em>'.
+   * @generated
+   */
+  SubjectTypeMapping createSubjectTypeMapping();
+
+  /**
+   * Returns a new object of class '<em>Predicate Object Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Predicate Object Mapping</em>'.
+   * @generated
+   */
+  PredicateObjectMapping createPredicateObjectMapping();
 
   /**
    * Returns a new object of class '<em>Import</em>'.

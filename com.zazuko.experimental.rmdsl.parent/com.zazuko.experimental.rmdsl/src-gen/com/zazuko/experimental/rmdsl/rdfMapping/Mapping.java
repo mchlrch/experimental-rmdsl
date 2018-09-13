@@ -3,6 +3,7 @@
  */
 package com.zazuko.experimental.rmdsl.rdfMapping;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +18,8 @@ package com.zazuko.experimental.rmdsl.rdfMapping;
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSource <em>Source</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPattern <em>Pattern</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReference <em>Reference</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectTypeMappings <em>Subject Type Mappings</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPoMappings <em>Po Mappings</em>}</li>
  * </ul>
  *
  * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping()
@@ -128,5 +131,37 @@ public interface Mapping extends Element
    * @generated
    */
   void setReference(Referenceable value);
+
+  /**
+   * Returns the value of the '<em><b>Subject Type Mappings</b></em>' containment reference list.
+   * The list contents are of type {@link com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Subject Type Mappings</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Subject Type Mappings</em>' containment reference list.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping_SubjectTypeMappings()
+   * @model containment="true"
+   * @generated
+   */
+  EList<SubjectTypeMapping> getSubjectTypeMappings();
+
+  /**
+   * Returns the value of the '<em><b>Po Mappings</b></em>' containment reference list.
+   * The list contents are of type {@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Po Mappings</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Po Mappings</em>' containment reference list.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping_PoMappings()
+   * @model containment="true"
+   * @generated
+   */
+  EList<PredicateObjectMapping> getPoMappings();
 
 } // Mapping

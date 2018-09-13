@@ -125,11 +125,54 @@ public class RdfMappingSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RdfMappingPackage.VOCABULARY:
+      {
+        Vocabulary vocabulary = (Vocabulary)theEObject;
+        T result = caseVocabulary(vocabulary);
+        if (result == null) result = caseElement(vocabulary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.PREFIX:
+      {
+        Prefix prefix = (Prefix)theEObject;
+        T result = casePrefix(prefix);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.RDF_PROPERTY:
+      {
+        RdfProperty rdfProperty = (RdfProperty)theEObject;
+        T result = caseRdfProperty(rdfProperty);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.RDF_CLASS:
+      {
+        RdfClass rdfClass = (RdfClass)theEObject;
+        T result = caseRdfClass(rdfClass);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RdfMappingPackage.MAPPING:
       {
         Mapping mapping = (Mapping)theEObject;
         T result = caseMapping(mapping);
         if (result == null) result = caseElement(mapping);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.SUBJECT_TYPE_MAPPING:
+      {
+        SubjectTypeMapping subjectTypeMapping = (SubjectTypeMapping)theEObject;
+        T result = caseSubjectTypeMapping(subjectTypeMapping);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING:
+      {
+        PredicateObjectMapping predicateObjectMapping = (PredicateObjectMapping)theEObject;
+        T result = casePredicateObjectMapping(predicateObjectMapping);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -258,6 +301,70 @@ public class RdfMappingSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Vocabulary</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Vocabulary</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVocabulary(Vocabulary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Prefix</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Prefix</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrefix(Prefix object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rdf Property</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rdf Property</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRdfProperty(RdfProperty object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rdf Class</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rdf Class</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRdfClass(RdfClass object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Mapping</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -269,6 +376,38 @@ public class RdfMappingSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMapping(Mapping object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Subject Type Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Subject Type Mapping</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubjectTypeMapping(SubjectTypeMapping object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Predicate Object Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Predicate Object Mapping</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePredicateObjectMapping(PredicateObjectMapping object)
   {
     return null;
   }

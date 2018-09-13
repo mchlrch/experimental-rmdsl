@@ -6,7 +6,7 @@ Domainmodel :
     (elements+=Element)*;
   
 Element:
-    Import | SourceTypesDefinition | SourceGroup | LogicalSource | Mapping;
+    Import | SourceTypesDefinition | SourceGroup | LogicalSource | Vocabulary | Mapping;
 
 SourceTypesDefinition: {SourceTypesDefinition}
 	'source-types' '{'
@@ -36,10 +36,34 @@ LogicalSource:
 Referenceable:	
     name=ID value=STRING;
     
+Vocabulary:	
+	'vocabulary' name=ID '{'
+    	prefix=Prefix
+		('classes' (classes+=RdfClass)* ';')?
+	    ('properties' (properties+=RdfProperty)* ';')?	
+    '}';
+    
+Prefix:
+	'prefix' label=STRING iri=STRING ';';
+    
+RdfProperty:
+	name=ID;
+	
+RdfClass:
+	name=ID;	
+    
 Mapping:
 	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
 		'iri' pattern=STRING reference=[Referenceable|QualifiedName]
+		 (subjectTypeMappings+=SubjectTypeMapping)*
+		 (poMappings+=PredicateObjectMapping)*
 	'}';
+	
+SubjectTypeMapping:	
+	'a' type=[RdfClass|QualifiedName];
+
+PredicateObjectMapping:	
+	property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName];
 	
 Import:
     'import' importedNamespace=QualifiedNameWithWildcard;

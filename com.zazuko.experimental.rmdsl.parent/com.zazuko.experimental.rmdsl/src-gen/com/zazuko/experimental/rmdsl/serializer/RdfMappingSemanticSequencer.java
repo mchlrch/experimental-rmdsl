@@ -8,11 +8,17 @@ import com.zazuko.experimental.rmdsl.rdfMapping.Domainmodel;
 import com.zazuko.experimental.rmdsl.rdfMapping.Import;
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
 import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceTypesDefinition;
+import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 import com.zazuko.experimental.rmdsl.services.RdfMappingGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -51,6 +57,18 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case RdfMappingPackage.MAPPING:
 				sequence_Mapping(context, (Mapping) semanticObject); 
 				return; 
+			case RdfMappingPackage.PREDICATE_OBJECT_MAPPING:
+				sequence_PredicateObjectMapping(context, (PredicateObjectMapping) semanticObject); 
+				return; 
+			case RdfMappingPackage.PREFIX:
+				sequence_Prefix(context, (Prefix) semanticObject); 
+				return; 
+			case RdfMappingPackage.RDF_CLASS:
+				sequence_RdfClass(context, (RdfClass) semanticObject); 
+				return; 
+			case RdfMappingPackage.RDF_PROPERTY:
+				sequence_RdfProperty(context, (RdfProperty) semanticObject); 
+				return; 
 			case RdfMappingPackage.REFERENCEABLE:
 				sequence_Referenceable(context, (Referenceable) semanticObject); 
 				return; 
@@ -62,6 +80,12 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case RdfMappingPackage.SOURCE_TYPES_DEFINITION:
 				sequence_SourceTypesDefinition(context, (SourceTypesDefinition) semanticObject); 
+				return; 
+			case RdfMappingPackage.SUBJECT_TYPE_MAPPING:
+				sequence_SubjectTypeMapping(context, (SubjectTypeMapping) semanticObject); 
+				return; 
+			case RdfMappingPackage.VOCABULARY:
+				sequence_Vocabulary(context, (Vocabulary) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -118,24 +142,94 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Mapping returns Mapping
 	 *
 	 * Constraint:
-	 *     (name=ID source=[LogicalSource|QualifiedName] pattern=STRING reference=[Referenceable|QualifiedName])
+	 *     (
+	 *         name=ID 
+	 *         source=[LogicalSource|QualifiedName] 
+	 *         pattern=STRING 
+	 *         reference=[Referenceable|QualifiedName] 
+	 *         subjectTypeMappings+=SubjectTypeMapping* 
+	 *         poMappings+=PredicateObjectMapping*
+	 *     )
 	 */
 	protected void sequence_Mapping(ISerializationContext context, Mapping semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PredicateObjectMapping returns PredicateObjectMapping
+	 *
+	 * Constraint:
+	 *     (property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName])
+	 */
+	protected void sequence_PredicateObjectMapping(ISerializationContext context, PredicateObjectMapping semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.MAPPING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.MAPPING__NAME));
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.MAPPING__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.MAPPING__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.MAPPING__PATTERN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.MAPPING__PATTERN));
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.MAPPING__REFERENCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.MAPPING__REFERENCE));
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__PROPERTY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__PROPERTY));
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__REFERENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__REFERENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMappingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMappingAccess().getSourceLogicalSourceQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.MAPPING__SOURCE, false));
-		feeder.accept(grammarAccess.getMappingAccess().getPatternSTRINGTerminalRuleCall_6_0(), semanticObject.getPattern());
-		feeder.accept(grammarAccess.getMappingAccess().getReferenceReferenceableQualifiedNameParserRuleCall_7_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.MAPPING__REFERENCE, false));
+		feeder.accept(grammarAccess.getPredicateObjectMappingAccess().getPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__PROPERTY, false));
+		feeder.accept(grammarAccess.getPredicateObjectMappingAccess().getReferenceReferenceableQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__REFERENCE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Prefix returns Prefix
+	 *
+	 * Constraint:
+	 *     (label=STRING iri=STRING)
+	 */
+	protected void sequence_Prefix(ISerializationContext context, Prefix semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.PREFIX__LABEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.PREFIX__LABEL));
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.PREFIX__IRI) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.PREFIX__IRI));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrefixAccess().getLabelSTRINGTerminalRuleCall_1_0(), semanticObject.getLabel());
+		feeder.accept(grammarAccess.getPrefixAccess().getIriSTRINGTerminalRuleCall_2_0(), semanticObject.getIri());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RdfClass returns RdfClass
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_RdfClass(ISerializationContext context, RdfClass semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.RDF_CLASS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.RDF_CLASS__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRdfClassAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RdfProperty returns RdfProperty
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_RdfProperty(ISerializationContext context, RdfProperty semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.RDF_PROPERTY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.RDF_PROPERTY__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRdfPropertyAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -204,6 +298,37 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     types+=SourceType*
 	 */
 	protected void sequence_SourceTypesDefinition(ISerializationContext context, SourceTypesDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SubjectTypeMapping returns SubjectTypeMapping
+	 *
+	 * Constraint:
+	 *     type=[RdfClass|QualifiedName]
+	 */
+	protected void sequence_SubjectTypeMapping(ISerializationContext context, SubjectTypeMapping semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.SUBJECT_TYPE_MAPPING__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.SUBJECT_TYPE_MAPPING__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSubjectTypeMappingAccess().getTypeRdfClassQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.SUBJECT_TYPE_MAPPING__TYPE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Element returns Vocabulary
+	 *     Vocabulary returns Vocabulary
+	 *
+	 * Constraint:
+	 *     (name=ID prefix=Prefix classes+=RdfClass* properties+=RdfProperty*)
+	 */
+	protected void sequence_Vocabulary(ISerializationContext context, Vocabulary semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

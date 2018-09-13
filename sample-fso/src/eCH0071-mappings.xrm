@@ -2,6 +2,6 @@
 
 import eCH0071.municipalities.*
 
-map eCH0071.municipalities {
+map MunicipalityVersion from eCH0071.municipalities {
 	iri "http://classifications.data.admin.ch/municipalityversion/{0}" historyMunicipalityId
 }

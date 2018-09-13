@@ -46,13 +46,14 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSourceTypesDefinitionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSourceGroupParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cLogicalSourceParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cMappingParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cVocabularyParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cMappingParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Element:
-		//	Import | SourceTypesDefinition | SourceGroup | LogicalSource | Mapping;
+		//	Import | SourceTypesDefinition | SourceGroup | LogicalSource | Vocabulary | Mapping;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Import | SourceTypesDefinition | SourceGroup | LogicalSource | Mapping
+		//Import | SourceTypesDefinition | SourceGroup | LogicalSource | Vocabulary | Mapping
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Import
@@ -67,8 +68,11 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//LogicalSource
 		public RuleCall getLogicalSourceParserRuleCall_3() { return cLogicalSourceParserRuleCall_3; }
 		
+		//Vocabulary
+		public RuleCall getVocabularyParserRuleCall_4() { return cVocabularyParserRuleCall_4; }
+		
 		//Mapping
-		public RuleCall getMappingParserRuleCall_4() { return cMappingParserRuleCall_4; }
+		public RuleCall getMappingParserRuleCall_5() { return cMappingParserRuleCall_5; }
 	}
 	public class SourceTypesDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.SourceTypesDefinition");
@@ -369,6 +373,153 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
 	}
+	public class VocabularyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Vocabulary");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cVocabularyKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPrefixAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPrefixPrefixParserRuleCall_3_0 = (RuleCall)cPrefixAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cClassesKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cClassesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cClassesRdfClassParserRuleCall_4_1_0 = (RuleCall)cClassesAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cPropertiesKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cPropertiesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cPropertiesRdfPropertyParserRuleCall_5_1_0 = (RuleCall)cPropertiesAssignment_5_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Vocabulary:
+		//	'vocabulary' name=ID '{'
+		//	prefix=Prefix ('classes' classes+=RdfClass* ';')? ('properties' properties+=RdfProperty* ';')?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'vocabulary' name=ID '{' prefix=Prefix ('classes' classes+=RdfClass* ';')? ('properties' properties+=RdfProperty* ';')?
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'vocabulary'
+		public Keyword getVocabularyKeyword_0() { return cVocabularyKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//prefix=Prefix
+		public Assignment getPrefixAssignment_3() { return cPrefixAssignment_3; }
+		
+		//Prefix
+		public RuleCall getPrefixPrefixParserRuleCall_3_0() { return cPrefixPrefixParserRuleCall_3_0; }
+		
+		//('classes' classes+=RdfClass* ';')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'classes'
+		public Keyword getClassesKeyword_4_0() { return cClassesKeyword_4_0; }
+		
+		//classes+=RdfClass*
+		public Assignment getClassesAssignment_4_1() { return cClassesAssignment_4_1; }
+		
+		//RdfClass
+		public RuleCall getClassesRdfClassParserRuleCall_4_1_0() { return cClassesRdfClassParserRuleCall_4_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_4_2() { return cSemicolonKeyword_4_2; }
+		
+		//('properties' properties+=RdfProperty* ';')?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'properties'
+		public Keyword getPropertiesKeyword_5_0() { return cPropertiesKeyword_5_0; }
+		
+		//properties+=RdfProperty*
+		public Assignment getPropertiesAssignment_5_1() { return cPropertiesAssignment_5_1; }
+		
+		//RdfProperty
+		public RuleCall getPropertiesRdfPropertyParserRuleCall_5_1_0() { return cPropertiesRdfPropertyParserRuleCall_5_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_5_2() { return cSemicolonKeyword_5_2; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class PrefixElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Prefix");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPrefixKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cLabelAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLabelSTRINGTerminalRuleCall_1_0 = (RuleCall)cLabelAssignment_1.eContents().get(0);
+		private final Assignment cIriAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIriSTRINGTerminalRuleCall_2_0 = (RuleCall)cIriAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Prefix:
+		//	'prefix' label=STRING iri=STRING ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'prefix' label=STRING iri=STRING ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'prefix'
+		public Keyword getPrefixKeyword_0() { return cPrefixKeyword_0; }
+		
+		//label=STRING
+		public Assignment getLabelAssignment_1() { return cLabelAssignment_1; }
+		
+		//STRING
+		public RuleCall getLabelSTRINGTerminalRuleCall_1_0() { return cLabelSTRINGTerminalRuleCall_1_0; }
+		
+		//iri=STRING
+		public Assignment getIriAssignment_2() { return cIriAssignment_2; }
+		
+		//STRING
+		public RuleCall getIriSTRINGTerminalRuleCall_2_0() { return cIriSTRINGTerminalRuleCall_2_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+	public class RdfPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.RdfProperty");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//RdfProperty:
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
+	public class RdfClassElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.RdfClass");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//RdfClass:
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
 	public class MappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Mapping");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -386,16 +537,22 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cReferenceAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final CrossReference cReferenceReferenceableCrossReference_7_0 = (CrossReference)cReferenceAssignment_7.eContents().get(0);
 		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_7_0_1 = (RuleCall)cReferenceReferenceableCrossReference_7_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cSubjectTypeMappingsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_0 = (RuleCall)cSubjectTypeMappingsAssignment_8.eContents().get(0);
+		private final Assignment cPoMappingsAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cPoMappingsPredicateObjectMappingParserRuleCall_9_0 = (RuleCall)cPoMappingsAssignment_9.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Mapping:
 		//	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-		//	'iri' pattern=STRING reference=[Referenceable|QualifiedName]
+		//	'iri' pattern=STRING reference=[Referenceable|QualifiedName] subjectTypeMappings+=SubjectTypeMapping*
+		//	poMappings+=PredicateObjectMapping*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{' 'iri' pattern=STRING
-		//reference=[Referenceable|QualifiedName] '}'
+		//reference=[Referenceable|QualifiedName] subjectTypeMappings+=SubjectTypeMapping* poMappings+=PredicateObjectMapping*
+		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//'map'
@@ -440,8 +597,82 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_7_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_7_0_1; }
 		
+		//subjectTypeMappings+=SubjectTypeMapping*
+		public Assignment getSubjectTypeMappingsAssignment_8() { return cSubjectTypeMappingsAssignment_8; }
+		
+		//SubjectTypeMapping
+		public RuleCall getSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_0() { return cSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_0; }
+		
+		//poMappings+=PredicateObjectMapping*
+		public Assignment getPoMappingsAssignment_9() { return cPoMappingsAssignment_9; }
+		
+		//PredicateObjectMapping
+		public RuleCall getPoMappingsPredicateObjectMappingParserRuleCall_9_0() { return cPoMappingsPredicateObjectMappingParserRuleCall_9_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+	}
+	public class SubjectTypeMappingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.SubjectTypeMapping");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cTypeRdfClassCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
+		private final RuleCall cTypeRdfClassQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cTypeRdfClassCrossReference_1_0.eContents().get(1);
+		
+		//SubjectTypeMapping:
+		//	'a' type=[RdfClass|QualifiedName];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'a' type=[RdfClass|QualifiedName]
+		public Group getGroup() { return cGroup; }
+		
+		//'a'
+		public Keyword getAKeyword_0() { return cAKeyword_0; }
+		
+		//type=[RdfClass|QualifiedName]
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//[RdfClass|QualifiedName]
+		public CrossReference getTypeRdfClassCrossReference_1_0() { return cTypeRdfClassCrossReference_1_0; }
+		
+		//QualifiedName
+		public RuleCall getTypeRdfClassQualifiedNameParserRuleCall_1_0_1() { return cTypeRdfClassQualifiedNameParserRuleCall_1_0_1; }
+	}
+	public class PredicateObjectMappingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.PredicateObjectMapping");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPropertyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cPropertyRdfPropertyCrossReference_0_0 = (CrossReference)cPropertyAssignment_0.eContents().get(0);
+		private final RuleCall cPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cPropertyRdfPropertyCrossReference_0_0.eContents().get(1);
+		private final Assignment cReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cReferenceReferenceableCrossReference_1_0 = (CrossReference)cReferenceAssignment_1.eContents().get(0);
+		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cReferenceReferenceableCrossReference_1_0.eContents().get(1);
+		
+		//PredicateObjectMapping:
+		//	property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName]
+		public Group getGroup() { return cGroup; }
+		
+		//property=[RdfProperty|QualifiedName]
+		public Assignment getPropertyAssignment_0() { return cPropertyAssignment_0; }
+		
+		//[RdfProperty|QualifiedName]
+		public CrossReference getPropertyRdfPropertyCrossReference_0_0() { return cPropertyRdfPropertyCrossReference_0_0; }
+		
+		//QualifiedName
+		public RuleCall getPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1() { return cPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1; }
+		
+		//reference=[Referenceable|QualifiedName]
+		public Assignment getReferenceAssignment_1() { return cReferenceAssignment_1; }
+		
+		//[Referenceable|QualifiedName]
+		public CrossReference getReferenceReferenceableCrossReference_1_0() { return cReferenceReferenceableCrossReference_1_0; }
+		
+		//QualifiedName
+		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_1_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_1_0_1; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Import");
@@ -521,7 +752,13 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	private final SourceGroupElements pSourceGroup;
 	private final LogicalSourceElements pLogicalSource;
 	private final ReferenceableElements pReferenceable;
+	private final VocabularyElements pVocabulary;
+	private final PrefixElements pPrefix;
+	private final RdfPropertyElements pRdfProperty;
+	private final RdfClassElements pRdfClass;
 	private final MappingElements pMapping;
+	private final SubjectTypeMappingElements pSubjectTypeMapping;
+	private final PredicateObjectMappingElements pPredicateObjectMapping;
 	private final ImportElements pImport;
 	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
 	private final QualifiedNameElements pQualifiedName;
@@ -542,7 +779,13 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSourceGroup = new SourceGroupElements();
 		this.pLogicalSource = new LogicalSourceElements();
 		this.pReferenceable = new ReferenceableElements();
+		this.pVocabulary = new VocabularyElements();
+		this.pPrefix = new PrefixElements();
+		this.pRdfProperty = new RdfPropertyElements();
+		this.pRdfClass = new RdfClassElements();
 		this.pMapping = new MappingElements();
+		this.pSubjectTypeMapping = new SubjectTypeMappingElements();
+		this.pPredicateObjectMapping = new PredicateObjectMappingElements();
 		this.pImport = new ImportElements();
 		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
 		this.pQualifiedName = new QualifiedNameElements();
@@ -586,7 +829,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Element:
-	//	Import | SourceTypesDefinition | SourceGroup | LogicalSource | Mapping;
+	//	Import | SourceTypesDefinition | SourceGroup | LogicalSource | Vocabulary | Mapping;
 	public ElementElements getElementAccess() {
 		return pElement;
 	}
@@ -656,9 +899,52 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		return getReferenceableAccess().getRule();
 	}
 	
+	//Vocabulary:
+	//	'vocabulary' name=ID '{'
+	//	prefix=Prefix ('classes' classes+=RdfClass* ';')? ('properties' properties+=RdfProperty* ';')?
+	//	'}';
+	public VocabularyElements getVocabularyAccess() {
+		return pVocabulary;
+	}
+	
+	public ParserRule getVocabularyRule() {
+		return getVocabularyAccess().getRule();
+	}
+	
+	//Prefix:
+	//	'prefix' label=STRING iri=STRING ';';
+	public PrefixElements getPrefixAccess() {
+		return pPrefix;
+	}
+	
+	public ParserRule getPrefixRule() {
+		return getPrefixAccess().getRule();
+	}
+	
+	//RdfProperty:
+	//	name=ID;
+	public RdfPropertyElements getRdfPropertyAccess() {
+		return pRdfProperty;
+	}
+	
+	public ParserRule getRdfPropertyRule() {
+		return getRdfPropertyAccess().getRule();
+	}
+	
+	//RdfClass:
+	//	name=ID;
+	public RdfClassElements getRdfClassAccess() {
+		return pRdfClass;
+	}
+	
+	public ParserRule getRdfClassRule() {
+		return getRdfClassAccess().getRule();
+	}
+	
 	//Mapping:
 	//	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-	//	'iri' pattern=STRING reference=[Referenceable|QualifiedName]
+	//	'iri' pattern=STRING reference=[Referenceable|QualifiedName] subjectTypeMappings+=SubjectTypeMapping*
+	//	poMappings+=PredicateObjectMapping*
 	//	'}';
 	public MappingElements getMappingAccess() {
 		return pMapping;
@@ -666,6 +952,26 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMappingRule() {
 		return getMappingAccess().getRule();
+	}
+	
+	//SubjectTypeMapping:
+	//	'a' type=[RdfClass|QualifiedName];
+	public SubjectTypeMappingElements getSubjectTypeMappingAccess() {
+		return pSubjectTypeMapping;
+	}
+	
+	public ParserRule getSubjectTypeMappingRule() {
+		return getSubjectTypeMappingAccess().getRule();
+	}
+	
+	//PredicateObjectMapping:
+	//	property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName];
+	public PredicateObjectMappingElements getPredicateObjectMappingAccess() {
+		return pPredicateObjectMapping;
+	}
+	
+	public ParserRule getPredicateObjectMappingRule() {
+		return getPredicateObjectMappingAccess().getRule();
 	}
 	
 	//Import:

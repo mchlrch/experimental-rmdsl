@@ -4,8 +4,20 @@
 package com.zazuko.experimental.rmdsl.generator;
 
 import com.google.common.collect.Iterators;
+import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
+import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup;
+import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
+import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 import java.text.MessageFormat;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -34,11 +46,14 @@ public class RdfMappingGenerator extends AbstractGenerator {
   
   public CharSequence prefixes() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("@prefix rr: <http://www.w3.org/ns/r2rml#>.");
+    _builder.append("PREFIX rr: <http://www.w3.org/ns/r2rml#>.");
     _builder.newLine();
-    _builder.append("@prefix rml: <http://semweb.mmlab.be/ns/rml#>.");
+    _builder.append("PREFIX rml: <http://semweb.mmlab.be/ns/rml#>.");
     _builder.newLine();
-    _builder.append("@prefix ql: <http://semweb.mmlab.be/ns/ql#>.");
+    _builder.append("PREFIX ql: <http://semweb.mmlab.be/ns/ql#>.");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("// TODO: insert prefixes from vocabularies in-use");
     _builder.newLine();
     _builder.newLine();
     return _builder;
@@ -51,42 +66,135 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append(">");
     _builder.newLineIfNotEmpty();
-    _builder.append("  ");
-    _builder.append("rml:logicalSource [");
+    _builder.append("\t");
+    _builder.append("rml:logicalSource [  ");
     _builder.newLine();
-    _builder.append("    ");
+    _builder.append("\t\t");
     _builder.append("rml:source \"");
-    String _source = m.getSource().getSource();
-    _builder.append(_source, "    ");
+    String _sourceOrParentSource = this.sourceOrParentSource(m.getSource());
+    _builder.append(_sourceOrParentSource, "\t\t");
     _builder.append("\" ;");
     _builder.newLineIfNotEmpty();
-    _builder.append("    ");
+    _builder.append("\t\t");
     _builder.append("rml:referenceFormulation ");
-    String _referenceFormulation = m.getSource().getType().getReferenceFormulation();
-    _builder.append(_referenceFormulation, "    ");
-    _builder.append(" ");
+    SourceType _typeOrParentType = this.typeOrParentType(m.getSource());
+    String _referenceFormulation = null;
+    if (_typeOrParentType!=null) {
+      _referenceFormulation=_typeOrParentType.getReferenceFormulation();
+    }
+    _builder.append(_referenceFormulation, "\t\t");
     _builder.newLineIfNotEmpty();
-    _builder.append("  ");
+    _builder.append("\t");
     _builder.append("];");
     _builder.newLine();
-    _builder.append("  ");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("rr:subjectMap [");
     _builder.newLine();
-    _builder.append("    ");
+    _builder.append("\t\t");
     _builder.append("rr:template \"");
     String _subjectIri = this.subjectIri(m);
-    _builder.append(_subjectIri, "    ");
+    _builder.append(_subjectIri, "\t\t");
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("# rr:class foo:Bar ");
-    _builder.newLine();
-    _builder.append("  ");
+    _builder.append("\t\t");
+    _builder.append("rr:class ");
+    String _typePrefixLabel = this.typePrefixLabel(m);
+    _builder.append(_typePrefixLabel, "\t\t");
+    String _typeName = this.typeName(m);
+    _builder.append(_typeName, "\t\t");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     _builder.append("];");
     _builder.newLine();
-    _builder.append("\t    ");
+    _builder.newLine();
+    {
+      EList<PredicateObjectMapping> _poMappings = m.getPoMappings();
+      for(final PredicateObjectMapping pom : _poMappings) {
+        _builder.append("\t");
+        CharSequence _predicateObjectMap = this.predicateObjectMap(pom);
+        _builder.append(_predicateObjectMap, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence predicateObjectMap(final PredicateObjectMapping pom) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("rr:predicateObjectMap [");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("rr:predicate ");
+    String _label = this.vocabulary(pom.getProperty()).getPrefix().getLabel();
+    _builder.append(_label, "\t");
+    String _name = pom.getProperty().getName();
+    _builder.append(_name, "\t");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("rr:objectMap [");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("rml:reference \"");
+    String _value = pom.getReference().getValue();
+    _builder.append(_value, "\t\t");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("// TODO: rr:datatype xsd:FOO");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("]");
+    _builder.newLine();
+    _builder.append("];");
     _builder.newLine();
     return _builder;
+  }
+  
+  public String typePrefixLabel(final Mapping m) {
+    SubjectTypeMapping _first = this.<SubjectTypeMapping>first(m.getSubjectTypeMappings());
+    RdfClass _type = null;
+    if (_first!=null) {
+      _type=_first.getType();
+    }
+    Vocabulary _vocabulary = null;
+    if (_type!=null) {
+      _vocabulary=this.vocabulary(_type);
+    }
+    Prefix _prefix = null;
+    if (_vocabulary!=null) {
+      _prefix=_vocabulary.getPrefix();
+    }
+    String _label = null;
+    if (_prefix!=null) {
+      _label=_prefix.getLabel();
+    }
+    return _label;
+  }
+  
+  public String typeName(final Mapping m) {
+    SubjectTypeMapping _first = this.<SubjectTypeMapping>first(m.getSubjectTypeMappings());
+    RdfClass _type = null;
+    if (_first!=null) {
+      _type=_first.getType();
+    }
+    String _name = null;
+    if (_type!=null) {
+      _name=_type.getName();
+    }
+    return _name;
+  }
+  
+  public <T extends Object> T first(final List<T> l) {
+    T _xifexpression = null;
+    if (((l != null) && (!l.isEmpty()))) {
+      _xifexpression = l.iterator().next();
+    } else {
+      _xifexpression = null;
+    }
+    return _xifexpression;
   }
   
   public String subjectIri(final Mapping m) {
@@ -97,5 +205,49 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(_value);
     _builder.append("}");
     return MessageFormat.format(_pattern, _builder);
+  }
+  
+  public String sourceOrParentSource(final LogicalSource ls) {
+    String _xifexpression = null;
+    String _source = ls.getSource();
+    boolean _tripleNotEquals = (_source != null);
+    if (_tripleNotEquals) {
+      _xifexpression = ls.getSource();
+    } else {
+      EObject _eContainer = ls.eContainer();
+      String _source_1 = null;
+      if (((SourceGroup) _eContainer)!=null) {
+        _source_1=((SourceGroup) _eContainer).getSource();
+      }
+      _xifexpression = _source_1;
+    }
+    return _xifexpression;
+  }
+  
+  public SourceType typeOrParentType(final LogicalSource ls) {
+    SourceType _xifexpression = null;
+    SourceType _type = ls.getType();
+    boolean _tripleNotEquals = (_type != null);
+    if (_tripleNotEquals) {
+      _xifexpression = ls.getType();
+    } else {
+      EObject _eContainer = ls.eContainer();
+      SourceType _type_1 = null;
+      if (((SourceGroup) _eContainer)!=null) {
+        _type_1=((SourceGroup) _eContainer).getType();
+      }
+      _xifexpression = _type_1;
+    }
+    return _xifexpression;
+  }
+  
+  public Vocabulary vocabulary(final RdfClass it) {
+    EObject _eContainer = it.eContainer();
+    return ((Vocabulary) _eContainer);
+  }
+  
+  public Vocabulary vocabulary(final RdfProperty it) {
+    EObject _eContainer = it.eContainer();
+    return ((Vocabulary) _eContainer);
   }
 }

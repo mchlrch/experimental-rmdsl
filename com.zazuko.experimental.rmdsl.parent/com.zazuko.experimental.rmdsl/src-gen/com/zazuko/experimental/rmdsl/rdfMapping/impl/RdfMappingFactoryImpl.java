@@ -72,7 +72,13 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
       case RdfMappingPackage.SOURCE_GROUP: return createSourceGroup();
       case RdfMappingPackage.LOGICAL_SOURCE: return createLogicalSource();
       case RdfMappingPackage.REFERENCEABLE: return createReferenceable();
+      case RdfMappingPackage.VOCABULARY: return createVocabulary();
+      case RdfMappingPackage.PREFIX: return createPrefix();
+      case RdfMappingPackage.RDF_PROPERTY: return createRdfProperty();
+      case RdfMappingPackage.RDF_CLASS: return createRdfClass();
       case RdfMappingPackage.MAPPING: return createMapping();
+      case RdfMappingPackage.SUBJECT_TYPE_MAPPING: return createSubjectTypeMapping();
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING: return createPredicateObjectMapping();
       case RdfMappingPackage.IMPORT: return createImport();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -161,10 +167,76 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Vocabulary createVocabulary()
+  {
+    VocabularyImpl vocabulary = new VocabularyImpl();
+    return vocabulary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Prefix createPrefix()
+  {
+    PrefixImpl prefix = new PrefixImpl();
+    return prefix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RdfProperty createRdfProperty()
+  {
+    RdfPropertyImpl rdfProperty = new RdfPropertyImpl();
+    return rdfProperty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RdfClass createRdfClass()
+  {
+    RdfClassImpl rdfClass = new RdfClassImpl();
+    return rdfClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Mapping createMapping()
   {
     MappingImpl mapping = new MappingImpl();
     return mapping;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SubjectTypeMapping createSubjectTypeMapping()
+  {
+    SubjectTypeMappingImpl subjectTypeMapping = new SubjectTypeMappingImpl();
+    return subjectTypeMapping;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PredicateObjectMapping createPredicateObjectMapping()
+  {
+    PredicateObjectMappingImpl predicateObjectMapping = new PredicateObjectMappingImpl();
+    return predicateObjectMapping;
   }
 
   /**

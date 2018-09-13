@@ -5,15 +5,25 @@ package com.zazuko.experimental.rmdsl.rdfMapping.impl;
 
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
 import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
+import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +37,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getSource <em>Source</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getSubjectTypeMappings <em>Subject Type Mappings</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getPoMappings <em>Po Mappings</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +104,26 @@ public class MappingImpl extends ElementImpl implements Mapping
    * @ordered
    */
   protected Referenceable reference;
+
+  /**
+   * The cached value of the '{@link #getSubjectTypeMappings() <em>Subject Type Mappings</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSubjectTypeMappings()
+   * @generated
+   * @ordered
+   */
+  protected EList<SubjectTypeMapping> subjectTypeMappings;
+
+  /**
+   * The cached value of the '{@link #getPoMappings() <em>Po Mappings</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPoMappings()
+   * @generated
+   * @ordered
+   */
+  protected EList<PredicateObjectMapping> poMappings;
 
   /**
    * <!-- begin-user-doc -->
@@ -251,6 +283,52 @@ public class MappingImpl extends ElementImpl implements Mapping
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<SubjectTypeMapping> getSubjectTypeMappings()
+  {
+    if (subjectTypeMappings == null)
+    {
+      subjectTypeMappings = new EObjectContainmentEList<SubjectTypeMapping>(SubjectTypeMapping.class, this, RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS);
+    }
+    return subjectTypeMappings;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<PredicateObjectMapping> getPoMappings()
+  {
+    if (poMappings == null)
+    {
+      poMappings = new EObjectContainmentEList<PredicateObjectMapping>(PredicateObjectMapping.class, this, RdfMappingPackage.MAPPING__PO_MAPPINGS);
+    }
+    return poMappings;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
+        return ((InternalEList<?>)getSubjectTypeMappings()).basicRemove(otherEnd, msgs);
+      case RdfMappingPackage.MAPPING__PO_MAPPINGS:
+        return ((InternalEList<?>)getPoMappings()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -266,6 +344,10 @@ public class MappingImpl extends ElementImpl implements Mapping
       case RdfMappingPackage.MAPPING__REFERENCE:
         if (resolve) return getReference();
         return basicGetReference();
+      case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
+        return getSubjectTypeMappings();
+      case RdfMappingPackage.MAPPING__PO_MAPPINGS:
+        return getPoMappings();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -275,6 +357,7 @@ public class MappingImpl extends ElementImpl implements Mapping
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -291,6 +374,14 @@ public class MappingImpl extends ElementImpl implements Mapping
         return;
       case RdfMappingPackage.MAPPING__REFERENCE:
         setReference((Referenceable)newValue);
+        return;
+      case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
+        getSubjectTypeMappings().clear();
+        getSubjectTypeMappings().addAll((Collection<? extends SubjectTypeMapping>)newValue);
+        return;
+      case RdfMappingPackage.MAPPING__PO_MAPPINGS:
+        getPoMappings().clear();
+        getPoMappings().addAll((Collection<? extends PredicateObjectMapping>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -318,6 +409,12 @@ public class MappingImpl extends ElementImpl implements Mapping
       case RdfMappingPackage.MAPPING__REFERENCE:
         setReference((Referenceable)null);
         return;
+      case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
+        getSubjectTypeMappings().clear();
+        return;
+      case RdfMappingPackage.MAPPING__PO_MAPPINGS:
+        getPoMappings().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -340,6 +437,10 @@ public class MappingImpl extends ElementImpl implements Mapping
         return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
       case RdfMappingPackage.MAPPING__REFERENCE:
         return reference != null;
+      case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
+        return subjectTypeMappings != null && !subjectTypeMappings.isEmpty();
+      case RdfMappingPackage.MAPPING__PO_MAPPINGS:
+        return poMappings != null && !poMappings.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -111,9 +111,39 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
         return createReferenceableAdapter();
       }
       @Override
+      public Adapter caseVocabulary(Vocabulary object)
+      {
+        return createVocabularyAdapter();
+      }
+      @Override
+      public Adapter casePrefix(Prefix object)
+      {
+        return createPrefixAdapter();
+      }
+      @Override
+      public Adapter caseRdfProperty(RdfProperty object)
+      {
+        return createRdfPropertyAdapter();
+      }
+      @Override
+      public Adapter caseRdfClass(RdfClass object)
+      {
+        return createRdfClassAdapter();
+      }
+      @Override
       public Adapter caseMapping(Mapping object)
       {
         return createMappingAdapter();
+      }
+      @Override
+      public Adapter caseSubjectTypeMapping(SubjectTypeMapping object)
+      {
+        return createSubjectTypeMappingAdapter();
+      }
+      @Override
+      public Adapter casePredicateObjectMapping(PredicateObjectMapping object)
+      {
+        return createPredicateObjectMappingAdapter();
       }
       @Override
       public Adapter caseImport(Import object)
@@ -248,6 +278,66 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary <em>Vocabulary</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary
+   * @generated
+   */
+  public Adapter createVocabularyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Prefix <em>Prefix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Prefix
+   * @generated
+   */
+  public Adapter createPrefixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty <em>Rdf Property</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty
+   * @generated
+   */
+  public Adapter createRdfPropertyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.RdfClass <em>Rdf Class</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfClass
+   * @generated
+   */
+  public Adapter createRdfClassAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping <em>Mapping</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -258,6 +348,36 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMappingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping <em>Subject Type Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping
+   * @generated
+   */
+  public Adapter createSubjectTypeMappingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping <em>Predicate Object Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
+   * @generated
+   */
+  public Adapter createPredicateObjectMappingAdapter()
   {
     return null;
   }

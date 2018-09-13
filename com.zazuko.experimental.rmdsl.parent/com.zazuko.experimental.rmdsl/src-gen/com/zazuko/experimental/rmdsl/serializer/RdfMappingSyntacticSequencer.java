@@ -11,6 +11,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +21,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class RdfMappingSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RdfMappingGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Vocabulary___ClassesKeyword_4_0_SemicolonKeyword_4_2__q;
+	protected AbstractElementAlias match_Vocabulary___PropertiesKeyword_5_0_SemicolonKeyword_5_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RdfMappingGrammarAccess) access;
+		match_Vocabulary___ClassesKeyword_4_0_SemicolonKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getVocabularyAccess().getClassesKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getVocabularyAccess().getSemicolonKeyword_4_2()));
+		match_Vocabulary___PropertiesKeyword_5_0_SemicolonKeyword_5_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getVocabularyAccess().getPropertiesKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getVocabularyAccess().getSemicolonKeyword_5_2()));
 	}
 	
 	@Override
@@ -36,8 +43,36 @@ public class RdfMappingSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Vocabulary___ClassesKeyword_4_0_SemicolonKeyword_4_2__q.equals(syntax))
+				emit_Vocabulary___ClassesKeyword_4_0_SemicolonKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Vocabulary___PropertiesKeyword_5_0_SemicolonKeyword_5_2__q.equals(syntax))
+				emit_Vocabulary___PropertiesKeyword_5_0_SemicolonKeyword_5_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     ('classes' ';')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     prefix=Prefix (ambiguity) 'properties' properties+=RdfProperty
+	 *     prefix=Prefix (ambiguity) ('properties' ';')? '}' (rule end)
+	 */
+	protected void emit_Vocabulary___ClassesKeyword_4_0_SemicolonKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('properties' ';')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     classes+=RdfClass ';' (ambiguity) '}' (rule end)
+	 *     prefix=Prefix ('classes' ';')? (ambiguity) '}' (rule end)
+	 */
+	protected void emit_Vocabulary___PropertiesKeyword_5_0_SemicolonKeyword_5_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

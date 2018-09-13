@@ -41,7 +41,13 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLogicalSourceAccess().getGroup_4(), "rule__LogicalSource__Group_4__0");
 			builder.put(grammarAccess.getLogicalSourceAccess().getGroup_5(), "rule__LogicalSource__Group_5__0");
 			builder.put(grammarAccess.getReferenceableAccess().getGroup(), "rule__Referenceable__Group__0");
+			builder.put(grammarAccess.getVocabularyAccess().getGroup(), "rule__Vocabulary__Group__0");
+			builder.put(grammarAccess.getVocabularyAccess().getGroup_4(), "rule__Vocabulary__Group_4__0");
+			builder.put(grammarAccess.getVocabularyAccess().getGroup_5(), "rule__Vocabulary__Group_5__0");
+			builder.put(grammarAccess.getPrefixAccess().getGroup(), "rule__Prefix__Group__0");
 			builder.put(grammarAccess.getMappingAccess().getGroup(), "rule__Mapping__Group__0");
+			builder.put(grammarAccess.getSubjectTypeMappingAccess().getGroup(), "rule__SubjectTypeMapping__Group__0");
+			builder.put(grammarAccess.getPredicateObjectMappingAccess().getGroup(), "rule__PredicateObjectMapping__Group__0");
 			builder.put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 			builder.put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
@@ -61,10 +67,23 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLogicalSourceAccess().getReferencablesAssignment_8(), "rule__LogicalSource__ReferencablesAssignment_8");
 			builder.put(grammarAccess.getReferenceableAccess().getNameAssignment_0(), "rule__Referenceable__NameAssignment_0");
 			builder.put(grammarAccess.getReferenceableAccess().getValueAssignment_1(), "rule__Referenceable__ValueAssignment_1");
+			builder.put(grammarAccess.getVocabularyAccess().getNameAssignment_1(), "rule__Vocabulary__NameAssignment_1");
+			builder.put(grammarAccess.getVocabularyAccess().getPrefixAssignment_3(), "rule__Vocabulary__PrefixAssignment_3");
+			builder.put(grammarAccess.getVocabularyAccess().getClassesAssignment_4_1(), "rule__Vocabulary__ClassesAssignment_4_1");
+			builder.put(grammarAccess.getVocabularyAccess().getPropertiesAssignment_5_1(), "rule__Vocabulary__PropertiesAssignment_5_1");
+			builder.put(grammarAccess.getPrefixAccess().getLabelAssignment_1(), "rule__Prefix__LabelAssignment_1");
+			builder.put(grammarAccess.getPrefixAccess().getIriAssignment_2(), "rule__Prefix__IriAssignment_2");
+			builder.put(grammarAccess.getRdfPropertyAccess().getNameAssignment(), "rule__RdfProperty__NameAssignment");
+			builder.put(grammarAccess.getRdfClassAccess().getNameAssignment(), "rule__RdfClass__NameAssignment");
 			builder.put(grammarAccess.getMappingAccess().getNameAssignment_1(), "rule__Mapping__NameAssignment_1");
 			builder.put(grammarAccess.getMappingAccess().getSourceAssignment_3(), "rule__Mapping__SourceAssignment_3");
 			builder.put(grammarAccess.getMappingAccess().getPatternAssignment_6(), "rule__Mapping__PatternAssignment_6");
 			builder.put(grammarAccess.getMappingAccess().getReferenceAssignment_7(), "rule__Mapping__ReferenceAssignment_7");
+			builder.put(grammarAccess.getMappingAccess().getSubjectTypeMappingsAssignment_8(), "rule__Mapping__SubjectTypeMappingsAssignment_8");
+			builder.put(grammarAccess.getMappingAccess().getPoMappingsAssignment_9(), "rule__Mapping__PoMappingsAssignment_9");
+			builder.put(grammarAccess.getSubjectTypeMappingAccess().getTypeAssignment_1(), "rule__SubjectTypeMapping__TypeAssignment_1");
+			builder.put(grammarAccess.getPredicateObjectMappingAccess().getPropertyAssignment_0(), "rule__PredicateObjectMapping__PropertyAssignment_0");
+			builder.put(grammarAccess.getPredicateObjectMappingAccess().getReferenceAssignment_1(), "rule__PredicateObjectMapping__ReferenceAssignment_1");
 			builder.put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 		}
 	}

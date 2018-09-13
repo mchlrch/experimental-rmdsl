@@ -326,6 +326,154 @@ public interface RdfMappingPackage extends EPackage
   int REFERENCEABLE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.VocabularyImpl <em>Vocabulary</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.VocabularyImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getVocabulary()
+   * @generated
+   */
+  int VOCABULARY = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VOCABULARY__NAME = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Prefix</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VOCABULARY__PREFIX = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Classes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VOCABULARY__CLASSES = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VOCABULARY__PROPERTIES = ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Vocabulary</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VOCABULARY_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixImpl <em>Prefix</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPrefix()
+   * @generated
+   */
+  int PREFIX = 8;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREFIX__LABEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Iri</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREFIX__IRI = 1;
+
+  /**
+   * The number of structural features of the '<em>Prefix</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREFIX_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfPropertyImpl <em>Rdf Property</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfPropertyImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getRdfProperty()
+   * @generated
+   */
+  int RDF_PROPERTY = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RDF_PROPERTY__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Rdf Property</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RDF_PROPERTY_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfClassImpl <em>Rdf Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfClassImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getRdfClass()
+   * @generated
+   */
+  int RDF_CLASS = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RDF_CLASS__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Rdf Class</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RDF_CLASS_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl <em>Mapping</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -333,7 +481,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getMapping()
    * @generated
    */
-  int MAPPING = 7;
+  int MAPPING = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -372,13 +520,96 @@ public interface RdfMappingPackage extends EPackage
   int MAPPING__REFERENCE = ELEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Subject Type Mappings</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING__SUBJECT_TYPE_MAPPINGS = ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Po Mappings</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING__PO_MAPPINGS = ELEMENT_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>Mapping</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPING_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+  int MAPPING_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.SubjectTypeMappingImpl <em>Subject Type Mapping</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.SubjectTypeMappingImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getSubjectTypeMapping()
+   * @generated
+   */
+  int SUBJECT_TYPE_MAPPING = 12;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBJECT_TYPE_MAPPING__TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Subject Type Mapping</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBJECT_TYPE_MAPPING_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl <em>Predicate Object Mapping</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPredicateObjectMapping()
+   * @generated
+   */
+  int PREDICATE_OBJECT_MAPPING = 13;
+
+  /**
+   * The feature id for the '<em><b>Property</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE_OBJECT_MAPPING__PROPERTY = 0;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE_OBJECT_MAPPING__REFERENCE = 1;
+
+  /**
+   * The number of structural features of the '<em>Predicate Object Mapping</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE_OBJECT_MAPPING_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.
@@ -388,7 +619,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getImport()
    * @generated
    */
-  int IMPORT = 8;
+  int IMPORT = 14;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -645,6 +876,134 @@ public interface RdfMappingPackage extends EPackage
   EAttribute getReferenceable_Value();
 
   /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary <em>Vocabulary</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Vocabulary</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary
+   * @generated
+   */
+  EClass getVocabulary();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getName()
+   * @see #getVocabulary()
+   * @generated
+   */
+  EAttribute getVocabulary_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getPrefix <em>Prefix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Prefix</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getPrefix()
+   * @see #getVocabulary()
+   * @generated
+   */
+  EReference getVocabulary_Prefix();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getClasses <em>Classes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Classes</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getClasses()
+   * @see #getVocabulary()
+   * @generated
+   */
+  EReference getVocabulary_Classes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getProperties <em>Properties</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Properties</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getProperties()
+   * @see #getVocabulary()
+   * @generated
+   */
+  EReference getVocabulary_Properties();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Prefix <em>Prefix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Prefix</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Prefix
+   * @generated
+   */
+  EClass getPrefix();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.Prefix#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Label</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Prefix#getLabel()
+   * @see #getPrefix()
+   * @generated
+   */
+  EAttribute getPrefix_Label();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.Prefix#getIri <em>Iri</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Iri</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Prefix#getIri()
+   * @see #getPrefix()
+   * @generated
+   */
+  EAttribute getPrefix_Iri();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty <em>Rdf Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Rdf Property</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty
+   * @generated
+   */
+  EClass getRdfProperty();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty#getName()
+   * @see #getRdfProperty()
+   * @generated
+   */
+  EAttribute getRdfProperty_Name();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.RdfClass <em>Rdf Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Rdf Class</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfClass
+   * @generated
+   */
+  EClass getRdfClass();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.RdfClass#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfClass#getName()
+   * @see #getRdfClass()
+   * @generated
+   */
+  EAttribute getRdfClass_Name();
+
+  /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping <em>Mapping</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -697,6 +1056,81 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    */
   EReference getMapping_Reference();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectTypeMappings <em>Subject Type Mappings</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Subject Type Mappings</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectTypeMappings()
+   * @see #getMapping()
+   * @generated
+   */
+  EReference getMapping_SubjectTypeMappings();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPoMappings <em>Po Mappings</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Po Mappings</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPoMappings()
+   * @see #getMapping()
+   * @generated
+   */
+  EReference getMapping_PoMappings();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping <em>Subject Type Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Subject Type Mapping</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping
+   * @generated
+   */
+  EClass getSubjectTypeMapping();
+
+  /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping#getType()
+   * @see #getSubjectTypeMapping()
+   * @generated
+   */
+  EReference getSubjectTypeMapping_Type();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping <em>Predicate Object Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Predicate Object Mapping</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
+   * @generated
+   */
+  EClass getPredicateObjectMapping();
+
+  /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getProperty <em>Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Property</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getProperty()
+   * @see #getPredicateObjectMapping()
+   * @generated
+   */
+  EReference getPredicateObjectMapping_Property();
+
+  /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getReference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Reference</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getReference()
+   * @see #getPredicateObjectMapping()
+   * @generated
+   */
+  EReference getPredicateObjectMapping_Reference();
 
   /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Import <em>Import</em>}'.
@@ -933,6 +1367,110 @@ public interface RdfMappingPackage extends EPackage
     EAttribute REFERENCEABLE__VALUE = eINSTANCE.getReferenceable_Value();
 
     /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.VocabularyImpl <em>Vocabulary</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.VocabularyImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getVocabulary()
+     * @generated
+     */
+    EClass VOCABULARY = eINSTANCE.getVocabulary();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VOCABULARY__NAME = eINSTANCE.getVocabulary_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Prefix</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VOCABULARY__PREFIX = eINSTANCE.getVocabulary_Prefix();
+
+    /**
+     * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VOCABULARY__CLASSES = eINSTANCE.getVocabulary_Classes();
+
+    /**
+     * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VOCABULARY__PROPERTIES = eINSTANCE.getVocabulary_Properties();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixImpl <em>Prefix</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPrefix()
+     * @generated
+     */
+    EClass PREFIX = eINSTANCE.getPrefix();
+
+    /**
+     * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PREFIX__LABEL = eINSTANCE.getPrefix_Label();
+
+    /**
+     * The meta object literal for the '<em><b>Iri</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PREFIX__IRI = eINSTANCE.getPrefix_Iri();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfPropertyImpl <em>Rdf Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfPropertyImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getRdfProperty()
+     * @generated
+     */
+    EClass RDF_PROPERTY = eINSTANCE.getRdfProperty();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RDF_PROPERTY__NAME = eINSTANCE.getRdfProperty_Name();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfClassImpl <em>Rdf Class</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfClassImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getRdfClass()
+     * @generated
+     */
+    EClass RDF_CLASS = eINSTANCE.getRdfClass();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RDF_CLASS__NAME = eINSTANCE.getRdfClass_Name();
+
+    /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl <em>Mapping</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -973,6 +1511,66 @@ public interface RdfMappingPackage extends EPackage
      * @generated
      */
     EReference MAPPING__REFERENCE = eINSTANCE.getMapping_Reference();
+
+    /**
+     * The meta object literal for the '<em><b>Subject Type Mappings</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING__SUBJECT_TYPE_MAPPINGS = eINSTANCE.getMapping_SubjectTypeMappings();
+
+    /**
+     * The meta object literal for the '<em><b>Po Mappings</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING__PO_MAPPINGS = eINSTANCE.getMapping_PoMappings();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.SubjectTypeMappingImpl <em>Subject Type Mapping</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.SubjectTypeMappingImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getSubjectTypeMapping()
+     * @generated
+     */
+    EClass SUBJECT_TYPE_MAPPING = eINSTANCE.getSubjectTypeMapping();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUBJECT_TYPE_MAPPING__TYPE = eINSTANCE.getSubjectTypeMapping_Type();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl <em>Predicate Object Mapping</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPredicateObjectMapping()
+     * @generated
+     */
+    EClass PREDICATE_OBJECT_MAPPING = eINSTANCE.getPredicateObjectMapping();
+
+    /**
+     * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PREDICATE_OBJECT_MAPPING__PROPERTY = eINSTANCE.getPredicateObjectMapping_Property();
+
+    /**
+     * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PREDICATE_OBJECT_MAPPING__REFERENCE = eINSTANCE.getPredicateObjectMapping_Reference();
 
     /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.
