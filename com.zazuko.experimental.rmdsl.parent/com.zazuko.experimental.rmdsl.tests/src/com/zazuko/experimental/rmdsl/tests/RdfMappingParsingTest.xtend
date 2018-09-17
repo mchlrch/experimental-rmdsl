@@ -21,7 +21,11 @@ class RdfMappingParsingTest {
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			vocabulary transit {
+				prefix "transit:" "http://vocab.org/transit/terms/";	
+				classes Stop;
+				properties route;		
+			}
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
