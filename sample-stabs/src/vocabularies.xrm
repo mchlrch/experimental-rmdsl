@@ -1,17 +1,32 @@
 vocabulary skos {
 	prefix "skos:" "http://www.w3.org/2004/02/skos/core#";	
-	classes Concept;
-	properties notation prefLabel inScheme;	
+	classes
+		Concept;
+		
+	properties
+		notation
+		prefLabel
+		inScheme;	
 }
 
 vocabulary ric {
     prefix "ric:" "http://www.ica.org/standards/RiC/ontology#";
-    classes  RecordSet;
-    properties  title scopeAndContent contentType qualityOfInformation date characteristic_Physical;
-	// TODO '-' in IDs -> characteristic-Physical    
+    classes
+    	RecordSet;
+    	
+    properties
+    	title
+    	scopeAndContent
+    	contentType
+    	qualityOfInformation
+    	date
+    	characteristic_Physical;
+		// TODO '-' in IDs -> characteristic-Physical    
 }
 
 vocabulary stabs {
 	prefix "stabs:" "http://data.staatsarchiv-bs.ch/vocab/";	
-	properties approval retentionPeriod;
+	properties
+		approval
+		retentionPeriod;
 }

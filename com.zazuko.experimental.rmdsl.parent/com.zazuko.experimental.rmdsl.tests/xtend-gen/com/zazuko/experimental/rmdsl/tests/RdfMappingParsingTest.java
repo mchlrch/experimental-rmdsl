@@ -29,7 +29,18 @@ public class RdfMappingParsingTest {
   public void loadModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Hello Xtext!");
+      _builder.append("vocabulary transit {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("prefix \"transit:\" \"http://vocab.org/transit/terms/\";\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("classes Stop;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("properties route;\t\t");
+      _builder.newLine();
+      _builder.append("}");
       _builder.newLine();
       final Domainmodel result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
