@@ -3,19 +3,18 @@
  */
 package com.zazuko.experimental.rmdsl.generator
 
+import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource
+import com.zazuko.experimental.rmdsl.rdfMapping.Mapping
+import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty
+import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup
+import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary
+import java.text.MessageFormat
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import com.zazuko.experimental.rmdsl.rdfMapping.Mapping
-import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource
-import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup
-import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass
-import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty
-import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary
-import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
-import java.util.List
-import java.text.MessageFormat
 
 /**
  * Generates code from your model files on save.
@@ -25,13 +24,26 @@ import java.text.MessageFormat
 class RdfMappingGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		fsa.generateFile('mapping.ttl',
-			prefixes +
-			resource.allContents
-				.filter(Mapping)
-				.map[triplesMap]
-				.join('\n'))
+		fsa.generateFile('rml.ttl', rml(resource))
+		fsa.generateFile('r2rml.ttl', r2rml(resource))
 	}
+	
+	def rml(Resource resource) {
+		prefixes +
+		resource.allContents
+			.filter(Mapping)
+			.map[rmlTriplesMap]
+			.join('\n')
+	}
+	
+	def r2rml(Resource resource) {
+		prefixes +
+		resource.allContents
+			.filter(Mapping)
+			.map[r2rmlTriplesMap]
+			.join('\n')
+	}
+	
 	
 	def prefixes() '''
 		PREFIX rr: <http://www.w3.org/ns/r2rml#>.
@@ -42,26 +54,41 @@ class RdfMappingGenerator extends AbstractGenerator {
 		
 	'''
 	
-	// TODO source might be defined in sourceGroup OR directly in logicalSource	
-	def triplesMap(Mapping m) '''
+	def rmlTriplesMap(Mapping m) '''
 		<#«m.name»>
 			rml:logicalSource [  
-				rml:source "«m.source.sourceOrParentSource»" ;
+				rml:source "«m.source.sourceResolved»" ;
 ««« TODO        rml:iterator "/transport/bus";
-				rml:referenceFormulation «m.source.typeOrParentType?.referenceFormulation»
+				rml:referenceFormulation «m.source.typeResolved?.referenceFormulation»
 			];
 
-			rr:subjectMap [
-				rr:template "«m.subjectIri»";
-				rr:class «m.typePrefixLabel»«m.typeName»;
-			];
+			«m.subjectMap()»
 		
 			«FOR pom : m.poMappings»
-				«pom.predicateObjectMap»
+				«pom.rmlPredicateObjectMap»
 			«ENDFOR»
 	'''
 	
-	def predicateObjectMap(PredicateObjectMapping pom) '''
+	def r2rmlTriplesMap(Mapping m) '''
+		<#«m.name»>
+		    rr:logicalTable [ rr:tableName "«m.source.sourceResolved»" ];
+		    «m.subjectMap()»
+		    
+		    «FOR pom : m.poMappings»
+		    	«pom.r2rmlPredicateObjectMap»
+			«ENDFOR»
+	'''
+	
+	def subjectMap(Mapping m) '''
+		rr:subjectMap [
+			rr:template "«m.subjectIri»";
+			«FOR stm : m.subjectTypeMappings»
+				rr:class «stm.type.vocabulary.prefix.label»«stm.type.name»;
+			«ENDFOR»	
+		];
+	'''
+	
+	def rmlPredicateObjectMap(PredicateObjectMapping pom) '''
 		rr:predicateObjectMap [
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name»;
 			rr:objectMap [
@@ -71,46 +98,39 @@ class RdfMappingGenerator extends AbstractGenerator {
 		];
 	'''
 	
-	def typePrefixLabel(Mapping m) {
-		m.subjectTypeMappings.first?.type?.vocabulary?.prefix?.label;		
-	}
-	def typeName(Mapping m) {
-		m.subjectTypeMappings.first?.type?.name;
-	}	
-	
-	def <T> first(List<T> l) {
-		if (l !== null && ! l.empty) {
-			l.iterator.next();
-		} else {
-			null;
-		}
-	}
+	def r2rmlPredicateObjectMap(PredicateObjectMapping pom) '''
+		rr:predicateObjectMap [
+			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name»;
+			rr:objectMap [
+				rr:column "«pom.reference.value»";
+			]
+		];
+	'''
 	
 	def subjectIri(Mapping m) {		
 		MessageFormat.format(m.pattern, '''{«m.reference.value»}''');
 	}
 	
-	// TODO: it's brittle, make it robust
-	def sourceOrParentSource(LogicalSource ls) {
-		if (ls.source !== null) {
-			ls.source;
+	def sourceResolved(LogicalSource it) {
+		if (source !== null) {
+			source;
 		} else {
-			(ls.eContainer as SourceGroup)?.source;
+			(eContainer as SourceGroup)?.source;
 		}
 	}
 	
-	// TODO: it's brittle, make it robust
-	def typeOrParentType(LogicalSource ls) {
-		if (ls.type !== null) {
-			ls.type;
+	def typeResolved(LogicalSource it) {
+		if (type !== null) {
+			type;
 		} else {
-			(ls.eContainer as SourceGroup)?.type;
+			(eContainer as SourceGroup)?.type;
 		}
 	}
 	
 	def vocabulary(RdfClass it) {
 		eContainer as Vocabulary;
 	}
+	
 	def vocabulary(RdfProperty it) {
 		eContainer as Vocabulary;
 	}

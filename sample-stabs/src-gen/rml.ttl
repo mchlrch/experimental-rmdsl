@@ -12,18 +12,6 @@ PREFIX ql: <http://semweb.mmlab.be/ns/ql#>.
 
 	rr:subjectMap [
 		rr:template "record/{RIC_P2}";
-		rr:class skos:Concept;
-	];
-
-
-<#Concept>
-	rml:logicalSource [  
-		rml:source "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS" ;
-		rml:referenceFormulation rr:SQL2008
-	];
-
-	rr:subjectMap [
-		rr:template "concept/{DESC_ID}";
 		rr:class ric:RecordSet;
 	];
 
@@ -87,6 +75,25 @@ PREFIX ql: <http://semweb.mmlab.be/ns/ql#>.
 		rr:predicate stabs:retentionPeriod;
 		rr:objectMap [
 			rml:reference "RIC_P18_RETENTION_PERIOD";
+			// TODO: rr:datatype xsd:FOO
+		]
+	];
+
+<#Concept>
+	rml:logicalSource [  
+		rml:source "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS" ;
+		rml:referenceFormulation rr:SQL2008
+	];
+
+	rr:subjectMap [
+		rr:template "concept/{DESC_ID}";
+		rr:class skos:Concept;
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate skos:notation;
+		rr:objectMap [
+			rml:reference "DESC_ID";
 			// TODO: rr:datatype xsd:FOO
 		]
 	];

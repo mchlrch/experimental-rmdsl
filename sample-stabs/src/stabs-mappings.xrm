@@ -6,14 +6,8 @@ import WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS.*
 map RecordSet from WSD_STABS_SCP_ARCHIV_DBA.RECS_rico {
 	iri "record/{0}" P2
 	
-	a skos.Concept
-}
-
-map Concept from WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS {
-	iri "concept/{0}" ID
-	
 	a ric.RecordSet
-
+	
     skos.notation P17
     ric.title P3    
     ric.scopeAndContent P4_CONTENT
@@ -23,4 +17,12 @@ map Concept from WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS {
     ric.characteristic_Physical P16
     stabs.approval P18_APPROVAL
     stabs.retentionPeriod P18_RETENTION_PERIOD
+}
+
+map Concept from WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS {
+	iri "concept/{0}" ID
+	
+	a skos.Concept
+	
+	skos.notation ID
 }
