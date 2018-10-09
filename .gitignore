@@ -1,3 +1,6 @@
 target
 
+*.xtendbin
+*.java._trace
+
 *.jar
