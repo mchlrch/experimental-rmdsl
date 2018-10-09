@@ -4,25 +4,27 @@ import WSD_STABS_SCP_ARCHIV_DBA.RECS_rico.*
 import WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS.*
 
 map RecordSet from WSD_STABS_SCP_ARCHIV_DBA.RECS_rico {
-	iri "record/{0}" P2
+	subject template "record/{0}" with P2
 	
-	a ric.RecordSet
+	types ric.RecordSet
 	
-    skos.notation P17
-    ric.title P3    
-    ric.scopeAndContent P4_CONTENT
-    ric.contentType P6
-    ric.qualityOfInformation P8
-    ric.date P9
-    ric.characteristic_Physical P16
-    stabs.approval P18_APPROVAL
-    stabs.retentionPeriod P18_RETENTION_PERIOD
+    properties
+    skos.notation from P17
+    ric.title from P3    
+    ric.scopeAndContent from P4_CONTENT
+    ric.contentType from P6
+    ric.qualityOfInformation from P8
+    ric.date from P9
+    ric.characteristic_Physical from P16
+    stabs.approval from P18_APPROVAL
+    stabs.retentionPeriod from P18_RETENTION_PERIOD
 }
 
 map Concept from WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS {
-	iri "concept/{0}" ID
+	subject template "concept/{0}" with ID
 	
-	a skos.Concept
+	types skos.Concept
 	
-	skos.notation ID
+	properties
+	skos.notation from ID
 }

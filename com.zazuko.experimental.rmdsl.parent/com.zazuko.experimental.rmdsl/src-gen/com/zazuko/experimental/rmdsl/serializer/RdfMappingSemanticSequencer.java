@@ -172,7 +172,7 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPredicateObjectMappingAccess().getPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__PROPERTY, false));
-		feeder.accept(grammarAccess.getPredicateObjectMappingAccess().getReferenceReferenceableQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__REFERENCE, false));
+		feeder.accept(grammarAccess.getPredicateObjectMappingAccess().getReferenceReferenceableQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__REFERENCE, false));
 		feeder.finish();
 	}
 	
@@ -315,7 +315,7 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.SUBJECT_TYPE_MAPPING__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSubjectTypeMappingAccess().getTypeRdfClassQualifiedNameParserRuleCall_1_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.SUBJECT_TYPE_MAPPING__TYPE, false));
+		feeder.accept(grammarAccess.getSubjectTypeMappingAccess().getTypeRdfClassQualifiedNameParserRuleCall_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.SUBJECT_TYPE_MAPPING__TYPE, false));
 		feeder.finish();
 	}
 	

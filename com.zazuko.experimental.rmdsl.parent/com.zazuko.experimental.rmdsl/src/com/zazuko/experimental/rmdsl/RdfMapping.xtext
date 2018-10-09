@@ -54,16 +54,16 @@ RdfClass:
     
 Mapping:
 	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-		'iri' pattern=STRING reference=[Referenceable|QualifiedName]
-		 (subjectTypeMappings+=SubjectTypeMapping)*
-		 (poMappings+=PredicateObjectMapping)*
+		'subject' 'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName]
+		 ('types' (subjectTypeMappings+=SubjectTypeMapping)+)?
+		 ('properties' (poMappings+=PredicateObjectMapping)+)?
 	'}';
 	
 SubjectTypeMapping:	
-	'a' type=[RdfClass|QualifiedName];
+	type=[RdfClass|QualifiedName];
 
 PredicateObjectMapping:	
-	property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName];
+	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName];
 	
 Import:
     'import' importedNamespace=QualifiedNameWithWildcard;

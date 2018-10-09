@@ -25,10 +25,11 @@ vocabulary rdfs {
 }
 
 map TransportMapping from transport {
-	iri "http://trans.example.com/{0}" busId
+	subject template "http://trans.example.com/{0}" with busId
 		
-	a transit.Stop
+	types transit.Stop
 		
-	transit.stop stopId
-	rdfs.label stop	
+	properties
+	transit.stop from stopId
+	rdfs.label from stop	
 }

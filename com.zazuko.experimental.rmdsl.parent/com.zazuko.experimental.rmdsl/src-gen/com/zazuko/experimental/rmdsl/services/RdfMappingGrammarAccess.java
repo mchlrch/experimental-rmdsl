@@ -531,28 +531,34 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cSourceLogicalSourceCrossReference_3_0 = (CrossReference)cSourceAssignment_3.eContents().get(0);
 		private final RuleCall cSourceLogicalSourceQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cSourceLogicalSourceCrossReference_3_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cIriKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cPatternAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cPatternSTRINGTerminalRuleCall_6_0 = (RuleCall)cPatternAssignment_6.eContents().get(0);
-		private final Assignment cReferenceAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cReferenceReferenceableCrossReference_7_0 = (CrossReference)cReferenceAssignment_7.eContents().get(0);
-		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_7_0_1 = (RuleCall)cReferenceReferenceableCrossReference_7_0.eContents().get(1);
-		private final Assignment cSubjectTypeMappingsAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_0 = (RuleCall)cSubjectTypeMappingsAssignment_8.eContents().get(0);
-		private final Assignment cPoMappingsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cPoMappingsPredicateObjectMappingParserRuleCall_9_0 = (RuleCall)cPoMappingsAssignment_9.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cSubjectKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cTemplateKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cPatternAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cPatternSTRINGTerminalRuleCall_7_0 = (RuleCall)cPatternAssignment_7.eContents().get(0);
+		private final Keyword cWithKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cReferenceAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final CrossReference cReferenceReferenceableCrossReference_9_0 = (CrossReference)cReferenceAssignment_9.eContents().get(0);
+		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_9_0_1 = (RuleCall)cReferenceReferenceableCrossReference_9_0.eContents().get(1);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cTypesKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cSubjectTypeMappingsAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cSubjectTypeMappingsSubjectTypeMappingParserRuleCall_10_1_0 = (RuleCall)cSubjectTypeMappingsAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cPropertiesKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cPoMappingsAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cPoMappingsPredicateObjectMappingParserRuleCall_11_1_0 = (RuleCall)cPoMappingsAssignment_11_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//Mapping:
 		//	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-		//	'iri' pattern=STRING reference=[Referenceable|QualifiedName] subjectTypeMappings+=SubjectTypeMapping*
-		//	poMappings+=PredicateObjectMapping*
+		//	'subject' 'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName] ('types'
+		//	subjectTypeMappings+=SubjectTypeMapping+)? ('properties' poMappings+=PredicateObjectMapping+)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{' 'iri' pattern=STRING
-		//reference=[Referenceable|QualifiedName] subjectTypeMappings+=SubjectTypeMapping* poMappings+=PredicateObjectMapping*
-		//'}'
+		//'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{' 'subject' 'template' pattern=STRING 'with'
+		//reference=[Referenceable|QualifiedName] ('types' subjectTypeMappings+=SubjectTypeMapping+)? ('properties'
+		//poMappings+=PredicateObjectMapping+)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'map'
@@ -579,65 +585,75 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
-		//'iri'
-		public Keyword getIriKeyword_5() { return cIriKeyword_5; }
+		//'subject'
+		public Keyword getSubjectKeyword_5() { return cSubjectKeyword_5; }
+		
+		//'template'
+		public Keyword getTemplateKeyword_6() { return cTemplateKeyword_6; }
 		
 		//pattern=STRING
-		public Assignment getPatternAssignment_6() { return cPatternAssignment_6; }
+		public Assignment getPatternAssignment_7() { return cPatternAssignment_7; }
 		
 		//STRING
-		public RuleCall getPatternSTRINGTerminalRuleCall_6_0() { return cPatternSTRINGTerminalRuleCall_6_0; }
+		public RuleCall getPatternSTRINGTerminalRuleCall_7_0() { return cPatternSTRINGTerminalRuleCall_7_0; }
+		
+		//'with'
+		public Keyword getWithKeyword_8() { return cWithKeyword_8; }
 		
 		//reference=[Referenceable|QualifiedName]
-		public Assignment getReferenceAssignment_7() { return cReferenceAssignment_7; }
+		public Assignment getReferenceAssignment_9() { return cReferenceAssignment_9; }
 		
 		//[Referenceable|QualifiedName]
-		public CrossReference getReferenceReferenceableCrossReference_7_0() { return cReferenceReferenceableCrossReference_7_0; }
+		public CrossReference getReferenceReferenceableCrossReference_9_0() { return cReferenceReferenceableCrossReference_9_0; }
 		
 		//QualifiedName
-		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_7_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_7_0_1; }
+		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_9_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_9_0_1; }
 		
-		//subjectTypeMappings+=SubjectTypeMapping*
-		public Assignment getSubjectTypeMappingsAssignment_8() { return cSubjectTypeMappingsAssignment_8; }
+		//('types' subjectTypeMappings+=SubjectTypeMapping+)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'types'
+		public Keyword getTypesKeyword_10_0() { return cTypesKeyword_10_0; }
+		
+		//subjectTypeMappings+=SubjectTypeMapping+
+		public Assignment getSubjectTypeMappingsAssignment_10_1() { return cSubjectTypeMappingsAssignment_10_1; }
 		
 		//SubjectTypeMapping
-		public RuleCall getSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_0() { return cSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_0; }
+		public RuleCall getSubjectTypeMappingsSubjectTypeMappingParserRuleCall_10_1_0() { return cSubjectTypeMappingsSubjectTypeMappingParserRuleCall_10_1_0; }
 		
-		//poMappings+=PredicateObjectMapping*
-		public Assignment getPoMappingsAssignment_9() { return cPoMappingsAssignment_9; }
+		//('properties' poMappings+=PredicateObjectMapping+)?
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//'properties'
+		public Keyword getPropertiesKeyword_11_0() { return cPropertiesKeyword_11_0; }
+		
+		//poMappings+=PredicateObjectMapping+
+		public Assignment getPoMappingsAssignment_11_1() { return cPoMappingsAssignment_11_1; }
 		
 		//PredicateObjectMapping
-		public RuleCall getPoMappingsPredicateObjectMappingParserRuleCall_9_0() { return cPoMappingsPredicateObjectMappingParserRuleCall_9_0; }
+		public RuleCall getPoMappingsPredicateObjectMappingParserRuleCall_11_1_0() { return cPoMappingsPredicateObjectMappingParserRuleCall_11_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
 	}
 	public class SubjectTypeMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.SubjectTypeMapping");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cTypeRdfClassCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
-		private final RuleCall cTypeRdfClassQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cTypeRdfClassCrossReference_1_0.eContents().get(1);
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cTypeRdfClassCrossReference_0 = (CrossReference)cTypeAssignment.eContents().get(0);
+		private final RuleCall cTypeRdfClassQualifiedNameParserRuleCall_0_1 = (RuleCall)cTypeRdfClassCrossReference_0.eContents().get(1);
 		
 		//SubjectTypeMapping:
-		//	'a' type=[RdfClass|QualifiedName];
+		//	type=[RdfClass|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'a' type=[RdfClass|QualifiedName]
-		public Group getGroup() { return cGroup; }
-		
-		//'a'
-		public Keyword getAKeyword_0() { return cAKeyword_0; }
-		
 		//type=[RdfClass|QualifiedName]
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
 		
 		//[RdfClass|QualifiedName]
-		public CrossReference getTypeRdfClassCrossReference_1_0() { return cTypeRdfClassCrossReference_1_0; }
+		public CrossReference getTypeRdfClassCrossReference_0() { return cTypeRdfClassCrossReference_0; }
 		
 		//QualifiedName
-		public RuleCall getTypeRdfClassQualifiedNameParserRuleCall_1_0_1() { return cTypeRdfClassQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getTypeRdfClassQualifiedNameParserRuleCall_0_1() { return cTypeRdfClassQualifiedNameParserRuleCall_0_1; }
 	}
 	public class PredicateObjectMappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.PredicateObjectMapping");
@@ -645,15 +661,16 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPropertyAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cPropertyRdfPropertyCrossReference_0_0 = (CrossReference)cPropertyAssignment_0.eContents().get(0);
 		private final RuleCall cPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cPropertyRdfPropertyCrossReference_0_0.eContents().get(1);
-		private final Assignment cReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cReferenceReferenceableCrossReference_1_0 = (CrossReference)cReferenceAssignment_1.eContents().get(0);
-		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cReferenceReferenceableCrossReference_1_0.eContents().get(1);
+		private final Keyword cFromKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cReferenceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cReferenceReferenceableCrossReference_2_0 = (CrossReference)cReferenceAssignment_2.eContents().get(0);
+		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cReferenceReferenceableCrossReference_2_0.eContents().get(1);
 		
 		//PredicateObjectMapping:
-		//	property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName];
+		//	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName]
+		//property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
 		//property=[RdfProperty|QualifiedName]
@@ -665,14 +682,17 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1() { return cPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1; }
 		
+		//'from'
+		public Keyword getFromKeyword_1() { return cFromKeyword_1; }
+		
 		//reference=[Referenceable|QualifiedName]
-		public Assignment getReferenceAssignment_1() { return cReferenceAssignment_1; }
+		public Assignment getReferenceAssignment_2() { return cReferenceAssignment_2; }
 		
 		//[Referenceable|QualifiedName]
-		public CrossReference getReferenceReferenceableCrossReference_1_0() { return cReferenceReferenceableCrossReference_1_0; }
+		public CrossReference getReferenceReferenceableCrossReference_2_0() { return cReferenceReferenceableCrossReference_2_0; }
 		
 		//QualifiedName
-		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_1_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_1_0_1; }
+		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_2_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_2_0_1; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Import");
@@ -943,8 +963,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Mapping:
 	//	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-	//	'iri' pattern=STRING reference=[Referenceable|QualifiedName] subjectTypeMappings+=SubjectTypeMapping*
-	//	poMappings+=PredicateObjectMapping*
+	//	'subject' 'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName] ('types'
+	//	subjectTypeMappings+=SubjectTypeMapping+)? ('properties' poMappings+=PredicateObjectMapping+)?
 	//	'}';
 	public MappingElements getMappingAccess() {
 		return pMapping;
@@ -955,7 +975,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SubjectTypeMapping:
-	//	'a' type=[RdfClass|QualifiedName];
+	//	type=[RdfClass|QualifiedName];
 	public SubjectTypeMappingElements getSubjectTypeMappingAccess() {
 		return pSubjectTypeMapping;
 	}
@@ -965,7 +985,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PredicateObjectMapping:
-	//	property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName];
+	//	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName];
 	public PredicateObjectMappingElements getPredicateObjectMappingAccess() {
 		return pPredicateObjectMapping;
 	}

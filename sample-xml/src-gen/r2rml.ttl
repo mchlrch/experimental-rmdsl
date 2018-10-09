@@ -1,7 +1,28 @@
-PREFIX rr: <http://www.w3.org/ns/r2rml#>.
-PREFIX rml: <http://semweb.mmlab.be/ns/rml#>.
-PREFIX ql: <http://semweb.mmlab.be/ns/ql#>.
+PREFIX rr: <http://www.w3.org/ns/r2rml#> .
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#> .
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#> .
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+PREFIX transit: <http://vocab.org/transit/terms/> . 
 
-// TODO: insert prefixes from vocabularies in-use
+# debug output ..
+# TransportMapping 
 
 <#TransportMapping>
+    rr:logicalTable [ rr:tableName "http://www.example.com/Transport.xml" ];
+    rr:subjectMap [
+    	rr:template "http://trans.example.com/{/transport/bus@id}";
+    	rr:class transit:Stop;
+    ];
+    
+    rr:predicateObjectMap [
+    	rr:predicate transit:stop;
+    	rr:objectMap [
+    		rr:column "/transport/bus/route/stop@id";
+    	]
+    ];
+    rr:predicateObjectMap [
+    	rr:predicate rdfs:label;
+    	rr:objectMap [
+    		rr:column "/transport/bus/route/stop";
+    	]
+    ];
