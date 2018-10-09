@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import java.util.HashSet
 
 /**
  * Generates code from your model files on save.
@@ -24,34 +25,38 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class RdfMappingGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		fsa.generateFile('rml.ttl', rml(resource))
-		fsa.generateFile('r2rml.ttl', r2rml(resource))
+		val Iterable<Mapping> mappings = resource.allContents.filter(Mapping).toList
+		fsa.generateFile('rml.ttl', rml(mappings))
+		fsa.generateFile('r2rml.ttl', r2rml(mappings))
 	}
 	
-	def rml(Resource resource) {
-		prefixes +
-		resource.allContents
-			.filter(Mapping)
+	def rml(Iterable<Mapping> mappings) {
+		mappings.prefixes +
+		mappings
 			.map[rmlTriplesMap]
 			.join('\n')
 	}
 	
-	def r2rml(Resource resource) {
-		prefixes +
-		resource.allContents
-			.filter(Mapping)
+	def r2rml(Iterable<Mapping> mappings) {
+		mappings.prefixes +
+		mappings
 			.map[r2rmlTriplesMap]
 			.join('\n')
 	}
 	
-	
-	def prefixes() '''
-		PREFIX rr: <http://www.w3.org/ns/r2rml#>.
-		PREFIX rml: <http://semweb.mmlab.be/ns/rml#>.
-		PREFIX ql: <http://semweb.mmlab.be/ns/ql#>.
-
-		// TODO: insert prefixes from vocabularies in-use
+	def prefixes(Iterable<Mapping> mappings) '''
+		PREFIX rr: <http://www.w3.org/ns/r2rml#> .
+		PREFIX rml: <http://semweb.mmlab.be/ns/rml#> .
+		PREFIX ql: <http://semweb.mmlab.be/ns/ql#> .
+		«FOR prefixStmt:mappings.vocabulariesUsed.toPrefixStatements»
+			«prefixStmt» 
+		«ENDFOR»
 		
+		# debug output ..
+		«FOR m:mappings»
+			# «m.name» 
+		«ENDFOR»
+
 	'''
 	
 	def rmlTriplesMap(Mapping m) '''
@@ -134,4 +139,21 @@ class RdfMappingGenerator extends AbstractGenerator {
 	def vocabulary(RdfProperty it) {
 		eContainer as Vocabulary;
 	}
+	
+	def vocabulariesUsed(Mapping it) {
+		val result = new HashSet();
+		result.addAll(subjectTypeMappings.map[m | m.type.vocabulary]);
+		result.addAll(poMappings.map[m | m.property.vocabulary]);
+		result
+	}
+	
+	def vocabulariesUsed(Iterable<Mapping> mappings) {
+		mappings.map[m | m.vocabulariesUsed].flatten;
+	}
+	
+	def toPrefixStatements(Iterable<Vocabulary> vocabularies) {
+		// TODO: why is it necessary to detect duplicate vocabularies on string level ?
+		vocabularies.map[voc | voc.prefixStatement.toString].toSet.toList.sortBy[s | s];
+	}
+	def prefixStatement(Vocabulary voc) '''PREFIX «voc.prefix.label» <«voc.prefix.iri»> .'''
 }

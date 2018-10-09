@@ -3,6 +3,7 @@
  */
 package com.zazuko.experimental.rmdsl.generator;
 
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
@@ -14,6 +15,8 @@ import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 import java.text.MessageFormat;
+import java.util.HashSet;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -22,7 +25,9 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -33,39 +38,57 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 public class RdfMappingGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    fsa.generateFile("rml.ttl", this.rml(resource));
-    fsa.generateFile("r2rml.ttl", this.r2rml(resource));
+    final Iterable<Mapping> mappings = IteratorExtensions.<Mapping>toList(Iterators.<Mapping>filter(resource.getAllContents(), Mapping.class));
+    fsa.generateFile("rml.ttl", this.rml(mappings));
+    fsa.generateFile("r2rml.ttl", this.r2rml(mappings));
   }
   
-  public String rml(final Resource resource) {
-    CharSequence _prefixes = this.prefixes();
+  public String rml(final Iterable<Mapping> mappings) {
+    CharSequence _prefixes = this.prefixes(mappings);
     final Function1<Mapping, CharSequence> _function = (Mapping it) -> {
       return this.rmlTriplesMap(it);
     };
-    String _join = IteratorExtensions.join(IteratorExtensions.<Mapping, CharSequence>map(Iterators.<Mapping>filter(resource.getAllContents(), Mapping.class), _function), "\n");
+    String _join = IterableExtensions.join(IterableExtensions.<Mapping, CharSequence>map(mappings, _function), "\n");
     return (_prefixes + _join);
   }
   
-  public String r2rml(final Resource resource) {
-    CharSequence _prefixes = this.prefixes();
+  public String r2rml(final Iterable<Mapping> mappings) {
+    CharSequence _prefixes = this.prefixes(mappings);
     final Function1<Mapping, CharSequence> _function = (Mapping it) -> {
       return this.r2rmlTriplesMap(it);
     };
-    String _join = IteratorExtensions.join(IteratorExtensions.<Mapping, CharSequence>map(Iterators.<Mapping>filter(resource.getAllContents(), Mapping.class), _function), "\n");
+    String _join = IterableExtensions.join(IterableExtensions.<Mapping, CharSequence>map(mappings, _function), "\n");
     return (_prefixes + _join);
   }
   
-  public CharSequence prefixes() {
+  public CharSequence prefixes(final Iterable<Mapping> mappings) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("PREFIX rr: <http://www.w3.org/ns/r2rml#>.");
+    _builder.append("PREFIX rr: <http://www.w3.org/ns/r2rml#> .");
     _builder.newLine();
-    _builder.append("PREFIX rml: <http://semweb.mmlab.be/ns/rml#>.");
+    _builder.append("PREFIX rml: <http://semweb.mmlab.be/ns/rml#> .");
     _builder.newLine();
-    _builder.append("PREFIX ql: <http://semweb.mmlab.be/ns/ql#>.");
+    _builder.append("PREFIX ql: <http://semweb.mmlab.be/ns/ql#> .");
     _builder.newLine();
+    {
+      List<String> _prefixStatements = this.toPrefixStatements(this.vocabulariesUsed(mappings));
+      for(final String prefixStmt : _prefixStatements) {
+        _builder.append(prefixStmt);
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.newLine();
-    _builder.append("// TODO: insert prefixes from vocabularies in-use");
+    _builder.append("# debug output ..");
     _builder.newLine();
+    {
+      for(final Mapping m : mappings) {
+        _builder.append("# ");
+        String _name = m.getName();
+        _builder.append(_name);
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.newLine();
     return _builder;
   }
@@ -288,5 +311,51 @@ public class RdfMappingGenerator extends AbstractGenerator {
   public Vocabulary vocabulary(final RdfProperty it) {
     EObject _eContainer = it.eContainer();
     return ((Vocabulary) _eContainer);
+  }
+  
+  public HashSet<Vocabulary> vocabulariesUsed(final Mapping it) {
+    HashSet<Vocabulary> _xblockexpression = null;
+    {
+      final HashSet<Vocabulary> result = new HashSet<Vocabulary>();
+      final Function1<SubjectTypeMapping, Vocabulary> _function = (SubjectTypeMapping m) -> {
+        return this.vocabulary(m.getType());
+      };
+      result.addAll(ListExtensions.<SubjectTypeMapping, Vocabulary>map(it.getSubjectTypeMappings(), _function));
+      final Function1<PredicateObjectMapping, Vocabulary> _function_1 = (PredicateObjectMapping m) -> {
+        return this.vocabulary(m.getProperty());
+      };
+      result.addAll(ListExtensions.<PredicateObjectMapping, Vocabulary>map(it.getPoMappings(), _function_1));
+      _xblockexpression = result;
+    }
+    return _xblockexpression;
+  }
+  
+  public Iterable<Vocabulary> vocabulariesUsed(final Iterable<Mapping> mappings) {
+    final Function1<Mapping, HashSet<Vocabulary>> _function = (Mapping m) -> {
+      return this.vocabulariesUsed(m);
+    };
+    return Iterables.<Vocabulary>concat(IterableExtensions.<Mapping, HashSet<Vocabulary>>map(mappings, _function));
+  }
+  
+  public List<String> toPrefixStatements(final Iterable<Vocabulary> vocabularies) {
+    final Function1<Vocabulary, String> _function = (Vocabulary voc) -> {
+      return this.prefixStatement(voc).toString();
+    };
+    final Function1<String, String> _function_1 = (String s) -> {
+      return s;
+    };
+    return IterableExtensions.<String, String>sortBy(IterableExtensions.<String>toList(IterableExtensions.<String>toSet(IterableExtensions.<Vocabulary, String>map(vocabularies, _function))), _function_1);
+  }
+  
+  public CharSequence prefixStatement(final Vocabulary voc) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("PREFIX ");
+    String _label = voc.getPrefix().getLabel();
+    _builder.append(_label);
+    _builder.append(" <");
+    String _iri = voc.getPrefix().getIri();
+    _builder.append(_iri);
+    _builder.append("> .");
+    return _builder;
   }
 }
