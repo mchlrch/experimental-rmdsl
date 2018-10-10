@@ -42,37 +42,47 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	public class ElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Element");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cImportParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSourceTypesDefinitionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSourceGroupParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cLogicalSourceParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cVocabularyParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cMappingParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cSourceGroupParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLogicalSourceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cVocabularyParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cMappingParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cImportParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSourceTypesDefinitionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cDatatypesDefinitionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cLanguageTagDefinitionParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//Element:
-		//	Import | SourceTypesDefinition | SourceGroup | LogicalSource | Vocabulary | Mapping;
+		//	SourceGroup | LogicalSource | Vocabulary | Mapping | Import | SourceTypesDefinition | DatatypesDefinition |
+		//	LanguageTagDefinition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Import | SourceTypesDefinition | SourceGroup | LogicalSource | Vocabulary | Mapping
+		//SourceGroup | LogicalSource | Vocabulary | Mapping | Import | SourceTypesDefinition | DatatypesDefinition |
+		//LanguageTagDefinition
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Import
-		public RuleCall getImportParserRuleCall_0() { return cImportParserRuleCall_0; }
-		
-		//SourceTypesDefinition
-		public RuleCall getSourceTypesDefinitionParserRuleCall_1() { return cSourceTypesDefinitionParserRuleCall_1; }
-		
 		//SourceGroup
-		public RuleCall getSourceGroupParserRuleCall_2() { return cSourceGroupParserRuleCall_2; }
+		public RuleCall getSourceGroupParserRuleCall_0() { return cSourceGroupParserRuleCall_0; }
 		
 		//LogicalSource
-		public RuleCall getLogicalSourceParserRuleCall_3() { return cLogicalSourceParserRuleCall_3; }
+		public RuleCall getLogicalSourceParserRuleCall_1() { return cLogicalSourceParserRuleCall_1; }
 		
 		//Vocabulary
-		public RuleCall getVocabularyParserRuleCall_4() { return cVocabularyParserRuleCall_4; }
+		public RuleCall getVocabularyParserRuleCall_2() { return cVocabularyParserRuleCall_2; }
 		
 		//Mapping
-		public RuleCall getMappingParserRuleCall_5() { return cMappingParserRuleCall_5; }
+		public RuleCall getMappingParserRuleCall_3() { return cMappingParserRuleCall_3; }
+		
+		//Import
+		public RuleCall getImportParserRuleCall_4() { return cImportParserRuleCall_4; }
+		
+		//SourceTypesDefinition
+		public RuleCall getSourceTypesDefinitionParserRuleCall_5() { return cSourceTypesDefinitionParserRuleCall_5; }
+		
+		//DatatypesDefinition
+		public RuleCall getDatatypesDefinitionParserRuleCall_6() { return cDatatypesDefinitionParserRuleCall_6; }
+		
+		//LanguageTagDefinition
+		public RuleCall getLanguageTagDefinitionParserRuleCall_7() { return cLanguageTagDefinitionParserRuleCall_7; }
 	}
 	public class SourceTypesDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.SourceTypesDefinition");
@@ -142,6 +152,121 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getReferenceFormulationSTRINGTerminalRuleCall_2_0() { return cReferenceFormulationSTRINGTerminalRuleCall_2_0; }
+	}
+	public class DatatypesDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.DatatypesDefinition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cDatatypesDefinitionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cDatatypesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPrefixAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPrefixPrefixParserRuleCall_3_0 = (RuleCall)cPrefixAssignment_3.eContents().get(0);
+		private final Assignment cTypesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypesDatatypeParserRuleCall_4_0 = (RuleCall)cTypesAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//DatatypesDefinition:
+		//	{DatatypesDefinition}
+		//	'datatypes' '{'
+		//	prefix=Prefix
+		//	types+=Datatype*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{DatatypesDefinition} 'datatypes' '{' prefix=Prefix types+=Datatype* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{DatatypesDefinition}
+		public Action getDatatypesDefinitionAction_0() { return cDatatypesDefinitionAction_0; }
+		
+		//'datatypes'
+		public Keyword getDatatypesKeyword_1() { return cDatatypesKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//prefix=Prefix
+		public Assignment getPrefixAssignment_3() { return cPrefixAssignment_3; }
+		
+		//Prefix
+		public RuleCall getPrefixPrefixParserRuleCall_3_0() { return cPrefixPrefixParserRuleCall_3_0; }
+		
+		//types+=Datatype*
+		public Assignment getTypesAssignment_4() { return cTypesAssignment_4; }
+		
+		//Datatype
+		public RuleCall getTypesDatatypeParserRuleCall_4_0() { return cTypesDatatypeParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class DatatypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Datatype");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//Datatype:
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
+	public class LanguageTagDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.LanguageTagDefinition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cLanguageTagDefinitionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLanguageTagsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLanguageTagsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLanguageTagsLanguageTagParserRuleCall_3_0 = (RuleCall)cLanguageTagsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//LanguageTagDefinition:
+		//	{LanguageTagDefinition}
+		//	'language-tags' '{'
+		//	languageTags+=LanguageTag*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{LanguageTagDefinition} 'language-tags' '{' languageTags+=LanguageTag* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{LanguageTagDefinition}
+		public Action getLanguageTagDefinitionAction_0() { return cLanguageTagDefinitionAction_0; }
+		
+		//'language-tags'
+		public Keyword getLanguageTagsKeyword_1() { return cLanguageTagsKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//languageTags+=LanguageTag*
+		public Assignment getLanguageTagsAssignment_3() { return cLanguageTagsAssignment_3; }
+		
+		//LanguageTag
+		public RuleCall getLanguageTagsLanguageTagParserRuleCall_3_0() { return cLanguageTagsLanguageTagParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class LanguageTagElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.LanguageTag");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//LanguageTag:
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
 	public class SourceGroupElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.SourceGroup");
@@ -665,12 +790,27 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cReferenceAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cReferenceReferenceableCrossReference_2_0 = (CrossReference)cReferenceAssignment_2.eContents().get(0);
 		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cReferenceReferenceableCrossReference_2_0.eContents().get(1);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
+		private final Keyword cWithKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Keyword cDatatypeKeyword_3_0_1 = (Keyword)cGroup_3_0.eContents().get(1);
+		private final Assignment cDatatypeAssignment_3_0_2 = (Assignment)cGroup_3_0.eContents().get(2);
+		private final CrossReference cDatatypeDatatypeCrossReference_3_0_2_0 = (CrossReference)cDatatypeAssignment_3_0_2.eContents().get(0);
+		private final RuleCall cDatatypeDatatypeIDTerminalRuleCall_3_0_2_0_1 = (RuleCall)cDatatypeDatatypeCrossReference_3_0_2_0.eContents().get(1);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Keyword cWithKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cLanguageTagKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cLanguageTagAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final CrossReference cLanguageTagLanguageTagCrossReference_3_1_2_0 = (CrossReference)cLanguageTagAssignment_3_1_2.eContents().get(0);
+		private final RuleCall cLanguageTagLanguageTagIDTerminalRuleCall_3_1_2_0_1 = (RuleCall)cLanguageTagLanguageTagCrossReference_3_1_2_0.eContents().get(1);
 		
 		//PredicateObjectMapping:
-		//	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName];
+		//	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName] ('with' 'datatype'
+		//	datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName]
+		//property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName] ('with' 'datatype'
+		//datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?
 		public Group getGroup() { return cGroup; }
 		
 		//property=[RdfProperty|QualifiedName]
@@ -693,6 +833,45 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//QualifiedName
 		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_2_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_2_0_1; }
+		
+		//('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
+		//'with' 'datatype' datatype=[Datatype]
+		public Group getGroup_3_0() { return cGroup_3_0; }
+		
+		//'with'
+		public Keyword getWithKeyword_3_0_0() { return cWithKeyword_3_0_0; }
+		
+		//'datatype'
+		public Keyword getDatatypeKeyword_3_0_1() { return cDatatypeKeyword_3_0_1; }
+		
+		//datatype=[Datatype]
+		public Assignment getDatatypeAssignment_3_0_2() { return cDatatypeAssignment_3_0_2; }
+		
+		//[Datatype]
+		public CrossReference getDatatypeDatatypeCrossReference_3_0_2_0() { return cDatatypeDatatypeCrossReference_3_0_2_0; }
+		
+		//ID
+		public RuleCall getDatatypeDatatypeIDTerminalRuleCall_3_0_2_0_1() { return cDatatypeDatatypeIDTerminalRuleCall_3_0_2_0_1; }
+		
+		//'with' 'language-tag' languageTag=[LanguageTag]
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//'with'
+		public Keyword getWithKeyword_3_1_0() { return cWithKeyword_3_1_0; }
+		
+		//'language-tag'
+		public Keyword getLanguageTagKeyword_3_1_1() { return cLanguageTagKeyword_3_1_1; }
+		
+		//languageTag=[LanguageTag]
+		public Assignment getLanguageTagAssignment_3_1_2() { return cLanguageTagAssignment_3_1_2; }
+		
+		//[LanguageTag]
+		public CrossReference getLanguageTagLanguageTagCrossReference_3_1_2_0() { return cLanguageTagLanguageTagCrossReference_3_1_2_0; }
+		
+		//ID
+		public RuleCall getLanguageTagLanguageTagIDTerminalRuleCall_3_1_2_0_1() { return cLanguageTagLanguageTagIDTerminalRuleCall_3_1_2_0_1; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Import");
@@ -769,6 +948,10 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	private final ElementElements pElement;
 	private final SourceTypesDefinitionElements pSourceTypesDefinition;
 	private final SourceTypeElements pSourceType;
+	private final DatatypesDefinitionElements pDatatypesDefinition;
+	private final DatatypeElements pDatatype;
+	private final LanguageTagDefinitionElements pLanguageTagDefinition;
+	private final LanguageTagElements pLanguageTag;
 	private final SourceGroupElements pSourceGroup;
 	private final LogicalSourceElements pLogicalSource;
 	private final ReferenceableElements pReferenceable;
@@ -796,6 +979,10 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		this.pElement = new ElementElements();
 		this.pSourceTypesDefinition = new SourceTypesDefinitionElements();
 		this.pSourceType = new SourceTypeElements();
+		this.pDatatypesDefinition = new DatatypesDefinitionElements();
+		this.pDatatype = new DatatypeElements();
+		this.pLanguageTagDefinition = new LanguageTagDefinitionElements();
+		this.pLanguageTag = new LanguageTagElements();
 		this.pSourceGroup = new SourceGroupElements();
 		this.pLogicalSource = new LogicalSourceElements();
 		this.pReferenceable = new ReferenceableElements();
@@ -849,7 +1036,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Element:
-	//	Import | SourceTypesDefinition | SourceGroup | LogicalSource | Vocabulary | Mapping;
+	//	SourceGroup | LogicalSource | Vocabulary | Mapping | Import | SourceTypesDefinition | DatatypesDefinition |
+	//	LanguageTagDefinition;
 	public ElementElements getElementAccess() {
 		return pElement;
 	}
@@ -879,6 +1067,53 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSourceTypeRule() {
 		return getSourceTypeAccess().getRule();
+	}
+	
+	//DatatypesDefinition:
+	//	{DatatypesDefinition}
+	//	'datatypes' '{'
+	//	prefix=Prefix
+	//	types+=Datatype*
+	//	'}';
+	public DatatypesDefinitionElements getDatatypesDefinitionAccess() {
+		return pDatatypesDefinition;
+	}
+	
+	public ParserRule getDatatypesDefinitionRule() {
+		return getDatatypesDefinitionAccess().getRule();
+	}
+	
+	//Datatype:
+	//	name=ID;
+	public DatatypeElements getDatatypeAccess() {
+		return pDatatype;
+	}
+	
+	public ParserRule getDatatypeRule() {
+		return getDatatypeAccess().getRule();
+	}
+	
+	//LanguageTagDefinition:
+	//	{LanguageTagDefinition}
+	//	'language-tags' '{'
+	//	languageTags+=LanguageTag*
+	//	'}';
+	public LanguageTagDefinitionElements getLanguageTagDefinitionAccess() {
+		return pLanguageTagDefinition;
+	}
+	
+	public ParserRule getLanguageTagDefinitionRule() {
+		return getLanguageTagDefinitionAccess().getRule();
+	}
+	
+	//LanguageTag:
+	//	name=ID;
+	public LanguageTagElements getLanguageTagAccess() {
+		return pLanguageTag;
+	}
+	
+	public ParserRule getLanguageTagRule() {
+		return getLanguageTagAccess().getRule();
 	}
 	
 	//SourceGroup:
@@ -985,7 +1220,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PredicateObjectMapping:
-	//	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName];
+	//	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName] ('with' 'datatype'
+	//	datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?;
 	public PredicateObjectMappingElements getPredicateObjectMappingAccess() {
 		return pPredicateObjectMapping;
 	}

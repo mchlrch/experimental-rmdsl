@@ -9,7 +9,7 @@ logical-source airport {
 		id "id"
 		stop "stop"
 		latitude "latitude"
-		longitude " longitude"
+		longitude "longitude"
 	}
 }
 
@@ -19,7 +19,7 @@ map AirportMapping from airport {
 	types transit.Stop
 	
 	properties
-	transit.route from stop
+	transit.route from stop with datatype int
 	wgs84_pos.lat from latitude
 	wgs84_pos.long from longitude	
 }

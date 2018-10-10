@@ -79,6 +79,13 @@ PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/> .
     ];
     
     rr:predicateObjectMap [
+    	rr:predicate skos:prefLabel;
+    	rr:objectMap [
+    		rr:column "DESCRIPTOR";
+    		rr:language "de"
+    	]
+    ];
+    rr:predicateObjectMap [
     	rr:predicate skos:notation;
     	rr:objectMap [
     		rr:column "DESC_ID";

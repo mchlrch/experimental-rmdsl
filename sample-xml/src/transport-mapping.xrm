@@ -13,6 +13,11 @@ logical-source transport {
 	}	
 }
 
+datatypes {
+	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#";
+	int
+}
+
 vocabulary transit {
 	prefix "transit:" "http://vocab.org/transit/terms/";	
 	classes Stop;
@@ -30,6 +35,6 @@ map TransportMapping from transport {
 	types transit.Stop
 		
 	properties
-	transit.stop from stopId
+	transit.stop from stopId with datatype int 
 	rdfs.label from stop	
 }

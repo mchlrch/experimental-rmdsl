@@ -102,6 +102,36 @@ public class RdfMappingSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RdfMappingPackage.DATATYPES_DEFINITION:
+      {
+        DatatypesDefinition datatypesDefinition = (DatatypesDefinition)theEObject;
+        T result = caseDatatypesDefinition(datatypesDefinition);
+        if (result == null) result = caseElement(datatypesDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.DATATYPE:
+      {
+        Datatype datatype = (Datatype)theEObject;
+        T result = caseDatatype(datatype);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.LANGUAGE_TAG_DEFINITION:
+      {
+        LanguageTagDefinition languageTagDefinition = (LanguageTagDefinition)theEObject;
+        T result = caseLanguageTagDefinition(languageTagDefinition);
+        if (result == null) result = caseElement(languageTagDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.LANGUAGE_TAG:
+      {
+        LanguageTag languageTag = (LanguageTag)theEObject;
+        T result = caseLanguageTag(languageTag);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RdfMappingPackage.SOURCE_GROUP:
       {
         SourceGroup sourceGroup = (SourceGroup)theEObject;
@@ -248,6 +278,70 @@ public class RdfMappingSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSourceType(SourceType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Datatypes Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Datatypes Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDatatypesDefinition(DatatypesDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Datatype</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Datatype</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDatatype(Datatype object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Language Tag Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Language Tag Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLanguageTagDefinition(LanguageTagDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Language Tag</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Language Tag</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLanguageTag(LanguageTag object)
   {
     return null;
   }

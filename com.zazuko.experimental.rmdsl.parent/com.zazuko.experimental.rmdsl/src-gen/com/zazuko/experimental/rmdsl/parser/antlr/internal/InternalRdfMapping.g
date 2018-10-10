@@ -113,56 +113,74 @@ ruleElement returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getImportParserRuleCall_0());
+			newCompositeNode(grammarAccess.getElementAccess().getSourceGroupParserRuleCall_0());
 		}
-		this_Import_0=ruleImport
+		this_SourceGroup_0=ruleSourceGroup
 		{
-			$current = $this_Import_0.current;
+			$current = $this_SourceGroup_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getSourceTypesDefinitionParserRuleCall_1());
+			newCompositeNode(grammarAccess.getElementAccess().getLogicalSourceParserRuleCall_1());
 		}
-		this_SourceTypesDefinition_1=ruleSourceTypesDefinition
+		this_LogicalSource_1=ruleLogicalSource
 		{
-			$current = $this_SourceTypesDefinition_1.current;
+			$current = $this_LogicalSource_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getSourceGroupParserRuleCall_2());
+			newCompositeNode(grammarAccess.getElementAccess().getVocabularyParserRuleCall_2());
 		}
-		this_SourceGroup_2=ruleSourceGroup
+		this_Vocabulary_2=ruleVocabulary
 		{
-			$current = $this_SourceGroup_2.current;
+			$current = $this_Vocabulary_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getLogicalSourceParserRuleCall_3());
+			newCompositeNode(grammarAccess.getElementAccess().getMappingParserRuleCall_3());
 		}
-		this_LogicalSource_3=ruleLogicalSource
+		this_Mapping_3=ruleMapping
 		{
-			$current = $this_LogicalSource_3.current;
+			$current = $this_Mapping_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getVocabularyParserRuleCall_4());
+			newCompositeNode(grammarAccess.getElementAccess().getImportParserRuleCall_4());
 		}
-		this_Vocabulary_4=ruleVocabulary
+		this_Import_4=ruleImport
 		{
-			$current = $this_Vocabulary_4.current;
+			$current = $this_Import_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getMappingParserRuleCall_5());
+			newCompositeNode(grammarAccess.getElementAccess().getSourceTypesDefinitionParserRuleCall_5());
 		}
-		this_Mapping_5=ruleMapping
+		this_SourceTypesDefinition_5=ruleSourceTypesDefinition
 		{
-			$current = $this_Mapping_5.current;
+			$current = $this_SourceTypesDefinition_5.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getElementAccess().getDatatypesDefinitionParserRuleCall_6());
+		}
+		this_DatatypesDefinition_6=ruleDatatypesDefinition
+		{
+			$current = $this_DatatypesDefinition_6.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getElementAccess().getLanguageTagDefinitionParserRuleCall_7());
+		}
+		this_LanguageTagDefinition_7=ruleLanguageTagDefinition
+		{
+			$current = $this_LanguageTagDefinition_7.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -280,6 +298,209 @@ ruleSourceType returns [EObject current=null]
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
+		)
+	)
+;
+
+// Entry rule entryRuleDatatypesDefinition
+entryRuleDatatypesDefinition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDatatypesDefinitionRule()); }
+	iv_ruleDatatypesDefinition=ruleDatatypesDefinition
+	{ $current=$iv_ruleDatatypesDefinition.current; }
+	EOF;
+
+// Rule DatatypesDefinition
+ruleDatatypesDefinition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getDatatypesDefinitionAccess().getDatatypesDefinitionAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='datatypes'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDatatypesDefinitionAccess().getDatatypesKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDatatypesDefinitionAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDatatypesDefinitionAccess().getPrefixPrefixParserRuleCall_3_0());
+				}
+				lv_prefix_3_0=rulePrefix
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDatatypesDefinitionRule());
+					}
+					set(
+						$current,
+						"prefix",
+						lv_prefix_3_0,
+						"com.zazuko.experimental.rmdsl.RdfMapping.Prefix");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDatatypesDefinitionAccess().getTypesDatatypeParserRuleCall_4_0());
+				}
+				lv_types_4_0=ruleDatatype
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDatatypesDefinitionRule());
+					}
+					add(
+						$current,
+						"types",
+						lv_types_4_0,
+						"com.zazuko.experimental.rmdsl.RdfMapping.Datatype");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getDatatypesDefinitionAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleDatatype
+entryRuleDatatype returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDatatypeRule()); }
+	iv_ruleDatatype=ruleDatatype
+	{ $current=$iv_ruleDatatype.current; }
+	EOF;
+
+// Rule Datatype
+ruleDatatype returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getDatatypeAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getDatatypeRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleLanguageTagDefinition
+entryRuleLanguageTagDefinition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLanguageTagDefinitionRule()); }
+	iv_ruleLanguageTagDefinition=ruleLanguageTagDefinition
+	{ $current=$iv_ruleLanguageTagDefinition.current; }
+	EOF;
+
+// Rule LanguageTagDefinition
+ruleLanguageTagDefinition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getLanguageTagDefinitionAccess().getLanguageTagDefinitionAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='language-tags'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getLanguageTagDefinitionAccess().getLanguageTagsKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getLanguageTagDefinitionAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLanguageTagDefinitionAccess().getLanguageTagsLanguageTagParserRuleCall_3_0());
+				}
+				lv_languageTags_3_0=ruleLanguageTag
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLanguageTagDefinitionRule());
+					}
+					add(
+						$current,
+						"languageTags",
+						lv_languageTags_3_0,
+						"com.zazuko.experimental.rmdsl.RdfMapping.LanguageTag");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getLanguageTagDefinitionAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleLanguageTag
+entryRuleLanguageTag returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLanguageTagRule()); }
+	iv_ruleLanguageTag=ruleLanguageTag
+	{ $current=$iv_ruleLanguageTag.current; }
+	EOF;
+
+// Rule LanguageTag
+ruleLanguageTag returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getLanguageTagAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getLanguageTagRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
 		)
 	)
 ;
@@ -1124,6 +1345,55 @@ rulePredicateObjectMapping returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				otherlv_3='with'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getPredicateObjectMappingAccess().getWithKeyword_3_0_0());
+				}
+				otherlv_4='datatype'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getPredicateObjectMappingAccess().getDatatypeKeyword_3_0_1());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getPredicateObjectMappingRule());
+							}
+						}
+						otherlv_5=RULE_ID
+						{
+							newLeafNode(otherlv_5, grammarAccess.getPredicateObjectMappingAccess().getDatatypeDatatypeCrossReference_3_0_2_0());
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_6='with'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getPredicateObjectMappingAccess().getWithKeyword_3_1_0());
+				}
+				otherlv_7='language-tag'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getPredicateObjectMappingAccess().getLanguageTagKeyword_3_1_1());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getPredicateObjectMappingRule());
+							}
+						}
+						otherlv_8=RULE_ID
+						{
+							newLeafNode(otherlv_8, grammarAccess.getPredicateObjectMappingAccess().getLanguageTagLanguageTagCrossReference_3_1_2_0());
+						}
+					)
+				)
+			)
+		)?
 	)
 ;
 

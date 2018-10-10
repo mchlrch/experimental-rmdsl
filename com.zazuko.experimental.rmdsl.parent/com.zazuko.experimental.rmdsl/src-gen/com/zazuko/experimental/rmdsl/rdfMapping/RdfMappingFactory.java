@@ -60,6 +60,42 @@ public interface RdfMappingFactory extends EFactory
   SourceType createSourceType();
 
   /**
+   * Returns a new object of class '<em>Datatypes Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Datatypes Definition</em>'.
+   * @generated
+   */
+  DatatypesDefinition createDatatypesDefinition();
+
+  /**
+   * Returns a new object of class '<em>Datatype</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Datatype</em>'.
+   * @generated
+   */
+  Datatype createDatatype();
+
+  /**
+   * Returns a new object of class '<em>Language Tag Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Language Tag Definition</em>'.
+   * @generated
+   */
+  LanguageTagDefinition createLanguageTagDefinition();
+
+  /**
+   * Returns a new object of class '<em>Language Tag</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Language Tag</em>'.
+   * @generated
+   */
+  LanguageTag createLanguageTag();
+
+  /**
    * Returns a new object of class '<em>Source Group</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -3,9 +3,13 @@
  */
 package com.zazuko.experimental.rmdsl.rdfMapping.impl;
 
+import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
+import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition;
 import com.zazuko.experimental.rmdsl.rdfMapping.Domainmodel;
 import com.zazuko.experimental.rmdsl.rdfMapping.Element;
 import com.zazuko.experimental.rmdsl.rdfMapping.Import;
+import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
+import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition;
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
@@ -63,6 +67,34 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * @generated
    */
   private EClass sourceTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass datatypesDefinitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass datatypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass languageTagDefinitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass languageTagEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -282,6 +314,96 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
   public EAttribute getSourceType_ReferenceFormulation()
   {
     return (EAttribute)sourceTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDatatypesDefinition()
+  {
+    return datatypesDefinitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDatatypesDefinition_Prefix()
+  {
+    return (EReference)datatypesDefinitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDatatypesDefinition_Types()
+  {
+    return (EReference)datatypesDefinitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDatatype()
+  {
+    return datatypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDatatype_Name()
+  {
+    return (EAttribute)datatypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLanguageTagDefinition()
+  {
+    return languageTagDefinitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLanguageTagDefinition_LanguageTags()
+  {
+    return (EReference)languageTagDefinitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLanguageTag()
+  {
+    return languageTagEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLanguageTag_Name()
+  {
+    return (EAttribute)languageTagEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -669,6 +791,26 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPredicateObjectMapping_Datatype()
+  {
+    return (EReference)predicateObjectMappingEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPredicateObjectMapping_LanguageTag()
+  {
+    return (EReference)predicateObjectMappingEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getImport()
   {
     return importEClass;
@@ -726,6 +868,19 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     createEAttribute(sourceTypeEClass, SOURCE_TYPE__NAME);
     createEAttribute(sourceTypeEClass, SOURCE_TYPE__REFERENCE_FORMULATION);
 
+    datatypesDefinitionEClass = createEClass(DATATYPES_DEFINITION);
+    createEReference(datatypesDefinitionEClass, DATATYPES_DEFINITION__PREFIX);
+    createEReference(datatypesDefinitionEClass, DATATYPES_DEFINITION__TYPES);
+
+    datatypeEClass = createEClass(DATATYPE);
+    createEAttribute(datatypeEClass, DATATYPE__NAME);
+
+    languageTagDefinitionEClass = createEClass(LANGUAGE_TAG_DEFINITION);
+    createEReference(languageTagDefinitionEClass, LANGUAGE_TAG_DEFINITION__LANGUAGE_TAGS);
+
+    languageTagEClass = createEClass(LANGUAGE_TAG);
+    createEAttribute(languageTagEClass, LANGUAGE_TAG__NAME);
+
     sourceGroupEClass = createEClass(SOURCE_GROUP);
     createEAttribute(sourceGroupEClass, SOURCE_GROUP__NAME);
     createEReference(sourceGroupEClass, SOURCE_GROUP__TYPE);
@@ -773,6 +928,8 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     predicateObjectMappingEClass = createEClass(PREDICATE_OBJECT_MAPPING);
     createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__PROPERTY);
     createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__REFERENCE);
+    createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__DATATYPE);
+    createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
@@ -808,6 +965,8 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
 
     // Add supertypes to classes
     sourceTypesDefinitionEClass.getESuperTypes().add(this.getElement());
+    datatypesDefinitionEClass.getESuperTypes().add(this.getElement());
+    languageTagDefinitionEClass.getESuperTypes().add(this.getElement());
     sourceGroupEClass.getESuperTypes().add(this.getElement());
     logicalSourceEClass.getESuperTypes().add(this.getElement());
     vocabularyEClass.getESuperTypes().add(this.getElement());
@@ -826,6 +985,19 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     initEClass(sourceTypeEClass, SourceType.class, "SourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSourceType_Name(), ecorePackage.getEString(), "name", null, 0, 1, SourceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSourceType_ReferenceFormulation(), ecorePackage.getEString(), "referenceFormulation", null, 0, 1, SourceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(datatypesDefinitionEClass, DatatypesDefinition.class, "DatatypesDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDatatypesDefinition_Prefix(), this.getPrefix(), null, "prefix", null, 0, 1, DatatypesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDatatypesDefinition_Types(), this.getDatatype(), null, "types", null, 0, -1, DatatypesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(datatypeEClass, Datatype.class, "Datatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDatatype_Name(), ecorePackage.getEString(), "name", null, 0, 1, Datatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(languageTagDefinitionEClass, LanguageTagDefinition.class, "LanguageTagDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLanguageTagDefinition_LanguageTags(), this.getLanguageTag(), null, "languageTags", null, 0, -1, LanguageTagDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(languageTagEClass, LanguageTag.class, "LanguageTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLanguageTag_Name(), ecorePackage.getEString(), "name", null, 0, 1, LanguageTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sourceGroupEClass, SourceGroup.class, "SourceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSourceGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, SourceGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -874,6 +1046,8 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     initEClass(predicateObjectMappingEClass, PredicateObjectMapping.class, "PredicateObjectMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPredicateObjectMapping_Property(), this.getRdfProperty(), null, "property", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPredicateObjectMapping_Reference(), this.getReferenceable(), null, "reference", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPredicateObjectMapping_Datatype(), this.getDatatype(), null, "datatype", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPredicateObjectMapping_LanguageTag(), this.getLanguageTag(), null, "languageTag", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

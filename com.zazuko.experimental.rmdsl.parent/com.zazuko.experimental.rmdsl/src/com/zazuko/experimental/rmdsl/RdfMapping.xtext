@@ -6,7 +6,8 @@ Domainmodel :
     (elements+=Element)*;
   
 Element:
-    Import | SourceTypesDefinition | SourceGroup | LogicalSource | Vocabulary | Mapping;
+    SourceGroup | LogicalSource | Vocabulary | Mapping | Import |
+    SourceTypesDefinition |  DatatypesDefinition | LanguageTagDefinition ;
 
 SourceTypesDefinition: {SourceTypesDefinition}
 	'source-types' '{'
@@ -15,6 +16,23 @@ SourceTypesDefinition: {SourceTypesDefinition}
 
 SourceType:
 	name=ID 'referenceFormulation' referenceFormulation=STRING;
+	
+DatatypesDefinition: {DatatypesDefinition}
+	'datatypes' '{'
+		prefix=Prefix
+		(types+=Datatype)*
+	'}';
+	
+Datatype:
+	name=ID;
+	
+LanguageTagDefinition: {LanguageTagDefinition}
+	'language-tags' '{'
+		(languageTags+=LanguageTag)*
+	'}';
+	
+LanguageTag:
+	name=ID;
   
 SourceGroup:
     'source-group' name=ID '{'
@@ -63,7 +81,8 @@ SubjectTypeMapping:
 	type=[RdfClass|QualifiedName];
 
 PredicateObjectMapping:	
-	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName];
+	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName]
+	('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?;
 	
 Import:
     'import' importedNamespace=QualifiedNameWithWildcard;

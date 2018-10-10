@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getProperty <em>Property</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getReference <em>Reference</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getLanguageTag <em>Language Tag</em>}</li>
  * </ul>
  *
  * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getPredicateObjectMapping()
@@ -75,5 +77,57 @@ public interface PredicateObjectMapping extends EObject
    * @generated
    */
   void setReference(Referenceable value);
+
+  /**
+   * Returns the value of the '<em><b>Datatype</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Datatype</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Datatype</em>' reference.
+   * @see #setDatatype(Datatype)
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getPredicateObjectMapping_Datatype()
+   * @model
+   * @generated
+   */
+  Datatype getDatatype();
+
+  /**
+   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getDatatype <em>Datatype</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Datatype</em>' reference.
+   * @see #getDatatype()
+   * @generated
+   */
+  void setDatatype(Datatype value);
+
+  /**
+   * Returns the value of the '<em><b>Language Tag</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Language Tag</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Language Tag</em>' reference.
+   * @see #setLanguageTag(LanguageTag)
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getPredicateObjectMapping_LanguageTag()
+   * @model
+   * @generated
+   */
+  LanguageTag getLanguageTag();
+
+  /**
+   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getLanguageTag <em>Language Tag</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Language Tag</em>' reference.
+   * @see #getLanguageTag()
+   * @generated
+   */
+  void setLanguageTag(LanguageTag value);
 
 } // PredicateObjectMapping

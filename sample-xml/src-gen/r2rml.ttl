@@ -18,6 +18,7 @@ PREFIX transit: <http://vocab.org/transit/terms/> .
     	rr:predicate transit:stop;
     	rr:objectMap [
     		rr:column "/transport/bus/route/stop@id";
+    		rr:datatype xsd:int				
     	]
     ];
     rr:predicateObjectMap [

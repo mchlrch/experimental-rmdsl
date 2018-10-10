@@ -26,5 +26,6 @@ map Concept from WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS {
 	types skos.Concept
 	
 	properties
+	skos.prefLabel from DESCRIPTOR with language-tag de
 	skos.notation from ID
 }

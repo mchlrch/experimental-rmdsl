@@ -17,6 +17,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//SourceType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//SourceType/referenceFormulation"/>
     </genClasses>
+    <genClasses ecoreClass="RdfMapping.ecore#//DatatypesDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//DatatypesDefinition/prefix"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//DatatypesDefinition/types"/>
+    </genClasses>
+    <genClasses ecoreClass="RdfMapping.ecore#//Datatype">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//Datatype/name"/>
+    </genClasses>
+    <genClasses ecoreClass="RdfMapping.ecore#//LanguageTagDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//LanguageTagDefinition/languageTags"/>
+    </genClasses>
+    <genClasses ecoreClass="RdfMapping.ecore#//LanguageTag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//LanguageTag/name"/>
+    </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//SourceGroup">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//SourceGroup/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//SourceGroup/type"/>
@@ -64,6 +77,8 @@
     <genClasses ecoreClass="RdfMapping.ecore#//PredicateObjectMapping">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//PredicateObjectMapping/property"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//PredicateObjectMapping/reference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//PredicateObjectMapping/datatype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//PredicateObjectMapping/languageTag"/>
     </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//Import/importedNamespace"/>

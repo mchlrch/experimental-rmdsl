@@ -5,9 +5,13 @@ package com.zazuko.experimental.rmdsl.generator;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
+import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
+import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition;
+import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup;
@@ -220,8 +224,9 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("// TODO: rr:datatype xsd:FOO");
-    _builder.newLine();
+    CharSequence _termMapAnnex = this.termMapAnnex(pom);
+    _builder.append(_termMapAnnex, "\t\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("]");
     _builder.newLine();
@@ -251,11 +256,43 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(_value, "\t\t");
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    CharSequence _termMapAnnex = this.termMapAnnex(pom);
+    _builder.append(_termMapAnnex, "\t\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("]");
     _builder.newLine();
     _builder.append("];");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence termMapAnnex(final PredicateObjectMapping pom) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      LanguageTag _languageTag = pom.getLanguageTag();
+      boolean _tripleNotEquals = (_languageTag != null);
+      if (_tripleNotEquals) {
+        _builder.append("rr:language \"");
+        String _name = pom.getLanguageTag().getName();
+        _builder.append(_name);
+        _builder.append("\"");
+        _builder.newLineIfNotEmpty();
+      } else {
+        Datatype _datatype = pom.getDatatype();
+        boolean _tripleNotEquals_1 = (_datatype != null);
+        if (_tripleNotEquals_1) {
+          _builder.append("rr:datatype ");
+          String _label = this.prefix(pom.getDatatype()).getLabel();
+          _builder.append(_label);
+          String _name_1 = pom.getDatatype().getName();
+          _builder.append(_name_1);
+          _builder.append("\t\t\t\t");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
     return _builder;
   }
   
@@ -357,5 +394,10 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(_iri);
     _builder.append("> .");
     return _builder;
+  }
+  
+  public Prefix prefix(final Datatype it) {
+    EObject _eContainer = it.eContainer();
+    return ((DatatypesDefinition) _eContainer).getPrefix();
   }
 }

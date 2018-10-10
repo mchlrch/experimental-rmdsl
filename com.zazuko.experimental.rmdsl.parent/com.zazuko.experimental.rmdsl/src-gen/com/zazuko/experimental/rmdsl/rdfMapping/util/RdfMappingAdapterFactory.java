@@ -96,6 +96,26 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
         return createSourceTypeAdapter();
       }
       @Override
+      public Adapter caseDatatypesDefinition(DatatypesDefinition object)
+      {
+        return createDatatypesDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseDatatype(Datatype object)
+      {
+        return createDatatypeAdapter();
+      }
+      @Override
+      public Adapter caseLanguageTagDefinition(LanguageTagDefinition object)
+      {
+        return createLanguageTagDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseLanguageTag(LanguageTag object)
+      {
+        return createLanguageTagAdapter();
+      }
+      @Override
       public Adapter caseSourceGroup(SourceGroup object)
       {
         return createSourceGroupAdapter();
@@ -228,6 +248,66 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSourceTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition <em>Datatypes Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition
+   * @generated
+   */
+  public Adapter createDatatypesDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Datatype <em>Datatype</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Datatype
+   * @generated
+   */
+  public Adapter createDatatypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition <em>Language Tag Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition
+   * @generated
+   */
+  public Adapter createLanguageTagDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag <em>Language Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag
+   * @generated
+   */
+  public Adapter createLanguageTagAdapter()
   {
     return null;
   }

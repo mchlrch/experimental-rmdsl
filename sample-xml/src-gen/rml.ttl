@@ -22,13 +22,12 @@ PREFIX transit: <http://vocab.org/transit/terms/> .
 		rr:predicate transit:stop;
 		rr:objectMap [
 			rml:reference "/transport/bus/route/stop@id";
-			// TODO: rr:datatype xsd:FOO
+			rr:datatype xsd:int				
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
 		rr:objectMap [
 			rml:reference "/transport/bus/route/stop";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];

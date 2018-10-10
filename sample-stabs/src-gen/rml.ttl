@@ -24,63 +24,54 @@ PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/> .
 		rr:predicate skos:notation;
 		rr:objectMap [
 			rml:reference "RIC_P17";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:title;
 		rr:objectMap [
 			rml:reference "RIC_P3";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:scopeAndContent;
 		rr:objectMap [
 			rml:reference "RIC_P4_CONTENT";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:contentType;
 		rr:objectMap [
 			rml:reference "RIC_P6";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:qualityOfInformation;
 		rr:objectMap [
 			rml:reference "RIC_P8";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:date;
 		rr:objectMap [
 			rml:reference "RIC_P9";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:characteristic_Physical;
 		rr:objectMap [
 			rml:reference "RIC_P16";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate stabs:approval;
 		rr:objectMap [
 			rml:reference "RIC_P18_APPROVAL";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate stabs:retentionPeriod;
 		rr:objectMap [
 			rml:reference "RIC_P18_RETENTION_PERIOD";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];
 
@@ -96,9 +87,15 @@ PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/> .
 	];
 
 	rr:predicateObjectMap [
+		rr:predicate skos:prefLabel;
+		rr:objectMap [
+			rml:reference "DESCRIPTOR";
+			rr:language "de"
+		]
+	];
+	rr:predicateObjectMap [
 		rr:predicate skos:notation;
 		rr:objectMap [
 			rml:reference "DESC_ID";
-			// TODO: rr:datatype xsd:FOO
 		]
 	];

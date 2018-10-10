@@ -69,6 +69,10 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
       case RdfMappingPackage.ELEMENT: return createElement();
       case RdfMappingPackage.SOURCE_TYPES_DEFINITION: return createSourceTypesDefinition();
       case RdfMappingPackage.SOURCE_TYPE: return createSourceType();
+      case RdfMappingPackage.DATATYPES_DEFINITION: return createDatatypesDefinition();
+      case RdfMappingPackage.DATATYPE: return createDatatype();
+      case RdfMappingPackage.LANGUAGE_TAG_DEFINITION: return createLanguageTagDefinition();
+      case RdfMappingPackage.LANGUAGE_TAG: return createLanguageTag();
       case RdfMappingPackage.SOURCE_GROUP: return createSourceGroup();
       case RdfMappingPackage.LOGICAL_SOURCE: return createLogicalSource();
       case RdfMappingPackage.REFERENCEABLE: return createReferenceable();
@@ -127,6 +131,50 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
   {
     SourceTypeImpl sourceType = new SourceTypeImpl();
     return sourceType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DatatypesDefinition createDatatypesDefinition()
+  {
+    DatatypesDefinitionImpl datatypesDefinition = new DatatypesDefinitionImpl();
+    return datatypesDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Datatype createDatatype()
+  {
+    DatatypeImpl datatype = new DatatypeImpl();
+    return datatype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LanguageTagDefinition createLanguageTagDefinition()
+  {
+    LanguageTagDefinitionImpl languageTagDefinition = new LanguageTagDefinitionImpl();
+    return languageTagDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LanguageTag createLanguageTag()
+  {
+    LanguageTagImpl languageTag = new LanguageTagImpl();
+    return languageTag;
   }
 
   /**

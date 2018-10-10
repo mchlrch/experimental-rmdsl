@@ -4,8 +4,12 @@
 package com.zazuko.experimental.rmdsl.serializer;
 
 import com.google.inject.Inject;
+import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
+import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition;
 import com.zazuko.experimental.rmdsl.rdfMapping.Domainmodel;
 import com.zazuko.experimental.rmdsl.rdfMapping.Import;
+import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
+import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition;
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
@@ -45,11 +49,23 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == RdfMappingPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case RdfMappingPackage.DATATYPE:
+				sequence_Datatype(context, (Datatype) semanticObject); 
+				return; 
+			case RdfMappingPackage.DATATYPES_DEFINITION:
+				sequence_DatatypesDefinition(context, (DatatypesDefinition) semanticObject); 
+				return; 
 			case RdfMappingPackage.DOMAINMODEL:
 				sequence_Domainmodel(context, (Domainmodel) semanticObject); 
 				return; 
 			case RdfMappingPackage.IMPORT:
 				sequence_Import(context, (Import) semanticObject); 
+				return; 
+			case RdfMappingPackage.LANGUAGE_TAG:
+				sequence_LanguageTag(context, (LanguageTag) semanticObject); 
+				return; 
+			case RdfMappingPackage.LANGUAGE_TAG_DEFINITION:
+				sequence_LanguageTagDefinition(context, (LanguageTagDefinition) semanticObject); 
 				return; 
 			case RdfMappingPackage.LOGICAL_SOURCE:
 				sequence_LogicalSource(context, (LogicalSource) semanticObject); 
@@ -94,6 +110,37 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Datatype returns Datatype
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Datatype(ISerializationContext context, Datatype semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.DATATYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.DATATYPE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDatatypeAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Element returns DatatypesDefinition
+	 *     DatatypesDefinition returns DatatypesDefinition
+	 *
+	 * Constraint:
+	 *     (prefix=Prefix types+=Datatype*)
+	 */
+	protected void sequence_DatatypesDefinition(ISerializationContext context, DatatypesDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Domainmodel returns Domainmodel
 	 *
 	 * Constraint:
@@ -119,6 +166,37 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Element returns LanguageTagDefinition
+	 *     LanguageTagDefinition returns LanguageTagDefinition
+	 *
+	 * Constraint:
+	 *     languageTags+=LanguageTag*
+	 */
+	protected void sequence_LanguageTagDefinition(ISerializationContext context, LanguageTagDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LanguageTag returns LanguageTag
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_LanguageTag(ISerializationContext context, LanguageTag semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.LANGUAGE_TAG__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.LANGUAGE_TAG__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLanguageTagAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -161,19 +239,10 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PredicateObjectMapping returns PredicateObjectMapping
 	 *
 	 * Constraint:
-	 *     (property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName])
+	 *     (property=[RdfProperty|QualifiedName] reference=[Referenceable|QualifiedName] (datatype=[Datatype|ID] | languageTag=[LanguageTag|ID])?)
 	 */
 	protected void sequence_PredicateObjectMapping(ISerializationContext context, PredicateObjectMapping semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__PROPERTY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__PROPERTY));
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__REFERENCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__REFERENCE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPredicateObjectMappingAccess().getPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__PROPERTY, false));
-		feeder.accept(grammarAccess.getPredicateObjectMappingAccess().getReferenceReferenceableQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.PREDICATE_OBJECT_MAPPING__REFERENCE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

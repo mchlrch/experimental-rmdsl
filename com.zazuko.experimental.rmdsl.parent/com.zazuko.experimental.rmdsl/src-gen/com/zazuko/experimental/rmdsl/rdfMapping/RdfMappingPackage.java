@@ -170,6 +170,127 @@ public interface RdfMappingPackage extends EPackage
   int SOURCE_TYPE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypesDefinitionImpl <em>Datatypes Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypesDefinitionImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getDatatypesDefinition()
+   * @generated
+   */
+  int DATATYPES_DEFINITION = 4;
+
+  /**
+   * The feature id for the '<em><b>Prefix</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATATYPES_DEFINITION__PREFIX = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATATYPES_DEFINITION__TYPES = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Datatypes Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATATYPES_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypeImpl <em>Datatype</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypeImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getDatatype()
+   * @generated
+   */
+  int DATATYPE = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATATYPE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Datatype</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATATYPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LanguageTagDefinitionImpl <em>Language Tag Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.LanguageTagDefinitionImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getLanguageTagDefinition()
+   * @generated
+   */
+  int LANGUAGE_TAG_DEFINITION = 6;
+
+  /**
+   * The feature id for the '<em><b>Language Tags</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LANGUAGE_TAG_DEFINITION__LANGUAGE_TAGS = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Language Tag Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LANGUAGE_TAG_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LanguageTagImpl <em>Language Tag</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.LanguageTagImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getLanguageTag()
+   * @generated
+   */
+  int LANGUAGE_TAG = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LANGUAGE_TAG__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Language Tag</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LANGUAGE_TAG_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.SourceGroupImpl <em>Source Group</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -177,7 +298,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getSourceGroup()
    * @generated
    */
-  int SOURCE_GROUP = 4;
+  int SOURCE_GROUP = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -232,7 +353,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getLogicalSource()
    * @generated
    */
-  int LOGICAL_SOURCE = 5;
+  int LOGICAL_SOURCE = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -296,7 +417,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getReferenceable()
    * @generated
    */
-  int REFERENCEABLE = 6;
+  int REFERENCEABLE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -333,7 +454,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getVocabulary()
    * @generated
    */
-  int VOCABULARY = 7;
+  int VOCABULARY = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -388,7 +509,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPrefix()
    * @generated
    */
-  int PREFIX = 8;
+  int PREFIX = 12;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -425,7 +546,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getRdfProperty()
    * @generated
    */
-  int RDF_PROPERTY = 9;
+  int RDF_PROPERTY = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -453,7 +574,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getRdfClass()
    * @generated
    */
-  int RDF_CLASS = 10;
+  int RDF_CLASS = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -481,7 +602,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getMapping()
    * @generated
    */
-  int MAPPING = 11;
+  int MAPPING = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -554,7 +675,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getSubjectTypeMapping()
    * @generated
    */
-  int SUBJECT_TYPE_MAPPING = 12;
+  int SUBJECT_TYPE_MAPPING = 16;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -582,7 +703,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPredicateObjectMapping()
    * @generated
    */
-  int PREDICATE_OBJECT_MAPPING = 13;
+  int PREDICATE_OBJECT_MAPPING = 17;
 
   /**
    * The feature id for the '<em><b>Property</b></em>' reference.
@@ -603,13 +724,31 @@ public interface RdfMappingPackage extends EPackage
   int PREDICATE_OBJECT_MAPPING__REFERENCE = 1;
 
   /**
+   * The feature id for the '<em><b>Datatype</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE_OBJECT_MAPPING__DATATYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Language Tag</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG = 3;
+
+  /**
    * The number of structural features of the '<em>Predicate Object Mapping</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PREDICATE_OBJECT_MAPPING_FEATURE_COUNT = 2;
+  int PREDICATE_OBJECT_MAPPING_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.
@@ -619,7 +758,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getImport()
    * @generated
    */
-  int IMPORT = 14;
+  int IMPORT = 18;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -723,6 +862,101 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    */
   EAttribute getSourceType_ReferenceFormulation();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition <em>Datatypes Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Datatypes Definition</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition
+   * @generated
+   */
+  EClass getDatatypesDefinition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getPrefix <em>Prefix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Prefix</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getPrefix()
+   * @see #getDatatypesDefinition()
+   * @generated
+   */
+  EReference getDatatypesDefinition_Prefix();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getTypes <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Types</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getTypes()
+   * @see #getDatatypesDefinition()
+   * @generated
+   */
+  EReference getDatatypesDefinition_Types();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Datatype <em>Datatype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Datatype</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Datatype
+   * @generated
+   */
+  EClass getDatatype();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.Datatype#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Datatype#getName()
+   * @see #getDatatype()
+   * @generated
+   */
+  EAttribute getDatatype_Name();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition <em>Language Tag Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Language Tag Definition</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition
+   * @generated
+   */
+  EClass getLanguageTagDefinition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition#getLanguageTags <em>Language Tags</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Language Tags</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition#getLanguageTags()
+   * @see #getLanguageTagDefinition()
+   * @generated
+   */
+  EReference getLanguageTagDefinition_LanguageTags();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag <em>Language Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Language Tag</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag
+   * @generated
+   */
+  EClass getLanguageTag();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag#getName()
+   * @see #getLanguageTag()
+   * @generated
+   */
+  EAttribute getLanguageTag_Name();
 
   /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup <em>Source Group</em>}'.
@@ -1133,6 +1367,28 @@ public interface RdfMappingPackage extends EPackage
   EReference getPredicateObjectMapping_Reference();
 
   /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getDatatype <em>Datatype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Datatype</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getDatatype()
+   * @see #getPredicateObjectMapping()
+   * @generated
+   */
+  EReference getPredicateObjectMapping_Datatype();
+
+  /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getLanguageTag <em>Language Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Language Tag</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getLanguageTag()
+   * @see #getPredicateObjectMapping()
+   * @generated
+   */
+  EReference getPredicateObjectMapping_LanguageTag();
+
+  /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1247,6 +1503,86 @@ public interface RdfMappingPackage extends EPackage
      * @generated
      */
     EAttribute SOURCE_TYPE__REFERENCE_FORMULATION = eINSTANCE.getSourceType_ReferenceFormulation();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypesDefinitionImpl <em>Datatypes Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypesDefinitionImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getDatatypesDefinition()
+     * @generated
+     */
+    EClass DATATYPES_DEFINITION = eINSTANCE.getDatatypesDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Prefix</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATATYPES_DEFINITION__PREFIX = eINSTANCE.getDatatypesDefinition_Prefix();
+
+    /**
+     * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATATYPES_DEFINITION__TYPES = eINSTANCE.getDatatypesDefinition_Types();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypeImpl <em>Datatype</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypeImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getDatatype()
+     * @generated
+     */
+    EClass DATATYPE = eINSTANCE.getDatatype();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATATYPE__NAME = eINSTANCE.getDatatype_Name();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LanguageTagDefinitionImpl <em>Language Tag Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.LanguageTagDefinitionImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getLanguageTagDefinition()
+     * @generated
+     */
+    EClass LANGUAGE_TAG_DEFINITION = eINSTANCE.getLanguageTagDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Language Tags</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LANGUAGE_TAG_DEFINITION__LANGUAGE_TAGS = eINSTANCE.getLanguageTagDefinition_LanguageTags();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LanguageTagImpl <em>Language Tag</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.LanguageTagImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getLanguageTag()
+     * @generated
+     */
+    EClass LANGUAGE_TAG = eINSTANCE.getLanguageTag();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LANGUAGE_TAG__NAME = eINSTANCE.getLanguageTag_Name();
 
     /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.SourceGroupImpl <em>Source Group</em>}' class.
@@ -1571,6 +1907,22 @@ public interface RdfMappingPackage extends EPackage
      * @generated
      */
     EReference PREDICATE_OBJECT_MAPPING__REFERENCE = eINSTANCE.getPredicateObjectMapping_Reference();
+
+    /**
+     * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PREDICATE_OBJECT_MAPPING__DATATYPE = eINSTANCE.getPredicateObjectMapping_Datatype();
+
+    /**
+     * The meta object literal for the '<em><b>Language Tag</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG = eINSTANCE.getPredicateObjectMapping_LanguageTag();
 
     /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.

@@ -18,6 +18,7 @@ PREFIX wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
     	rr:predicate transit:route;
     	rr:objectMap [
     		rr:column "stop";
+    		rr:datatype xsd:int				
     	]
     ];
     rr:predicateObjectMap [
@@ -29,6 +30,6 @@ PREFIX wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
     rr:predicateObjectMap [
     	rr:predicate wgs84_pos:long;
     	rr:objectMap [
-    		rr:column " longitude";
+    		rr:column "longitude";
     	]
     ];

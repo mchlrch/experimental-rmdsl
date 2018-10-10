@@ -3,6 +3,8 @@
  */
 package com.zazuko.experimental.rmdsl.rdfMapping.impl;
 
+import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
+import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
@@ -26,6 +28,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getLanguageTag <em>Language Tag</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +55,26 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
    * @ordered
    */
   protected Referenceable reference;
+
+  /**
+   * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDatatype()
+   * @generated
+   * @ordered
+   */
+  protected Datatype datatype;
+
+  /**
+   * The cached value of the '{@link #getLanguageTag() <em>Language Tag</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLanguageTag()
+   * @generated
+   * @ordered
+   */
+  protected LanguageTag languageTag;
 
   /**
    * <!-- begin-user-doc -->
@@ -164,6 +188,92 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
+  public Datatype getDatatype()
+  {
+    if (datatype != null && datatype.eIsProxy())
+    {
+      InternalEObject oldDatatype = (InternalEObject)datatype;
+      datatype = (Datatype)eResolveProxy(oldDatatype);
+      if (datatype != oldDatatype)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE, oldDatatype, datatype));
+      }
+    }
+    return datatype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Datatype basicGetDatatype()
+  {
+    return datatype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDatatype(Datatype newDatatype)
+  {
+    Datatype oldDatatype = datatype;
+    datatype = newDatatype;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE, oldDatatype, datatype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LanguageTag getLanguageTag()
+  {
+    if (languageTag != null && languageTag.eIsProxy())
+    {
+      InternalEObject oldLanguageTag = (InternalEObject)languageTag;
+      languageTag = (LanguageTag)eResolveProxy(oldLanguageTag);
+      if (languageTag != oldLanguageTag)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG, oldLanguageTag, languageTag));
+      }
+    }
+    return languageTag;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LanguageTag basicGetLanguageTag()
+  {
+    return languageTag;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLanguageTag(LanguageTag newLanguageTag)
+  {
+    LanguageTag oldLanguageTag = languageTag;
+    languageTag = newLanguageTag;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG, oldLanguageTag, languageTag));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -175,6 +285,12 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE:
         if (resolve) return getReference();
         return basicGetReference();
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE:
+        if (resolve) return getDatatype();
+        return basicGetDatatype();
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG:
+        if (resolve) return getLanguageTag();
+        return basicGetLanguageTag();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -194,6 +310,12 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
         return;
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE:
         setReference((Referenceable)newValue);
+        return;
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE:
+        setDatatype((Datatype)newValue);
+        return;
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG:
+        setLanguageTag((LanguageTag)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -215,6 +337,12 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE:
         setReference((Referenceable)null);
         return;
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE:
+        setDatatype((Datatype)null);
+        return;
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG:
+        setLanguageTag((LanguageTag)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -233,6 +361,10 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
         return property != null;
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE:
         return reference != null;
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE:
+        return datatype != null;
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG:
+        return languageTag != null;
     }
     return super.eIsSet(featureID);
   }

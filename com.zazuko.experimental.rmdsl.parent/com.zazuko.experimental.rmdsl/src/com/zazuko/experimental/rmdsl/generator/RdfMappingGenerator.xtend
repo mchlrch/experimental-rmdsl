@@ -16,6 +16,8 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import java.util.HashSet
+import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition
+import com.zazuko.experimental.rmdsl.rdfMapping.Datatype
 
 /**
  * Generates code from your model files on save.
@@ -98,7 +100,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name»;
 			rr:objectMap [
 				rml:reference "«pom.reference.value»";
-				// TODO: rr:datatype xsd:FOO
+				«pom.termMapAnnex»
 			]
 		];
 	'''
@@ -108,8 +110,17 @@ class RdfMappingGenerator extends AbstractGenerator {
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name»;
 			rr:objectMap [
 				rr:column "«pom.reference.value»";
+				«pom.termMapAnnex»
 			]
 		];
+	'''
+	
+	def termMapAnnex(PredicateObjectMapping pom) '''
+		«IF pom.languageTag !== null»
+			rr:language "«pom.languageTag.name»"
+		«ELSEIF pom.datatype !== null»
+			rr:datatype «pom.datatype.prefix.label»«pom.datatype.name»				
+		«ENDIF»		
 	'''
 	
 	def subjectIri(Mapping m) {		
@@ -156,4 +167,8 @@ class RdfMappingGenerator extends AbstractGenerator {
 		vocabularies.map[voc | voc.prefixStatement.toString].toSet.toList.sortBy[s | s];
 	}
 	def prefixStatement(Vocabulary voc) '''PREFIX «voc.prefix.label» <«voc.prefix.iri»> .'''
+	
+	def prefix(Datatype it) {
+		(eContainer as DatatypesDefinition).prefix
+	}
 }

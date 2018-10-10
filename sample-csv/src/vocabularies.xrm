@@ -1,3 +1,8 @@
+datatypes {
+	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#";
+	int
+}
+
 vocabulary transit {
 	prefix "transit:" "http://vocab.org/transit/terms/";	
 	classes Stop;
