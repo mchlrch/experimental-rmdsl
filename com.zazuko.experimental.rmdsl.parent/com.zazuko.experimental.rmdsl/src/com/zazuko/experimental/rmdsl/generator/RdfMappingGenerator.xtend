@@ -47,9 +47,9 @@ class RdfMappingGenerator extends AbstractGenerator {
 	}
 	
 	def prefixes(Iterable<Mapping> mappings) '''
-		PREFIX rr: <http://www.w3.org/ns/r2rml#> .
-		PREFIX rml: <http://semweb.mmlab.be/ns/rml#> .
-		PREFIX ql: <http://semweb.mmlab.be/ns/ql#> .
+		PREFIX rr: <http://www.w3.org/ns/r2rml#>
+		PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
+		PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 		«FOR prefixStmt:mappings.vocabulariesUsed.toPrefixStatements»
 			«prefixStmt» 
 		«ENDFOR»
@@ -81,7 +81,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 		    rr:logicalTable [ rr:tableName "«m.source.sourceResolved»" ];
 		    «m.subjectMap()»
 		    
-		    «FOR pom : m.poMappings»
+		    «FOR pom : m.poMappings SEPARATOR ";" AFTER "."»
 		    	«pom.r2rmlPredicateObjectMap»
 			«ENDFOR»
 	'''
@@ -90,36 +90,36 @@ class RdfMappingGenerator extends AbstractGenerator {
 		rr:subjectMap [
 			rr:template "«m.subjectIri»";
 			«FOR stm : m.subjectTypeMappings»
-				rr:class «stm.type.vocabulary.prefix.label»«stm.type.name»;
+				rr:class «stm.type.vocabulary.prefix.label»«stm.type.name» ;
 			«ENDFOR»	
 		];
 	'''
 	
 	def rmlPredicateObjectMap(PredicateObjectMapping pom) '''
 		rr:predicateObjectMap [
-			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name»;
+			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
-				rml:reference "«pom.reference.value»";
+				rml:reference "«pom.reference.value»" ;
 				«pom.termMapAnnex»
-			]
+			].
 		];
 	'''
 	
 	def r2rmlPredicateObjectMap(PredicateObjectMapping pom) '''
 		rr:predicateObjectMap [
-			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name»;
+			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
-				rr:column "«pom.reference.value»";
+				rr:column "«pom.reference.value»" ;
 				«pom.termMapAnnex»
-			]
-		];
+			];
+		]
 	'''
 	
 	def termMapAnnex(PredicateObjectMapping pom) '''
 		«IF pom.languageTag !== null»
-			rr:language "«pom.languageTag.name»"
+			rr:language "«pom.languageTag.name»" ;
 		«ELSEIF pom.datatype !== null»
-			rr:datatype «pom.datatype.prefix.label»«pom.datatype.name»				
+			rr:datatype «pom.datatype.prefix.label»«pom.datatype.name» ;
 		«ENDIF»		
 	'''
 	
@@ -166,7 +166,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 		// TODO: why is it necessary to detect duplicate vocabularies on string level ?
 		vocabularies.map[voc | voc.prefixStatement.toString].toSet.toList.sortBy[s | s];
 	}
-	def prefixStatement(Vocabulary voc) '''PREFIX «voc.prefix.label» <«voc.prefix.iri»> .'''
+	def prefixStatement(Vocabulary voc) '''PREFIX «voc.prefix.label» <«voc.prefix.iri»>'''
 	
 	def prefix(Datatype it) {
 		(eContainer as DatatypesDefinition).prefix

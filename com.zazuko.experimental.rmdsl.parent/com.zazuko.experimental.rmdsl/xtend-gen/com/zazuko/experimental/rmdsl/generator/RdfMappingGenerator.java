@@ -67,11 +67,11 @@ public class RdfMappingGenerator extends AbstractGenerator {
   
   public CharSequence prefixes(final Iterable<Mapping> mappings) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("PREFIX rr: <http://www.w3.org/ns/r2rml#> .");
+    _builder.append("PREFIX rr: <http://www.w3.org/ns/r2rml#>");
     _builder.newLine();
-    _builder.append("PREFIX rml: <http://semweb.mmlab.be/ns/rml#> .");
+    _builder.append("PREFIX rml: <http://semweb.mmlab.be/ns/rml#>");
     _builder.newLine();
-    _builder.append("PREFIX ql: <http://semweb.mmlab.be/ns/ql#> .");
+    _builder.append("PREFIX ql: <http://semweb.mmlab.be/ns/ql#>");
     _builder.newLine();
     {
       List<String> _prefixStatements = this.toPrefixStatements(this.vocabulariesUsed(mappings));
@@ -164,11 +164,20 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.newLine();
     {
       EList<PredicateObjectMapping> _poMappings = m.getPoMappings();
+      boolean _hasElements = false;
       for(final PredicateObjectMapping pom : _poMappings) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(";", "    ");
+        }
         _builder.append("    ");
         CharSequence _r2rmlPredicateObjectMap = this.r2rmlPredicateObjectMap(pom);
         _builder.append(_r2rmlPredicateObjectMap, "    ");
         _builder.newLineIfNotEmpty();
+      }
+      if (_hasElements) {
+        _builder.append(".", "    ");
       }
     }
     return _builder;
@@ -193,7 +202,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
         _builder.append(_label, "\t");
         String _name = stm.getType().getName();
         _builder.append(_name, "\t");
-        _builder.append(";");
+        _builder.append(" ;");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -212,7 +221,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(_label, "\t");
     String _name = pom.getProperty().getName();
     _builder.append(_name, "\t");
-    _builder.append(";");
+    _builder.append(" ;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("rr:objectMap [");
@@ -221,14 +230,14 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("rml:reference \"");
     String _value = pom.getReference().getValue();
     _builder.append(_value, "\t\t");
-    _builder.append("\";");
+    _builder.append("\" ;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     CharSequence _termMapAnnex = this.termMapAnnex(pom);
     _builder.append(_termMapAnnex, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("]");
+    _builder.append("].");
     _builder.newLine();
     _builder.append("];");
     _builder.newLine();
@@ -245,7 +254,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(_label, "\t");
     String _name = pom.getProperty().getName();
     _builder.append(_name, "\t");
-    _builder.append(";");
+    _builder.append(" ;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("rr:objectMap [");
@@ -254,16 +263,16 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("rr:column \"");
     String _value = pom.getReference().getValue();
     _builder.append(_value, "\t\t");
-    _builder.append("\";");
+    _builder.append("\" ;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     CharSequence _termMapAnnex = this.termMapAnnex(pom);
     _builder.append(_termMapAnnex, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("]");
-    _builder.newLine();
     _builder.append("];");
+    _builder.newLine();
+    _builder.append("]");
     _builder.newLine();
     return _builder;
   }
@@ -277,7 +286,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
         _builder.append("rr:language \"");
         String _name = pom.getLanguageTag().getName();
         _builder.append(_name);
-        _builder.append("\"");
+        _builder.append("\" ;");
         _builder.newLineIfNotEmpty();
       } else {
         Datatype _datatype = pom.getDatatype();
@@ -288,7 +297,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
           _builder.append(_label);
           String _name_1 = pom.getDatatype().getName();
           _builder.append(_name_1);
-          _builder.append("\t\t\t\t");
+          _builder.append(" ;");
           _builder.newLineIfNotEmpty();
         }
       }
@@ -392,7 +401,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(" <");
     String _iri = voc.getPrefix().getIri();
     _builder.append(_iri);
-    _builder.append("> .");
+    _builder.append(">");
     return _builder;
   }
   
