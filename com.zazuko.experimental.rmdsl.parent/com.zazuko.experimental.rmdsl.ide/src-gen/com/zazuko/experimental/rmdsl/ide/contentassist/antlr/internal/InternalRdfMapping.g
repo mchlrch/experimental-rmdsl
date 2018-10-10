@@ -2074,7 +2074,7 @@ rule__Referenceable__Group__1__Impl
 :
 (
 	{ before(grammarAccess.getReferenceableAccess().getValueAssignment_1()); }
-	(rule__Referenceable__ValueAssignment_1)
+	(rule__Referenceable__ValueAssignment_1)?
 	{ after(grammarAccess.getReferenceableAccess().getValueAssignment_1()); }
 )
 ;

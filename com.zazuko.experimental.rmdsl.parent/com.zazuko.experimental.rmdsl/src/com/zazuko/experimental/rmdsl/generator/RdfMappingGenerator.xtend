@@ -18,6 +18,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import java.util.HashSet
 import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition
 import com.zazuko.experimental.rmdsl.rdfMapping.Datatype
+import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable
 
 /**
  * Generates code from your model files on save.
@@ -99,7 +100,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 		rr:predicateObjectMap [
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
-				rml:reference "«pom.reference.value»" ;
+				rml:reference "«pom.reference.valueResolved»" ;
 				«pom.termMapAnnex»
 			].
 		];
@@ -109,7 +110,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 		rr:predicateObjectMap [
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
-				rr:column "«pom.reference.value»" ;
+				rr:column "«pom.reference.valueResolved»" ;
 				«pom.termMapAnnex»
 			];
 		]
@@ -124,7 +125,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 	'''
 	
 	def subjectIri(Mapping m) {		
-		MessageFormat.format(m.pattern, '''{«m.reference.value»}''');
+		MessageFormat.format(m.pattern, '''{«m.reference.valueResolved»}''');
 	}
 	
 	def sourceResolved(LogicalSource it) {
@@ -162,13 +163,21 @@ class RdfMappingGenerator extends AbstractGenerator {
 		mappings.map[m | m.vocabulariesUsed].flatten;
 	}
 	
+	// eliminate duplicate prefix entries on string level
 	def toPrefixStatements(Iterable<Vocabulary> vocabularies) {
-		// TODO: why is it necessary to detect duplicate vocabularies on string level ?
 		vocabularies.map[voc | voc.prefixStatement.toString].toSet.toList.sortBy[s | s];
 	}
 	def prefixStatement(Vocabulary voc) '''PREFIX «voc.prefix.label» <«voc.prefix.iri»>'''
 	
 	def prefix(Datatype it) {
 		(eContainer as DatatypesDefinition).prefix
+	}
+	
+	def valueResolved(Referenceable it) {
+		if (value !== null) {
+			return value;
+		} else {
+			return name;
+		}
 	}
 }

@@ -6277,27 +6277,38 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Referenceable__Group__1__Impl"
-    // InternalRdfMapping.g:2070:1: rule__Referenceable__Group__1__Impl : ( ( rule__Referenceable__ValueAssignment_1 ) ) ;
+    // InternalRdfMapping.g:2070:1: rule__Referenceable__Group__1__Impl : ( ( rule__Referenceable__ValueAssignment_1 )? ) ;
     public final void rule__Referenceable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:2074:1: ( ( ( rule__Referenceable__ValueAssignment_1 ) ) )
-            // InternalRdfMapping.g:2075:1: ( ( rule__Referenceable__ValueAssignment_1 ) )
+            // InternalRdfMapping.g:2074:1: ( ( ( rule__Referenceable__ValueAssignment_1 )? ) )
+            // InternalRdfMapping.g:2075:1: ( ( rule__Referenceable__ValueAssignment_1 )? )
             {
-            // InternalRdfMapping.g:2075:1: ( ( rule__Referenceable__ValueAssignment_1 ) )
-            // InternalRdfMapping.g:2076:2: ( rule__Referenceable__ValueAssignment_1 )
+            // InternalRdfMapping.g:2075:1: ( ( rule__Referenceable__ValueAssignment_1 )? )
+            // InternalRdfMapping.g:2076:2: ( rule__Referenceable__ValueAssignment_1 )?
             {
              before(grammarAccess.getReferenceableAccess().getValueAssignment_1()); 
-            // InternalRdfMapping.g:2077:2: ( rule__Referenceable__ValueAssignment_1 )
-            // InternalRdfMapping.g:2077:3: rule__Referenceable__ValueAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Referenceable__ValueAssignment_1();
+            // InternalRdfMapping.g:2077:2: ( rule__Referenceable__ValueAssignment_1 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA13_0==RULE_STRING) ) {
+                alt13=1;
+            }
+            switch (alt13) {
+                case 1 :
+                    // InternalRdfMapping.g:2077:3: rule__Referenceable__ValueAssignment_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Referenceable__ValueAssignment_1();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
@@ -6696,13 +6707,13 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getVocabularyAccess().getGroup_4()); 
             // InternalRdfMapping.g:2213:2: ( rule__Vocabulary__Group_4__0 )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA13_0==25) ) {
-                alt13=1;
+            if ( (LA14_0==25) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
                     // InternalRdfMapping.g:2213:3: rule__Vocabulary__Group_4__0
                     {
@@ -6792,13 +6803,13 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getVocabularyAccess().getGroup_5()); 
             // InternalRdfMapping.g:2240:2: ( rule__Vocabulary__Group_5__0 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==26) ) {
-                alt14=1;
+            if ( (LA15_0==26) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
                     // InternalRdfMapping.g:2240:3: rule__Vocabulary__Group_5__0
                     {
@@ -7033,17 +7044,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getVocabularyAccess().getClassesAssignment_4_1()); 
             // InternalRdfMapping.g:2321:2: ( rule__Vocabulary__ClassesAssignment_4_1 )*
-            loop15:
+            loop16:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA15_0==RULE_ID) ) {
-                    alt15=1;
+                if ( (LA16_0==RULE_ID) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt16) {
             	case 1 :
             	    // InternalRdfMapping.g:2321:3: rule__Vocabulary__ClassesAssignment_4_1
             	    {
@@ -7057,7 +7068,7 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop16;
                 }
             } while (true);
 
@@ -7281,17 +7292,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getVocabularyAccess().getPropertiesAssignment_5_1()); 
             // InternalRdfMapping.g:2402:2: ( rule__Vocabulary__PropertiesAssignment_5_1 )*
-            loop16:
+            loop17:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( (LA16_0==RULE_ID) ) {
-                    alt16=1;
+                if ( (LA17_0==RULE_ID) ) {
+                    alt17=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt17) {
             	case 1 :
             	    // InternalRdfMapping.g:2402:3: rule__Vocabulary__PropertiesAssignment_5_1
             	    {
@@ -7305,7 +7316,7 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop17;
                 }
             } while (true);
 
@@ -8559,13 +8570,13 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getMappingAccess().getGroup_10()); 
             // InternalRdfMapping.g:2834:2: ( rule__Mapping__Group_10__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==33) ) {
-                alt17=1;
+            if ( (LA18_0==33) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
                     // InternalRdfMapping.g:2834:3: rule__Mapping__Group_10__0
                     {
@@ -8655,13 +8666,13 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getMappingAccess().getGroup_11()); 
             // InternalRdfMapping.g:2861:2: ( rule__Mapping__Group_11__0 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==26) ) {
-                alt18=1;
+            if ( (LA19_0==26) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
                     // InternalRdfMapping.g:2861:3: rule__Mapping__Group_11__0
                     {
@@ -8913,17 +8924,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getMappingAccess().getSubjectTypeMappingsAssignment_10_1()); 
             // InternalRdfMapping.g:2947:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )*
-            loop19:
+            loop20:
             do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                if ( (LA19_0==RULE_ID) ) {
-                    alt19=1;
+                if ( (LA20_0==RULE_ID) ) {
+                    alt20=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt20) {
             	case 1 :
             	    // InternalRdfMapping.g:2947:4: rule__Mapping__SubjectTypeMappingsAssignment_10_1
             	    {
@@ -8937,7 +8948,7 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop19;
+            	    break loop20;
                 }
             } while (true);
 
@@ -9111,17 +9122,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getMappingAccess().getPoMappingsAssignment_11_1()); 
             // InternalRdfMapping.g:3008:3: ( rule__Mapping__PoMappingsAssignment_11_1 )*
-            loop20:
+            loop21:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA20_0==RULE_ID) ) {
-                    alt20=1;
+                if ( (LA21_0==RULE_ID) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt21) {
             	case 1 :
             	    // InternalRdfMapping.g:3008:4: rule__Mapping__PoMappingsAssignment_11_1
             	    {
@@ -9135,7 +9146,7 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop21;
                 }
             } while (true);
 
@@ -9457,13 +9468,13 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getPredicateObjectMappingAccess().getAlternatives_3()); 
             // InternalRdfMapping.g:3117:2: ( rule__PredicateObjectMapping__Alternatives_3 )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA21_0==32) ) {
-                alt21=1;
+            if ( (LA22_0==32) ) {
+                alt22=1;
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
                     // InternalRdfMapping.g:3117:3: rule__PredicateObjectMapping__Alternatives_3
                     {
@@ -10242,13 +10253,13 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopAsteriskKeyword_1()); 
             // InternalRdfMapping.g:3387:2: ( '.*' )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==37) ) {
-                alt22=1;
+            if ( (LA23_0==37) ) {
+                alt23=1;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
                     // InternalRdfMapping.g:3387:3: '.*'
                     {
@@ -10404,17 +10415,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
             // InternalRdfMapping.g:3441:2: ( rule__QualifiedName__Group_1__0 )*
-            loop23:
+            loop24:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA23_0==38) ) {
-                    alt23=1;
+                if ( (LA24_0==38) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt24) {
             	case 1 :
             	    // InternalRdfMapping.g:3441:3: rule__QualifiedName__Group_1__0
             	    {
@@ -10428,7 +10439,7 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop24;
                 }
             } while (true);
 

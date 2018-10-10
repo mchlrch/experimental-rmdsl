@@ -308,19 +308,10 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Referenceable returns Referenceable
 	 *
 	 * Constraint:
-	 *     (name=ID value=STRING)
+	 *     (name=ID value=STRING?)
 	 */
 	protected void sequence_Referenceable(ISerializationContext context, Referenceable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.REFERENCEABLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.REFERENCEABLE__NAME));
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.REFERENCEABLE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.REFERENCEABLE__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReferenceableAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getReferenceableAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

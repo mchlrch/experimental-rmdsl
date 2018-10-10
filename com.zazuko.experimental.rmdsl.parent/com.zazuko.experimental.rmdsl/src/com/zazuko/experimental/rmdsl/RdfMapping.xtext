@@ -52,7 +52,7 @@ LogicalSource:
 	'}';
 
 Referenceable:	
-    name=ID value=STRING;
+    name=ID (value=STRING)?;
     
 Vocabulary:	
 	'vocabulary' name=ID '{'

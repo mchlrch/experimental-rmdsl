@@ -14,6 +14,7 @@ import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
+import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
@@ -228,8 +229,8 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("rml:reference \"");
-    String _value = pom.getReference().getValue();
-    _builder.append(_value, "\t\t");
+    String _valueResolved = this.valueResolved(pom.getReference());
+    _builder.append(_valueResolved, "\t\t");
     _builder.append("\" ;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
@@ -261,8 +262,8 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("rr:column \"");
-    String _value = pom.getReference().getValue();
-    _builder.append(_value, "\t\t");
+    String _valueResolved = this.valueResolved(pom.getReference());
+    _builder.append(_valueResolved, "\t\t");
     _builder.append("\" ;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
@@ -309,8 +310,8 @@ public class RdfMappingGenerator extends AbstractGenerator {
     String _pattern = m.getPattern();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("{");
-    String _value = m.getReference().getValue();
-    _builder.append(_value);
+    String _valueResolved = this.valueResolved(m.getReference());
+    _builder.append(_valueResolved);
     _builder.append("}");
     return MessageFormat.format(_pattern, _builder);
   }
@@ -408,5 +409,15 @@ public class RdfMappingGenerator extends AbstractGenerator {
   public Prefix prefix(final Datatype it) {
     EObject _eContainer = it.eContainer();
     return ((DatatypesDefinition) _eContainer).getPrefix();
+  }
+  
+  public String valueResolved(final Referenceable it) {
+    String _value = it.getValue();
+    boolean _tripleNotEquals = (_value != null);
+    if (_tripleNotEquals) {
+      return it.getValue();
+    } else {
+      return it.getName();
+    }
   }
 }

@@ -832,7 +832,7 @@ ruleReferenceable returns [EObject current=null]
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
-		)
+		)?
 	)
 ;
 

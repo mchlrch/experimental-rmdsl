@@ -480,10 +480,10 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Referenceable:
-		//	name=ID value=STRING;
+		//	name=ID value=STRING?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID value=STRING
+		//name=ID value=STRING?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -492,7 +492,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//value=STRING
+		//value=STRING?
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 		
 		//STRING
@@ -1145,7 +1145,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Referenceable:
-	//	name=ID value=STRING;
+	//	name=ID value=STRING?;
 	public ReferenceableElements getReferenceableAccess() {
 		return pReferenceable;
 	}
