@@ -3,26 +3,20 @@
  */
 package com.zazuko.experimental.rmdsl.generator
 
-import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource
+import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
-import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass
-import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty
-import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup
+import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
+import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
+import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary
 import java.text.MessageFormat
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import java.util.HashSet
-import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition
-import com.zazuko.experimental.rmdsl.rdfMapping.Datatype
-import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable
-import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
-import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
-import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
-import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm
+
+import static extension com.zazuko.experimental.rmdsl.generator.ModelAccess.*
 
 /**
  * Generates code from your model files on save.
@@ -105,8 +99,8 @@ class RdfMappingGenerator extends AbstractGenerator {
 		rr:predicateObjectMap [
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
-				rml:reference "«(pom.term as ReferenceValuedTerm).reference.valueResolved»" ;
-				«(pom.term as ReferenceValuedTerm).termMapAnnex»
+«««				rml:reference "«(pom.term as ReferenceValuedTerm).reference.valueResolved»" ;
+«««				«(pom.term as ReferenceValuedTerm).termMapAnnex»
 			].
 		];
 	'''
@@ -155,42 +149,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 	
 	def toTemplateString(LinkedResourceTerm it) {		
 		MessageFormat.format(mapping.pattern, '''{«reference.valueResolved»}''');
-	}
-	
-	def sourceResolved(LogicalSource it) {
-		if (source !== null) {
-			source;
-		} else {
-			(eContainer as SourceGroup)?.source;
-		}
-	}
-	
-	def typeResolved(LogicalSource it) {
-		if (type !== null) {
-			type;
-		} else {
-			(eContainer as SourceGroup)?.type;
-		}
-	}
-	
-	def vocabulary(RdfClass it) {
-		eContainer as Vocabulary;
-	}
-	
-	def vocabulary(RdfProperty it) {
-		eContainer as Vocabulary;
-	}
-	
-	def vocabulariesUsed(Mapping it) {
-		val result = new HashSet();
-		result.addAll(subjectTypeMappings.map[m | m.type.vocabulary]);
-		result.addAll(poMappings.map[m | m.property.vocabulary]);
-		result
-	}
-	
-	def vocabulariesUsed(Iterable<Mapping> mappings) {
-		mappings.map[m | m.vocabulariesUsed].flatten;
-	}
+	}	
 	
 	// eliminate duplicate prefix entries on string level
 	def toPrefixStatements(Iterable<Vocabulary> vocabularies) {
@@ -198,15 +157,5 @@ class RdfMappingGenerator extends AbstractGenerator {
 	}
 	def prefixStatement(Vocabulary voc) '''PREFIX «voc.prefix.label» <«voc.prefix.iri»>'''
 	
-	def prefix(Datatype it) {
-		(eContainer as DatatypesDefinition).prefix
-	}
 	
-	def valueResolved(Referenceable it) {
-		if (value !== null) {
-			return value;
-		} else {
-			return name;
-		}
-	}
 }

@@ -3,21 +3,14 @@
  */
 package com.zazuko.experimental.rmdsl.generator;
 
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
+import com.zazuko.experimental.rmdsl.generator.ModelAccess;
 import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
-import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition;
 import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
-import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
-import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
-import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
-import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
 import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
-import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
-import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm;
@@ -25,10 +18,8 @@ import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 import java.text.MessageFormat;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -37,7 +28,6 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -80,7 +70,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("PREFIX ql: <http://semweb.mmlab.be/ns/ql#>");
     _builder.newLine();
     {
-      List<String> _prefixStatements = this.toPrefixStatements(this.vocabulariesUsed(mappings));
+      List<String> _prefixStatements = this.toPrefixStatements(ModelAccess.vocabulariesUsed(mappings));
       for(final String prefixStmt : _prefixStatements) {
         _builder.append(prefixStmt);
         _builder.append(" ");
@@ -115,13 +105,13 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("rml:source \"");
-    String _sourceResolved = this.sourceResolved(m.getSource());
+    String _sourceResolved = ModelAccess.sourceResolved(m.getSource());
     _builder.append(_sourceResolved, "\t\t");
     _builder.append("\" ;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("rml:referenceFormulation ");
-    SourceType _typeResolved = this.typeResolved(m.getSource());
+    SourceType _typeResolved = ModelAccess.typeResolved(m.getSource());
     String _referenceFormulation = null;
     if (_typeResolved!=null) {
       _referenceFormulation=_typeResolved.getReferenceFormulation();
@@ -158,7 +148,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("    ");
     _builder.append("rr:logicalTable [ rr:tableName \"");
-    String _sourceResolved = this.sourceResolved(m.getSource());
+    String _sourceResolved = ModelAccess.sourceResolved(m.getSource());
     _builder.append(_sourceResolved, "    ");
     _builder.append("\" ];");
     _builder.newLineIfNotEmpty();
@@ -204,7 +194,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
       for(final SubjectTypeMapping stm : _subjectTypeMappings) {
         _builder.append("\t");
         _builder.append("rr:class ");
-        String _label = this.vocabulary(stm.getType()).getPrefix().getLabel();
+        String _label = ModelAccess.vocabulary(stm.getType()).getPrefix().getLabel();
         _builder.append(_label, "\t");
         String _name = stm.getType().getName();
         _builder.append(_name, "\t");
@@ -223,7 +213,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("rr:predicate ");
-    String _label = this.vocabulary(pom.getProperty()).getPrefix().getLabel();
+    String _label = ModelAccess.vocabulary(pom.getProperty()).getPrefix().getLabel();
     _builder.append(_label, "\t");
     String _name = pom.getProperty().getName();
     _builder.append(_name, "\t");
@@ -232,18 +222,6 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("rr:objectMap [");
     _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("rml:reference \"");
-    ValuedTerm _term = pom.getTerm();
-    String _valueResolved = this.valueResolved(((ReferenceValuedTerm) _term).getReference());
-    _builder.append(_valueResolved, "\t\t");
-    _builder.append("\" ;");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    ValuedTerm _term_1 = pom.getTerm();
-    CharSequence _termMapAnnex = this.termMapAnnex(((ReferenceValuedTerm) _term_1));
-    _builder.append(_termMapAnnex, "\t\t");
-    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("].");
     _builder.newLine();
@@ -258,7 +236,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("rr:predicate ");
-    String _label = this.vocabulary(pom.getProperty()).getPrefix().getLabel();
+    String _label = ModelAccess.vocabulary(pom.getProperty()).getPrefix().getLabel();
     _builder.append(_label, "\t");
     String _name = pom.getProperty().getName();
     _builder.append(_name, "\t");
@@ -291,7 +269,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
   protected CharSequence _objectTermMap(final ReferenceValuedTerm it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("rr:column \"");
-    String _valueResolved = this.valueResolved(it.getReference());
+    String _valueResolved = ModelAccess.valueResolved(it.getReference());
     _builder.append(_valueResolved);
     _builder.append("\" ;");
     _builder.newLineIfNotEmpty();
@@ -337,7 +315,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
         boolean _tripleNotEquals_1 = (_datatype != null);
         if (_tripleNotEquals_1) {
           _builder.append("rr:datatype ");
-          String _label = this.prefix(it.getDatatype()).getLabel();
+          String _label = ModelAccess.prefix(it.getDatatype()).getLabel();
           _builder.append(_label);
           String _name_1 = it.getDatatype().getName();
           _builder.append(_name_1);
@@ -353,7 +331,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     String _pattern = m.getPattern();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("{");
-    String _valueResolved = this.valueResolved(m.getReference());
+    String _valueResolved = ModelAccess.valueResolved(m.getReference());
     _builder.append(_valueResolved);
     _builder.append("}");
     return MessageFormat.format(_pattern, _builder);
@@ -363,7 +341,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     String _pattern = it.getPattern();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("{");
-    String _valueResolved = this.valueResolved(it.getReference());
+    String _valueResolved = ModelAccess.valueResolved(it.getReference());
     _builder.append(_valueResolved);
     _builder.append("}");
     return MessageFormat.format(_pattern, _builder);
@@ -373,78 +351,10 @@ public class RdfMappingGenerator extends AbstractGenerator {
     String _pattern = it.getMapping().getPattern();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("{");
-    String _valueResolved = this.valueResolved(it.getReference());
+    String _valueResolved = ModelAccess.valueResolved(it.getReference());
     _builder.append(_valueResolved);
     _builder.append("}");
     return MessageFormat.format(_pattern, _builder);
-  }
-  
-  public String sourceResolved(final LogicalSource it) {
-    String _xifexpression = null;
-    String _source = it.getSource();
-    boolean _tripleNotEquals = (_source != null);
-    if (_tripleNotEquals) {
-      _xifexpression = it.getSource();
-    } else {
-      EObject _eContainer = it.eContainer();
-      String _source_1 = null;
-      if (((SourceGroup) _eContainer)!=null) {
-        _source_1=((SourceGroup) _eContainer).getSource();
-      }
-      _xifexpression = _source_1;
-    }
-    return _xifexpression;
-  }
-  
-  public SourceType typeResolved(final LogicalSource it) {
-    SourceType _xifexpression = null;
-    SourceType _type = it.getType();
-    boolean _tripleNotEquals = (_type != null);
-    if (_tripleNotEquals) {
-      _xifexpression = it.getType();
-    } else {
-      EObject _eContainer = it.eContainer();
-      SourceType _type_1 = null;
-      if (((SourceGroup) _eContainer)!=null) {
-        _type_1=((SourceGroup) _eContainer).getType();
-      }
-      _xifexpression = _type_1;
-    }
-    return _xifexpression;
-  }
-  
-  public Vocabulary vocabulary(final RdfClass it) {
-    EObject _eContainer = it.eContainer();
-    return ((Vocabulary) _eContainer);
-  }
-  
-  public Vocabulary vocabulary(final RdfProperty it) {
-    EObject _eContainer = it.eContainer();
-    return ((Vocabulary) _eContainer);
-  }
-  
-  public HashSet<Vocabulary> vocabulariesUsed(final Mapping it) {
-    HashSet<Vocabulary> _xblockexpression = null;
-    {
-      final HashSet<Vocabulary> result = new HashSet<Vocabulary>();
-      final Function1<SubjectTypeMapping, Vocabulary> _function = (SubjectTypeMapping m) -> {
-        return this.vocabulary(m.getType());
-      };
-      result.addAll(ListExtensions.<SubjectTypeMapping, Vocabulary>map(it.getSubjectTypeMappings(), _function));
-      final Function1<PredicateObjectMapping, Vocabulary> _function_1 = (PredicateObjectMapping m) -> {
-        return this.vocabulary(m.getProperty());
-      };
-      result.addAll(ListExtensions.<PredicateObjectMapping, Vocabulary>map(it.getPoMappings(), _function_1));
-      _xblockexpression = result;
-    }
-    return _xblockexpression;
-  }
-  
-  public Iterable<Vocabulary> vocabulariesUsed(final Iterable<Mapping> mappings) {
-    final Function1<Mapping, HashSet<Vocabulary>> _function = (Mapping m) -> {
-      return this.vocabulariesUsed(m);
-    };
-    return Iterables.<Vocabulary>concat(IterableExtensions.<Mapping, HashSet<Vocabulary>>map(mappings, _function));
   }
   
   public List<String> toPrefixStatements(final Iterable<Vocabulary> vocabularies) {
@@ -467,21 +377,6 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(_iri);
     _builder.append(">");
     return _builder;
-  }
-  
-  public Prefix prefix(final Datatype it) {
-    EObject _eContainer = it.eContainer();
-    return ((DatatypesDefinition) _eContainer).getPrefix();
-  }
-  
-  public String valueResolved(final Referenceable it) {
-    String _value = it.getValue();
-    boolean _tripleNotEquals = (_value != null);
-    if (_tripleNotEquals) {
-      return it.getValue();
-    } else {
-      return it.getName();
-    }
   }
   
   public CharSequence objectTermMap(final ValuedTerm it) {
