@@ -8,6 +8,7 @@ import com.google.common.collect.Iterators;
 import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
 import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition;
 import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
+import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
@@ -298,6 +299,16 @@ public class RdfMappingGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  protected CharSequence _objectTermMap(final LinkedResourceTerm it) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("rr:template \"");
+    String _templateString = this.toTemplateString(it);
+    _builder.append(_templateString);
+    _builder.append("\" ;");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
   public CharSequence termMapAnnex(final ReferenceValuedTerm it) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -338,6 +349,16 @@ public class RdfMappingGenerator extends AbstractGenerator {
   
   public String toTemplateString(final TemplateValuedTerm it) {
     String _pattern = it.getPattern();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    String _valueResolved = this.valueResolved(it.getReference());
+    _builder.append(_valueResolved);
+    _builder.append("}");
+    return MessageFormat.format(_pattern, _builder);
+  }
+  
+  public String toTemplateString(final LinkedResourceTerm it) {
+    String _pattern = it.getMapping().getPattern();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("{");
     String _valueResolved = this.valueResolved(it.getReference());
@@ -452,7 +473,9 @@ public class RdfMappingGenerator extends AbstractGenerator {
   }
   
   public CharSequence objectTermMap(final ValuedTerm it) {
-    if (it instanceof ReferenceValuedTerm) {
+    if (it instanceof LinkedResourceTerm) {
+      return _objectTermMap((LinkedResourceTerm)it);
+    } else if (it instanceof ReferenceValuedTerm) {
       return _objectTermMap((ReferenceValuedTerm)it);
     } else if (it instanceof TemplateValuedTerm) {
       return _objectTermMap((TemplateValuedTerm)it);

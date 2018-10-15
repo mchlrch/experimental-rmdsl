@@ -1380,6 +1380,15 @@ ruleValuedTerm returns [EObject current=null]
 			$current = $this_TemplateValuedTerm_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getValuedTermAccess().getLinkedResourceTermParserRuleCall_2());
+		}
+		this_LinkedResourceTerm_2=ruleLinkedResourceTerm
+		{
+			$current = $this_LinkedResourceTerm_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -1522,6 +1531,62 @@ ruleTemplateValuedTerm returns [EObject current=null]
 				}
 				{
 					newCompositeNode(grammarAccess.getTemplateValuedTermAccess().getReferenceReferenceableCrossReference_3_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleLinkedResourceTerm
+entryRuleLinkedResourceTerm returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLinkedResourceTermRule()); }
+	iv_ruleLinkedResourceTerm=ruleLinkedResourceTerm
+	{ $current=$iv_ruleLinkedResourceTerm.current; }
+	EOF;
+
+// Rule LinkedResourceTerm
+ruleLinkedResourceTerm returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='link'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLinkedResourceTermAccess().getLinkKeyword_0());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLinkedResourceTermRule());
+					}
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getLinkedResourceTermAccess().getMappingMappingCrossReference_1_0());
+				}
+			)
+		)
+		otherlv_2='with'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getLinkedResourceTermAccess().getWithKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLinkedResourceTermRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getLinkedResourceTermAccess().getReferenceReferenceableCrossReference_3_0());
 				}
 				ruleQualifiedName
 				{

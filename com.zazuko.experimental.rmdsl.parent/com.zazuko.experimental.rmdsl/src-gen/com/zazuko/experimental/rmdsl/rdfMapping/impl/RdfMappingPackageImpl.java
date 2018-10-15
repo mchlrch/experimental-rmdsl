@@ -10,6 +10,7 @@ import com.zazuko.experimental.rmdsl.rdfMapping.Element;
 import com.zazuko.experimental.rmdsl.rdfMapping.Import;
 import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition;
+import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
@@ -189,6 +190,13 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * @generated
    */
   private EClass templateValuedTermEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass linkedResourceTermEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -885,6 +893,26 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getLinkedResourceTerm()
+  {
+    return linkedResourceTermEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLinkedResourceTerm_Mapping()
+  {
+    return (EReference)linkedResourceTermEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getImport()
   {
     return importEClass;
@@ -1013,6 +1041,9 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     templateValuedTermEClass = createEClass(TEMPLATE_VALUED_TERM);
     createEAttribute(templateValuedTermEClass, TEMPLATE_VALUED_TERM__PATTERN);
 
+    linkedResourceTermEClass = createEClass(LINKED_RESOURCE_TERM);
+    createEReference(linkedResourceTermEClass, LINKED_RESOURCE_TERM__MAPPING);
+
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
   }
@@ -1055,6 +1086,7 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     mappingEClass.getESuperTypes().add(this.getElement());
     referenceValuedTermEClass.getESuperTypes().add(this.getValuedTerm());
     templateValuedTermEClass.getESuperTypes().add(this.getValuedTerm());
+    linkedResourceTermEClass.getESuperTypes().add(this.getValuedTerm());
     importEClass.getESuperTypes().add(this.getElement());
 
     // Initialize classes and features; add operations and parameters
@@ -1140,6 +1172,9 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
 
     initEClass(templateValuedTermEClass, TemplateValuedTerm.class, "TemplateValuedTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTemplateValuedTerm_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, TemplateValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(linkedResourceTermEClass, LinkedResourceTerm.class, "LinkedResourceTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLinkedResourceTerm_Mapping(), this.getMapping(), null, "mapping", null, 0, 1, LinkedResourceTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

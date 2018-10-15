@@ -85,7 +85,7 @@ PredicateObjectMapping:
 	term=ValuedTerm;
 	
 ValuedTerm:
-	ReferenceValuedTerm | TemplateValuedTerm;
+	ReferenceValuedTerm | TemplateValuedTerm | LinkedResourceTerm;
 // TODO: ConstantValuedTerm
 	
 ReferenceValuedTerm:
@@ -94,6 +94,9 @@ ReferenceValuedTerm:
 
 TemplateValuedTerm:
 	'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName];
+	
+LinkedResourceTerm:
+	'link' mapping=[Mapping] 'with' reference=[Referenceable|QualifiedName];
 
 Import:
     'import' importedNamespace=QualifiedNameWithWildcard;

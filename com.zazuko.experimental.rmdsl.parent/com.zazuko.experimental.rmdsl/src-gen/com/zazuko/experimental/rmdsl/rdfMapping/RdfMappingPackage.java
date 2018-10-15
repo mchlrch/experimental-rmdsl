@@ -844,6 +844,43 @@ public interface RdfMappingPackage extends EPackage
   int TEMPLATE_VALUED_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LinkedResourceTermImpl <em>Linked Resource Term</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.LinkedResourceTermImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getLinkedResourceTerm()
+   * @generated
+   */
+  int LINKED_RESOURCE_TERM = 21;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINKED_RESOURCE_TERM__REFERENCE = VALUED_TERM__REFERENCE;
+
+  /**
+   * The feature id for the '<em><b>Mapping</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINKED_RESOURCE_TERM__MAPPING = VALUED_TERM_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Linked Resource Term</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINKED_RESOURCE_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -851,7 +888,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getImport()
    * @generated
    */
-  int IMPORT = 21;
+  int IMPORT = 22;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -1534,6 +1571,27 @@ public interface RdfMappingPackage extends EPackage
   EAttribute getTemplateValuedTerm_Pattern();
 
   /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm <em>Linked Resource Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Linked Resource Term</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm
+   * @generated
+   */
+  EClass getLinkedResourceTerm();
+
+  /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm#getMapping <em>Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Mapping</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm#getMapping()
+   * @see #getLinkedResourceTerm()
+   * @generated
+   */
+  EReference getLinkedResourceTerm_Mapping();
+
+  /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2114,6 +2172,24 @@ public interface RdfMappingPackage extends EPackage
      * @generated
      */
     EAttribute TEMPLATE_VALUED_TERM__PATTERN = eINSTANCE.getTemplateValuedTerm_Pattern();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LinkedResourceTermImpl <em>Linked Resource Term</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.LinkedResourceTermImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getLinkedResourceTerm()
+     * @generated
+     */
+    EClass LINKED_RESOURCE_TERM = eINSTANCE.getLinkedResourceTerm();
+
+    /**
+     * The meta object literal for the '<em><b>Mapping</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LINKED_RESOURCE_TERM__MAPPING = eINSTANCE.getLinkedResourceTerm_Mapping();
 
     /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.

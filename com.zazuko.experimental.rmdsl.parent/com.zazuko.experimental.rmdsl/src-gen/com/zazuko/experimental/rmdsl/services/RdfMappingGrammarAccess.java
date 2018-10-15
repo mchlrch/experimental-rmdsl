@@ -816,12 +816,13 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cReferenceValuedTermParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTemplateValuedTermParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLinkedResourceTermParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//ValuedTerm:
-		//	ReferenceValuedTerm | TemplateValuedTerm;
+		//	ReferenceValuedTerm | TemplateValuedTerm | LinkedResourceTerm;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ReferenceValuedTerm | TemplateValuedTerm
+		//ReferenceValuedTerm | TemplateValuedTerm | LinkedResourceTerm
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ReferenceValuedTerm
@@ -829,6 +830,9 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TemplateValuedTerm
 		public RuleCall getTemplateValuedTermParserRuleCall_1() { return cTemplateValuedTermParserRuleCall_1; }
+		
+		//LinkedResourceTerm
+		public RuleCall getLinkedResourceTermParserRuleCall_2() { return cLinkedResourceTermParserRuleCall_2; }
 	}
 	public class ReferenceValuedTermElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.ReferenceValuedTerm");
@@ -951,6 +955,49 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_3_0_1; }
 	}
+	public class LinkedResourceTermElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.LinkedResourceTerm");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLinkKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMappingAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cMappingMappingCrossReference_1_0 = (CrossReference)cMappingAssignment_1.eContents().get(0);
+		private final RuleCall cMappingMappingIDTerminalRuleCall_1_0_1 = (RuleCall)cMappingMappingCrossReference_1_0.eContents().get(1);
+		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cReferenceAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cReferenceReferenceableCrossReference_3_0 = (CrossReference)cReferenceAssignment_3.eContents().get(0);
+		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cReferenceReferenceableCrossReference_3_0.eContents().get(1);
+		
+		//LinkedResourceTerm:
+		//	'link' mapping=[Mapping] 'with' reference=[Referenceable|QualifiedName];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'link' mapping=[Mapping] 'with' reference=[Referenceable|QualifiedName]
+		public Group getGroup() { return cGroup; }
+		
+		//'link'
+		public Keyword getLinkKeyword_0() { return cLinkKeyword_0; }
+		
+		//mapping=[Mapping]
+		public Assignment getMappingAssignment_1() { return cMappingAssignment_1; }
+		
+		//[Mapping]
+		public CrossReference getMappingMappingCrossReference_1_0() { return cMappingMappingCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getMappingMappingIDTerminalRuleCall_1_0_1() { return cMappingMappingIDTerminalRuleCall_1_0_1; }
+		
+		//'with'
+		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
+		
+		//reference=[Referenceable|QualifiedName]
+		public Assignment getReferenceAssignment_3() { return cReferenceAssignment_3; }
+		
+		//[Referenceable|QualifiedName]
+		public CrossReference getReferenceReferenceableCrossReference_3_0() { return cReferenceReferenceableCrossReference_3_0; }
+		
+		//QualifiedName
+		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_3_0_1; }
+	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Import");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1043,6 +1090,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	private final ValuedTermElements pValuedTerm;
 	private final ReferenceValuedTermElements pReferenceValuedTerm;
 	private final TemplateValuedTermElements pTemplateValuedTerm;
+	private final LinkedResourceTermElements pLinkedResourceTerm;
 	private final ImportElements pImport;
 	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
 	private final QualifiedNameElements pQualifiedName;
@@ -1077,6 +1125,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		this.pValuedTerm = new ValuedTermElements();
 		this.pReferenceValuedTerm = new ReferenceValuedTermElements();
 		this.pTemplateValuedTerm = new TemplateValuedTermElements();
+		this.pLinkedResourceTerm = new LinkedResourceTermElements();
 		this.pImport = new ImportElements();
 		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
 		this.pQualifiedName = new QualifiedNameElements();
@@ -1314,7 +1363,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ValuedTerm:
-	//	ReferenceValuedTerm | TemplateValuedTerm;
+	//	ReferenceValuedTerm | TemplateValuedTerm | LinkedResourceTerm;
 	public ValuedTermElements getValuedTermAccess() {
 		return pValuedTerm;
 	}
@@ -1343,6 +1392,16 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTemplateValuedTermRule() {
 		return getTemplateValuedTermAccess().getRule();
+	}
+	
+	//LinkedResourceTerm:
+	//	'link' mapping=[Mapping] 'with' reference=[Referenceable|QualifiedName];
+	public LinkedResourceTermElements getLinkedResourceTermAccess() {
+		return pLinkedResourceTerm;
+	}
+	
+	public ParserRule getLinkedResourceTermRule() {
+		return getLinkedResourceTermAccess().getRule();
 	}
 	
 	//Import:

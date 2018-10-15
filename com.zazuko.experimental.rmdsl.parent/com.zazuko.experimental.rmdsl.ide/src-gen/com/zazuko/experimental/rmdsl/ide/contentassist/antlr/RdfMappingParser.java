@@ -57,6 +57,7 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getReferenceValuedTermAccess().getGroup_2_0(), "rule__ReferenceValuedTerm__Group_2_0__0");
 			builder.put(grammarAccess.getReferenceValuedTermAccess().getGroup_2_1(), "rule__ReferenceValuedTerm__Group_2_1__0");
 			builder.put(grammarAccess.getTemplateValuedTermAccess().getGroup(), "rule__TemplateValuedTerm__Group__0");
+			builder.put(grammarAccess.getLinkedResourceTermAccess().getGroup(), "rule__LinkedResourceTerm__Group__0");
 			builder.put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 			builder.put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
@@ -103,6 +104,8 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getReferenceValuedTermAccess().getLanguageTagAssignment_2_1_2(), "rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2");
 			builder.put(grammarAccess.getTemplateValuedTermAccess().getPatternAssignment_1(), "rule__TemplateValuedTerm__PatternAssignment_1");
 			builder.put(grammarAccess.getTemplateValuedTermAccess().getReferenceAssignment_3(), "rule__TemplateValuedTerm__ReferenceAssignment_3");
+			builder.put(grammarAccess.getLinkedResourceTermAccess().getMappingAssignment_1(), "rule__LinkedResourceTerm__MappingAssignment_1");
+			builder.put(grammarAccess.getLinkedResourceTermAccess().getReferenceAssignment_3(), "rule__LinkedResourceTerm__ReferenceAssignment_3");
 			builder.put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 		}
 	}

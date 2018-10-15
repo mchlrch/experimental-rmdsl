@@ -88,6 +88,9 @@
     <genClasses ecoreClass="RdfMapping.ecore#//TemplateValuedTerm">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//TemplateValuedTerm/pattern"/>
     </genClasses>
+    <genClasses ecoreClass="RdfMapping.ecore#//LinkedResourceTerm">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//LinkedResourceTerm/mapping"/>
+    </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//Import/importedNamespace"/>
     </genClasses>

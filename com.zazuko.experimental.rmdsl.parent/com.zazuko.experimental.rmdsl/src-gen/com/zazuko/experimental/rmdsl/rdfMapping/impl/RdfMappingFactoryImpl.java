@@ -86,6 +86,7 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
       case RdfMappingPackage.VALUED_TERM: return createValuedTerm();
       case RdfMappingPackage.REFERENCE_VALUED_TERM: return createReferenceValuedTerm();
       case RdfMappingPackage.TEMPLATE_VALUED_TERM: return createTemplateValuedTerm();
+      case RdfMappingPackage.LINKED_RESOURCE_TERM: return createLinkedResourceTerm();
       case RdfMappingPackage.IMPORT: return createImport();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -321,6 +322,17 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
   {
     TemplateValuedTermImpl templateValuedTerm = new TemplateValuedTermImpl();
     return templateValuedTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LinkedResourceTerm createLinkedResourceTerm()
+  {
+    LinkedResourceTermImpl linkedResourceTerm = new LinkedResourceTermImpl();
+    return linkedResourceTerm;
   }
 
   /**

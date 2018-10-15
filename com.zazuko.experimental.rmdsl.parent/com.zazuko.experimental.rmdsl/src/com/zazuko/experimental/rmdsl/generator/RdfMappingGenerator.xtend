@@ -22,6 +22,7 @@ import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable
 import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
+import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm
 
 /**
  * Generates code from your model files on save.
@@ -131,6 +132,10 @@ class RdfMappingGenerator extends AbstractGenerator {
 		rr:template "«toTemplateString»" ;
 	'''
 	
+	def dispatch objectTermMap(LinkedResourceTerm it) '''
+		rr:template "«toTemplateString»" ;
+	'''
+	
 	def termMapAnnex(ReferenceValuedTerm it) '''
 		«IF languageTag !== null»
 			rr:language "«languageTag.name»" ;
@@ -145,6 +150,10 @@ class RdfMappingGenerator extends AbstractGenerator {
 	
 	def toTemplateString(TemplateValuedTerm it) {		
 		MessageFormat.format(pattern, '''{«reference.valueResolved»}''');
+	}
+	
+	def toTemplateString(LinkedResourceTerm it) {		
+		MessageFormat.format(mapping.pattern, '''{«reference.valueResolved»}''');
 	}
 	
 	def sourceResolved(LogicalSource it) {

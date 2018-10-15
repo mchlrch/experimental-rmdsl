@@ -10,6 +10,7 @@ import com.zazuko.experimental.rmdsl.rdfMapping.Domainmodel;
 import com.zazuko.experimental.rmdsl.rdfMapping.Import;
 import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTagDefinition;
+import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
@@ -68,6 +69,9 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case RdfMappingPackage.LANGUAGE_TAG_DEFINITION:
 				sequence_LanguageTagDefinition(context, (LanguageTagDefinition) semanticObject); 
+				return; 
+			case RdfMappingPackage.LINKED_RESOURCE_TERM:
+				sequence_LinkedResourceTerm(context, (LinkedResourceTerm) semanticObject); 
 				return; 
 			case RdfMappingPackage.LOGICAL_SOURCE:
 				sequence_LogicalSource(context, (LogicalSource) semanticObject); 
@@ -205,6 +209,28 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLanguageTagAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ValuedTerm returns LinkedResourceTerm
+	 *     LinkedResourceTerm returns LinkedResourceTerm
+	 *
+	 * Constraint:
+	 *     (mapping=[Mapping|ID] reference=[Referenceable|QualifiedName])
+	 */
+	protected void sequence_LinkedResourceTerm(ISerializationContext context, LinkedResourceTerm semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.LINKED_RESOURCE_TERM__MAPPING) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.LINKED_RESOURCE_TERM__MAPPING));
+			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.VALUED_TERM__REFERENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.VALUED_TERM__REFERENCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLinkedResourceTermAccess().getMappingMappingIDTerminalRuleCall_1_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.LINKED_RESOURCE_TERM__MAPPING, false));
+		feeder.accept(grammarAccess.getLinkedResourceTermAccess().getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.VALUED_TERM__REFERENCE, false));
 		feeder.finish();
 	}
 	

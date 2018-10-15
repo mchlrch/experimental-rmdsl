@@ -181,6 +181,11 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
         return createTemplateValuedTermAdapter();
       }
       @Override
+      public Adapter caseLinkedResourceTerm(LinkedResourceTerm object)
+      {
+        return createLinkedResourceTermAdapter();
+      }
+      @Override
       public Adapter caseImport(Import object)
       {
         return createImportAdapter();
@@ -518,6 +523,21 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTemplateValuedTermAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm <em>Linked Resource Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm
+   * @generated
+   */
+  public Adapter createLinkedResourceTermAdapter()
   {
     return null;
   }

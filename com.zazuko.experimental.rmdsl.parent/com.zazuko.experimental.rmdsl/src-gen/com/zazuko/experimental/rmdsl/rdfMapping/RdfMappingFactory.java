@@ -213,6 +213,15 @@ public interface RdfMappingFactory extends EFactory
   TemplateValuedTerm createTemplateValuedTerm();
 
   /**
+   * Returns a new object of class '<em>Linked Resource Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Linked Resource Term</em>'.
+   * @generated
+   */
+  LinkedResourceTerm createLinkedResourceTerm();
+
+  /**
    * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
