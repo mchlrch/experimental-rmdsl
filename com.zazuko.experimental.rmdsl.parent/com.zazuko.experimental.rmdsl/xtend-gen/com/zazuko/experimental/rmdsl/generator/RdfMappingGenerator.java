@@ -70,10 +70,15 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("PREFIX ql: <http://semweb.mmlab.be/ns/ql#>");
     _builder.newLine();
     {
-      List<String> _prefixStatements = this.toPrefixStatements(ModelAccess.vocabulariesUsed(mappings));
-      for(final String prefixStmt : _prefixStatements) {
-        _builder.append(prefixStmt);
-        _builder.append(" ");
+      List<Vocabulary> _inDeterministicOrder = ModelAccess.inDeterministicOrder(ModelAccess.vocabulariesUsed(mappings));
+      for(final Vocabulary voc : _inDeterministicOrder) {
+        _builder.append("PREFIX ");
+        String _label = voc.getPrefix().getLabel();
+        _builder.append(_label);
+        _builder.append(" <");
+        String _iri = voc.getPrefix().getIri();
+        _builder.append(_iri);
+        _builder.append(">");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -355,28 +360,6 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(_valueResolved);
     _builder.append("}");
     return MessageFormat.format(_pattern, _builder);
-  }
-  
-  public List<String> toPrefixStatements(final Iterable<Vocabulary> vocabularies) {
-    final Function1<Vocabulary, String> _function = (Vocabulary voc) -> {
-      return this.prefixStatement(voc).toString();
-    };
-    final Function1<String, String> _function_1 = (String s) -> {
-      return s;
-    };
-    return IterableExtensions.<String, String>sortBy(IterableExtensions.<String>toList(IterableExtensions.<String>toSet(IterableExtensions.<Vocabulary, String>map(vocabularies, _function))), _function_1);
-  }
-  
-  public CharSequence prefixStatement(final Vocabulary voc) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("PREFIX ");
-    String _label = voc.getPrefix().getLabel();
-    _builder.append(_label);
-    _builder.append(" <");
-    String _iri = voc.getPrefix().getIri();
-    _builder.append(_iri);
-    _builder.append(">");
-    return _builder;
   }
   
   public CharSequence objectTermMap(final ValuedTerm it) {

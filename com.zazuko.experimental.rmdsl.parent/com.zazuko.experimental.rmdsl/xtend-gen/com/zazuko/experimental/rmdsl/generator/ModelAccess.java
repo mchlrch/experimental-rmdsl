@@ -15,6 +15,8 @@ import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -83,11 +85,18 @@ public class ModelAccess {
     return _xblockexpression;
   }
   
-  public static Iterable<Vocabulary> vocabulariesUsed(final Iterable<Mapping> mappings) {
+  public static Set<Vocabulary> vocabulariesUsed(final Iterable<Mapping> mappings) {
     final Function1<Mapping, HashSet<Vocabulary>> _function = (Mapping m) -> {
       return ModelAccess.vocabulariesUsed(m);
     };
-    return Iterables.<Vocabulary>concat(IterableExtensions.<Mapping, HashSet<Vocabulary>>map(mappings, _function));
+    return IterableExtensions.<Vocabulary>toSet(Iterables.<Vocabulary>concat(IterableExtensions.<Mapping, HashSet<Vocabulary>>map(mappings, _function)));
+  }
+  
+  public static List<Vocabulary> inDeterministicOrder(final Iterable<Vocabulary> vocabularies) {
+    final Function1<Vocabulary, String> _function = (Vocabulary s) -> {
+      return s.getPrefix().getLabel();
+    };
+    return IterableExtensions.<Vocabulary, String>sortBy(IterableExtensions.<Vocabulary>toList(IterableExtensions.<Vocabulary>toSet(vocabularies)), _function);
   }
   
   public static Prefix prefix(final Datatype it) {

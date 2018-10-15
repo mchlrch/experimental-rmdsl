@@ -45,7 +45,11 @@ class ModelAccess {
 	}
 	
 	def static vocabulariesUsed(Iterable<Mapping> mappings) {
-		mappings.map[m | m.vocabulariesUsed].flatten;
+		mappings.map[m | m.vocabulariesUsed].flatten.toSet;
+	}
+	
+	def static inDeterministicOrder(Iterable<Vocabulary> vocabularies) {
+		vocabularies.toSet.toList.sortBy[s | s.prefix.label];
 	}
 	
 	def static prefix(Datatype it) {

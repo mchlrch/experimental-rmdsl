@@ -9,7 +9,6 @@ import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
 import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
-import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary
 import java.text.MessageFormat
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
@@ -49,8 +48,8 @@ class RdfMappingGenerator extends AbstractGenerator {
 		PREFIX rr: <http://www.w3.org/ns/r2rml#>
 		PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
 		PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
-		«FOR prefixStmt:mappings.vocabulariesUsed.toPrefixStatements»
-			«prefixStmt» 
+		«FOR voc:mappings.vocabulariesUsed.inDeterministicOrder»
+			PREFIX «voc.prefix.label» <«voc.prefix.iri»>
 		«ENDFOR»
 		
 		# debug output ..
@@ -150,12 +149,5 @@ class RdfMappingGenerator extends AbstractGenerator {
 	def toTemplateString(LinkedResourceTerm it) {		
 		MessageFormat.format(mapping.pattern, '''{«reference.valueResolved»}''');
 	}	
-	
-	// eliminate duplicate prefix entries on string level
-	def toPrefixStatements(Iterable<Vocabulary> vocabularies) {
-		vocabularies.map[voc | voc.prefixStatement.toString].toSet.toList.sortBy[s | s];
-	}
-	def prefixStatement(Vocabulary voc) '''PREFIX «voc.prefix.label» <«voc.prefix.iri»>'''
-	
 	
 }
