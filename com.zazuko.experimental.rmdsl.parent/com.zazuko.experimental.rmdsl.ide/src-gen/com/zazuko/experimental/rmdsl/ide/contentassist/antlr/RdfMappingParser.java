@@ -32,7 +32,8 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, RdfMappingGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
-			builder.put(grammarAccess.getPredicateObjectMappingAccess().getAlternatives_3(), "rule__PredicateObjectMapping__Alternatives_3");
+			builder.put(grammarAccess.getValuedTermAccess().getAlternatives(), "rule__ValuedTerm__Alternatives");
+			builder.put(grammarAccess.getReferenceValuedTermAccess().getAlternatives_2(), "rule__ReferenceValuedTerm__Alternatives_2");
 			builder.put(grammarAccess.getSourceTypesDefinitionAccess().getGroup(), "rule__SourceTypesDefinition__Group__0");
 			builder.put(grammarAccess.getSourceTypeAccess().getGroup(), "rule__SourceType__Group__0");
 			builder.put(grammarAccess.getDatatypesDefinitionAccess().getGroup(), "rule__DatatypesDefinition__Group__0");
@@ -52,8 +53,10 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMappingAccess().getGroup_10(), "rule__Mapping__Group_10__0");
 			builder.put(grammarAccess.getMappingAccess().getGroup_11(), "rule__Mapping__Group_11__0");
 			builder.put(grammarAccess.getPredicateObjectMappingAccess().getGroup(), "rule__PredicateObjectMapping__Group__0");
-			builder.put(grammarAccess.getPredicateObjectMappingAccess().getGroup_3_0(), "rule__PredicateObjectMapping__Group_3_0__0");
-			builder.put(grammarAccess.getPredicateObjectMappingAccess().getGroup_3_1(), "rule__PredicateObjectMapping__Group_3_1__0");
+			builder.put(grammarAccess.getReferenceValuedTermAccess().getGroup(), "rule__ReferenceValuedTerm__Group__0");
+			builder.put(grammarAccess.getReferenceValuedTermAccess().getGroup_2_0(), "rule__ReferenceValuedTerm__Group_2_0__0");
+			builder.put(grammarAccess.getReferenceValuedTermAccess().getGroup_2_1(), "rule__ReferenceValuedTerm__Group_2_1__0");
+			builder.put(grammarAccess.getTemplateValuedTermAccess().getGroup(), "rule__TemplateValuedTerm__Group__0");
 			builder.put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 			builder.put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
@@ -94,9 +97,12 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMappingAccess().getPoMappingsAssignment_11_1(), "rule__Mapping__PoMappingsAssignment_11_1");
 			builder.put(grammarAccess.getSubjectTypeMappingAccess().getTypeAssignment(), "rule__SubjectTypeMapping__TypeAssignment");
 			builder.put(grammarAccess.getPredicateObjectMappingAccess().getPropertyAssignment_0(), "rule__PredicateObjectMapping__PropertyAssignment_0");
-			builder.put(grammarAccess.getPredicateObjectMappingAccess().getReferenceAssignment_2(), "rule__PredicateObjectMapping__ReferenceAssignment_2");
-			builder.put(grammarAccess.getPredicateObjectMappingAccess().getDatatypeAssignment_3_0_2(), "rule__PredicateObjectMapping__DatatypeAssignment_3_0_2");
-			builder.put(grammarAccess.getPredicateObjectMappingAccess().getLanguageTagAssignment_3_1_2(), "rule__PredicateObjectMapping__LanguageTagAssignment_3_1_2");
+			builder.put(grammarAccess.getPredicateObjectMappingAccess().getTermAssignment_1(), "rule__PredicateObjectMapping__TermAssignment_1");
+			builder.put(grammarAccess.getReferenceValuedTermAccess().getReferenceAssignment_1(), "rule__ReferenceValuedTerm__ReferenceAssignment_1");
+			builder.put(grammarAccess.getReferenceValuedTermAccess().getDatatypeAssignment_2_0_2(), "rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2");
+			builder.put(grammarAccess.getReferenceValuedTermAccess().getLanguageTagAssignment_2_1_2(), "rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2");
+			builder.put(grammarAccess.getTemplateValuedTermAccess().getPatternAssignment_1(), "rule__TemplateValuedTerm__PatternAssignment_1");
+			builder.put(grammarAccess.getTemplateValuedTermAccess().getReferenceAssignment_3(), "rule__TemplateValuedTerm__ReferenceAssignment_3");
 			builder.put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 		}
 	}

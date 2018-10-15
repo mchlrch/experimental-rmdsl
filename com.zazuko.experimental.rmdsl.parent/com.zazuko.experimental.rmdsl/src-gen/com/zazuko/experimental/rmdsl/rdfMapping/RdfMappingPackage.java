@@ -715,31 +715,13 @@ public interface RdfMappingPackage extends EPackage
   int PREDICATE_OBJECT_MAPPING__PROPERTY = 0;
 
   /**
-   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * The feature id for the '<em><b>Term</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PREDICATE_OBJECT_MAPPING__REFERENCE = 1;
-
-  /**
-   * The feature id for the '<em><b>Datatype</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE_OBJECT_MAPPING__DATATYPE = 2;
-
-  /**
-   * The feature id for the '<em><b>Language Tag</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG = 3;
+  int PREDICATE_OBJECT_MAPPING__TERM = 1;
 
   /**
    * The number of structural features of the '<em>Predicate Object Mapping</em>' class.
@@ -748,7 +730,118 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PREDICATE_OBJECT_MAPPING_FEATURE_COUNT = 4;
+  int PREDICATE_OBJECT_MAPPING_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ValuedTermImpl <em>Valued Term</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.ValuedTermImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getValuedTerm()
+   * @generated
+   */
+  int VALUED_TERM = 18;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUED_TERM__REFERENCE = 0;
+
+  /**
+   * The number of structural features of the '<em>Valued Term</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUED_TERM_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl <em>Reference Valued Term</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getReferenceValuedTerm()
+   * @generated
+   */
+  int REFERENCE_VALUED_TERM = 19;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE_VALUED_TERM__REFERENCE = VALUED_TERM__REFERENCE;
+
+  /**
+   * The feature id for the '<em><b>Datatype</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE_VALUED_TERM__DATATYPE = VALUED_TERM_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Language Tag</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE_VALUED_TERM__LANGUAGE_TAG = VALUED_TERM_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Reference Valued Term</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE_VALUED_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.TemplateValuedTermImpl <em>Template Valued Term</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.TemplateValuedTermImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getTemplateValuedTerm()
+   * @generated
+   */
+  int TEMPLATE_VALUED_TERM = 20;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATE_VALUED_TERM__REFERENCE = VALUED_TERM__REFERENCE;
+
+  /**
+   * The feature id for the '<em><b>Pattern</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATE_VALUED_TERM__PATTERN = VALUED_TERM_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Template Valued Term</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATE_VALUED_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.
@@ -758,7 +851,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getImport()
    * @generated
    */
-  int IMPORT = 18;
+  int IMPORT = 21;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -1356,37 +1449,89 @@ public interface RdfMappingPackage extends EPackage
   EReference getPredicateObjectMapping_Property();
 
   /**
-   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getReference <em>Reference</em>}'.
+   * Returns the meta object for the containment reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getTerm <em>Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Term</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getTerm()
+   * @see #getPredicateObjectMapping()
+   * @generated
+   */
+  EReference getPredicateObjectMapping_Term();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm <em>Valued Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Valued Term</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
+   * @generated
+   */
+  EClass getValuedTerm();
+
+  /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm#getReference <em>Reference</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Reference</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getReference()
-   * @see #getPredicateObjectMapping()
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm#getReference()
+   * @see #getValuedTerm()
    * @generated
    */
-  EReference getPredicateObjectMapping_Reference();
+  EReference getValuedTerm_Reference();
 
   /**
-   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getDatatype <em>Datatype</em>}'.
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm <em>Reference Valued Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Reference Valued Term</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
+   * @generated
+   */
+  EClass getReferenceValuedTerm();
+
+  /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getDatatype <em>Datatype</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Datatype</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getDatatype()
-   * @see #getPredicateObjectMapping()
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getDatatype()
+   * @see #getReferenceValuedTerm()
    * @generated
    */
-  EReference getPredicateObjectMapping_Datatype();
+  EReference getReferenceValuedTerm_Datatype();
 
   /**
-   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getLanguageTag <em>Language Tag</em>}'.
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getLanguageTag <em>Language Tag</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Language Tag</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getLanguageTag()
-   * @see #getPredicateObjectMapping()
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getLanguageTag()
+   * @see #getReferenceValuedTerm()
    * @generated
    */
-  EReference getPredicateObjectMapping_LanguageTag();
+  EReference getReferenceValuedTerm_LanguageTag();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm <em>Template Valued Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Template Valued Term</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
+   * @generated
+   */
+  EClass getTemplateValuedTerm();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getPattern <em>Pattern</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pattern</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getPattern()
+   * @see #getTemplateValuedTerm()
+   * @generated
+   */
+  EAttribute getTemplateValuedTerm_Pattern();
 
   /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Import <em>Import</em>}'.
@@ -1901,12 +2046,40 @@ public interface RdfMappingPackage extends EPackage
     EReference PREDICATE_OBJECT_MAPPING__PROPERTY = eINSTANCE.getPredicateObjectMapping_Property();
 
     /**
+     * The meta object literal for the '<em><b>Term</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PREDICATE_OBJECT_MAPPING__TERM = eINSTANCE.getPredicateObjectMapping_Term();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ValuedTermImpl <em>Valued Term</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.ValuedTermImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getValuedTerm()
+     * @generated
+     */
+    EClass VALUED_TERM = eINSTANCE.getValuedTerm();
+
+    /**
      * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PREDICATE_OBJECT_MAPPING__REFERENCE = eINSTANCE.getPredicateObjectMapping_Reference();
+    EReference VALUED_TERM__REFERENCE = eINSTANCE.getValuedTerm_Reference();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl <em>Reference Valued Term</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getReferenceValuedTerm()
+     * @generated
+     */
+    EClass REFERENCE_VALUED_TERM = eINSTANCE.getReferenceValuedTerm();
 
     /**
      * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
@@ -1914,7 +2087,7 @@ public interface RdfMappingPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PREDICATE_OBJECT_MAPPING__DATATYPE = eINSTANCE.getPredicateObjectMapping_Datatype();
+    EReference REFERENCE_VALUED_TERM__DATATYPE = eINSTANCE.getReferenceValuedTerm_Datatype();
 
     /**
      * The meta object literal for the '<em><b>Language Tag</b></em>' reference feature.
@@ -1922,7 +2095,25 @@ public interface RdfMappingPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG = eINSTANCE.getPredicateObjectMapping_LanguageTag();
+    EReference REFERENCE_VALUED_TERM__LANGUAGE_TAG = eINSTANCE.getReferenceValuedTerm_LanguageTag();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.TemplateValuedTermImpl <em>Template Valued Term</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.TemplateValuedTermImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getTemplateValuedTerm()
+     * @generated
+     */
+    EClass TEMPLATE_VALUED_TERM = eINSTANCE.getTemplateValuedTerm();
+
+    /**
+     * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TEMPLATE_VALUED_TERM__PATTERN = eINSTANCE.getTemplateValuedTerm_Pattern();
 
     /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.

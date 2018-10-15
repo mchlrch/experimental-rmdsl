@@ -1325,19 +1325,93 @@ rulePredicateObjectMapping returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1='from'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPredicateObjectMappingAccess().getTermValuedTermParserRuleCall_1_0());
+				}
+				lv_term_1_0=ruleValuedTerm
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPredicateObjectMappingRule());
+					}
+					set(
+						$current,
+						"term",
+						lv_term_1_0,
+						"com.zazuko.experimental.rmdsl.RdfMapping.ValuedTerm");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleValuedTerm
+entryRuleValuedTerm returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getValuedTermRule()); }
+	iv_ruleValuedTerm=ruleValuedTerm
+	{ $current=$iv_ruleValuedTerm.current; }
+	EOF;
+
+// Rule ValuedTerm
+ruleValuedTerm returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		{
-			newLeafNode(otherlv_1, grammarAccess.getPredicateObjectMappingAccess().getFromKeyword_1());
+			newCompositeNode(grammarAccess.getValuedTermAccess().getReferenceValuedTermParserRuleCall_0());
+		}
+		this_ReferenceValuedTerm_0=ruleReferenceValuedTerm
+		{
+			$current = $this_ReferenceValuedTerm_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getValuedTermAccess().getTemplateValuedTermParserRuleCall_1());
+		}
+		this_TemplateValuedTerm_1=ruleTemplateValuedTerm
+		{
+			$current = $this_TemplateValuedTerm_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleReferenceValuedTerm
+entryRuleReferenceValuedTerm returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getReferenceValuedTermRule()); }
+	iv_ruleReferenceValuedTerm=ruleReferenceValuedTerm
+	{ $current=$iv_ruleReferenceValuedTerm.current; }
+	EOF;
+
+// Rule ReferenceValuedTerm
+ruleReferenceValuedTerm returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='from'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getReferenceValuedTermAccess().getFromKeyword_0());
 		}
 		(
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPredicateObjectMappingRule());
+						$current = createModelElement(grammarAccess.getReferenceValuedTermRule());
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getPredicateObjectMappingAccess().getReferenceReferenceableCrossReference_2_0());
+					newCompositeNode(grammarAccess.getReferenceValuedTermAccess().getReferenceReferenceableCrossReference_1_0());
 				}
 				ruleQualifiedName
 				{
@@ -1347,53 +1421,114 @@ rulePredicateObjectMapping returns [EObject current=null]
 		)
 		(
 			(
-				otherlv_3='with'
+				otherlv_2='with'
 				{
-					newLeafNode(otherlv_3, grammarAccess.getPredicateObjectMappingAccess().getWithKeyword_3_0_0());
+					newLeafNode(otherlv_2, grammarAccess.getReferenceValuedTermAccess().getWithKeyword_2_0_0());
 				}
-				otherlv_4='datatype'
+				otherlv_3='datatype'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getPredicateObjectMappingAccess().getDatatypeKeyword_3_0_1());
+					newLeafNode(otherlv_3, grammarAccess.getReferenceValuedTermAccess().getDatatypeKeyword_2_0_1());
 				}
 				(
 					(
 						{
 							if ($current==null) {
-								$current = createModelElement(grammarAccess.getPredicateObjectMappingRule());
+								$current = createModelElement(grammarAccess.getReferenceValuedTermRule());
 							}
 						}
-						otherlv_5=RULE_ID
+						otherlv_4=RULE_ID
 						{
-							newLeafNode(otherlv_5, grammarAccess.getPredicateObjectMappingAccess().getDatatypeDatatypeCrossReference_3_0_2_0());
+							newLeafNode(otherlv_4, grammarAccess.getReferenceValuedTermAccess().getDatatypeDatatypeCrossReference_2_0_2_0());
 						}
 					)
 				)
 			)
 			    |
 			(
-				otherlv_6='with'
+				otherlv_5='with'
 				{
-					newLeafNode(otherlv_6, grammarAccess.getPredicateObjectMappingAccess().getWithKeyword_3_1_0());
+					newLeafNode(otherlv_5, grammarAccess.getReferenceValuedTermAccess().getWithKeyword_2_1_0());
 				}
-				otherlv_7='language-tag'
+				otherlv_6='language-tag'
 				{
-					newLeafNode(otherlv_7, grammarAccess.getPredicateObjectMappingAccess().getLanguageTagKeyword_3_1_1());
+					newLeafNode(otherlv_6, grammarAccess.getReferenceValuedTermAccess().getLanguageTagKeyword_2_1_1());
 				}
 				(
 					(
 						{
 							if ($current==null) {
-								$current = createModelElement(grammarAccess.getPredicateObjectMappingRule());
+								$current = createModelElement(grammarAccess.getReferenceValuedTermRule());
 							}
 						}
-						otherlv_8=RULE_ID
+						otherlv_7=RULE_ID
 						{
-							newLeafNode(otherlv_8, grammarAccess.getPredicateObjectMappingAccess().getLanguageTagLanguageTagCrossReference_3_1_2_0());
+							newLeafNode(otherlv_7, grammarAccess.getReferenceValuedTermAccess().getLanguageTagLanguageTagCrossReference_2_1_2_0());
 						}
 					)
 				)
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleTemplateValuedTerm
+entryRuleTemplateValuedTerm returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTemplateValuedTermRule()); }
+	iv_ruleTemplateValuedTerm=ruleTemplateValuedTerm
+	{ $current=$iv_ruleTemplateValuedTerm.current; }
+	EOF;
+
+// Rule TemplateValuedTerm
+ruleTemplateValuedTerm returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='template'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTemplateValuedTermAccess().getTemplateKeyword_0());
+		}
+		(
+			(
+				lv_pattern_1_0=RULE_STRING
+				{
+					newLeafNode(lv_pattern_1_0, grammarAccess.getTemplateValuedTermAccess().getPatternSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTemplateValuedTermRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"pattern",
+						lv_pattern_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_2='with'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getTemplateValuedTermAccess().getWithKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTemplateValuedTermRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getTemplateValuedTermAccess().getReferenceReferenceableCrossReference_3_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

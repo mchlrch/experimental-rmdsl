@@ -14,12 +14,16 @@ import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
+import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm;
+import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -227,16 +231,6 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("rr:objectMap [");
     _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("rml:reference \"");
-    String _valueResolved = this.valueResolved(pom.getReference());
-    _builder.append(_valueResolved, "\t\t");
-    _builder.append("\" ;");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    CharSequence _termMapAnnex = this.termMapAnnex(pom);
-    _builder.append(_termMapAnnex, "\t\t");
-    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("].");
     _builder.newLine();
@@ -261,14 +255,8 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("rr:objectMap [");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("rr:column \"");
-    String _valueResolved = this.valueResolved(pom.getReference());
-    _builder.append(_valueResolved, "\t\t");
-    _builder.append("\" ;");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    CharSequence _termMapAnnex = this.termMapAnnex(pom);
-    _builder.append(_termMapAnnex, "\t\t");
+    CharSequence _objectTermMap = this.objectTermMap(pom.getTerm());
+    _builder.append(_objectTermMap, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("];");
@@ -278,25 +266,57 @@ public class RdfMappingGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence termMapAnnex(final PredicateObjectMapping pom) {
+  protected CharSequence _objectTermMap(final ValuedTerm it) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("# TODO: implementation missing for ");
+    String _name = it.getClass().getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _objectTermMap(final ReferenceValuedTerm it) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("rr:column \"");
+    String _valueResolved = this.valueResolved(it.getReference());
+    _builder.append(_valueResolved);
+    _builder.append("\" ;");
+    _builder.newLineIfNotEmpty();
+    CharSequence _termMapAnnex = this.termMapAnnex(it);
+    _builder.append(_termMapAnnex);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _objectTermMap(final TemplateValuedTerm it) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("rr:template \"");
+    String _templateString = this.toTemplateString(it);
+    _builder.append(_templateString);
+    _builder.append("\" ;");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence termMapAnnex(final ReferenceValuedTerm it) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      LanguageTag _languageTag = pom.getLanguageTag();
+      LanguageTag _languageTag = it.getLanguageTag();
       boolean _tripleNotEquals = (_languageTag != null);
       if (_tripleNotEquals) {
         _builder.append("rr:language \"");
-        String _name = pom.getLanguageTag().getName();
+        String _name = it.getLanguageTag().getName();
         _builder.append(_name);
         _builder.append("\" ;");
         _builder.newLineIfNotEmpty();
       } else {
-        Datatype _datatype = pom.getDatatype();
+        Datatype _datatype = it.getDatatype();
         boolean _tripleNotEquals_1 = (_datatype != null);
         if (_tripleNotEquals_1) {
           _builder.append("rr:datatype ");
-          String _label = this.prefix(pom.getDatatype()).getLabel();
+          String _label = this.prefix(it.getDatatype()).getLabel();
           _builder.append(_label);
-          String _name_1 = pom.getDatatype().getName();
+          String _name_1 = it.getDatatype().getName();
           _builder.append(_name_1);
           _builder.append(" ;");
           _builder.newLineIfNotEmpty();
@@ -311,6 +331,16 @@ public class RdfMappingGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("{");
     String _valueResolved = this.valueResolved(m.getReference());
+    _builder.append(_valueResolved);
+    _builder.append("}");
+    return MessageFormat.format(_pattern, _builder);
+  }
+  
+  public String toTemplateString(final TemplateValuedTerm it) {
+    String _pattern = it.getPattern();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    String _valueResolved = this.valueResolved(it.getReference());
     _builder.append(_valueResolved);
     _builder.append("}");
     return MessageFormat.format(_pattern, _builder);
@@ -418,6 +448,19 @@ public class RdfMappingGenerator extends AbstractGenerator {
       return it.getValue();
     } else {
       return it.getName();
+    }
+  }
+  
+  public CharSequence objectTermMap(final ValuedTerm it) {
+    if (it instanceof ReferenceValuedTerm) {
+      return _objectTermMap((ReferenceValuedTerm)it);
+    } else if (it instanceof TemplateValuedTerm) {
+      return _objectTermMap((TemplateValuedTerm)it);
+    } else if (it != null) {
+      return _objectTermMap(it);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(it).toString());
     }
   }
 }

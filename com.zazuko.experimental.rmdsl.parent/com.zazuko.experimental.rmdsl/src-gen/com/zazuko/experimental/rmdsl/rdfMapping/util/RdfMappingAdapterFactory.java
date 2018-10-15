@@ -166,6 +166,21 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
         return createPredicateObjectMappingAdapter();
       }
       @Override
+      public Adapter caseValuedTerm(ValuedTerm object)
+      {
+        return createValuedTermAdapter();
+      }
+      @Override
+      public Adapter caseReferenceValuedTerm(ReferenceValuedTerm object)
+      {
+        return createReferenceValuedTermAdapter();
+      }
+      @Override
+      public Adapter caseTemplateValuedTerm(TemplateValuedTerm object)
+      {
+        return createTemplateValuedTermAdapter();
+      }
+      @Override
       public Adapter caseImport(Import object)
       {
         return createImportAdapter();
@@ -458,6 +473,51 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPredicateObjectMappingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm <em>Valued Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
+   * @generated
+   */
+  public Adapter createValuedTermAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm <em>Reference Valued Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
+   * @generated
+   */
+  public Adapter createReferenceValuedTermAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm <em>Template Valued Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
+   * @generated
+   */
+  public Adapter createTemplateValuedTermAdapter()
   {
     return null;
   }

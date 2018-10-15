@@ -186,6 +186,33 @@ public interface RdfMappingFactory extends EFactory
   PredicateObjectMapping createPredicateObjectMapping();
 
   /**
+   * Returns a new object of class '<em>Valued Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Valued Term</em>'.
+   * @generated
+   */
+  ValuedTerm createValuedTerm();
+
+  /**
+   * Returns a new object of class '<em>Reference Valued Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reference Valued Term</em>'.
+   * @generated
+   */
+  ReferenceValuedTerm createReferenceValuedTerm();
+
+  /**
+   * Returns a new object of class '<em>Template Valued Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Template Valued Term</em>'.
+   * @generated
+   */
+  TemplateValuedTerm createTemplateValuedTerm();
+
+  /**
    * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

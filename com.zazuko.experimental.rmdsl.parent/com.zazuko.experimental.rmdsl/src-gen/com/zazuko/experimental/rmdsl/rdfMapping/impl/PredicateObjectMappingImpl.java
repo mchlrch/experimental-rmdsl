@@ -3,14 +3,13 @@
  */
 package com.zazuko.experimental.rmdsl.rdfMapping.impl;
 
-import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
-import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
-import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
+import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -27,9 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getProperty <em>Property</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getReference <em>Reference</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getDatatype <em>Datatype</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getLanguageTag <em>Language Tag</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PredicateObjectMappingImpl#getTerm <em>Term</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,34 +44,14 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
   protected RdfProperty property;
 
   /**
-   * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
+   * The cached value of the '{@link #getTerm() <em>Term</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReference()
+   * @see #getTerm()
    * @generated
    * @ordered
    */
-  protected Referenceable reference;
-
-  /**
-   * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDatatype()
-   * @generated
-   * @ordered
-   */
-  protected Datatype datatype;
-
-  /**
-   * The cached value of the '{@link #getLanguageTag() <em>Language Tag</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLanguageTag()
-   * @generated
-   * @ordered
-   */
-  protected LanguageTag languageTag;
+  protected ValuedTerm term;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,19 +122,9 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Referenceable getReference()
+  public ValuedTerm getTerm()
   {
-    if (reference != null && reference.eIsProxy())
-    {
-      InternalEObject oldReference = (InternalEObject)reference;
-      reference = (Referenceable)eResolveProxy(oldReference);
-      if (reference != oldReference)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE, oldReference, reference));
-      }
-    }
-    return reference;
+    return term;
   }
 
   /**
@@ -165,42 +132,16 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Referenceable basicGetReference()
+  public NotificationChain basicSetTerm(ValuedTerm newTerm, NotificationChain msgs)
   {
-    return reference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setReference(Referenceable newReference)
-  {
-    Referenceable oldReference = reference;
-    reference = newReference;
+    ValuedTerm oldTerm = term;
+    term = newTerm;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE, oldReference, reference));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Datatype getDatatype()
-  {
-    if (datatype != null && datatype.eIsProxy())
     {
-      InternalEObject oldDatatype = (InternalEObject)datatype;
-      datatype = (Datatype)eResolveProxy(oldDatatype);
-      if (datatype != oldDatatype)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE, oldDatatype, datatype));
-      }
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM, oldTerm, newTerm);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return datatype;
+    return msgs;
   }
 
   /**
@@ -208,42 +149,20 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Datatype basicGetDatatype()
+  public void setTerm(ValuedTerm newTerm)
   {
-    return datatype;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDatatype(Datatype newDatatype)
-  {
-    Datatype oldDatatype = datatype;
-    datatype = newDatatype;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE, oldDatatype, datatype));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LanguageTag getLanguageTag()
-  {
-    if (languageTag != null && languageTag.eIsProxy())
+    if (newTerm != term)
     {
-      InternalEObject oldLanguageTag = (InternalEObject)languageTag;
-      languageTag = (LanguageTag)eResolveProxy(oldLanguageTag);
-      if (languageTag != oldLanguageTag)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG, oldLanguageTag, languageTag));
-      }
+      NotificationChain msgs = null;
+      if (term != null)
+        msgs = ((InternalEObject)term).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM, null, msgs);
+      if (newTerm != null)
+        msgs = ((InternalEObject)newTerm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM, null, msgs);
+      msgs = basicSetTerm(newTerm, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return languageTag;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM, newTerm, newTerm));
   }
 
   /**
@@ -251,22 +170,15 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public LanguageTag basicGetLanguageTag()
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    return languageTag;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLanguageTag(LanguageTag newLanguageTag)
-  {
-    LanguageTag oldLanguageTag = languageTag;
-    languageTag = newLanguageTag;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG, oldLanguageTag, languageTag));
+    switch (featureID)
+    {
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM:
+        return basicSetTerm(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -282,15 +194,8 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__PROPERTY:
         if (resolve) return getProperty();
         return basicGetProperty();
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE:
-        if (resolve) return getReference();
-        return basicGetReference();
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE:
-        if (resolve) return getDatatype();
-        return basicGetDatatype();
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG:
-        if (resolve) return getLanguageTag();
-        return basicGetLanguageTag();
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM:
+        return getTerm();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -308,14 +213,8 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__PROPERTY:
         setProperty((RdfProperty)newValue);
         return;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE:
-        setReference((Referenceable)newValue);
-        return;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE:
-        setDatatype((Datatype)newValue);
-        return;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG:
-        setLanguageTag((LanguageTag)newValue);
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM:
+        setTerm((ValuedTerm)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -334,14 +233,8 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__PROPERTY:
         setProperty((RdfProperty)null);
         return;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE:
-        setReference((Referenceable)null);
-        return;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE:
-        setDatatype((Datatype)null);
-        return;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG:
-        setLanguageTag((LanguageTag)null);
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM:
+        setTerm((ValuedTerm)null);
         return;
     }
     super.eUnset(featureID);
@@ -359,12 +252,8 @@ public class PredicateObjectMappingImpl extends MinimalEObjectImpl.Container imp
     {
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__PROPERTY:
         return property != null;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__REFERENCE:
-        return reference != null;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__DATATYPE:
-        return datatype != null;
-      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG:
-        return languageTag != null;
+      case RdfMappingPackage.PREDICATE_OBJECT_MAPPING__TERM:
+        return term != null;
     }
     return super.eIsSet(featureID);
   }

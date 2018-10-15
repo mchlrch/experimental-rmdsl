@@ -15,9 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getProperty <em>Property</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getReference <em>Reference</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getDatatype <em>Datatype</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getLanguageTag <em>Language Tag</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getTerm <em>Term</em>}</li>
  * </ul>
  *
  * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getPredicateObjectMapping()
@@ -53,81 +51,29 @@ public interface PredicateObjectMapping extends EObject
   void setProperty(RdfProperty value);
 
   /**
-   * Returns the value of the '<em><b>Reference</b></em>' reference.
+   * Returns the value of the '<em><b>Term</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Reference</em>' reference isn't clear,
+   * If the meaning of the '<em>Term</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Reference</em>' reference.
-   * @see #setReference(Referenceable)
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getPredicateObjectMapping_Reference()
-   * @model
+   * @return the value of the '<em>Term</em>' containment reference.
+   * @see #setTerm(ValuedTerm)
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getPredicateObjectMapping_Term()
+   * @model containment="true"
    * @generated
    */
-  Referenceable getReference();
+  ValuedTerm getTerm();
 
   /**
-   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getReference <em>Reference</em>}' reference.
+   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getTerm <em>Term</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Reference</em>' reference.
-   * @see #getReference()
+   * @param value the new value of the '<em>Term</em>' containment reference.
+   * @see #getTerm()
    * @generated
    */
-  void setReference(Referenceable value);
-
-  /**
-   * Returns the value of the '<em><b>Datatype</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Datatype</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Datatype</em>' reference.
-   * @see #setDatatype(Datatype)
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getPredicateObjectMapping_Datatype()
-   * @model
-   * @generated
-   */
-  Datatype getDatatype();
-
-  /**
-   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getDatatype <em>Datatype</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Datatype</em>' reference.
-   * @see #getDatatype()
-   * @generated
-   */
-  void setDatatype(Datatype value);
-
-  /**
-   * Returns the value of the '<em><b>Language Tag</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Language Tag</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Language Tag</em>' reference.
-   * @see #setLanguageTag(LanguageTag)
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getPredicateObjectMapping_LanguageTag()
-   * @model
-   * @generated
-   */
-  LanguageTag getLanguageTag();
-
-  /**
-   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping#getLanguageTag <em>Language Tag</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Language Tag</em>' reference.
-   * @see #getLanguageTag()
-   * @generated
-   */
-  void setLanguageTag(LanguageTag value);
+  void setTerm(ValuedTerm value);
 
 } // PredicateObjectMapping

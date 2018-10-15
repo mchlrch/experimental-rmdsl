@@ -83,6 +83,9 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
       case RdfMappingPackage.MAPPING: return createMapping();
       case RdfMappingPackage.SUBJECT_TYPE_MAPPING: return createSubjectTypeMapping();
       case RdfMappingPackage.PREDICATE_OBJECT_MAPPING: return createPredicateObjectMapping();
+      case RdfMappingPackage.VALUED_TERM: return createValuedTerm();
+      case RdfMappingPackage.REFERENCE_VALUED_TERM: return createReferenceValuedTerm();
+      case RdfMappingPackage.TEMPLATE_VALUED_TERM: return createTemplateValuedTerm();
       case RdfMappingPackage.IMPORT: return createImport();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -285,6 +288,39 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
   {
     PredicateObjectMappingImpl predicateObjectMapping = new PredicateObjectMappingImpl();
     return predicateObjectMapping;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ValuedTerm createValuedTerm()
+  {
+    ValuedTermImpl valuedTerm = new ValuedTermImpl();
+    return valuedTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReferenceValuedTerm createReferenceValuedTerm()
+  {
+    ReferenceValuedTermImpl referenceValuedTerm = new ReferenceValuedTermImpl();
+    return referenceValuedTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TemplateValuedTerm createTemplateValuedTerm()
+  {
+    TemplateValuedTermImpl templateValuedTerm = new TemplateValuedTermImpl();
+    return templateValuedTerm;
   }
 
   /**

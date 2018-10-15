@@ -651,10 +651,10 @@ public class InternalRdfMappingLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRdfMapping.g:1518:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalRdfMapping.g:1518:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalRdfMapping.g:1653:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalRdfMapping.g:1653:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalRdfMapping.g:1518:11: ( '^' )?
+            // InternalRdfMapping.g:1653:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -663,7 +663,7 @@ public class InternalRdfMappingLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalRdfMapping.g:1518:11: '^'
+                    // InternalRdfMapping.g:1653:11: '^'
                     {
                     match('^'); 
 
@@ -681,7 +681,7 @@ public class InternalRdfMappingLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalRdfMapping.g:1518:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalRdfMapping.g:1653:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -730,10 +730,10 @@ public class InternalRdfMappingLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRdfMapping.g:1520:10: ( ( '0' .. '9' )+ )
-            // InternalRdfMapping.g:1520:12: ( '0' .. '9' )+
+            // InternalRdfMapping.g:1655:10: ( ( '0' .. '9' )+ )
+            // InternalRdfMapping.g:1655:12: ( '0' .. '9' )+
             {
-            // InternalRdfMapping.g:1520:12: ( '0' .. '9' )+
+            // InternalRdfMapping.g:1655:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -747,7 +747,7 @@ public class InternalRdfMappingLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalRdfMapping.g:1520:13: '0' .. '9'
+            	    // InternalRdfMapping.g:1655:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -779,10 +779,10 @@ public class InternalRdfMappingLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRdfMapping.g:1522:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalRdfMapping.g:1522:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalRdfMapping.g:1657:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalRdfMapping.g:1657:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalRdfMapping.g:1522:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalRdfMapping.g:1657:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -800,10 +800,10 @@ public class InternalRdfMappingLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalRdfMapping.g:1522:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalRdfMapping.g:1657:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalRdfMapping.g:1522:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalRdfMapping.g:1657:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -819,7 +819,7 @@ public class InternalRdfMappingLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalRdfMapping.g:1522:21: '\\\\' .
+                    	    // InternalRdfMapping.g:1657:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -827,7 +827,7 @@ public class InternalRdfMappingLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalRdfMapping.g:1522:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalRdfMapping.g:1657:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -852,10 +852,10 @@ public class InternalRdfMappingLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalRdfMapping.g:1522:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalRdfMapping.g:1657:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalRdfMapping.g:1522:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalRdfMapping.g:1657:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -871,7 +871,7 @@ public class InternalRdfMappingLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalRdfMapping.g:1522:54: '\\\\' .
+                    	    // InternalRdfMapping.g:1657:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -879,7 +879,7 @@ public class InternalRdfMappingLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalRdfMapping.g:1522:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalRdfMapping.g:1657:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -922,12 +922,12 @@ public class InternalRdfMappingLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRdfMapping.g:1524:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalRdfMapping.g:1524:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalRdfMapping.g:1659:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalRdfMapping.g:1659:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalRdfMapping.g:1524:24: ( options {greedy=false; } : . )*
+            // InternalRdfMapping.g:1659:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -952,7 +952,7 @@ public class InternalRdfMappingLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalRdfMapping.g:1524:52: .
+            	    // InternalRdfMapping.g:1659:52: .
             	    {
             	    matchAny(); 
 
@@ -982,12 +982,12 @@ public class InternalRdfMappingLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRdfMapping.g:1526:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalRdfMapping.g:1526:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalRdfMapping.g:1661:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalRdfMapping.g:1661:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalRdfMapping.g:1526:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalRdfMapping.g:1661:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1000,7 +1000,7 @@ public class InternalRdfMappingLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalRdfMapping.g:1526:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalRdfMapping.g:1661:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1020,7 +1020,7 @@ public class InternalRdfMappingLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalRdfMapping.g:1526:40: ( ( '\\r' )? '\\n' )?
+            // InternalRdfMapping.g:1661:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1029,9 +1029,9 @@ public class InternalRdfMappingLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalRdfMapping.g:1526:41: ( '\\r' )? '\\n'
+                    // InternalRdfMapping.g:1661:41: ( '\\r' )? '\\n'
                     {
-                    // InternalRdfMapping.g:1526:41: ( '\\r' )?
+                    // InternalRdfMapping.g:1661:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1040,7 +1040,7 @@ public class InternalRdfMappingLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalRdfMapping.g:1526:41: '\\r'
+                            // InternalRdfMapping.g:1661:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1072,10 +1072,10 @@ public class InternalRdfMappingLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRdfMapping.g:1528:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalRdfMapping.g:1528:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalRdfMapping.g:1663:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalRdfMapping.g:1663:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalRdfMapping.g:1528:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalRdfMapping.g:1663:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1129,8 +1129,8 @@ public class InternalRdfMappingLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRdfMapping.g:1530:16: ( . )
-            // InternalRdfMapping.g:1530:18: .
+            // InternalRdfMapping.g:1665:16: ( . )
+            // InternalRdfMapping.g:1665:18: .
             {
             matchAny(); 
 

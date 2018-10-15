@@ -81,9 +81,20 @@ SubjectTypeMapping:
 	type=[RdfClass|QualifiedName];
 
 PredicateObjectMapping:	
-	property=[RdfProperty|QualifiedName] 'from' reference=[Referenceable|QualifiedName]
-	('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?;
+	property=[RdfProperty|QualifiedName] 
+	term=ValuedTerm;
 	
+ValuedTerm:
+	ReferenceValuedTerm | TemplateValuedTerm;
+// TODO: ConstantValuedTerm
+	
+ReferenceValuedTerm:
+	'from' reference=[Referenceable|QualifiedName]
+	('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?;
+
+TemplateValuedTerm:
+	'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName];
+
 Import:
     'import' importedNamespace=QualifiedNameWithWildcard;
     

@@ -206,6 +206,29 @@ public class RdfMappingSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RdfMappingPackage.VALUED_TERM:
+      {
+        ValuedTerm valuedTerm = (ValuedTerm)theEObject;
+        T result = caseValuedTerm(valuedTerm);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.REFERENCE_VALUED_TERM:
+      {
+        ReferenceValuedTerm referenceValuedTerm = (ReferenceValuedTerm)theEObject;
+        T result = caseReferenceValuedTerm(referenceValuedTerm);
+        if (result == null) result = caseValuedTerm(referenceValuedTerm);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.TEMPLATE_VALUED_TERM:
+      {
+        TemplateValuedTerm templateValuedTerm = (TemplateValuedTerm)theEObject;
+        T result = caseTemplateValuedTerm(templateValuedTerm);
+        if (result == null) result = caseValuedTerm(templateValuedTerm);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RdfMappingPackage.IMPORT:
       {
         Import import_ = (Import)theEObject;
@@ -502,6 +525,54 @@ public class RdfMappingSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePredicateObjectMapping(PredicateObjectMapping object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Valued Term</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Valued Term</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseValuedTerm(ValuedTerm object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reference Valued Term</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reference Valued Term</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReferenceValuedTerm(ReferenceValuedTerm object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Template Valued Term</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Template Valued Term</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTemplateValuedTerm(TemplateValuedTerm object)
   {
     return null;
   }

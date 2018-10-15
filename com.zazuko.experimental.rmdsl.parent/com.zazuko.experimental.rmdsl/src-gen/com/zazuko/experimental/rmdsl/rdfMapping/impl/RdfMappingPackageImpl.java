@@ -18,11 +18,14 @@ import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingFactory;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
+import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceTypesDefinition;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm;
+import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -165,6 +168,27 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * @generated
    */
   private EClass predicateObjectMappingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass valuedTermEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass referenceValuedTermEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass templateValuedTermEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -781,7 +805,7 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPredicateObjectMapping_Reference()
+  public EReference getPredicateObjectMapping_Term()
   {
     return (EReference)predicateObjectMappingEClass.getEStructuralFeatures().get(1);
   }
@@ -791,9 +815,9 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPredicateObjectMapping_Datatype()
+  public EClass getValuedTerm()
   {
-    return (EReference)predicateObjectMappingEClass.getEStructuralFeatures().get(2);
+    return valuedTermEClass;
   }
 
   /**
@@ -801,9 +825,59 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPredicateObjectMapping_LanguageTag()
+  public EReference getValuedTerm_Reference()
   {
-    return (EReference)predicateObjectMappingEClass.getEStructuralFeatures().get(3);
+    return (EReference)valuedTermEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReferenceValuedTerm()
+  {
+    return referenceValuedTermEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReferenceValuedTerm_Datatype()
+  {
+    return (EReference)referenceValuedTermEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReferenceValuedTerm_LanguageTag()
+  {
+    return (EReference)referenceValuedTermEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTemplateValuedTerm()
+  {
+    return templateValuedTermEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTemplateValuedTerm_Pattern()
+  {
+    return (EAttribute)templateValuedTermEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -927,9 +1001,17 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
 
     predicateObjectMappingEClass = createEClass(PREDICATE_OBJECT_MAPPING);
     createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__PROPERTY);
-    createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__REFERENCE);
-    createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__DATATYPE);
-    createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__LANGUAGE_TAG);
+    createEReference(predicateObjectMappingEClass, PREDICATE_OBJECT_MAPPING__TERM);
+
+    valuedTermEClass = createEClass(VALUED_TERM);
+    createEReference(valuedTermEClass, VALUED_TERM__REFERENCE);
+
+    referenceValuedTermEClass = createEClass(REFERENCE_VALUED_TERM);
+    createEReference(referenceValuedTermEClass, REFERENCE_VALUED_TERM__DATATYPE);
+    createEReference(referenceValuedTermEClass, REFERENCE_VALUED_TERM__LANGUAGE_TAG);
+
+    templateValuedTermEClass = createEClass(TEMPLATE_VALUED_TERM);
+    createEAttribute(templateValuedTermEClass, TEMPLATE_VALUED_TERM__PATTERN);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
@@ -971,6 +1053,8 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     logicalSourceEClass.getESuperTypes().add(this.getElement());
     vocabularyEClass.getESuperTypes().add(this.getElement());
     mappingEClass.getESuperTypes().add(this.getElement());
+    referenceValuedTermEClass.getESuperTypes().add(this.getValuedTerm());
+    templateValuedTermEClass.getESuperTypes().add(this.getValuedTerm());
     importEClass.getESuperTypes().add(this.getElement());
 
     // Initialize classes and features; add operations and parameters
@@ -1045,9 +1129,17 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
 
     initEClass(predicateObjectMappingEClass, PredicateObjectMapping.class, "PredicateObjectMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPredicateObjectMapping_Property(), this.getRdfProperty(), null, "property", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPredicateObjectMapping_Reference(), this.getReferenceable(), null, "reference", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPredicateObjectMapping_Datatype(), this.getDatatype(), null, "datatype", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPredicateObjectMapping_LanguageTag(), this.getLanguageTag(), null, "languageTag", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPredicateObjectMapping_Term(), this.getValuedTerm(), null, "term", null, 0, 1, PredicateObjectMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(valuedTermEClass, ValuedTerm.class, "ValuedTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getValuedTerm_Reference(), this.getReferenceable(), null, "reference", null, 0, 1, ValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(referenceValuedTermEClass, ReferenceValuedTerm.class, "ReferenceValuedTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReferenceValuedTerm_Datatype(), this.getDatatype(), null, "datatype", null, 0, 1, ReferenceValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReferenceValuedTerm_LanguageTag(), this.getLanguageTag(), null, "languageTag", null, 0, 1, ReferenceValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(templateValuedTermEClass, TemplateValuedTerm.class, "TemplateValuedTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTemplateValuedTerm_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, TemplateValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

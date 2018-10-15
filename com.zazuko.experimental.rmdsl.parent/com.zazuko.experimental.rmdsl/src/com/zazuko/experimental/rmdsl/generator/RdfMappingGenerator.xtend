@@ -19,6 +19,9 @@ import java.util.HashSet
 import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition
 import com.zazuko.experimental.rmdsl.rdfMapping.Datatype
 import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable
+import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
+import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
+import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
 
 /**
  * Generates code from your model files on save.
@@ -100,8 +103,8 @@ class RdfMappingGenerator extends AbstractGenerator {
 		rr:predicateObjectMap [
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
-				rml:reference "«pom.reference.valueResolved»" ;
-				«pom.termMapAnnex»
+«««				rml:reference "«pom.reference.valueResolved»" ;
+«««				«pom.termMapAnnex»
 			].
 		];
 	'''
@@ -110,22 +113,38 @@ class RdfMappingGenerator extends AbstractGenerator {
 		rr:predicateObjectMap [
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
-				rr:column "«pom.reference.valueResolved»" ;
-				«pom.termMapAnnex»
+				«pom.term.objectTermMap»
 			];
 		]
 	'''
 	
-	def termMapAnnex(PredicateObjectMapping pom) '''
-		«IF pom.languageTag !== null»
-			rr:language "«pom.languageTag.name»" ;
-		«ELSEIF pom.datatype !== null»
-			rr:datatype «pom.datatype.prefix.label»«pom.datatype.name» ;
+	def dispatch objectTermMap(ValuedTerm it) '''
+		# TODO: implementation missing for «class.name»
+	'''
+	
+	def dispatch objectTermMap(ReferenceValuedTerm it) '''
+		rr:column "«reference.valueResolved»" ;
+		«termMapAnnex»
+	'''
+	
+	def dispatch objectTermMap(TemplateValuedTerm it) '''
+		rr:template "«toTemplateString»" ;
+	'''
+	
+	def termMapAnnex(ReferenceValuedTerm it) '''
+		«IF languageTag !== null»
+			rr:language "«languageTag.name»" ;
+		«ELSEIF datatype !== null»
+			rr:datatype «datatype.prefix.label»«datatype.name» ;
 		«ENDIF»		
 	'''
 	
 	def subjectIri(Mapping m) {		
 		MessageFormat.format(m.pattern, '''{«m.reference.valueResolved»}''');
+	}
+	
+	def toTemplateString(TemplateValuedTerm it) {		
+		MessageFormat.format(pattern, '''{«reference.valueResolved»}''');
 	}
 	
 	def sourceResolved(LogicalSource it) {
