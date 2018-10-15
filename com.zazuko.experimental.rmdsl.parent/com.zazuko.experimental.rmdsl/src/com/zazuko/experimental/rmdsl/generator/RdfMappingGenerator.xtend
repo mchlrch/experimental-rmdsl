@@ -100,12 +100,13 @@ class RdfMappingGenerator extends AbstractGenerator {
 		];
 	'''
 	
+	// TODO: refactoring pending, to support all term variations for RML as well	
 	def rmlPredicateObjectMap(PredicateObjectMapping pom) '''
 		rr:predicateObjectMap [
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
-«««				rml:reference "«pom.reference.valueResolved»" ;
-«««				«pom.termMapAnnex»
+				rml:reference "«(pom.term as ReferenceValuedTerm).reference.valueResolved»" ;
+				«(pom.term as ReferenceValuedTerm).termMapAnnex»
 			].
 		];
 	'''

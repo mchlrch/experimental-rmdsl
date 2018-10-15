@@ -232,6 +232,18 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("rr:objectMap [");
     _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("rml:reference \"");
+    ValuedTerm _term = pom.getTerm();
+    String _valueResolved = this.valueResolved(((ReferenceValuedTerm) _term).getReference());
+    _builder.append(_valueResolved, "\t\t");
+    _builder.append("\" ;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    ValuedTerm _term_1 = pom.getTerm();
+    CharSequence _termMapAnnex = this.termMapAnnex(((ReferenceValuedTerm) _term_1));
+    _builder.append(_termMapAnnex, "\t\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("].");
     _builder.newLine();

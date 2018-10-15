@@ -1,6 +1,6 @@
 define(["ace/lib/oop", "ace/mode/text", "ace/mode/text_highlight_rules"], function(oop, mText, mTextHighlightRules) {
 	var HighlightRules = function() {
-		var keywords = "classes|datatype|datatypes|from|import|iterator|map|prefix|properties|referenceFormulation|referenceables|source|subject|template|type|types|vocabulary|with";
+		var keywords = "classes|datatype|datatypes|from|import|iterator|link|map|prefix|properties|referenceFormulation|referenceables|source|subject|template|type|types|vocabulary|with";
 		this.$rules = {
 			"start": [
 				{token: "comment", regex: "\\/\\/.*$"},
