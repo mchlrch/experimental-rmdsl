@@ -10,92 +10,93 @@ PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
 # Concept 
 
 <#RecordSet>
-	rml:logicalSource [  
+	rml:logicalSource [
 		rml:source "WSD_STABS_SCP_ARCHIV_DBA.RECS_rico" ;
 		rml:referenceFormulation rr:SQL2008
 	];
-
+	
 	rr:subjectMap [
 		rr:template "record/{RIC_P2}";
 		rr:class ric:RecordSet ;
 	];
-
+	
 	rr:predicateObjectMap [
 		rr:predicate skos:notation ;
 		rr:objectMap [
 			rml:reference "RIC_P17" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:title ;
 		rr:objectMap [
 			rml:reference "RIC_P3" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:scopeAndContent ;
 		rr:objectMap [
 			rml:reference "RIC_P4_CONTENT" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:contentType ;
 		rr:objectMap [
 			rml:reference "RIC_P6" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:qualityOfInformation ;
 		rr:objectMap [
 			rml:reference "RIC_P8" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:date ;
 		rr:objectMap [
 			rml:reference "RIC_P9" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate ric:characteristic_Physical ;
 		rr:objectMap [
 			rml:reference "RIC_P16" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate stabs:approval ;
 		rr:objectMap [
 			rml:reference "RIC_P18_APPROVAL" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate stabs:retentionPeriod ;
 		rr:objectMap [
 			rml:reference "RIC_P18_RETENTION_PERIOD" ;
-		].
-	];
-
+		];
+	]
+.
 <#Concept>
-	rml:logicalSource [  
+	rml:logicalSource [
 		rml:source "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS" ;
 		rml:referenceFormulation rr:SQL2008
 	];
-
+	
 	rr:subjectMap [
 		rr:template "concept/{DESC_ID}";
 		rr:class skos:Concept ;
 	];
-
+	
 	rr:predicateObjectMap [
 		rr:predicate skos:prefLabel ;
 		rr:objectMap [
 			rml:reference "DESCRIPTOR" ;
 			rr:language "de" ;
-		].
+		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate skos:notation ;
 		rr:objectMap [
 			rml:reference "DESC_ID" ;
-		].
-	];
+		];
+	]
+.

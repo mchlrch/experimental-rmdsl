@@ -5,13 +5,14 @@ package com.zazuko.experimental.rmdsl.generator;
 
 import com.google.common.collect.Iterators;
 import com.zazuko.experimental.rmdsl.generator.ModelAccess;
+import com.zazuko.experimental.rmdsl.generator.R2rmlDialect;
+import com.zazuko.experimental.rmdsl.generator.RmlDialect;
 import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
 import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
-import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm;
@@ -25,6 +26,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
@@ -36,26 +38,24 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
  */
 @SuppressWarnings("all")
 public class RdfMappingGenerator extends AbstractGenerator {
+  @Extension
+  private R2rmlDialect dialect;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Iterable<Mapping> mappings = IteratorExtensions.<Mapping>toList(Iterators.<Mapping>filter(resource.getAllContents(), Mapping.class));
-    fsa.generateFile("rml.ttl", this.rml(mappings));
-    fsa.generateFile("r2rml.ttl", this.r2rml(mappings));
+    R2rmlDialect _r2rmlDialect = new R2rmlDialect();
+    this.dialect = _r2rmlDialect;
+    fsa.generateFile("r2rml.ttl", this.toTurtle(mappings));
+    RmlDialect _rmlDialect = new RmlDialect();
+    this.dialect = _rmlDialect;
+    fsa.generateFile("rml.ttl", this.toTurtle(mappings));
   }
   
-  public String rml(final Iterable<Mapping> mappings) {
+  public String toTurtle(final Iterable<Mapping> mappings) {
     CharSequence _prefixes = this.prefixes(mappings);
     final Function1<Mapping, CharSequence> _function = (Mapping it) -> {
-      return this.rmlTriplesMap(it);
-    };
-    String _join = IterableExtensions.join(IterableExtensions.<Mapping, CharSequence>map(mappings, _function), "\n");
-    return (_prefixes + _join);
-  }
-  
-  public String r2rml(final Iterable<Mapping> mappings) {
-    CharSequence _prefixes = this.prefixes(mappings);
-    final Function1<Mapping, CharSequence> _function = (Mapping it) -> {
-      return this.r2rmlTriplesMap(it);
+      return this.triplesMap(it);
     };
     String _join = IterableExtensions.join(IterableExtensions.<Mapping, CharSequence>map(mappings, _function), "\n");
     return (_prefixes + _join);
@@ -63,12 +63,9 @@ public class RdfMappingGenerator extends AbstractGenerator {
   
   public CharSequence prefixes(final Iterable<Mapping> mappings) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("PREFIX rr: <http://www.w3.org/ns/r2rml#>");
-    _builder.newLine();
-    _builder.append("PREFIX rml: <http://semweb.mmlab.be/ns/rml#>");
-    _builder.newLine();
-    _builder.append("PREFIX ql: <http://semweb.mmlab.be/ns/ql#>");
-    _builder.newLine();
+    CharSequence _staticPrefixes = this.dialect.staticPrefixes();
+    _builder.append(_staticPrefixes);
+    _builder.newLineIfNotEmpty();
     {
       List<Vocabulary> _inDeterministicOrder = ModelAccess.inDeterministicOrder(ModelAccess.vocabulariesUsed(mappings));
       for(final Vocabulary voc : _inDeterministicOrder) {
@@ -98,7 +95,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence rmlTriplesMap(final Mapping m) {
+  public CharSequence triplesMap(final Mapping m) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<#");
     String _name = m.getName();
@@ -106,62 +103,16 @@ public class RdfMappingGenerator extends AbstractGenerator {
     _builder.append(">");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("rml:logicalSource [  ");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("rml:source \"");
-    String _sourceResolved = ModelAccess.sourceResolved(m.getSource());
-    _builder.append(_sourceResolved, "\t\t");
-    _builder.append("\" ;");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("rml:referenceFormulation ");
-    SourceType _typeResolved = ModelAccess.typeResolved(m.getSource());
-    String _referenceFormulation = null;
-    if (_typeResolved!=null) {
-      _referenceFormulation=_typeResolved.getReferenceFormulation();
-    }
-    _builder.append(_referenceFormulation, "\t\t");
+    CharSequence _logicalTable = this.dialect.logicalTable(m);
+    _builder.append(_logicalTable, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("];");
-    _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
     CharSequence _subjectMap = this.subjectMap(m);
     _builder.append(_subjectMap, "\t");
     _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    {
-      EList<PredicateObjectMapping> _poMappings = m.getPoMappings();
-      for(final PredicateObjectMapping pom : _poMappings) {
-        _builder.append("\t");
-        CharSequence _rmlPredicateObjectMap = this.rmlPredicateObjectMap(pom);
-        _builder.append(_rmlPredicateObjectMap, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence r2rmlTriplesMap(final Mapping m) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<#");
-    String _name = m.getName();
-    _builder.append(_name);
-    _builder.append(">");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("rr:logicalTable [ rr:tableName \"");
-    String _sourceResolved = ModelAccess.sourceResolved(m.getSource());
-    _builder.append(_sourceResolved, "    ");
-    _builder.append("\" ];");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    CharSequence _subjectMap = this.subjectMap(m);
-    _builder.append(_subjectMap, "    ");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
+    _builder.append("\t");
     _builder.newLine();
     {
       EList<PredicateObjectMapping> _poMappings = m.getPoMappings();
@@ -170,15 +121,15 @@ public class RdfMappingGenerator extends AbstractGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(";", "    ");
+          _builder.appendImmediate(";", "\t");
         }
-        _builder.append("    ");
-        CharSequence _r2rmlPredicateObjectMap = this.r2rmlPredicateObjectMap(pom);
-        _builder.append(_r2rmlPredicateObjectMap, "    ");
+        _builder.append("\t");
+        CharSequence _predicateObjectMap = this.predicateObjectMap(pom);
+        _builder.append(_predicateObjectMap, "\t");
         _builder.newLineIfNotEmpty();
       }
       if (_hasElements) {
-        _builder.append(".", "    ");
+        _builder.append(".", "\t");
       }
     }
     return _builder;
@@ -212,30 +163,7 @@ public class RdfMappingGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence rmlPredicateObjectMap(final PredicateObjectMapping pom) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("rr:predicateObjectMap [");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("rr:predicate ");
-    String _label = ModelAccess.vocabulary(pom.getProperty()).getPrefix().getLabel();
-    _builder.append(_label, "\t");
-    String _name = pom.getProperty().getName();
-    _builder.append(_name, "\t");
-    _builder.append(" ;");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("rr:objectMap [");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("].");
-    _builder.newLine();
-    _builder.append("];");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence r2rmlPredicateObjectMap(final PredicateObjectMapping pom) {
+  public CharSequence predicateObjectMap(final PredicateObjectMapping pom) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("rr:predicateObjectMap [");
     _builder.newLine();
@@ -273,7 +201,9 @@ public class RdfMappingGenerator extends AbstractGenerator {
   
   protected CharSequence _objectTermMap(final ReferenceValuedTerm it) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("rr:column \"");
+    CharSequence _objectMapReferencePredicate = this.dialect.objectMapReferencePredicate();
+    _builder.append(_objectMapReferencePredicate);
+    _builder.append(" \"");
     String _valueResolved = ModelAccess.valueResolved(it.getReference());
     _builder.append(_valueResolved);
     _builder.append("\" ;");

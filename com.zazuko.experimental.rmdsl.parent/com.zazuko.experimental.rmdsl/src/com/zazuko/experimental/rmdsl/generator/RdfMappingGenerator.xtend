@@ -24,30 +24,27 @@ import static extension com.zazuko.experimental.rmdsl.generator.ModelAccess.*
  */
 class RdfMappingGenerator extends AbstractGenerator {
 
+	extension R2rmlDialect dialect;
+
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val Iterable<Mapping> mappings = resource.allContents.filter(Mapping).toList
-		fsa.generateFile('rml.ttl', rml(mappings))
-		fsa.generateFile('r2rml.ttl', r2rml(mappings))
+		
+		dialect = new R2rmlDialect
+		fsa.generateFile('r2rml.ttl', mappings.toTurtle)
+		
+		dialect = new RmlDialect		
+		fsa.generateFile('rml.ttl', mappings.toTurtle)
 	}
-	
-	def rml(Iterable<Mapping> mappings) {
+		
+	def toTurtle(Iterable<Mapping> mappings) {
 		mappings.prefixes +
 		mappings
-			.map[rmlTriplesMap]
-			.join('\n')
-	}
-	
-	def r2rml(Iterable<Mapping> mappings) {
-		mappings.prefixes +
-		mappings
-			.map[r2rmlTriplesMap]
+			.map[triplesMap]
 			.join('\n')
 	}
 	
 	def prefixes(Iterable<Mapping> mappings) '''
-		PREFIX rr: <http://www.w3.org/ns/r2rml#>
-		PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
-		PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
+		«staticPrefixes»
 		«FOR voc:mappings.vocabulariesUsed.inDeterministicOrder»
 			PREFIX «voc.prefix.label» <«voc.prefix.iri»>
 		«ENDFOR»
@@ -59,28 +56,14 @@ class RdfMappingGenerator extends AbstractGenerator {
 
 	'''
 	
-	def rmlTriplesMap(Mapping m) '''
+	def triplesMap(Mapping m) '''
 		<#«m.name»>
-			rml:logicalSource [  
-				rml:source "«m.source.sourceResolved»" ;
-««« TODO        rml:iterator "/transport/bus";
-				rml:referenceFormulation «m.source.typeResolved?.referenceFormulation»
-			];
-
+			«m.logicalTable»
+			
 			«m.subjectMap()»
-		
-			«FOR pom : m.poMappings»
-				«pom.rmlPredicateObjectMap»
-			«ENDFOR»
-	'''
-	
-	def r2rmlTriplesMap(Mapping m) '''
-		<#«m.name»>
-		    rr:logicalTable [ rr:tableName "«m.source.sourceResolved»" ];
-		    «m.subjectMap()»
-		    
-		    «FOR pom : m.poMappings SEPARATOR ";" AFTER "."»
-		    	«pom.r2rmlPredicateObjectMap»
+			
+			«FOR pom : m.poMappings SEPARATOR ";" AFTER "."»
+				«pom.predicateObjectMap»
 			«ENDFOR»
 	'''
 	
@@ -93,18 +76,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 		];
 	'''
 	
-	// TODO: refactoring pending, to support all term variations for RML as well	
-	def rmlPredicateObjectMap(PredicateObjectMapping pom) '''
-		rr:predicateObjectMap [
-			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
-			rr:objectMap [
-«««				rml:reference "«(pom.term as ReferenceValuedTerm).reference.valueResolved»" ;
-«««				«(pom.term as ReferenceValuedTerm).termMapAnnex»
-			].
-		];
-	'''
-	
-	def r2rmlPredicateObjectMap(PredicateObjectMapping pom) '''
+	def predicateObjectMap(PredicateObjectMapping pom) '''
 		rr:predicateObjectMap [
 			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
 			rr:objectMap [
@@ -118,7 +90,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 	'''
 	
 	def dispatch objectTermMap(ReferenceValuedTerm it) '''
-		rr:column "«reference.valueResolved»" ;
+		«objectMapReferencePredicate» "«reference.valueResolved»" ;
 		«termMapAnnex»
 	'''
 	
@@ -135,7 +107,7 @@ class RdfMappingGenerator extends AbstractGenerator {
 			rr:language "«languageTag.name»" ;
 		«ELSEIF datatype !== null»
 			rr:datatype «datatype.prefix.label»«datatype.name» ;
-		«ENDIF»		
+		«ENDIF»
 	'''
 	
 	def subjectIri(Mapping m) {		

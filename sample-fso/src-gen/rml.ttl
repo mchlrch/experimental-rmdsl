@@ -6,12 +6,12 @@ PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 # MunicipalityVersion 
 
 <#MunicipalityVersion>
-	rml:logicalSource [  
+	rml:logicalSource [
 		rml:source "input/eCH0071/eCH0071_170402.xml" ;
 		rml:referenceFormulation ql:XPath
 	];
-
+	
 	rr:subjectMap [
 		rr:template "http://classifications.data.admin.ch/municipalityversion/{/municipality/historyMunicipalityId}";
 	];
-
+	

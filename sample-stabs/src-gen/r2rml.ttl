@@ -1,6 +1,4 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
-PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
-PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 PREFIX ric: <http://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
@@ -10,85 +8,87 @@ PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
 # Concept 
 
 <#RecordSet>
-    rr:logicalTable [ rr:tableName "WSD_STABS_SCP_ARCHIV_DBA.RECS_rico" ];
-    rr:subjectMap [
-    	rr:template "record/{RIC_P2}";
-    	rr:class ric:RecordSet ;
-    ];
-    
-    rr:predicateObjectMap [
-    	rr:predicate skos:notation ;
-    	rr:objectMap [
-    		rr:column "RIC_P17" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate ric:title ;
-    	rr:objectMap [
-    		rr:column "RIC_P3" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate ric:scopeAndContent ;
-    	rr:objectMap [
-    		rr:column "RIC_P4_CONTENT" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate ric:contentType ;
-    	rr:objectMap [
-    		rr:column "RIC_P6" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate ric:qualityOfInformation ;
-    	rr:objectMap [
-    		rr:column "RIC_P8" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate ric:date ;
-    	rr:objectMap [
-    		rr:column "RIC_P9" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate ric:characteristic_Physical ;
-    	rr:objectMap [
-    		rr:column "RIC_P16" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate stabs:approval ;
-    	rr:objectMap [
-    		rr:column "RIC_P18_APPROVAL" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate stabs:retentionPeriod ;
-    	rr:objectMap [
-    		rr:column "RIC_P18_RETENTION_PERIOD" ;
-    	];
-    ]
+	rr:logicalTable [ rr:tableName "WSD_STABS_SCP_ARCHIV_DBA.RECS_rico" ];
+	
+	rr:subjectMap [
+		rr:template "record/{RIC_P2}";
+		rr:class ric:RecordSet ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:notation ;
+		rr:objectMap [
+			rr:column "RIC_P17" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:title ;
+		rr:objectMap [
+			rr:column "RIC_P3" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:scopeAndContent ;
+		rr:objectMap [
+			rr:column "RIC_P4_CONTENT" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:contentType ;
+		rr:objectMap [
+			rr:column "RIC_P6" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:qualityOfInformation ;
+		rr:objectMap [
+			rr:column "RIC_P8" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:date ;
+		rr:objectMap [
+			rr:column "RIC_P9" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:characteristic_Physical ;
+		rr:objectMap [
+			rr:column "RIC_P16" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:approval ;
+		rr:objectMap [
+			rr:column "RIC_P18_APPROVAL" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:retentionPeriod ;
+		rr:objectMap [
+			rr:column "RIC_P18_RETENTION_PERIOD" ;
+		];
+	]
 .
 <#Concept>
-    rr:logicalTable [ rr:tableName "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS" ];
-    rr:subjectMap [
-    	rr:template "concept/{DESC_ID}";
-    	rr:class skos:Concept ;
-    ];
-    
-    rr:predicateObjectMap [
-    	rr:predicate skos:prefLabel ;
-    	rr:objectMap [
-    		rr:column "DESCRIPTOR" ;
-    		rr:language "de" ;
-    	];
-    ];
-    rr:predicateObjectMap [
-    	rr:predicate skos:notation ;
-    	rr:objectMap [
-    		rr:column "DESC_ID" ;
-    	];
-    ]
+	rr:logicalTable [ rr:tableName "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS" ];
+	
+	rr:subjectMap [
+		rr:template "concept/{DESC_ID}";
+		rr:class skos:Concept ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:prefLabel ;
+		rr:objectMap [
+			rr:column "DESCRIPTOR" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:notation ;
+		rr:objectMap [
+			rr:column "DESC_ID" ;
+		];
+	]
 .
