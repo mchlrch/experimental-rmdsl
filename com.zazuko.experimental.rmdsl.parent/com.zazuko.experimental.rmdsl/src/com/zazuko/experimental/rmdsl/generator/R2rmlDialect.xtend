@@ -4,16 +4,16 @@ import com.zazuko.experimental.rmdsl.rdfMapping.Mapping
 
 import static extension com.zazuko.experimental.rmdsl.generator.ModelAccess.*
 
-class R2rmlDialect {
+class R2rmlDialect extends RmlDialect {
 
-	def staticPrefixes() '''
+	override staticPrefixes() '''
 		PREFIX rr: <http://www.w3.org/ns/r2rml#>
 	'''
 
-	def logicalTable(Mapping m) '''
+	override logicalSource(Mapping m) '''
 		rr:logicalTable [ rr:tableName "«m.source.sourceResolved»" ];
 	'''
 
-	def objectMapReferencePredicate() '''rr:column'''
+	override objectMapReferencePredicate() '''rr:column'''
 
 }

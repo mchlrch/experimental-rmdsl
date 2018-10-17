@@ -3,19 +3,11 @@
  */
 package com.zazuko.experimental.rmdsl.generator
 
-import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping
-import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
-import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
-import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
-import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
-import java.text.MessageFormat
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-
-import static extension com.zazuko.experimental.rmdsl.generator.ModelAccess.*
 
 /**
  * Generates code from your model files on save.
@@ -23,8 +15,6 @@ import static extension com.zazuko.experimental.rmdsl.generator.ModelAccess.*
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class RdfMappingGenerator extends AbstractGenerator {
-
-	extension R2rmlDialect dialect;
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
@@ -34,98 +24,12 @@ class RdfMappingGenerator extends AbstractGenerator {
 			val String dslFileName = resource.getURI().lastSegment.toString();
 			val String outFileBase = dslFileName.substring(0, dslFileName.lastIndexOf("."));
 			
-			dialect = new R2rmlDialect
-			fsa.generateFile(outFileBase + '.r2rml.ttl', mappings.toTurtle)
+			val r2rmlGenerator = new RmlDialectGenerator(new R2rmlDialect);
+			fsa.generateFile(outFileBase + '.r2rml.ttl', r2rmlGenerator.generateTurtle(mappings));
 			
-			dialect = new RmlDialect		
-			fsa.generateFile(outFileBase + '.rml.ttl', mappings.toTurtle)
+			val rmlGenerator = new RmlDialectGenerator(new RmlDialect);		
+			fsa.generateFile(outFileBase + '.rml.ttl', rmlGenerator.generateTurtle(mappings));
 		}
-	}
-		
-	def toTurtle(Iterable<Mapping> mappings) {
-		mappings.prefixes +
-		mappings
-			.map[triplesMap]
-			.join('\n')
-	}
-	
-	def prefixes(Iterable<Mapping> mappings) '''
-		«staticPrefixes»
-		«FOR voc:mappings.vocabulariesUsed.inDeterministicOrder»
-			PREFIX «voc.prefix.label» <«voc.prefix.iri»>
-		«ENDFOR»
-		
-		# debug output ..
-		«FOR m:mappings»
-			# «m.name» 
-		«ENDFOR»
-
-	'''
-	
-	def triplesMap(Mapping m) '''
-		<#«m.name»>
-			«m.logicalTable»
-			
-			«m.subjectMap()»
-			
-			«FOR pom : m.poMappings SEPARATOR ";" AFTER "."»
-				«pom.predicateObjectMap»
-			«ENDFOR»
-	'''
-	
-	def subjectMap(Mapping m) '''
-		rr:subjectMap [
-			rr:template "«m.subjectIri»";
-			«FOR stm : m.subjectTypeMappings»
-				rr:class «stm.type.vocabulary.prefix.label»«stm.type.name» ;
-			«ENDFOR»	
-		];
-	'''
-	
-	def predicateObjectMap(PredicateObjectMapping pom) '''
-		rr:predicateObjectMap [
-			rr:predicate «pom.property.vocabulary.prefix.label»«pom.property.name» ;
-			rr:objectMap [
-				«pom.term.objectTermMap»
-			];
-		]
-	'''
-	
-	def dispatch objectTermMap(ValuedTerm it) '''
-		# TODO: implementation missing for «class.name»
-	'''
-	
-	def dispatch objectTermMap(ReferenceValuedTerm it) '''
-		«objectMapReferencePredicate» "«reference.valueResolved»" ;
-		«termMapAnnex»
-	'''
-	
-	def dispatch objectTermMap(TemplateValuedTerm it) '''
-		rr:template "«toTemplateString»" ;
-	'''
-	
-	def dispatch objectTermMap(LinkedResourceTerm it) '''
-		rr:template "«toTemplateString»" ;
-	'''
-	
-	def termMapAnnex(ReferenceValuedTerm it) '''
-		«IF languageTag !== null»
-			rr:language "«languageTag.name»" ;
-		«ELSEIF datatype !== null»
-			rr:datatype «datatype.prefix.label»«datatype.name» ;
-		«ENDIF»
-	'''
-	
-	def subjectIri(Mapping m) {		
-		MessageFormat.format(m.pattern, '''{«m.reference.valueResolved»}''');
-	}
-	
-	def toTemplateString(TemplateValuedTerm it) {		
-		MessageFormat.format(pattern, '''{«reference.valueResolved»}''');
-	}
-	
-	def toTemplateString(LinkedResourceTerm it) {		
-		MessageFormat.format(mapping.pattern, '''{«reference.valueResolved»}''');
-	}	
+	}		
 	
 }

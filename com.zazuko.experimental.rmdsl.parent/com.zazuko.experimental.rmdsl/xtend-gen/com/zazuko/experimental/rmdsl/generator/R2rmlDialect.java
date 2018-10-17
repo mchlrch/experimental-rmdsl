@@ -1,11 +1,13 @@
 package com.zazuko.experimental.rmdsl.generator;
 
 import com.zazuko.experimental.rmdsl.generator.ModelAccess;
+import com.zazuko.experimental.rmdsl.generator.RmlDialect;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
-public class R2rmlDialect {
+public class R2rmlDialect extends RmlDialect {
+  @Override
   public CharSequence staticPrefixes() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("PREFIX rr: <http://www.w3.org/ns/r2rml#>");
@@ -13,7 +15,8 @@ public class R2rmlDialect {
     return _builder;
   }
   
-  public CharSequence logicalTable(final Mapping m) {
+  @Override
+  public CharSequence logicalSource(final Mapping m) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("rr:logicalTable [ rr:tableName \"");
     String _sourceResolved = ModelAccess.sourceResolved(m.getSource());
@@ -23,6 +26,7 @@ public class R2rmlDialect {
     return _builder;
   }
   
+  @Override
   public CharSequence objectMapReferencePredicate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("rr:column");
