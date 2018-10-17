@@ -17,7 +17,7 @@ class ModelAccess {
 		if (source !== null) {
 			source;
 		} else {
-			(eContainer as SourceGroup)?.source;
+			sourceGroup?.source;
 		}
 	}
 	
@@ -25,7 +25,15 @@ class ModelAccess {
 		if (type !== null) {
 			type;
 		} else {
-			(eContainer as SourceGroup)?.type;
+			sourceGroup?.type;
+		}
+	}
+	
+	def static sourceGroup(LogicalSource it) {
+		if (eContainer instanceof SourceGroup) {
+			return eContainer as SourceGroup;
+		} else {
+			return null;
 		}
 	}
 	

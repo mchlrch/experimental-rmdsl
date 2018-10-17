@@ -31,10 +31,10 @@ public class ModelAccess {
     if (_tripleNotEquals) {
       _xifexpression = it.getSource();
     } else {
-      EObject _eContainer = it.eContainer();
+      SourceGroup _sourceGroup = ModelAccess.sourceGroup(it);
       String _source_1 = null;
-      if (((SourceGroup) _eContainer)!=null) {
-        _source_1=((SourceGroup) _eContainer).getSource();
+      if (_sourceGroup!=null) {
+        _source_1=_sourceGroup.getSource();
       }
       _xifexpression = _source_1;
     }
@@ -48,14 +48,24 @@ public class ModelAccess {
     if (_tripleNotEquals) {
       _xifexpression = it.getType();
     } else {
-      EObject _eContainer = it.eContainer();
+      SourceGroup _sourceGroup = ModelAccess.sourceGroup(it);
       SourceType _type_1 = null;
-      if (((SourceGroup) _eContainer)!=null) {
-        _type_1=((SourceGroup) _eContainer).getType();
+      if (_sourceGroup!=null) {
+        _type_1=_sourceGroup.getType();
       }
       _xifexpression = _type_1;
     }
     return _xifexpression;
+  }
+  
+  public static SourceGroup sourceGroup(final LogicalSource it) {
+    EObject _eContainer = it.eContainer();
+    if ((_eContainer instanceof SourceGroup)) {
+      EObject _eContainer_1 = it.eContainer();
+      return ((SourceGroup) _eContainer_1);
+    } else {
+      return null;
+    }
   }
   
   public static Vocabulary vocabulary(final RdfClass it) {
