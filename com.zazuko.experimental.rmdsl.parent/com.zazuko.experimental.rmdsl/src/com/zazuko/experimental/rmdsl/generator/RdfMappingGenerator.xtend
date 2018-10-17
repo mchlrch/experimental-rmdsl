@@ -27,13 +27,19 @@ class RdfMappingGenerator extends AbstractGenerator {
 	extension R2rmlDialect dialect;
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		
 		val Iterable<Mapping> mappings = resource.allContents.filter(Mapping).toList
 		
-		dialect = new R2rmlDialect
-		fsa.generateFile('r2rml.ttl', mappings.toTurtle)
-		
-		dialect = new RmlDialect		
-		fsa.generateFile('rml.ttl', mappings.toTurtle)
+		if ( ! mappings.empty) {
+			val String dslFileName = resource.getURI().lastSegment.toString();
+			val String outFileBase = dslFileName.substring(0, dslFileName.lastIndexOf("."));
+			
+			dialect = new R2rmlDialect
+			fsa.generateFile(outFileBase + '.r2rml.ttl', mappings.toTurtle)
+			
+			dialect = new RmlDialect		
+			fsa.generateFile(outFileBase + '.rml.ttl', mappings.toTurtle)
+		}
 	}
 		
 	def toTurtle(Iterable<Mapping> mappings) {

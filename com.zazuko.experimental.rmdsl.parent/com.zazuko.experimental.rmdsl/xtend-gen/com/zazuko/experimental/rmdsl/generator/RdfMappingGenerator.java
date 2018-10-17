@@ -44,12 +44,18 @@ public class RdfMappingGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Iterable<Mapping> mappings = IteratorExtensions.<Mapping>toList(Iterators.<Mapping>filter(resource.getAllContents(), Mapping.class));
-    R2rmlDialect _r2rmlDialect = new R2rmlDialect();
-    this.dialect = _r2rmlDialect;
-    fsa.generateFile("r2rml.ttl", this.toTurtle(mappings));
-    RmlDialect _rmlDialect = new RmlDialect();
-    this.dialect = _rmlDialect;
-    fsa.generateFile("rml.ttl", this.toTurtle(mappings));
+    boolean _isEmpty = IterableExtensions.isEmpty(mappings);
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      final String dslFileName = resource.getURI().lastSegment().toString();
+      final String outFileBase = dslFileName.substring(0, dslFileName.lastIndexOf("."));
+      R2rmlDialect _r2rmlDialect = new R2rmlDialect();
+      this.dialect = _r2rmlDialect;
+      fsa.generateFile((outFileBase + ".r2rml.ttl"), this.toTurtle(mappings));
+      RmlDialect _rmlDialect = new RmlDialect();
+      this.dialect = _rmlDialect;
+      fsa.generateFile((outFileBase + ".rml.ttl"), this.toTurtle(mappings));
+    }
   }
   
   public String toTurtle(final Iterable<Mapping> mappings) {
