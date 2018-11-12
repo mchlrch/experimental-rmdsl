@@ -632,13 +632,13 @@ public interface RdfMappingPackage extends EPackage
   int MAPPING__PATTERN = ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * The feature id for the '<em><b>References</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPING__REFERENCE = ELEMENT_FEATURE_COUNT + 3;
+  int MAPPING__REFERENCES = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Subject Type Mappings</b></em>' containment reference list.
@@ -743,22 +743,13 @@ public interface RdfMappingPackage extends EPackage
   int VALUED_TERM = 18;
 
   /**
-   * The feature id for the '<em><b>Reference</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VALUED_TERM__REFERENCE = 0;
-
-  /**
    * The number of structural features of the '<em>Valued Term</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VALUED_TERM_FEATURE_COUNT = 1;
+  int VALUED_TERM_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl <em>Reference Valued Term</em>}' class.
@@ -777,7 +768,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE_VALUED_TERM__REFERENCE = VALUED_TERM__REFERENCE;
+  int REFERENCE_VALUED_TERM__REFERENCE = VALUED_TERM_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -786,7 +777,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE_VALUED_TERM__DATATYPE = VALUED_TERM_FEATURE_COUNT + 0;
+  int REFERENCE_VALUED_TERM__DATATYPE = VALUED_TERM_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Language Tag</b></em>' reference.
@@ -795,7 +786,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE_VALUED_TERM__LANGUAGE_TAG = VALUED_TERM_FEATURE_COUNT + 1;
+  int REFERENCE_VALUED_TERM__LANGUAGE_TAG = VALUED_TERM_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Reference Valued Term</em>' class.
@@ -804,7 +795,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE_VALUED_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 2;
+  int REFERENCE_VALUED_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.TemplateValuedTermImpl <em>Template Valued Term</em>}' class.
@@ -817,15 +808,6 @@ public interface RdfMappingPackage extends EPackage
   int TEMPLATE_VALUED_TERM = 20;
 
   /**
-   * The feature id for the '<em><b>Reference</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATE_VALUED_TERM__REFERENCE = VALUED_TERM__REFERENCE;
-
-  /**
    * The feature id for the '<em><b>Pattern</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -835,13 +817,22 @@ public interface RdfMappingPackage extends EPackage
   int TEMPLATE_VALUED_TERM__PATTERN = VALUED_TERM_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>References</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATE_VALUED_TERM__REFERENCES = VALUED_TERM_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Template Valued Term</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEMPLATE_VALUED_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 1;
+  int TEMPLATE_VALUED_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LinkedResourceTermImpl <em>Linked Resource Term</em>}' class.
@@ -854,15 +845,6 @@ public interface RdfMappingPackage extends EPackage
   int LINKED_RESOURCE_TERM = 21;
 
   /**
-   * The feature id for the '<em><b>Reference</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LINKED_RESOURCE_TERM__REFERENCE = VALUED_TERM__REFERENCE;
-
-  /**
    * The feature id for the '<em><b>Mapping</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -872,13 +854,22 @@ public interface RdfMappingPackage extends EPackage
   int LINKED_RESOURCE_TERM__MAPPING = VALUED_TERM_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>References</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINKED_RESOURCE_TERM__REFERENCES = VALUED_TERM_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Linked Resource Term</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LINKED_RESOURCE_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 1;
+  int LINKED_RESOURCE_TERM_FEATURE_COUNT = VALUED_TERM_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.
@@ -1411,15 +1402,15 @@ public interface RdfMappingPackage extends EPackage
   EAttribute getMapping_Pattern();
 
   /**
-   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReference <em>Reference</em>}'.
+   * Returns the meta object for the reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReferences <em>References</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Reference</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReference()
+   * @return the meta object for the reference list '<em>References</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReferences()
    * @see #getMapping()
    * @generated
    */
-  EReference getMapping_Reference();
+  EReference getMapping_References();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectTypeMappings <em>Subject Type Mappings</em>}'.
@@ -1507,17 +1498,6 @@ public interface RdfMappingPackage extends EPackage
   EClass getValuedTerm();
 
   /**
-   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm#getReference <em>Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Reference</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm#getReference()
-   * @see #getValuedTerm()
-   * @generated
-   */
-  EReference getValuedTerm_Reference();
-
-  /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm <em>Reference Valued Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1526,6 +1506,17 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    */
   EClass getReferenceValuedTerm();
+
+  /**
+   * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getReference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Reference</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getReference()
+   * @see #getReferenceValuedTerm()
+   * @generated
+   */
+  EReference getReferenceValuedTerm_Reference();
 
   /**
    * Returns the meta object for the reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getDatatype <em>Datatype</em>}'.
@@ -1571,6 +1562,17 @@ public interface RdfMappingPackage extends EPackage
   EAttribute getTemplateValuedTerm_Pattern();
 
   /**
+   * Returns the meta object for the reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getReferences <em>References</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>References</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getReferences()
+   * @see #getTemplateValuedTerm()
+   * @generated
+   */
+  EReference getTemplateValuedTerm_References();
+
+  /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm <em>Linked Resource Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1590,6 +1592,17 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    */
   EReference getLinkedResourceTerm_Mapping();
+
+  /**
+   * Returns the meta object for the reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm#getReferences <em>References</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>References</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm#getReferences()
+   * @see #getLinkedResourceTerm()
+   * @generated
+   */
+  EReference getLinkedResourceTerm_References();
 
   /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Import <em>Import</em>}'.
@@ -2044,12 +2057,12 @@ public interface RdfMappingPackage extends EPackage
     EAttribute MAPPING__PATTERN = eINSTANCE.getMapping_Pattern();
 
     /**
-     * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+     * The meta object literal for the '<em><b>References</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAPPING__REFERENCE = eINSTANCE.getMapping_Reference();
+    EReference MAPPING__REFERENCES = eINSTANCE.getMapping_References();
 
     /**
      * The meta object literal for the '<em><b>Subject Type Mappings</b></em>' containment reference list feature.
@@ -2122,14 +2135,6 @@ public interface RdfMappingPackage extends EPackage
     EClass VALUED_TERM = eINSTANCE.getValuedTerm();
 
     /**
-     * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VALUED_TERM__REFERENCE = eINSTANCE.getValuedTerm_Reference();
-
-    /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl <em>Reference Valued Term</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2138,6 +2143,14 @@ public interface RdfMappingPackage extends EPackage
      * @generated
      */
     EClass REFERENCE_VALUED_TERM = eINSTANCE.getReferenceValuedTerm();
+
+    /**
+     * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFERENCE_VALUED_TERM__REFERENCE = eINSTANCE.getReferenceValuedTerm_Reference();
 
     /**
      * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
@@ -2174,6 +2187,14 @@ public interface RdfMappingPackage extends EPackage
     EAttribute TEMPLATE_VALUED_TERM__PATTERN = eINSTANCE.getTemplateValuedTerm_Pattern();
 
     /**
+     * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEMPLATE_VALUED_TERM__REFERENCES = eINSTANCE.getTemplateValuedTerm_References();
+
+    /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LinkedResourceTermImpl <em>Linked Resource Term</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2190,6 +2211,14 @@ public interface RdfMappingPackage extends EPackage
      * @generated
      */
     EReference LINKED_RESOURCE_TERM__MAPPING = eINSTANCE.getLinkedResourceTerm_Mapping();
+
+    /**
+     * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LINKED_RESOURCE_TERM__REFERENCES = eINSTANCE.getLinkedResourceTerm_References();
 
     /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ImportImpl <em>Import</em>}' class.

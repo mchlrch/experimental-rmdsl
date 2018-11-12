@@ -219,19 +219,10 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     LinkedResourceTerm returns LinkedResourceTerm
 	 *
 	 * Constraint:
-	 *     (mapping=[Mapping|ID] reference=[Referenceable|QualifiedName])
+	 *     (mapping=[Mapping|ID] references+=[Referenceable|QualifiedName]+)
 	 */
 	protected void sequence_LinkedResourceTerm(ISerializationContext context, LinkedResourceTerm semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.LINKED_RESOURCE_TERM__MAPPING) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.LINKED_RESOURCE_TERM__MAPPING));
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.VALUED_TERM__REFERENCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.VALUED_TERM__REFERENCE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLinkedResourceTermAccess().getMappingMappingIDTerminalRuleCall_1_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.LINKED_RESOURCE_TERM__MAPPING, false));
-		feeder.accept(grammarAccess.getLinkedResourceTermAccess().getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.VALUED_TERM__REFERENCE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -258,7 +249,7 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         name=ID 
 	 *         source=[LogicalSource|QualifiedName] 
 	 *         pattern=STRING 
-	 *         reference=[Referenceable|QualifiedName] 
+	 *         references+=[Referenceable|QualifiedName]+ 
 	 *         subjectTypeMappings+=SubjectTypeMapping* 
 	 *         poMappings+=PredicateObjectMapping*
 	 *     )
@@ -442,19 +433,10 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TemplateValuedTerm returns TemplateValuedTerm
 	 *
 	 * Constraint:
-	 *     (pattern=STRING reference=[Referenceable|QualifiedName])
+	 *     (pattern=STRING references+=[Referenceable|QualifiedName]+)
 	 */
 	protected void sequence_TemplateValuedTerm(ISerializationContext context, TemplateValuedTerm semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.TEMPLATE_VALUED_TERM__PATTERN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.TEMPLATE_VALUED_TERM__PATTERN));
-			if (transientValues.isValueTransient(semanticObject, RdfMappingPackage.Literals.VALUED_TERM__REFERENCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RdfMappingPackage.Literals.VALUED_TERM__REFERENCE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTemplateValuedTermAccess().getPatternSTRINGTerminalRuleCall_1_0(), semanticObject.getPattern());
-		feeder.accept(grammarAccess.getTemplateValuedTermAccess().getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1(), semanticObject.eGet(RdfMappingPackage.Literals.VALUED_TERM__REFERENCE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

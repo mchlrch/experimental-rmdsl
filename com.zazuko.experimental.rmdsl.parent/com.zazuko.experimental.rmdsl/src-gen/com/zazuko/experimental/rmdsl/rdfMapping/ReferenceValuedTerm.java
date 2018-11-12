@@ -13,6 +13,7 @@ package com.zazuko.experimental.rmdsl.rdfMapping;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getReference <em>Reference</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getLanguageTag <em>Language Tag</em>}</li>
  * </ul>
@@ -23,6 +24,32 @@ package com.zazuko.experimental.rmdsl.rdfMapping;
  */
 public interface ReferenceValuedTerm extends ValuedTerm
 {
+  /**
+   * Returns the value of the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Reference</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Reference</em>' reference.
+   * @see #setReference(Referenceable)
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getReferenceValuedTerm_Reference()
+   * @model
+   * @generated
+   */
+  Referenceable getReference();
+
+  /**
+   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm#getReference <em>Reference</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Reference</em>' reference.
+   * @see #getReference()
+   * @generated
+   */
+  void setReference(Referenceable value);
+
   /**
    * Returns the value of the '<em><b>Datatype</b></em>' reference.
    * <!-- begin-user-doc -->

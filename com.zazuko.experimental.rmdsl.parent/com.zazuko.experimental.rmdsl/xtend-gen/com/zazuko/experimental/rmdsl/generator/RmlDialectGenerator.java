@@ -8,6 +8,7 @@ import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
+import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm;
@@ -20,6 +21,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @SuppressWarnings("all")
 public class RmlDialectGenerator {
@@ -247,33 +249,27 @@ public class RmlDialectGenerator {
   }
   
   public String subjectIri(final Mapping m) {
-    String _pattern = m.getPattern();
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    String _valueResolved = ModelAccess.valueResolved(m.getReference());
-    _builder.append(_valueResolved);
-    _builder.append("}");
-    return MessageFormat.format(_pattern, _builder);
+    return MessageFormat.format(m.getPattern(), this.toMessageFormatArguments(m.getReferences()));
   }
   
   public String toTemplateString(final TemplateValuedTerm it) {
-    String _pattern = it.getPattern();
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    String _valueResolved = ModelAccess.valueResolved(it.getReference());
-    _builder.append(_valueResolved);
-    _builder.append("}");
-    return MessageFormat.format(_pattern, _builder);
+    return MessageFormat.format(it.getPattern(), this.toMessageFormatArguments(it.getReferences()));
   }
   
   public String toTemplateString(final LinkedResourceTerm it) {
-    String _pattern = it.getMapping().getPattern();
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    String _valueResolved = ModelAccess.valueResolved(it.getReference());
-    _builder.append(_valueResolved);
-    _builder.append("}");
-    return MessageFormat.format(_pattern, _builder);
+    return MessageFormat.format(it.getMapping().getPattern(), this.toMessageFormatArguments(it.getReferences()));
+  }
+  
+  public Object[] toMessageFormatArguments(final List<Referenceable> refs) {
+    final Function1<Referenceable, String> _function = (Referenceable ref) -> {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("{");
+      String _valueResolved = ModelAccess.valueResolved(ref);
+      _builder.append(_valueResolved);
+      _builder.append("}");
+      return _builder.toString();
+    };
+    return ListExtensions.<Referenceable, String>map(refs, _function).toArray();
   }
   
   public CharSequence objectTermMap(final ValuedTerm it) {

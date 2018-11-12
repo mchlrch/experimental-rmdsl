@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getName <em>Name</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSource <em>Source</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPattern <em>Pattern</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReference <em>Reference</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReferences <em>References</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectTypeMappings <em>Subject Type Mappings</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPoMappings <em>Po Mappings</em>}</li>
  * </ul>
@@ -107,30 +107,20 @@ public interface Mapping extends Element
   void setPattern(String value);
 
   /**
-   * Returns the value of the '<em><b>Reference</b></em>' reference.
+   * Returns the value of the '<em><b>References</b></em>' reference list.
+   * The list contents are of type {@link com.zazuko.experimental.rmdsl.rdfMapping.Referenceable}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Reference</em>' reference isn't clear,
+   * If the meaning of the '<em>References</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Reference</em>' reference.
-   * @see #setReference(Referenceable)
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping_Reference()
+   * @return the value of the '<em>References</em>' reference list.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping_References()
    * @model
    * @generated
    */
-  Referenceable getReference();
-
-  /**
-   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReference <em>Reference</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Reference</em>' reference.
-   * @see #getReference()
-   * @generated
-   */
-  void setReference(Referenceable value);
+  EList<Referenceable> getReferences();
 
   /**
    * Returns the value of the '<em><b>Subject Type Mappings</b></em>' containment reference list.

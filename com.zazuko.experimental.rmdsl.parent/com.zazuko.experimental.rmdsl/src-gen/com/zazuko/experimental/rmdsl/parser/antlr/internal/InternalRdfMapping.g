@@ -1195,14 +1195,14 @@ ruleMapping returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getMappingAccess().getReferenceReferenceableCrossReference_9_0());
+					newCompositeNode(grammarAccess.getMappingAccess().getReferencesReferenceableCrossReference_9_0());
 				}
 				ruleQualifiedName
 				{
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)+
 		(
 			otherlv_10='types'
 			{
@@ -1530,14 +1530,14 @@ ruleTemplateValuedTerm returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getTemplateValuedTermAccess().getReferenceReferenceableCrossReference_3_0());
+					newCompositeNode(grammarAccess.getTemplateValuedTermAccess().getReferencesReferenceableCrossReference_3_0());
 				}
 				ruleQualifiedName
 				{
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)+
 	)
 ;
 
@@ -1586,14 +1586,14 @@ ruleLinkedResourceTerm returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getLinkedResourceTermAccess().getReferenceReferenceableCrossReference_3_0());
+					newCompositeNode(grammarAccess.getLinkedResourceTermAccess().getReferencesReferenceableCrossReference_3_0());
 				}
 				ruleQualifiedName
 				{
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)+
 	)
 ;
 

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -36,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getSource <em>Source</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getReferences <em>References</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getSubjectTypeMappings <em>Subject Type Mappings</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getPoMappings <em>Po Mappings</em>}</li>
  * </ul>
@@ -96,14 +97,14 @@ public class MappingImpl extends ElementImpl implements Mapping
   protected String pattern = PATTERN_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
+   * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReference()
+   * @see #getReferences()
    * @generated
    * @ordered
    */
-  protected Referenceable reference;
+  protected EList<Referenceable> references;
 
   /**
    * The cached value of the '{@link #getSubjectTypeMappings() <em>Subject Type Mappings</em>}' containment reference list.
@@ -240,42 +241,13 @@ public class MappingImpl extends ElementImpl implements Mapping
    * <!-- end-user-doc -->
    * @generated
    */
-  public Referenceable getReference()
+  public EList<Referenceable> getReferences()
   {
-    if (reference != null && reference.eIsProxy())
+    if (references == null)
     {
-      InternalEObject oldReference = (InternalEObject)reference;
-      reference = (Referenceable)eResolveProxy(oldReference);
-      if (reference != oldReference)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RdfMappingPackage.MAPPING__REFERENCE, oldReference, reference));
-      }
+      references = new EObjectResolvingEList<Referenceable>(Referenceable.class, this, RdfMappingPackage.MAPPING__REFERENCES);
     }
-    return reference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Referenceable basicGetReference()
-  {
-    return reference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setReference(Referenceable newReference)
-  {
-    Referenceable oldReference = reference;
-    reference = newReference;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.MAPPING__REFERENCE, oldReference, reference));
+    return references;
   }
 
   /**
@@ -341,9 +313,8 @@ public class MappingImpl extends ElementImpl implements Mapping
         return basicGetSource();
       case RdfMappingPackage.MAPPING__PATTERN:
         return getPattern();
-      case RdfMappingPackage.MAPPING__REFERENCE:
-        if (resolve) return getReference();
-        return basicGetReference();
+      case RdfMappingPackage.MAPPING__REFERENCES:
+        return getReferences();
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         return getSubjectTypeMappings();
       case RdfMappingPackage.MAPPING__PO_MAPPINGS:
@@ -372,8 +343,9 @@ public class MappingImpl extends ElementImpl implements Mapping
       case RdfMappingPackage.MAPPING__PATTERN:
         setPattern((String)newValue);
         return;
-      case RdfMappingPackage.MAPPING__REFERENCE:
-        setReference((Referenceable)newValue);
+      case RdfMappingPackage.MAPPING__REFERENCES:
+        getReferences().clear();
+        getReferences().addAll((Collection<? extends Referenceable>)newValue);
         return;
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         getSubjectTypeMappings().clear();
@@ -406,8 +378,8 @@ public class MappingImpl extends ElementImpl implements Mapping
       case RdfMappingPackage.MAPPING__PATTERN:
         setPattern(PATTERN_EDEFAULT);
         return;
-      case RdfMappingPackage.MAPPING__REFERENCE:
-        setReference((Referenceable)null);
+      case RdfMappingPackage.MAPPING__REFERENCES:
+        getReferences().clear();
         return;
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         getSubjectTypeMappings().clear();
@@ -435,8 +407,8 @@ public class MappingImpl extends ElementImpl implements Mapping
         return source != null;
       case RdfMappingPackage.MAPPING__PATTERN:
         return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
-      case RdfMappingPackage.MAPPING__REFERENCE:
-        return reference != null;
+      case RdfMappingPackage.MAPPING__REFERENCES:
+        return references != null && !references.isEmpty();
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         return subjectTypeMappings != null && !subjectTypeMappings.isEmpty();
       case RdfMappingPackage.MAPPING__PO_MAPPINGS:

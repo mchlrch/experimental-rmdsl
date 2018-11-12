@@ -3,6 +3,7 @@
  */
 package com.zazuko.experimental.rmdsl.rdfMapping;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,7 @@ package com.zazuko.experimental.rmdsl.rdfMapping;
  * </p>
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getTemplateValuedTerm()
@@ -47,5 +49,21 @@ public interface TemplateValuedTerm extends ValuedTerm
    * @generated
    */
   void setPattern(String value);
+
+  /**
+   * Returns the value of the '<em><b>References</b></em>' reference list.
+   * The list contents are of type {@link com.zazuko.experimental.rmdsl.rdfMapping.Referenceable}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>References</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>References</em>' reference list.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getTemplateValuedTerm_References()
+   * @model
+   * @generated
+   */
+  EList<Referenceable> getReferences();
 
 } // TemplateValuedTerm

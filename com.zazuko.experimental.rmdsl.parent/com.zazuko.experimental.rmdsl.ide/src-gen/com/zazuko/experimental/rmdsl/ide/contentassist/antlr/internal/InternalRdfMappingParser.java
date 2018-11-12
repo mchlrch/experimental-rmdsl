@@ -8887,31 +8887,74 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group__9__Impl"
-    // InternalRdfMapping.g:2927:1: rule__Mapping__Group__9__Impl : ( ( rule__Mapping__ReferenceAssignment_9 ) ) ;
+    // InternalRdfMapping.g:2927:1: rule__Mapping__Group__9__Impl : ( ( ( rule__Mapping__ReferencesAssignment_9 ) ) ( ( rule__Mapping__ReferencesAssignment_9 )* ) ) ;
     public final void rule__Mapping__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:2931:1: ( ( ( rule__Mapping__ReferenceAssignment_9 ) ) )
-            // InternalRdfMapping.g:2932:1: ( ( rule__Mapping__ReferenceAssignment_9 ) )
+            // InternalRdfMapping.g:2931:1: ( ( ( ( rule__Mapping__ReferencesAssignment_9 ) ) ( ( rule__Mapping__ReferencesAssignment_9 )* ) ) )
+            // InternalRdfMapping.g:2932:1: ( ( ( rule__Mapping__ReferencesAssignment_9 ) ) ( ( rule__Mapping__ReferencesAssignment_9 )* ) )
             {
-            // InternalRdfMapping.g:2932:1: ( ( rule__Mapping__ReferenceAssignment_9 ) )
-            // InternalRdfMapping.g:2933:2: ( rule__Mapping__ReferenceAssignment_9 )
+            // InternalRdfMapping.g:2932:1: ( ( ( rule__Mapping__ReferencesAssignment_9 ) ) ( ( rule__Mapping__ReferencesAssignment_9 )* ) )
+            // InternalRdfMapping.g:2933:2: ( ( rule__Mapping__ReferencesAssignment_9 ) ) ( ( rule__Mapping__ReferencesAssignment_9 )* )
             {
-             before(grammarAccess.getMappingAccess().getReferenceAssignment_9()); 
-            // InternalRdfMapping.g:2934:2: ( rule__Mapping__ReferenceAssignment_9 )
-            // InternalRdfMapping.g:2934:3: rule__Mapping__ReferenceAssignment_9
+            // InternalRdfMapping.g:2933:2: ( ( rule__Mapping__ReferencesAssignment_9 ) )
+            // InternalRdfMapping.g:2934:3: ( rule__Mapping__ReferencesAssignment_9 )
             {
-            pushFollow(FOLLOW_2);
-            rule__Mapping__ReferenceAssignment_9();
+             before(grammarAccess.getMappingAccess().getReferencesAssignment_9()); 
+            // InternalRdfMapping.g:2935:3: ( rule__Mapping__ReferencesAssignment_9 )
+            // InternalRdfMapping.g:2935:4: rule__Mapping__ReferencesAssignment_9
+            {
+            pushFollow(FOLLOW_7);
+            rule__Mapping__ReferencesAssignment_9();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMappingAccess().getReferenceAssignment_9()); 
+             after(grammarAccess.getMappingAccess().getReferencesAssignment_9()); 
+
+            }
+
+            // InternalRdfMapping.g:2938:2: ( ( rule__Mapping__ReferencesAssignment_9 )* )
+            // InternalRdfMapping.g:2939:3: ( rule__Mapping__ReferencesAssignment_9 )*
+            {
+             before(grammarAccess.getMappingAccess().getReferencesAssignment_9()); 
+            // InternalRdfMapping.g:2940:3: ( rule__Mapping__ReferencesAssignment_9 )*
+            loop19:
+            do {
+                int alt19=2;
+                int LA19_0 = input.LA(1);
+
+                if ( (LA19_0==RULE_ID) ) {
+                    alt19=1;
+                }
+
+
+                switch (alt19) {
+            	case 1 :
+            	    // InternalRdfMapping.g:2940:4: rule__Mapping__ReferencesAssignment_9
+            	    {
+            	    pushFollow(FOLLOW_7);
+            	    rule__Mapping__ReferencesAssignment_9();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop19;
+                }
+            } while (true);
+
+             after(grammarAccess.getMappingAccess().getReferencesAssignment_9()); 
+
+            }
+
 
             }
 
@@ -8934,14 +8977,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group__10"
-    // InternalRdfMapping.g:2942:1: rule__Mapping__Group__10 : rule__Mapping__Group__10__Impl rule__Mapping__Group__11 ;
+    // InternalRdfMapping.g:2949:1: rule__Mapping__Group__10 : rule__Mapping__Group__10__Impl rule__Mapping__Group__11 ;
     public final void rule__Mapping__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:2946:1: ( rule__Mapping__Group__10__Impl rule__Mapping__Group__11 )
-            // InternalRdfMapping.g:2947:2: rule__Mapping__Group__10__Impl rule__Mapping__Group__11
+            // InternalRdfMapping.g:2953:1: ( rule__Mapping__Group__10__Impl rule__Mapping__Group__11 )
+            // InternalRdfMapping.g:2954:2: rule__Mapping__Group__10__Impl rule__Mapping__Group__11
             {
             pushFollow(FOLLOW_26);
             rule__Mapping__Group__10__Impl();
@@ -8972,29 +9015,29 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group__10__Impl"
-    // InternalRdfMapping.g:2954:1: rule__Mapping__Group__10__Impl : ( ( rule__Mapping__Group_10__0 )? ) ;
+    // InternalRdfMapping.g:2961:1: rule__Mapping__Group__10__Impl : ( ( rule__Mapping__Group_10__0 )? ) ;
     public final void rule__Mapping__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:2958:1: ( ( ( rule__Mapping__Group_10__0 )? ) )
-            // InternalRdfMapping.g:2959:1: ( ( rule__Mapping__Group_10__0 )? )
+            // InternalRdfMapping.g:2965:1: ( ( ( rule__Mapping__Group_10__0 )? ) )
+            // InternalRdfMapping.g:2966:1: ( ( rule__Mapping__Group_10__0 )? )
             {
-            // InternalRdfMapping.g:2959:1: ( ( rule__Mapping__Group_10__0 )? )
-            // InternalRdfMapping.g:2960:2: ( rule__Mapping__Group_10__0 )?
+            // InternalRdfMapping.g:2966:1: ( ( rule__Mapping__Group_10__0 )? )
+            // InternalRdfMapping.g:2967:2: ( rule__Mapping__Group_10__0 )?
             {
              before(grammarAccess.getMappingAccess().getGroup_10()); 
-            // InternalRdfMapping.g:2961:2: ( rule__Mapping__Group_10__0 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalRdfMapping.g:2968:2: ( rule__Mapping__Group_10__0 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0==33) ) {
-                alt19=1;
+            if ( (LA20_0==33) ) {
+                alt20=1;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
-                    // InternalRdfMapping.g:2961:3: rule__Mapping__Group_10__0
+                    // InternalRdfMapping.g:2968:3: rule__Mapping__Group_10__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Mapping__Group_10__0();
@@ -9030,14 +9073,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group__11"
-    // InternalRdfMapping.g:2969:1: rule__Mapping__Group__11 : rule__Mapping__Group__11__Impl rule__Mapping__Group__12 ;
+    // InternalRdfMapping.g:2976:1: rule__Mapping__Group__11 : rule__Mapping__Group__11__Impl rule__Mapping__Group__12 ;
     public final void rule__Mapping__Group__11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:2973:1: ( rule__Mapping__Group__11__Impl rule__Mapping__Group__12 )
-            // InternalRdfMapping.g:2974:2: rule__Mapping__Group__11__Impl rule__Mapping__Group__12
+            // InternalRdfMapping.g:2980:1: ( rule__Mapping__Group__11__Impl rule__Mapping__Group__12 )
+            // InternalRdfMapping.g:2981:2: rule__Mapping__Group__11__Impl rule__Mapping__Group__12
             {
             pushFollow(FOLLOW_26);
             rule__Mapping__Group__11__Impl();
@@ -9068,29 +9111,29 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group__11__Impl"
-    // InternalRdfMapping.g:2981:1: rule__Mapping__Group__11__Impl : ( ( rule__Mapping__Group_11__0 )? ) ;
+    // InternalRdfMapping.g:2988:1: rule__Mapping__Group__11__Impl : ( ( rule__Mapping__Group_11__0 )? ) ;
     public final void rule__Mapping__Group__11__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:2985:1: ( ( ( rule__Mapping__Group_11__0 )? ) )
-            // InternalRdfMapping.g:2986:1: ( ( rule__Mapping__Group_11__0 )? )
+            // InternalRdfMapping.g:2992:1: ( ( ( rule__Mapping__Group_11__0 )? ) )
+            // InternalRdfMapping.g:2993:1: ( ( rule__Mapping__Group_11__0 )? )
             {
-            // InternalRdfMapping.g:2986:1: ( ( rule__Mapping__Group_11__0 )? )
-            // InternalRdfMapping.g:2987:2: ( rule__Mapping__Group_11__0 )?
+            // InternalRdfMapping.g:2993:1: ( ( rule__Mapping__Group_11__0 )? )
+            // InternalRdfMapping.g:2994:2: ( rule__Mapping__Group_11__0 )?
             {
              before(grammarAccess.getMappingAccess().getGroup_11()); 
-            // InternalRdfMapping.g:2988:2: ( rule__Mapping__Group_11__0 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalRdfMapping.g:2995:2: ( rule__Mapping__Group_11__0 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA20_0==26) ) {
-                alt20=1;
+            if ( (LA21_0==26) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // InternalRdfMapping.g:2988:3: rule__Mapping__Group_11__0
+                    // InternalRdfMapping.g:2995:3: rule__Mapping__Group_11__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Mapping__Group_11__0();
@@ -9126,14 +9169,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group__12"
-    // InternalRdfMapping.g:2996:1: rule__Mapping__Group__12 : rule__Mapping__Group__12__Impl ;
+    // InternalRdfMapping.g:3003:1: rule__Mapping__Group__12 : rule__Mapping__Group__12__Impl ;
     public final void rule__Mapping__Group__12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3000:1: ( rule__Mapping__Group__12__Impl )
-            // InternalRdfMapping.g:3001:2: rule__Mapping__Group__12__Impl
+            // InternalRdfMapping.g:3007:1: ( rule__Mapping__Group__12__Impl )
+            // InternalRdfMapping.g:3008:2: rule__Mapping__Group__12__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Mapping__Group__12__Impl();
@@ -9159,17 +9202,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group__12__Impl"
-    // InternalRdfMapping.g:3007:1: rule__Mapping__Group__12__Impl : ( '}' ) ;
+    // InternalRdfMapping.g:3014:1: rule__Mapping__Group__12__Impl : ( '}' ) ;
     public final void rule__Mapping__Group__12__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3011:1: ( ( '}' ) )
-            // InternalRdfMapping.g:3012:1: ( '}' )
+            // InternalRdfMapping.g:3018:1: ( ( '}' ) )
+            // InternalRdfMapping.g:3019:1: ( '}' )
             {
-            // InternalRdfMapping.g:3012:1: ( '}' )
-            // InternalRdfMapping.g:3013:2: '}'
+            // InternalRdfMapping.g:3019:1: ( '}' )
+            // InternalRdfMapping.g:3020:2: '}'
             {
              before(grammarAccess.getMappingAccess().getRightCurlyBracketKeyword_12()); 
             match(input,13,FOLLOW_2); 
@@ -9196,14 +9239,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group_10__0"
-    // InternalRdfMapping.g:3023:1: rule__Mapping__Group_10__0 : rule__Mapping__Group_10__0__Impl rule__Mapping__Group_10__1 ;
+    // InternalRdfMapping.g:3030:1: rule__Mapping__Group_10__0 : rule__Mapping__Group_10__0__Impl rule__Mapping__Group_10__1 ;
     public final void rule__Mapping__Group_10__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3027:1: ( rule__Mapping__Group_10__0__Impl rule__Mapping__Group_10__1 )
-            // InternalRdfMapping.g:3028:2: rule__Mapping__Group_10__0__Impl rule__Mapping__Group_10__1
+            // InternalRdfMapping.g:3034:1: ( rule__Mapping__Group_10__0__Impl rule__Mapping__Group_10__1 )
+            // InternalRdfMapping.g:3035:2: rule__Mapping__Group_10__0__Impl rule__Mapping__Group_10__1
             {
             pushFollow(FOLLOW_13);
             rule__Mapping__Group_10__0__Impl();
@@ -9234,17 +9277,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group_10__0__Impl"
-    // InternalRdfMapping.g:3035:1: rule__Mapping__Group_10__0__Impl : ( 'types' ) ;
+    // InternalRdfMapping.g:3042:1: rule__Mapping__Group_10__0__Impl : ( 'types' ) ;
     public final void rule__Mapping__Group_10__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3039:1: ( ( 'types' ) )
-            // InternalRdfMapping.g:3040:1: ( 'types' )
+            // InternalRdfMapping.g:3046:1: ( ( 'types' ) )
+            // InternalRdfMapping.g:3047:1: ( 'types' )
             {
-            // InternalRdfMapping.g:3040:1: ( 'types' )
-            // InternalRdfMapping.g:3041:2: 'types'
+            // InternalRdfMapping.g:3047:1: ( 'types' )
+            // InternalRdfMapping.g:3048:2: 'types'
             {
              before(grammarAccess.getMappingAccess().getTypesKeyword_10_0()); 
             match(input,33,FOLLOW_2); 
@@ -9271,14 +9314,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group_10__1"
-    // InternalRdfMapping.g:3050:1: rule__Mapping__Group_10__1 : rule__Mapping__Group_10__1__Impl ;
+    // InternalRdfMapping.g:3057:1: rule__Mapping__Group_10__1 : rule__Mapping__Group_10__1__Impl ;
     public final void rule__Mapping__Group_10__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3054:1: ( rule__Mapping__Group_10__1__Impl )
-            // InternalRdfMapping.g:3055:2: rule__Mapping__Group_10__1__Impl
+            // InternalRdfMapping.g:3061:1: ( rule__Mapping__Group_10__1__Impl )
+            // InternalRdfMapping.g:3062:2: rule__Mapping__Group_10__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Mapping__Group_10__1__Impl();
@@ -9304,24 +9347,24 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group_10__1__Impl"
-    // InternalRdfMapping.g:3061:1: rule__Mapping__Group_10__1__Impl : ( ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* ) ) ;
+    // InternalRdfMapping.g:3068:1: rule__Mapping__Group_10__1__Impl : ( ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* ) ) ;
     public final void rule__Mapping__Group_10__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3065:1: ( ( ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* ) ) )
-            // InternalRdfMapping.g:3066:1: ( ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* ) )
+            // InternalRdfMapping.g:3072:1: ( ( ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* ) ) )
+            // InternalRdfMapping.g:3073:1: ( ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* ) )
             {
-            // InternalRdfMapping.g:3066:1: ( ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* ) )
-            // InternalRdfMapping.g:3067:2: ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* )
+            // InternalRdfMapping.g:3073:1: ( ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* ) )
+            // InternalRdfMapping.g:3074:2: ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) ) ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* )
             {
-            // InternalRdfMapping.g:3067:2: ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) )
-            // InternalRdfMapping.g:3068:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )
+            // InternalRdfMapping.g:3074:2: ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 ) )
+            // InternalRdfMapping.g:3075:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )
             {
              before(grammarAccess.getMappingAccess().getSubjectTypeMappingsAssignment_10_1()); 
-            // InternalRdfMapping.g:3069:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )
-            // InternalRdfMapping.g:3069:4: rule__Mapping__SubjectTypeMappingsAssignment_10_1
+            // InternalRdfMapping.g:3076:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )
+            // InternalRdfMapping.g:3076:4: rule__Mapping__SubjectTypeMappingsAssignment_10_1
             {
             pushFollow(FOLLOW_7);
             rule__Mapping__SubjectTypeMappingsAssignment_10_1();
@@ -9335,24 +9378,24 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
             }
 
-            // InternalRdfMapping.g:3072:2: ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* )
-            // InternalRdfMapping.g:3073:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )*
+            // InternalRdfMapping.g:3079:2: ( ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )* )
+            // InternalRdfMapping.g:3080:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )*
             {
              before(grammarAccess.getMappingAccess().getSubjectTypeMappingsAssignment_10_1()); 
-            // InternalRdfMapping.g:3074:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )*
-            loop21:
+            // InternalRdfMapping.g:3081:3: ( rule__Mapping__SubjectTypeMappingsAssignment_10_1 )*
+            loop22:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( (LA21_0==RULE_ID) ) {
-                    alt21=1;
+                if ( (LA22_0==RULE_ID) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt22) {
             	case 1 :
-            	    // InternalRdfMapping.g:3074:4: rule__Mapping__SubjectTypeMappingsAssignment_10_1
+            	    // InternalRdfMapping.g:3081:4: rule__Mapping__SubjectTypeMappingsAssignment_10_1
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__Mapping__SubjectTypeMappingsAssignment_10_1();
@@ -9364,7 +9407,7 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop22;
                 }
             } while (true);
 
@@ -9394,14 +9437,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group_11__0"
-    // InternalRdfMapping.g:3084:1: rule__Mapping__Group_11__0 : rule__Mapping__Group_11__0__Impl rule__Mapping__Group_11__1 ;
+    // InternalRdfMapping.g:3091:1: rule__Mapping__Group_11__0 : rule__Mapping__Group_11__0__Impl rule__Mapping__Group_11__1 ;
     public final void rule__Mapping__Group_11__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3088:1: ( rule__Mapping__Group_11__0__Impl rule__Mapping__Group_11__1 )
-            // InternalRdfMapping.g:3089:2: rule__Mapping__Group_11__0__Impl rule__Mapping__Group_11__1
+            // InternalRdfMapping.g:3095:1: ( rule__Mapping__Group_11__0__Impl rule__Mapping__Group_11__1 )
+            // InternalRdfMapping.g:3096:2: rule__Mapping__Group_11__0__Impl rule__Mapping__Group_11__1
             {
             pushFollow(FOLLOW_13);
             rule__Mapping__Group_11__0__Impl();
@@ -9432,17 +9475,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group_11__0__Impl"
-    // InternalRdfMapping.g:3096:1: rule__Mapping__Group_11__0__Impl : ( 'properties' ) ;
+    // InternalRdfMapping.g:3103:1: rule__Mapping__Group_11__0__Impl : ( 'properties' ) ;
     public final void rule__Mapping__Group_11__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3100:1: ( ( 'properties' ) )
-            // InternalRdfMapping.g:3101:1: ( 'properties' )
+            // InternalRdfMapping.g:3107:1: ( ( 'properties' ) )
+            // InternalRdfMapping.g:3108:1: ( 'properties' )
             {
-            // InternalRdfMapping.g:3101:1: ( 'properties' )
-            // InternalRdfMapping.g:3102:2: 'properties'
+            // InternalRdfMapping.g:3108:1: ( 'properties' )
+            // InternalRdfMapping.g:3109:2: 'properties'
             {
              before(grammarAccess.getMappingAccess().getPropertiesKeyword_11_0()); 
             match(input,26,FOLLOW_2); 
@@ -9469,14 +9512,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group_11__1"
-    // InternalRdfMapping.g:3111:1: rule__Mapping__Group_11__1 : rule__Mapping__Group_11__1__Impl ;
+    // InternalRdfMapping.g:3118:1: rule__Mapping__Group_11__1 : rule__Mapping__Group_11__1__Impl ;
     public final void rule__Mapping__Group_11__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3115:1: ( rule__Mapping__Group_11__1__Impl )
-            // InternalRdfMapping.g:3116:2: rule__Mapping__Group_11__1__Impl
+            // InternalRdfMapping.g:3122:1: ( rule__Mapping__Group_11__1__Impl )
+            // InternalRdfMapping.g:3123:2: rule__Mapping__Group_11__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Mapping__Group_11__1__Impl();
@@ -9502,24 +9545,24 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__Group_11__1__Impl"
-    // InternalRdfMapping.g:3122:1: rule__Mapping__Group_11__1__Impl : ( ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* ) ) ;
+    // InternalRdfMapping.g:3129:1: rule__Mapping__Group_11__1__Impl : ( ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* ) ) ;
     public final void rule__Mapping__Group_11__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3126:1: ( ( ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* ) ) )
-            // InternalRdfMapping.g:3127:1: ( ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* ) )
+            // InternalRdfMapping.g:3133:1: ( ( ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* ) ) )
+            // InternalRdfMapping.g:3134:1: ( ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* ) )
             {
-            // InternalRdfMapping.g:3127:1: ( ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* ) )
-            // InternalRdfMapping.g:3128:2: ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* )
+            // InternalRdfMapping.g:3134:1: ( ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* ) )
+            // InternalRdfMapping.g:3135:2: ( ( rule__Mapping__PoMappingsAssignment_11_1 ) ) ( ( rule__Mapping__PoMappingsAssignment_11_1 )* )
             {
-            // InternalRdfMapping.g:3128:2: ( ( rule__Mapping__PoMappingsAssignment_11_1 ) )
-            // InternalRdfMapping.g:3129:3: ( rule__Mapping__PoMappingsAssignment_11_1 )
+            // InternalRdfMapping.g:3135:2: ( ( rule__Mapping__PoMappingsAssignment_11_1 ) )
+            // InternalRdfMapping.g:3136:3: ( rule__Mapping__PoMappingsAssignment_11_1 )
             {
              before(grammarAccess.getMappingAccess().getPoMappingsAssignment_11_1()); 
-            // InternalRdfMapping.g:3130:3: ( rule__Mapping__PoMappingsAssignment_11_1 )
-            // InternalRdfMapping.g:3130:4: rule__Mapping__PoMappingsAssignment_11_1
+            // InternalRdfMapping.g:3137:3: ( rule__Mapping__PoMappingsAssignment_11_1 )
+            // InternalRdfMapping.g:3137:4: rule__Mapping__PoMappingsAssignment_11_1
             {
             pushFollow(FOLLOW_7);
             rule__Mapping__PoMappingsAssignment_11_1();
@@ -9533,24 +9576,24 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
             }
 
-            // InternalRdfMapping.g:3133:2: ( ( rule__Mapping__PoMappingsAssignment_11_1 )* )
-            // InternalRdfMapping.g:3134:3: ( rule__Mapping__PoMappingsAssignment_11_1 )*
+            // InternalRdfMapping.g:3140:2: ( ( rule__Mapping__PoMappingsAssignment_11_1 )* )
+            // InternalRdfMapping.g:3141:3: ( rule__Mapping__PoMappingsAssignment_11_1 )*
             {
              before(grammarAccess.getMappingAccess().getPoMappingsAssignment_11_1()); 
-            // InternalRdfMapping.g:3135:3: ( rule__Mapping__PoMappingsAssignment_11_1 )*
-            loop22:
+            // InternalRdfMapping.g:3142:3: ( rule__Mapping__PoMappingsAssignment_11_1 )*
+            loop23:
             do {
-                int alt22=2;
-                int LA22_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( (LA22_0==RULE_ID) ) {
-                    alt22=1;
+                if ( (LA23_0==RULE_ID) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt22) {
+                switch (alt23) {
             	case 1 :
-            	    // InternalRdfMapping.g:3135:4: rule__Mapping__PoMappingsAssignment_11_1
+            	    // InternalRdfMapping.g:3142:4: rule__Mapping__PoMappingsAssignment_11_1
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__Mapping__PoMappingsAssignment_11_1();
@@ -9562,7 +9605,7 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop22;
+            	    break loop23;
                 }
             } while (true);
 
@@ -9592,14 +9635,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PredicateObjectMapping__Group__0"
-    // InternalRdfMapping.g:3145:1: rule__PredicateObjectMapping__Group__0 : rule__PredicateObjectMapping__Group__0__Impl rule__PredicateObjectMapping__Group__1 ;
+    // InternalRdfMapping.g:3152:1: rule__PredicateObjectMapping__Group__0 : rule__PredicateObjectMapping__Group__0__Impl rule__PredicateObjectMapping__Group__1 ;
     public final void rule__PredicateObjectMapping__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3149:1: ( rule__PredicateObjectMapping__Group__0__Impl rule__PredicateObjectMapping__Group__1 )
-            // InternalRdfMapping.g:3150:2: rule__PredicateObjectMapping__Group__0__Impl rule__PredicateObjectMapping__Group__1
+            // InternalRdfMapping.g:3156:1: ( rule__PredicateObjectMapping__Group__0__Impl rule__PredicateObjectMapping__Group__1 )
+            // InternalRdfMapping.g:3157:2: rule__PredicateObjectMapping__Group__0__Impl rule__PredicateObjectMapping__Group__1
             {
             pushFollow(FOLLOW_27);
             rule__PredicateObjectMapping__Group__0__Impl();
@@ -9630,21 +9673,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PredicateObjectMapping__Group__0__Impl"
-    // InternalRdfMapping.g:3157:1: rule__PredicateObjectMapping__Group__0__Impl : ( ( rule__PredicateObjectMapping__PropertyAssignment_0 ) ) ;
+    // InternalRdfMapping.g:3164:1: rule__PredicateObjectMapping__Group__0__Impl : ( ( rule__PredicateObjectMapping__PropertyAssignment_0 ) ) ;
     public final void rule__PredicateObjectMapping__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3161:1: ( ( ( rule__PredicateObjectMapping__PropertyAssignment_0 ) ) )
-            // InternalRdfMapping.g:3162:1: ( ( rule__PredicateObjectMapping__PropertyAssignment_0 ) )
+            // InternalRdfMapping.g:3168:1: ( ( ( rule__PredicateObjectMapping__PropertyAssignment_0 ) ) )
+            // InternalRdfMapping.g:3169:1: ( ( rule__PredicateObjectMapping__PropertyAssignment_0 ) )
             {
-            // InternalRdfMapping.g:3162:1: ( ( rule__PredicateObjectMapping__PropertyAssignment_0 ) )
-            // InternalRdfMapping.g:3163:2: ( rule__PredicateObjectMapping__PropertyAssignment_0 )
+            // InternalRdfMapping.g:3169:1: ( ( rule__PredicateObjectMapping__PropertyAssignment_0 ) )
+            // InternalRdfMapping.g:3170:2: ( rule__PredicateObjectMapping__PropertyAssignment_0 )
             {
              before(grammarAccess.getPredicateObjectMappingAccess().getPropertyAssignment_0()); 
-            // InternalRdfMapping.g:3164:2: ( rule__PredicateObjectMapping__PropertyAssignment_0 )
-            // InternalRdfMapping.g:3164:3: rule__PredicateObjectMapping__PropertyAssignment_0
+            // InternalRdfMapping.g:3171:2: ( rule__PredicateObjectMapping__PropertyAssignment_0 )
+            // InternalRdfMapping.g:3171:3: rule__PredicateObjectMapping__PropertyAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__PredicateObjectMapping__PropertyAssignment_0();
@@ -9677,14 +9720,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PredicateObjectMapping__Group__1"
-    // InternalRdfMapping.g:3172:1: rule__PredicateObjectMapping__Group__1 : rule__PredicateObjectMapping__Group__1__Impl ;
+    // InternalRdfMapping.g:3179:1: rule__PredicateObjectMapping__Group__1 : rule__PredicateObjectMapping__Group__1__Impl ;
     public final void rule__PredicateObjectMapping__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3176:1: ( rule__PredicateObjectMapping__Group__1__Impl )
-            // InternalRdfMapping.g:3177:2: rule__PredicateObjectMapping__Group__1__Impl
+            // InternalRdfMapping.g:3183:1: ( rule__PredicateObjectMapping__Group__1__Impl )
+            // InternalRdfMapping.g:3184:2: rule__PredicateObjectMapping__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PredicateObjectMapping__Group__1__Impl();
@@ -9710,21 +9753,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PredicateObjectMapping__Group__1__Impl"
-    // InternalRdfMapping.g:3183:1: rule__PredicateObjectMapping__Group__1__Impl : ( ( rule__PredicateObjectMapping__TermAssignment_1 ) ) ;
+    // InternalRdfMapping.g:3190:1: rule__PredicateObjectMapping__Group__1__Impl : ( ( rule__PredicateObjectMapping__TermAssignment_1 ) ) ;
     public final void rule__PredicateObjectMapping__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3187:1: ( ( ( rule__PredicateObjectMapping__TermAssignment_1 ) ) )
-            // InternalRdfMapping.g:3188:1: ( ( rule__PredicateObjectMapping__TermAssignment_1 ) )
+            // InternalRdfMapping.g:3194:1: ( ( ( rule__PredicateObjectMapping__TermAssignment_1 ) ) )
+            // InternalRdfMapping.g:3195:1: ( ( rule__PredicateObjectMapping__TermAssignment_1 ) )
             {
-            // InternalRdfMapping.g:3188:1: ( ( rule__PredicateObjectMapping__TermAssignment_1 ) )
-            // InternalRdfMapping.g:3189:2: ( rule__PredicateObjectMapping__TermAssignment_1 )
+            // InternalRdfMapping.g:3195:1: ( ( rule__PredicateObjectMapping__TermAssignment_1 ) )
+            // InternalRdfMapping.g:3196:2: ( rule__PredicateObjectMapping__TermAssignment_1 )
             {
              before(grammarAccess.getPredicateObjectMappingAccess().getTermAssignment_1()); 
-            // InternalRdfMapping.g:3190:2: ( rule__PredicateObjectMapping__TermAssignment_1 )
-            // InternalRdfMapping.g:3190:3: rule__PredicateObjectMapping__TermAssignment_1
+            // InternalRdfMapping.g:3197:2: ( rule__PredicateObjectMapping__TermAssignment_1 )
+            // InternalRdfMapping.g:3197:3: rule__PredicateObjectMapping__TermAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__PredicateObjectMapping__TermAssignment_1();
@@ -9757,14 +9800,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group__0"
-    // InternalRdfMapping.g:3199:1: rule__ReferenceValuedTerm__Group__0 : rule__ReferenceValuedTerm__Group__0__Impl rule__ReferenceValuedTerm__Group__1 ;
+    // InternalRdfMapping.g:3206:1: rule__ReferenceValuedTerm__Group__0 : rule__ReferenceValuedTerm__Group__0__Impl rule__ReferenceValuedTerm__Group__1 ;
     public final void rule__ReferenceValuedTerm__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3203:1: ( rule__ReferenceValuedTerm__Group__0__Impl rule__ReferenceValuedTerm__Group__1 )
-            // InternalRdfMapping.g:3204:2: rule__ReferenceValuedTerm__Group__0__Impl rule__ReferenceValuedTerm__Group__1
+            // InternalRdfMapping.g:3210:1: ( rule__ReferenceValuedTerm__Group__0__Impl rule__ReferenceValuedTerm__Group__1 )
+            // InternalRdfMapping.g:3211:2: rule__ReferenceValuedTerm__Group__0__Impl rule__ReferenceValuedTerm__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__ReferenceValuedTerm__Group__0__Impl();
@@ -9795,17 +9838,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group__0__Impl"
-    // InternalRdfMapping.g:3211:1: rule__ReferenceValuedTerm__Group__0__Impl : ( 'from' ) ;
+    // InternalRdfMapping.g:3218:1: rule__ReferenceValuedTerm__Group__0__Impl : ( 'from' ) ;
     public final void rule__ReferenceValuedTerm__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3215:1: ( ( 'from' ) )
-            // InternalRdfMapping.g:3216:1: ( 'from' )
+            // InternalRdfMapping.g:3222:1: ( ( 'from' ) )
+            // InternalRdfMapping.g:3223:1: ( 'from' )
             {
-            // InternalRdfMapping.g:3216:1: ( 'from' )
-            // InternalRdfMapping.g:3217:2: 'from'
+            // InternalRdfMapping.g:3223:1: ( 'from' )
+            // InternalRdfMapping.g:3224:2: 'from'
             {
              before(grammarAccess.getReferenceValuedTermAccess().getFromKeyword_0()); 
             match(input,29,FOLLOW_2); 
@@ -9832,14 +9875,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group__1"
-    // InternalRdfMapping.g:3226:1: rule__ReferenceValuedTerm__Group__1 : rule__ReferenceValuedTerm__Group__1__Impl rule__ReferenceValuedTerm__Group__2 ;
+    // InternalRdfMapping.g:3233:1: rule__ReferenceValuedTerm__Group__1 : rule__ReferenceValuedTerm__Group__1__Impl rule__ReferenceValuedTerm__Group__2 ;
     public final void rule__ReferenceValuedTerm__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3230:1: ( rule__ReferenceValuedTerm__Group__1__Impl rule__ReferenceValuedTerm__Group__2 )
-            // InternalRdfMapping.g:3231:2: rule__ReferenceValuedTerm__Group__1__Impl rule__ReferenceValuedTerm__Group__2
+            // InternalRdfMapping.g:3237:1: ( rule__ReferenceValuedTerm__Group__1__Impl rule__ReferenceValuedTerm__Group__2 )
+            // InternalRdfMapping.g:3238:2: rule__ReferenceValuedTerm__Group__1__Impl rule__ReferenceValuedTerm__Group__2
             {
             pushFollow(FOLLOW_25);
             rule__ReferenceValuedTerm__Group__1__Impl();
@@ -9870,21 +9913,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group__1__Impl"
-    // InternalRdfMapping.g:3238:1: rule__ReferenceValuedTerm__Group__1__Impl : ( ( rule__ReferenceValuedTerm__ReferenceAssignment_1 ) ) ;
+    // InternalRdfMapping.g:3245:1: rule__ReferenceValuedTerm__Group__1__Impl : ( ( rule__ReferenceValuedTerm__ReferenceAssignment_1 ) ) ;
     public final void rule__ReferenceValuedTerm__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3242:1: ( ( ( rule__ReferenceValuedTerm__ReferenceAssignment_1 ) ) )
-            // InternalRdfMapping.g:3243:1: ( ( rule__ReferenceValuedTerm__ReferenceAssignment_1 ) )
+            // InternalRdfMapping.g:3249:1: ( ( ( rule__ReferenceValuedTerm__ReferenceAssignment_1 ) ) )
+            // InternalRdfMapping.g:3250:1: ( ( rule__ReferenceValuedTerm__ReferenceAssignment_1 ) )
             {
-            // InternalRdfMapping.g:3243:1: ( ( rule__ReferenceValuedTerm__ReferenceAssignment_1 ) )
-            // InternalRdfMapping.g:3244:2: ( rule__ReferenceValuedTerm__ReferenceAssignment_1 )
+            // InternalRdfMapping.g:3250:1: ( ( rule__ReferenceValuedTerm__ReferenceAssignment_1 ) )
+            // InternalRdfMapping.g:3251:2: ( rule__ReferenceValuedTerm__ReferenceAssignment_1 )
             {
              before(grammarAccess.getReferenceValuedTermAccess().getReferenceAssignment_1()); 
-            // InternalRdfMapping.g:3245:2: ( rule__ReferenceValuedTerm__ReferenceAssignment_1 )
-            // InternalRdfMapping.g:3245:3: rule__ReferenceValuedTerm__ReferenceAssignment_1
+            // InternalRdfMapping.g:3252:2: ( rule__ReferenceValuedTerm__ReferenceAssignment_1 )
+            // InternalRdfMapping.g:3252:3: rule__ReferenceValuedTerm__ReferenceAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ReferenceValuedTerm__ReferenceAssignment_1();
@@ -9917,14 +9960,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group__2"
-    // InternalRdfMapping.g:3253:1: rule__ReferenceValuedTerm__Group__2 : rule__ReferenceValuedTerm__Group__2__Impl ;
+    // InternalRdfMapping.g:3260:1: rule__ReferenceValuedTerm__Group__2 : rule__ReferenceValuedTerm__Group__2__Impl ;
     public final void rule__ReferenceValuedTerm__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3257:1: ( rule__ReferenceValuedTerm__Group__2__Impl )
-            // InternalRdfMapping.g:3258:2: rule__ReferenceValuedTerm__Group__2__Impl
+            // InternalRdfMapping.g:3264:1: ( rule__ReferenceValuedTerm__Group__2__Impl )
+            // InternalRdfMapping.g:3265:2: rule__ReferenceValuedTerm__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ReferenceValuedTerm__Group__2__Impl();
@@ -9950,29 +9993,29 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group__2__Impl"
-    // InternalRdfMapping.g:3264:1: rule__ReferenceValuedTerm__Group__2__Impl : ( ( rule__ReferenceValuedTerm__Alternatives_2 )? ) ;
+    // InternalRdfMapping.g:3271:1: rule__ReferenceValuedTerm__Group__2__Impl : ( ( rule__ReferenceValuedTerm__Alternatives_2 )? ) ;
     public final void rule__ReferenceValuedTerm__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3268:1: ( ( ( rule__ReferenceValuedTerm__Alternatives_2 )? ) )
-            // InternalRdfMapping.g:3269:1: ( ( rule__ReferenceValuedTerm__Alternatives_2 )? )
+            // InternalRdfMapping.g:3275:1: ( ( ( rule__ReferenceValuedTerm__Alternatives_2 )? ) )
+            // InternalRdfMapping.g:3276:1: ( ( rule__ReferenceValuedTerm__Alternatives_2 )? )
             {
-            // InternalRdfMapping.g:3269:1: ( ( rule__ReferenceValuedTerm__Alternatives_2 )? )
-            // InternalRdfMapping.g:3270:2: ( rule__ReferenceValuedTerm__Alternatives_2 )?
+            // InternalRdfMapping.g:3276:1: ( ( rule__ReferenceValuedTerm__Alternatives_2 )? )
+            // InternalRdfMapping.g:3277:2: ( rule__ReferenceValuedTerm__Alternatives_2 )?
             {
              before(grammarAccess.getReferenceValuedTermAccess().getAlternatives_2()); 
-            // InternalRdfMapping.g:3271:2: ( rule__ReferenceValuedTerm__Alternatives_2 )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalRdfMapping.g:3278:2: ( rule__ReferenceValuedTerm__Alternatives_2 )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA23_0==32) ) {
-                alt23=1;
+            if ( (LA24_0==32) ) {
+                alt24=1;
             }
-            switch (alt23) {
+            switch (alt24) {
                 case 1 :
-                    // InternalRdfMapping.g:3271:3: rule__ReferenceValuedTerm__Alternatives_2
+                    // InternalRdfMapping.g:3278:3: rule__ReferenceValuedTerm__Alternatives_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__ReferenceValuedTerm__Alternatives_2();
@@ -10008,14 +10051,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_0__0"
-    // InternalRdfMapping.g:3280:1: rule__ReferenceValuedTerm__Group_2_0__0 : rule__ReferenceValuedTerm__Group_2_0__0__Impl rule__ReferenceValuedTerm__Group_2_0__1 ;
+    // InternalRdfMapping.g:3287:1: rule__ReferenceValuedTerm__Group_2_0__0 : rule__ReferenceValuedTerm__Group_2_0__0__Impl rule__ReferenceValuedTerm__Group_2_0__1 ;
     public final void rule__ReferenceValuedTerm__Group_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3284:1: ( rule__ReferenceValuedTerm__Group_2_0__0__Impl rule__ReferenceValuedTerm__Group_2_0__1 )
-            // InternalRdfMapping.g:3285:2: rule__ReferenceValuedTerm__Group_2_0__0__Impl rule__ReferenceValuedTerm__Group_2_0__1
+            // InternalRdfMapping.g:3291:1: ( rule__ReferenceValuedTerm__Group_2_0__0__Impl rule__ReferenceValuedTerm__Group_2_0__1 )
+            // InternalRdfMapping.g:3292:2: rule__ReferenceValuedTerm__Group_2_0__0__Impl rule__ReferenceValuedTerm__Group_2_0__1
             {
             pushFollow(FOLLOW_28);
             rule__ReferenceValuedTerm__Group_2_0__0__Impl();
@@ -10046,17 +10089,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_0__0__Impl"
-    // InternalRdfMapping.g:3292:1: rule__ReferenceValuedTerm__Group_2_0__0__Impl : ( 'with' ) ;
+    // InternalRdfMapping.g:3299:1: rule__ReferenceValuedTerm__Group_2_0__0__Impl : ( 'with' ) ;
     public final void rule__ReferenceValuedTerm__Group_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3296:1: ( ( 'with' ) )
-            // InternalRdfMapping.g:3297:1: ( 'with' )
+            // InternalRdfMapping.g:3303:1: ( ( 'with' ) )
+            // InternalRdfMapping.g:3304:1: ( 'with' )
             {
-            // InternalRdfMapping.g:3297:1: ( 'with' )
-            // InternalRdfMapping.g:3298:2: 'with'
+            // InternalRdfMapping.g:3304:1: ( 'with' )
+            // InternalRdfMapping.g:3305:2: 'with'
             {
              before(grammarAccess.getReferenceValuedTermAccess().getWithKeyword_2_0_0()); 
             match(input,32,FOLLOW_2); 
@@ -10083,14 +10126,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_0__1"
-    // InternalRdfMapping.g:3307:1: rule__ReferenceValuedTerm__Group_2_0__1 : rule__ReferenceValuedTerm__Group_2_0__1__Impl rule__ReferenceValuedTerm__Group_2_0__2 ;
+    // InternalRdfMapping.g:3314:1: rule__ReferenceValuedTerm__Group_2_0__1 : rule__ReferenceValuedTerm__Group_2_0__1__Impl rule__ReferenceValuedTerm__Group_2_0__2 ;
     public final void rule__ReferenceValuedTerm__Group_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3311:1: ( rule__ReferenceValuedTerm__Group_2_0__1__Impl rule__ReferenceValuedTerm__Group_2_0__2 )
-            // InternalRdfMapping.g:3312:2: rule__ReferenceValuedTerm__Group_2_0__1__Impl rule__ReferenceValuedTerm__Group_2_0__2
+            // InternalRdfMapping.g:3318:1: ( rule__ReferenceValuedTerm__Group_2_0__1__Impl rule__ReferenceValuedTerm__Group_2_0__2 )
+            // InternalRdfMapping.g:3319:2: rule__ReferenceValuedTerm__Group_2_0__1__Impl rule__ReferenceValuedTerm__Group_2_0__2
             {
             pushFollow(FOLLOW_13);
             rule__ReferenceValuedTerm__Group_2_0__1__Impl();
@@ -10121,17 +10164,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_0__1__Impl"
-    // InternalRdfMapping.g:3319:1: rule__ReferenceValuedTerm__Group_2_0__1__Impl : ( 'datatype' ) ;
+    // InternalRdfMapping.g:3326:1: rule__ReferenceValuedTerm__Group_2_0__1__Impl : ( 'datatype' ) ;
     public final void rule__ReferenceValuedTerm__Group_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3323:1: ( ( 'datatype' ) )
-            // InternalRdfMapping.g:3324:1: ( 'datatype' )
+            // InternalRdfMapping.g:3330:1: ( ( 'datatype' ) )
+            // InternalRdfMapping.g:3331:1: ( 'datatype' )
             {
-            // InternalRdfMapping.g:3324:1: ( 'datatype' )
-            // InternalRdfMapping.g:3325:2: 'datatype'
+            // InternalRdfMapping.g:3331:1: ( 'datatype' )
+            // InternalRdfMapping.g:3332:2: 'datatype'
             {
              before(grammarAccess.getReferenceValuedTermAccess().getDatatypeKeyword_2_0_1()); 
             match(input,34,FOLLOW_2); 
@@ -10158,14 +10201,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_0__2"
-    // InternalRdfMapping.g:3334:1: rule__ReferenceValuedTerm__Group_2_0__2 : rule__ReferenceValuedTerm__Group_2_0__2__Impl ;
+    // InternalRdfMapping.g:3341:1: rule__ReferenceValuedTerm__Group_2_0__2 : rule__ReferenceValuedTerm__Group_2_0__2__Impl ;
     public final void rule__ReferenceValuedTerm__Group_2_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3338:1: ( rule__ReferenceValuedTerm__Group_2_0__2__Impl )
-            // InternalRdfMapping.g:3339:2: rule__ReferenceValuedTerm__Group_2_0__2__Impl
+            // InternalRdfMapping.g:3345:1: ( rule__ReferenceValuedTerm__Group_2_0__2__Impl )
+            // InternalRdfMapping.g:3346:2: rule__ReferenceValuedTerm__Group_2_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ReferenceValuedTerm__Group_2_0__2__Impl();
@@ -10191,21 +10234,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_0__2__Impl"
-    // InternalRdfMapping.g:3345:1: rule__ReferenceValuedTerm__Group_2_0__2__Impl : ( ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 ) ) ;
+    // InternalRdfMapping.g:3352:1: rule__ReferenceValuedTerm__Group_2_0__2__Impl : ( ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 ) ) ;
     public final void rule__ReferenceValuedTerm__Group_2_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3349:1: ( ( ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 ) ) )
-            // InternalRdfMapping.g:3350:1: ( ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 ) )
+            // InternalRdfMapping.g:3356:1: ( ( ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 ) ) )
+            // InternalRdfMapping.g:3357:1: ( ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 ) )
             {
-            // InternalRdfMapping.g:3350:1: ( ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 ) )
-            // InternalRdfMapping.g:3351:2: ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 )
+            // InternalRdfMapping.g:3357:1: ( ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 ) )
+            // InternalRdfMapping.g:3358:2: ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 )
             {
              before(grammarAccess.getReferenceValuedTermAccess().getDatatypeAssignment_2_0_2()); 
-            // InternalRdfMapping.g:3352:2: ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 )
-            // InternalRdfMapping.g:3352:3: rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2
+            // InternalRdfMapping.g:3359:2: ( rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 )
+            // InternalRdfMapping.g:3359:3: rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2
             {
             pushFollow(FOLLOW_2);
             rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2();
@@ -10238,14 +10281,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_1__0"
-    // InternalRdfMapping.g:3361:1: rule__ReferenceValuedTerm__Group_2_1__0 : rule__ReferenceValuedTerm__Group_2_1__0__Impl rule__ReferenceValuedTerm__Group_2_1__1 ;
+    // InternalRdfMapping.g:3368:1: rule__ReferenceValuedTerm__Group_2_1__0 : rule__ReferenceValuedTerm__Group_2_1__0__Impl rule__ReferenceValuedTerm__Group_2_1__1 ;
     public final void rule__ReferenceValuedTerm__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3365:1: ( rule__ReferenceValuedTerm__Group_2_1__0__Impl rule__ReferenceValuedTerm__Group_2_1__1 )
-            // InternalRdfMapping.g:3366:2: rule__ReferenceValuedTerm__Group_2_1__0__Impl rule__ReferenceValuedTerm__Group_2_1__1
+            // InternalRdfMapping.g:3372:1: ( rule__ReferenceValuedTerm__Group_2_1__0__Impl rule__ReferenceValuedTerm__Group_2_1__1 )
+            // InternalRdfMapping.g:3373:2: rule__ReferenceValuedTerm__Group_2_1__0__Impl rule__ReferenceValuedTerm__Group_2_1__1
             {
             pushFollow(FOLLOW_29);
             rule__ReferenceValuedTerm__Group_2_1__0__Impl();
@@ -10276,17 +10319,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_1__0__Impl"
-    // InternalRdfMapping.g:3373:1: rule__ReferenceValuedTerm__Group_2_1__0__Impl : ( 'with' ) ;
+    // InternalRdfMapping.g:3380:1: rule__ReferenceValuedTerm__Group_2_1__0__Impl : ( 'with' ) ;
     public final void rule__ReferenceValuedTerm__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3377:1: ( ( 'with' ) )
-            // InternalRdfMapping.g:3378:1: ( 'with' )
+            // InternalRdfMapping.g:3384:1: ( ( 'with' ) )
+            // InternalRdfMapping.g:3385:1: ( 'with' )
             {
-            // InternalRdfMapping.g:3378:1: ( 'with' )
-            // InternalRdfMapping.g:3379:2: 'with'
+            // InternalRdfMapping.g:3385:1: ( 'with' )
+            // InternalRdfMapping.g:3386:2: 'with'
             {
              before(grammarAccess.getReferenceValuedTermAccess().getWithKeyword_2_1_0()); 
             match(input,32,FOLLOW_2); 
@@ -10313,14 +10356,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_1__1"
-    // InternalRdfMapping.g:3388:1: rule__ReferenceValuedTerm__Group_2_1__1 : rule__ReferenceValuedTerm__Group_2_1__1__Impl rule__ReferenceValuedTerm__Group_2_1__2 ;
+    // InternalRdfMapping.g:3395:1: rule__ReferenceValuedTerm__Group_2_1__1 : rule__ReferenceValuedTerm__Group_2_1__1__Impl rule__ReferenceValuedTerm__Group_2_1__2 ;
     public final void rule__ReferenceValuedTerm__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3392:1: ( rule__ReferenceValuedTerm__Group_2_1__1__Impl rule__ReferenceValuedTerm__Group_2_1__2 )
-            // InternalRdfMapping.g:3393:2: rule__ReferenceValuedTerm__Group_2_1__1__Impl rule__ReferenceValuedTerm__Group_2_1__2
+            // InternalRdfMapping.g:3399:1: ( rule__ReferenceValuedTerm__Group_2_1__1__Impl rule__ReferenceValuedTerm__Group_2_1__2 )
+            // InternalRdfMapping.g:3400:2: rule__ReferenceValuedTerm__Group_2_1__1__Impl rule__ReferenceValuedTerm__Group_2_1__2
             {
             pushFollow(FOLLOW_13);
             rule__ReferenceValuedTerm__Group_2_1__1__Impl();
@@ -10351,17 +10394,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_1__1__Impl"
-    // InternalRdfMapping.g:3400:1: rule__ReferenceValuedTerm__Group_2_1__1__Impl : ( 'language-tag' ) ;
+    // InternalRdfMapping.g:3407:1: rule__ReferenceValuedTerm__Group_2_1__1__Impl : ( 'language-tag' ) ;
     public final void rule__ReferenceValuedTerm__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3404:1: ( ( 'language-tag' ) )
-            // InternalRdfMapping.g:3405:1: ( 'language-tag' )
+            // InternalRdfMapping.g:3411:1: ( ( 'language-tag' ) )
+            // InternalRdfMapping.g:3412:1: ( 'language-tag' )
             {
-            // InternalRdfMapping.g:3405:1: ( 'language-tag' )
-            // InternalRdfMapping.g:3406:2: 'language-tag'
+            // InternalRdfMapping.g:3412:1: ( 'language-tag' )
+            // InternalRdfMapping.g:3413:2: 'language-tag'
             {
              before(grammarAccess.getReferenceValuedTermAccess().getLanguageTagKeyword_2_1_1()); 
             match(input,35,FOLLOW_2); 
@@ -10388,14 +10431,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_1__2"
-    // InternalRdfMapping.g:3415:1: rule__ReferenceValuedTerm__Group_2_1__2 : rule__ReferenceValuedTerm__Group_2_1__2__Impl ;
+    // InternalRdfMapping.g:3422:1: rule__ReferenceValuedTerm__Group_2_1__2 : rule__ReferenceValuedTerm__Group_2_1__2__Impl ;
     public final void rule__ReferenceValuedTerm__Group_2_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3419:1: ( rule__ReferenceValuedTerm__Group_2_1__2__Impl )
-            // InternalRdfMapping.g:3420:2: rule__ReferenceValuedTerm__Group_2_1__2__Impl
+            // InternalRdfMapping.g:3426:1: ( rule__ReferenceValuedTerm__Group_2_1__2__Impl )
+            // InternalRdfMapping.g:3427:2: rule__ReferenceValuedTerm__Group_2_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ReferenceValuedTerm__Group_2_1__2__Impl();
@@ -10421,21 +10464,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__Group_2_1__2__Impl"
-    // InternalRdfMapping.g:3426:1: rule__ReferenceValuedTerm__Group_2_1__2__Impl : ( ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 ) ) ;
+    // InternalRdfMapping.g:3433:1: rule__ReferenceValuedTerm__Group_2_1__2__Impl : ( ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 ) ) ;
     public final void rule__ReferenceValuedTerm__Group_2_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3430:1: ( ( ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 ) ) )
-            // InternalRdfMapping.g:3431:1: ( ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 ) )
+            // InternalRdfMapping.g:3437:1: ( ( ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 ) ) )
+            // InternalRdfMapping.g:3438:1: ( ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 ) )
             {
-            // InternalRdfMapping.g:3431:1: ( ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 ) )
-            // InternalRdfMapping.g:3432:2: ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 )
+            // InternalRdfMapping.g:3438:1: ( ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 ) )
+            // InternalRdfMapping.g:3439:2: ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 )
             {
              before(grammarAccess.getReferenceValuedTermAccess().getLanguageTagAssignment_2_1_2()); 
-            // InternalRdfMapping.g:3433:2: ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 )
-            // InternalRdfMapping.g:3433:3: rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2
+            // InternalRdfMapping.g:3440:2: ( rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 )
+            // InternalRdfMapping.g:3440:3: rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2
             {
             pushFollow(FOLLOW_2);
             rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2();
@@ -10468,14 +10511,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__Group__0"
-    // InternalRdfMapping.g:3442:1: rule__TemplateValuedTerm__Group__0 : rule__TemplateValuedTerm__Group__0__Impl rule__TemplateValuedTerm__Group__1 ;
+    // InternalRdfMapping.g:3449:1: rule__TemplateValuedTerm__Group__0 : rule__TemplateValuedTerm__Group__0__Impl rule__TemplateValuedTerm__Group__1 ;
     public final void rule__TemplateValuedTerm__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3446:1: ( rule__TemplateValuedTerm__Group__0__Impl rule__TemplateValuedTerm__Group__1 )
-            // InternalRdfMapping.g:3447:2: rule__TemplateValuedTerm__Group__0__Impl rule__TemplateValuedTerm__Group__1
+            // InternalRdfMapping.g:3453:1: ( rule__TemplateValuedTerm__Group__0__Impl rule__TemplateValuedTerm__Group__1 )
+            // InternalRdfMapping.g:3454:2: rule__TemplateValuedTerm__Group__0__Impl rule__TemplateValuedTerm__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__TemplateValuedTerm__Group__0__Impl();
@@ -10506,17 +10549,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__Group__0__Impl"
-    // InternalRdfMapping.g:3454:1: rule__TemplateValuedTerm__Group__0__Impl : ( 'template' ) ;
+    // InternalRdfMapping.g:3461:1: rule__TemplateValuedTerm__Group__0__Impl : ( 'template' ) ;
     public final void rule__TemplateValuedTerm__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3458:1: ( ( 'template' ) )
-            // InternalRdfMapping.g:3459:1: ( 'template' )
+            // InternalRdfMapping.g:3465:1: ( ( 'template' ) )
+            // InternalRdfMapping.g:3466:1: ( 'template' )
             {
-            // InternalRdfMapping.g:3459:1: ( 'template' )
-            // InternalRdfMapping.g:3460:2: 'template'
+            // InternalRdfMapping.g:3466:1: ( 'template' )
+            // InternalRdfMapping.g:3467:2: 'template'
             {
              before(grammarAccess.getTemplateValuedTermAccess().getTemplateKeyword_0()); 
             match(input,31,FOLLOW_2); 
@@ -10543,14 +10586,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__Group__1"
-    // InternalRdfMapping.g:3469:1: rule__TemplateValuedTerm__Group__1 : rule__TemplateValuedTerm__Group__1__Impl rule__TemplateValuedTerm__Group__2 ;
+    // InternalRdfMapping.g:3476:1: rule__TemplateValuedTerm__Group__1 : rule__TemplateValuedTerm__Group__1__Impl rule__TemplateValuedTerm__Group__2 ;
     public final void rule__TemplateValuedTerm__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3473:1: ( rule__TemplateValuedTerm__Group__1__Impl rule__TemplateValuedTerm__Group__2 )
-            // InternalRdfMapping.g:3474:2: rule__TemplateValuedTerm__Group__1__Impl rule__TemplateValuedTerm__Group__2
+            // InternalRdfMapping.g:3480:1: ( rule__TemplateValuedTerm__Group__1__Impl rule__TemplateValuedTerm__Group__2 )
+            // InternalRdfMapping.g:3481:2: rule__TemplateValuedTerm__Group__1__Impl rule__TemplateValuedTerm__Group__2
             {
             pushFollow(FOLLOW_25);
             rule__TemplateValuedTerm__Group__1__Impl();
@@ -10581,21 +10624,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__Group__1__Impl"
-    // InternalRdfMapping.g:3481:1: rule__TemplateValuedTerm__Group__1__Impl : ( ( rule__TemplateValuedTerm__PatternAssignment_1 ) ) ;
+    // InternalRdfMapping.g:3488:1: rule__TemplateValuedTerm__Group__1__Impl : ( ( rule__TemplateValuedTerm__PatternAssignment_1 ) ) ;
     public final void rule__TemplateValuedTerm__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3485:1: ( ( ( rule__TemplateValuedTerm__PatternAssignment_1 ) ) )
-            // InternalRdfMapping.g:3486:1: ( ( rule__TemplateValuedTerm__PatternAssignment_1 ) )
+            // InternalRdfMapping.g:3492:1: ( ( ( rule__TemplateValuedTerm__PatternAssignment_1 ) ) )
+            // InternalRdfMapping.g:3493:1: ( ( rule__TemplateValuedTerm__PatternAssignment_1 ) )
             {
-            // InternalRdfMapping.g:3486:1: ( ( rule__TemplateValuedTerm__PatternAssignment_1 ) )
-            // InternalRdfMapping.g:3487:2: ( rule__TemplateValuedTerm__PatternAssignment_1 )
+            // InternalRdfMapping.g:3493:1: ( ( rule__TemplateValuedTerm__PatternAssignment_1 ) )
+            // InternalRdfMapping.g:3494:2: ( rule__TemplateValuedTerm__PatternAssignment_1 )
             {
              before(grammarAccess.getTemplateValuedTermAccess().getPatternAssignment_1()); 
-            // InternalRdfMapping.g:3488:2: ( rule__TemplateValuedTerm__PatternAssignment_1 )
-            // InternalRdfMapping.g:3488:3: rule__TemplateValuedTerm__PatternAssignment_1
+            // InternalRdfMapping.g:3495:2: ( rule__TemplateValuedTerm__PatternAssignment_1 )
+            // InternalRdfMapping.g:3495:3: rule__TemplateValuedTerm__PatternAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__TemplateValuedTerm__PatternAssignment_1();
@@ -10628,14 +10671,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__Group__2"
-    // InternalRdfMapping.g:3496:1: rule__TemplateValuedTerm__Group__2 : rule__TemplateValuedTerm__Group__2__Impl rule__TemplateValuedTerm__Group__3 ;
+    // InternalRdfMapping.g:3503:1: rule__TemplateValuedTerm__Group__2 : rule__TemplateValuedTerm__Group__2__Impl rule__TemplateValuedTerm__Group__3 ;
     public final void rule__TemplateValuedTerm__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3500:1: ( rule__TemplateValuedTerm__Group__2__Impl rule__TemplateValuedTerm__Group__3 )
-            // InternalRdfMapping.g:3501:2: rule__TemplateValuedTerm__Group__2__Impl rule__TemplateValuedTerm__Group__3
+            // InternalRdfMapping.g:3507:1: ( rule__TemplateValuedTerm__Group__2__Impl rule__TemplateValuedTerm__Group__3 )
+            // InternalRdfMapping.g:3508:2: rule__TemplateValuedTerm__Group__2__Impl rule__TemplateValuedTerm__Group__3
             {
             pushFollow(FOLLOW_13);
             rule__TemplateValuedTerm__Group__2__Impl();
@@ -10666,17 +10709,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__Group__2__Impl"
-    // InternalRdfMapping.g:3508:1: rule__TemplateValuedTerm__Group__2__Impl : ( 'with' ) ;
+    // InternalRdfMapping.g:3515:1: rule__TemplateValuedTerm__Group__2__Impl : ( 'with' ) ;
     public final void rule__TemplateValuedTerm__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3512:1: ( ( 'with' ) )
-            // InternalRdfMapping.g:3513:1: ( 'with' )
+            // InternalRdfMapping.g:3519:1: ( ( 'with' ) )
+            // InternalRdfMapping.g:3520:1: ( 'with' )
             {
-            // InternalRdfMapping.g:3513:1: ( 'with' )
-            // InternalRdfMapping.g:3514:2: 'with'
+            // InternalRdfMapping.g:3520:1: ( 'with' )
+            // InternalRdfMapping.g:3521:2: 'with'
             {
              before(grammarAccess.getTemplateValuedTermAccess().getWithKeyword_2()); 
             match(input,32,FOLLOW_2); 
@@ -10703,14 +10746,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__Group__3"
-    // InternalRdfMapping.g:3523:1: rule__TemplateValuedTerm__Group__3 : rule__TemplateValuedTerm__Group__3__Impl ;
+    // InternalRdfMapping.g:3530:1: rule__TemplateValuedTerm__Group__3 : rule__TemplateValuedTerm__Group__3__Impl ;
     public final void rule__TemplateValuedTerm__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3527:1: ( rule__TemplateValuedTerm__Group__3__Impl )
-            // InternalRdfMapping.g:3528:2: rule__TemplateValuedTerm__Group__3__Impl
+            // InternalRdfMapping.g:3534:1: ( rule__TemplateValuedTerm__Group__3__Impl )
+            // InternalRdfMapping.g:3535:2: rule__TemplateValuedTerm__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TemplateValuedTerm__Group__3__Impl();
@@ -10736,31 +10779,68 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__Group__3__Impl"
-    // InternalRdfMapping.g:3534:1: rule__TemplateValuedTerm__Group__3__Impl : ( ( rule__TemplateValuedTerm__ReferenceAssignment_3 ) ) ;
+    // InternalRdfMapping.g:3541:1: rule__TemplateValuedTerm__Group__3__Impl : ( ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 ) ) ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 )* ) ) ;
     public final void rule__TemplateValuedTerm__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3538:1: ( ( ( rule__TemplateValuedTerm__ReferenceAssignment_3 ) ) )
-            // InternalRdfMapping.g:3539:1: ( ( rule__TemplateValuedTerm__ReferenceAssignment_3 ) )
+            // InternalRdfMapping.g:3545:1: ( ( ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 ) ) ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 )* ) ) )
+            // InternalRdfMapping.g:3546:1: ( ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 ) ) ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 )* ) )
             {
-            // InternalRdfMapping.g:3539:1: ( ( rule__TemplateValuedTerm__ReferenceAssignment_3 ) )
-            // InternalRdfMapping.g:3540:2: ( rule__TemplateValuedTerm__ReferenceAssignment_3 )
+            // InternalRdfMapping.g:3546:1: ( ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 ) ) ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 )* ) )
+            // InternalRdfMapping.g:3547:2: ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 ) ) ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 )* )
             {
-             before(grammarAccess.getTemplateValuedTermAccess().getReferenceAssignment_3()); 
-            // InternalRdfMapping.g:3541:2: ( rule__TemplateValuedTerm__ReferenceAssignment_3 )
-            // InternalRdfMapping.g:3541:3: rule__TemplateValuedTerm__ReferenceAssignment_3
+            // InternalRdfMapping.g:3547:2: ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 ) )
+            // InternalRdfMapping.g:3548:3: ( rule__TemplateValuedTerm__ReferencesAssignment_3 )
             {
-            pushFollow(FOLLOW_2);
-            rule__TemplateValuedTerm__ReferenceAssignment_3();
+             before(grammarAccess.getTemplateValuedTermAccess().getReferencesAssignment_3()); 
+            // InternalRdfMapping.g:3549:3: ( rule__TemplateValuedTerm__ReferencesAssignment_3 )
+            // InternalRdfMapping.g:3549:4: rule__TemplateValuedTerm__ReferencesAssignment_3
+            {
+            pushFollow(FOLLOW_7);
+            rule__TemplateValuedTerm__ReferencesAssignment_3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getTemplateValuedTermAccess().getReferenceAssignment_3()); 
+             after(grammarAccess.getTemplateValuedTermAccess().getReferencesAssignment_3()); 
+
+            }
+
+            // InternalRdfMapping.g:3552:2: ( ( rule__TemplateValuedTerm__ReferencesAssignment_3 )* )
+            // InternalRdfMapping.g:3553:3: ( rule__TemplateValuedTerm__ReferencesAssignment_3 )*
+            {
+             before(grammarAccess.getTemplateValuedTermAccess().getReferencesAssignment_3()); 
+            // InternalRdfMapping.g:3554:3: ( rule__TemplateValuedTerm__ReferencesAssignment_3 )*
+            loop25:
+            do {
+                int alt25=2;
+                alt25 = dfa25.predict(input);
+                switch (alt25) {
+            	case 1 :
+            	    // InternalRdfMapping.g:3554:4: rule__TemplateValuedTerm__ReferencesAssignment_3
+            	    {
+            	    pushFollow(FOLLOW_7);
+            	    rule__TemplateValuedTerm__ReferencesAssignment_3();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop25;
+                }
+            } while (true);
+
+             after(grammarAccess.getTemplateValuedTermAccess().getReferencesAssignment_3()); 
+
+            }
+
 
             }
 
@@ -10783,14 +10863,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LinkedResourceTerm__Group__0"
-    // InternalRdfMapping.g:3550:1: rule__LinkedResourceTerm__Group__0 : rule__LinkedResourceTerm__Group__0__Impl rule__LinkedResourceTerm__Group__1 ;
+    // InternalRdfMapping.g:3564:1: rule__LinkedResourceTerm__Group__0 : rule__LinkedResourceTerm__Group__0__Impl rule__LinkedResourceTerm__Group__1 ;
     public final void rule__LinkedResourceTerm__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3554:1: ( rule__LinkedResourceTerm__Group__0__Impl rule__LinkedResourceTerm__Group__1 )
-            // InternalRdfMapping.g:3555:2: rule__LinkedResourceTerm__Group__0__Impl rule__LinkedResourceTerm__Group__1
+            // InternalRdfMapping.g:3568:1: ( rule__LinkedResourceTerm__Group__0__Impl rule__LinkedResourceTerm__Group__1 )
+            // InternalRdfMapping.g:3569:2: rule__LinkedResourceTerm__Group__0__Impl rule__LinkedResourceTerm__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__LinkedResourceTerm__Group__0__Impl();
@@ -10821,17 +10901,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LinkedResourceTerm__Group__0__Impl"
-    // InternalRdfMapping.g:3562:1: rule__LinkedResourceTerm__Group__0__Impl : ( 'link' ) ;
+    // InternalRdfMapping.g:3576:1: rule__LinkedResourceTerm__Group__0__Impl : ( 'link' ) ;
     public final void rule__LinkedResourceTerm__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3566:1: ( ( 'link' ) )
-            // InternalRdfMapping.g:3567:1: ( 'link' )
+            // InternalRdfMapping.g:3580:1: ( ( 'link' ) )
+            // InternalRdfMapping.g:3581:1: ( 'link' )
             {
-            // InternalRdfMapping.g:3567:1: ( 'link' )
-            // InternalRdfMapping.g:3568:2: 'link'
+            // InternalRdfMapping.g:3581:1: ( 'link' )
+            // InternalRdfMapping.g:3582:2: 'link'
             {
              before(grammarAccess.getLinkedResourceTermAccess().getLinkKeyword_0()); 
             match(input,36,FOLLOW_2); 
@@ -10858,14 +10938,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LinkedResourceTerm__Group__1"
-    // InternalRdfMapping.g:3577:1: rule__LinkedResourceTerm__Group__1 : rule__LinkedResourceTerm__Group__1__Impl rule__LinkedResourceTerm__Group__2 ;
+    // InternalRdfMapping.g:3591:1: rule__LinkedResourceTerm__Group__1 : rule__LinkedResourceTerm__Group__1__Impl rule__LinkedResourceTerm__Group__2 ;
     public final void rule__LinkedResourceTerm__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3581:1: ( rule__LinkedResourceTerm__Group__1__Impl rule__LinkedResourceTerm__Group__2 )
-            // InternalRdfMapping.g:3582:2: rule__LinkedResourceTerm__Group__1__Impl rule__LinkedResourceTerm__Group__2
+            // InternalRdfMapping.g:3595:1: ( rule__LinkedResourceTerm__Group__1__Impl rule__LinkedResourceTerm__Group__2 )
+            // InternalRdfMapping.g:3596:2: rule__LinkedResourceTerm__Group__1__Impl rule__LinkedResourceTerm__Group__2
             {
             pushFollow(FOLLOW_25);
             rule__LinkedResourceTerm__Group__1__Impl();
@@ -10896,21 +10976,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LinkedResourceTerm__Group__1__Impl"
-    // InternalRdfMapping.g:3589:1: rule__LinkedResourceTerm__Group__1__Impl : ( ( rule__LinkedResourceTerm__MappingAssignment_1 ) ) ;
+    // InternalRdfMapping.g:3603:1: rule__LinkedResourceTerm__Group__1__Impl : ( ( rule__LinkedResourceTerm__MappingAssignment_1 ) ) ;
     public final void rule__LinkedResourceTerm__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3593:1: ( ( ( rule__LinkedResourceTerm__MappingAssignment_1 ) ) )
-            // InternalRdfMapping.g:3594:1: ( ( rule__LinkedResourceTerm__MappingAssignment_1 ) )
+            // InternalRdfMapping.g:3607:1: ( ( ( rule__LinkedResourceTerm__MappingAssignment_1 ) ) )
+            // InternalRdfMapping.g:3608:1: ( ( rule__LinkedResourceTerm__MappingAssignment_1 ) )
             {
-            // InternalRdfMapping.g:3594:1: ( ( rule__LinkedResourceTerm__MappingAssignment_1 ) )
-            // InternalRdfMapping.g:3595:2: ( rule__LinkedResourceTerm__MappingAssignment_1 )
+            // InternalRdfMapping.g:3608:1: ( ( rule__LinkedResourceTerm__MappingAssignment_1 ) )
+            // InternalRdfMapping.g:3609:2: ( rule__LinkedResourceTerm__MappingAssignment_1 )
             {
              before(grammarAccess.getLinkedResourceTermAccess().getMappingAssignment_1()); 
-            // InternalRdfMapping.g:3596:2: ( rule__LinkedResourceTerm__MappingAssignment_1 )
-            // InternalRdfMapping.g:3596:3: rule__LinkedResourceTerm__MappingAssignment_1
+            // InternalRdfMapping.g:3610:2: ( rule__LinkedResourceTerm__MappingAssignment_1 )
+            // InternalRdfMapping.g:3610:3: rule__LinkedResourceTerm__MappingAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__LinkedResourceTerm__MappingAssignment_1();
@@ -10943,14 +11023,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LinkedResourceTerm__Group__2"
-    // InternalRdfMapping.g:3604:1: rule__LinkedResourceTerm__Group__2 : rule__LinkedResourceTerm__Group__2__Impl rule__LinkedResourceTerm__Group__3 ;
+    // InternalRdfMapping.g:3618:1: rule__LinkedResourceTerm__Group__2 : rule__LinkedResourceTerm__Group__2__Impl rule__LinkedResourceTerm__Group__3 ;
     public final void rule__LinkedResourceTerm__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3608:1: ( rule__LinkedResourceTerm__Group__2__Impl rule__LinkedResourceTerm__Group__3 )
-            // InternalRdfMapping.g:3609:2: rule__LinkedResourceTerm__Group__2__Impl rule__LinkedResourceTerm__Group__3
+            // InternalRdfMapping.g:3622:1: ( rule__LinkedResourceTerm__Group__2__Impl rule__LinkedResourceTerm__Group__3 )
+            // InternalRdfMapping.g:3623:2: rule__LinkedResourceTerm__Group__2__Impl rule__LinkedResourceTerm__Group__3
             {
             pushFollow(FOLLOW_13);
             rule__LinkedResourceTerm__Group__2__Impl();
@@ -10981,17 +11061,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LinkedResourceTerm__Group__2__Impl"
-    // InternalRdfMapping.g:3616:1: rule__LinkedResourceTerm__Group__2__Impl : ( 'with' ) ;
+    // InternalRdfMapping.g:3630:1: rule__LinkedResourceTerm__Group__2__Impl : ( 'with' ) ;
     public final void rule__LinkedResourceTerm__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3620:1: ( ( 'with' ) )
-            // InternalRdfMapping.g:3621:1: ( 'with' )
+            // InternalRdfMapping.g:3634:1: ( ( 'with' ) )
+            // InternalRdfMapping.g:3635:1: ( 'with' )
             {
-            // InternalRdfMapping.g:3621:1: ( 'with' )
-            // InternalRdfMapping.g:3622:2: 'with'
+            // InternalRdfMapping.g:3635:1: ( 'with' )
+            // InternalRdfMapping.g:3636:2: 'with'
             {
              before(grammarAccess.getLinkedResourceTermAccess().getWithKeyword_2()); 
             match(input,32,FOLLOW_2); 
@@ -11018,14 +11098,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LinkedResourceTerm__Group__3"
-    // InternalRdfMapping.g:3631:1: rule__LinkedResourceTerm__Group__3 : rule__LinkedResourceTerm__Group__3__Impl ;
+    // InternalRdfMapping.g:3645:1: rule__LinkedResourceTerm__Group__3 : rule__LinkedResourceTerm__Group__3__Impl ;
     public final void rule__LinkedResourceTerm__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3635:1: ( rule__LinkedResourceTerm__Group__3__Impl )
-            // InternalRdfMapping.g:3636:2: rule__LinkedResourceTerm__Group__3__Impl
+            // InternalRdfMapping.g:3649:1: ( rule__LinkedResourceTerm__Group__3__Impl )
+            // InternalRdfMapping.g:3650:2: rule__LinkedResourceTerm__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LinkedResourceTerm__Group__3__Impl();
@@ -11051,31 +11131,68 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LinkedResourceTerm__Group__3__Impl"
-    // InternalRdfMapping.g:3642:1: rule__LinkedResourceTerm__Group__3__Impl : ( ( rule__LinkedResourceTerm__ReferenceAssignment_3 ) ) ;
+    // InternalRdfMapping.g:3656:1: rule__LinkedResourceTerm__Group__3__Impl : ( ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 ) ) ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 )* ) ) ;
     public final void rule__LinkedResourceTerm__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3646:1: ( ( ( rule__LinkedResourceTerm__ReferenceAssignment_3 ) ) )
-            // InternalRdfMapping.g:3647:1: ( ( rule__LinkedResourceTerm__ReferenceAssignment_3 ) )
+            // InternalRdfMapping.g:3660:1: ( ( ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 ) ) ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 )* ) ) )
+            // InternalRdfMapping.g:3661:1: ( ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 ) ) ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 )* ) )
             {
-            // InternalRdfMapping.g:3647:1: ( ( rule__LinkedResourceTerm__ReferenceAssignment_3 ) )
-            // InternalRdfMapping.g:3648:2: ( rule__LinkedResourceTerm__ReferenceAssignment_3 )
+            // InternalRdfMapping.g:3661:1: ( ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 ) ) ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 )* ) )
+            // InternalRdfMapping.g:3662:2: ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 ) ) ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 )* )
             {
-             before(grammarAccess.getLinkedResourceTermAccess().getReferenceAssignment_3()); 
-            // InternalRdfMapping.g:3649:2: ( rule__LinkedResourceTerm__ReferenceAssignment_3 )
-            // InternalRdfMapping.g:3649:3: rule__LinkedResourceTerm__ReferenceAssignment_3
+            // InternalRdfMapping.g:3662:2: ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 ) )
+            // InternalRdfMapping.g:3663:3: ( rule__LinkedResourceTerm__ReferencesAssignment_3 )
             {
-            pushFollow(FOLLOW_2);
-            rule__LinkedResourceTerm__ReferenceAssignment_3();
+             before(grammarAccess.getLinkedResourceTermAccess().getReferencesAssignment_3()); 
+            // InternalRdfMapping.g:3664:3: ( rule__LinkedResourceTerm__ReferencesAssignment_3 )
+            // InternalRdfMapping.g:3664:4: rule__LinkedResourceTerm__ReferencesAssignment_3
+            {
+            pushFollow(FOLLOW_7);
+            rule__LinkedResourceTerm__ReferencesAssignment_3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getLinkedResourceTermAccess().getReferenceAssignment_3()); 
+             after(grammarAccess.getLinkedResourceTermAccess().getReferencesAssignment_3()); 
+
+            }
+
+            // InternalRdfMapping.g:3667:2: ( ( rule__LinkedResourceTerm__ReferencesAssignment_3 )* )
+            // InternalRdfMapping.g:3668:3: ( rule__LinkedResourceTerm__ReferencesAssignment_3 )*
+            {
+             before(grammarAccess.getLinkedResourceTermAccess().getReferencesAssignment_3()); 
+            // InternalRdfMapping.g:3669:3: ( rule__LinkedResourceTerm__ReferencesAssignment_3 )*
+            loop26:
+            do {
+                int alt26=2;
+                alt26 = dfa26.predict(input);
+                switch (alt26) {
+            	case 1 :
+            	    // InternalRdfMapping.g:3669:4: rule__LinkedResourceTerm__ReferencesAssignment_3
+            	    {
+            	    pushFollow(FOLLOW_7);
+            	    rule__LinkedResourceTerm__ReferencesAssignment_3();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop26;
+                }
+            } while (true);
+
+             after(grammarAccess.getLinkedResourceTermAccess().getReferencesAssignment_3()); 
+
+            }
+
 
             }
 
@@ -11098,14 +11215,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__Group__0"
-    // InternalRdfMapping.g:3658:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
+    // InternalRdfMapping.g:3679:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
     public final void rule__Import__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3662:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
-            // InternalRdfMapping.g:3663:2: rule__Import__Group__0__Impl rule__Import__Group__1
+            // InternalRdfMapping.g:3683:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
+            // InternalRdfMapping.g:3684:2: rule__Import__Group__0__Impl rule__Import__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__Import__Group__0__Impl();
@@ -11136,17 +11253,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__Group__0__Impl"
-    // InternalRdfMapping.g:3670:1: rule__Import__Group__0__Impl : ( 'import' ) ;
+    // InternalRdfMapping.g:3691:1: rule__Import__Group__0__Impl : ( 'import' ) ;
     public final void rule__Import__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3674:1: ( ( 'import' ) )
-            // InternalRdfMapping.g:3675:1: ( 'import' )
+            // InternalRdfMapping.g:3695:1: ( ( 'import' ) )
+            // InternalRdfMapping.g:3696:1: ( 'import' )
             {
-            // InternalRdfMapping.g:3675:1: ( 'import' )
-            // InternalRdfMapping.g:3676:2: 'import'
+            // InternalRdfMapping.g:3696:1: ( 'import' )
+            // InternalRdfMapping.g:3697:2: 'import'
             {
              before(grammarAccess.getImportAccess().getImportKeyword_0()); 
             match(input,37,FOLLOW_2); 
@@ -11173,14 +11290,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__Group__1"
-    // InternalRdfMapping.g:3685:1: rule__Import__Group__1 : rule__Import__Group__1__Impl ;
+    // InternalRdfMapping.g:3706:1: rule__Import__Group__1 : rule__Import__Group__1__Impl ;
     public final void rule__Import__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3689:1: ( rule__Import__Group__1__Impl )
-            // InternalRdfMapping.g:3690:2: rule__Import__Group__1__Impl
+            // InternalRdfMapping.g:3710:1: ( rule__Import__Group__1__Impl )
+            // InternalRdfMapping.g:3711:2: rule__Import__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Import__Group__1__Impl();
@@ -11206,21 +11323,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__Group__1__Impl"
-    // InternalRdfMapping.g:3696:1: rule__Import__Group__1__Impl : ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) ;
+    // InternalRdfMapping.g:3717:1: rule__Import__Group__1__Impl : ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) ;
     public final void rule__Import__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3700:1: ( ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) )
-            // InternalRdfMapping.g:3701:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
+            // InternalRdfMapping.g:3721:1: ( ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) )
+            // InternalRdfMapping.g:3722:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
             {
-            // InternalRdfMapping.g:3701:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
-            // InternalRdfMapping.g:3702:2: ( rule__Import__ImportedNamespaceAssignment_1 )
+            // InternalRdfMapping.g:3722:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
+            // InternalRdfMapping.g:3723:2: ( rule__Import__ImportedNamespaceAssignment_1 )
             {
              before(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1()); 
-            // InternalRdfMapping.g:3703:2: ( rule__Import__ImportedNamespaceAssignment_1 )
-            // InternalRdfMapping.g:3703:3: rule__Import__ImportedNamespaceAssignment_1
+            // InternalRdfMapping.g:3724:2: ( rule__Import__ImportedNamespaceAssignment_1 )
+            // InternalRdfMapping.g:3724:3: rule__Import__ImportedNamespaceAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Import__ImportedNamespaceAssignment_1();
@@ -11253,14 +11370,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__0"
-    // InternalRdfMapping.g:3712:1: rule__QualifiedNameWithWildcard__Group__0 : rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 ;
+    // InternalRdfMapping.g:3733:1: rule__QualifiedNameWithWildcard__Group__0 : rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 ;
     public final void rule__QualifiedNameWithWildcard__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3716:1: ( rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 )
-            // InternalRdfMapping.g:3717:2: rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1
+            // InternalRdfMapping.g:3737:1: ( rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 )
+            // InternalRdfMapping.g:3738:2: rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1
             {
             pushFollow(FOLLOW_30);
             rule__QualifiedNameWithWildcard__Group__0__Impl();
@@ -11291,17 +11408,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__0__Impl"
-    // InternalRdfMapping.g:3724:1: rule__QualifiedNameWithWildcard__Group__0__Impl : ( ruleQualifiedName ) ;
+    // InternalRdfMapping.g:3745:1: rule__QualifiedNameWithWildcard__Group__0__Impl : ( ruleQualifiedName ) ;
     public final void rule__QualifiedNameWithWildcard__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3728:1: ( ( ruleQualifiedName ) )
-            // InternalRdfMapping.g:3729:1: ( ruleQualifiedName )
+            // InternalRdfMapping.g:3749:1: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:3750:1: ( ruleQualifiedName )
             {
-            // InternalRdfMapping.g:3729:1: ( ruleQualifiedName )
-            // InternalRdfMapping.g:3730:2: ruleQualifiedName
+            // InternalRdfMapping.g:3750:1: ( ruleQualifiedName )
+            // InternalRdfMapping.g:3751:2: ruleQualifiedName
             {
              before(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -11332,14 +11449,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__1"
-    // InternalRdfMapping.g:3739:1: rule__QualifiedNameWithWildcard__Group__1 : rule__QualifiedNameWithWildcard__Group__1__Impl ;
+    // InternalRdfMapping.g:3760:1: rule__QualifiedNameWithWildcard__Group__1 : rule__QualifiedNameWithWildcard__Group__1__Impl ;
     public final void rule__QualifiedNameWithWildcard__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3743:1: ( rule__QualifiedNameWithWildcard__Group__1__Impl )
-            // InternalRdfMapping.g:3744:2: rule__QualifiedNameWithWildcard__Group__1__Impl
+            // InternalRdfMapping.g:3764:1: ( rule__QualifiedNameWithWildcard__Group__1__Impl )
+            // InternalRdfMapping.g:3765:2: rule__QualifiedNameWithWildcard__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedNameWithWildcard__Group__1__Impl();
@@ -11365,29 +11482,29 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__1__Impl"
-    // InternalRdfMapping.g:3750:1: rule__QualifiedNameWithWildcard__Group__1__Impl : ( ( '.*' )? ) ;
+    // InternalRdfMapping.g:3771:1: rule__QualifiedNameWithWildcard__Group__1__Impl : ( ( '.*' )? ) ;
     public final void rule__QualifiedNameWithWildcard__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3754:1: ( ( ( '.*' )? ) )
-            // InternalRdfMapping.g:3755:1: ( ( '.*' )? )
+            // InternalRdfMapping.g:3775:1: ( ( ( '.*' )? ) )
+            // InternalRdfMapping.g:3776:1: ( ( '.*' )? )
             {
-            // InternalRdfMapping.g:3755:1: ( ( '.*' )? )
-            // InternalRdfMapping.g:3756:2: ( '.*' )?
+            // InternalRdfMapping.g:3776:1: ( ( '.*' )? )
+            // InternalRdfMapping.g:3777:2: ( '.*' )?
             {
              before(grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopAsteriskKeyword_1()); 
-            // InternalRdfMapping.g:3757:2: ( '.*' )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // InternalRdfMapping.g:3778:2: ( '.*' )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA24_0==38) ) {
-                alt24=1;
+            if ( (LA27_0==38) ) {
+                alt27=1;
             }
-            switch (alt24) {
+            switch (alt27) {
                 case 1 :
-                    // InternalRdfMapping.g:3757:3: '.*'
+                    // InternalRdfMapping.g:3778:3: '.*'
                     {
                     match(input,38,FOLLOW_2); 
 
@@ -11419,14 +11536,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group__0"
-    // InternalRdfMapping.g:3766:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+    // InternalRdfMapping.g:3787:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
     public final void rule__QualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3770:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-            // InternalRdfMapping.g:3771:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            // InternalRdfMapping.g:3791:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+            // InternalRdfMapping.g:3792:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
             {
             pushFollow(FOLLOW_31);
             rule__QualifiedName__Group__0__Impl();
@@ -11457,17 +11574,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group__0__Impl"
-    // InternalRdfMapping.g:3778:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    // InternalRdfMapping.g:3799:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3782:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:3783:1: ( RULE_ID )
+            // InternalRdfMapping.g:3803:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:3804:1: ( RULE_ID )
             {
-            // InternalRdfMapping.g:3783:1: ( RULE_ID )
-            // InternalRdfMapping.g:3784:2: RULE_ID
+            // InternalRdfMapping.g:3804:1: ( RULE_ID )
+            // InternalRdfMapping.g:3805:2: RULE_ID
             {
              before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11494,14 +11611,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group__1"
-    // InternalRdfMapping.g:3793:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+    // InternalRdfMapping.g:3814:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
     public final void rule__QualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3797:1: ( rule__QualifiedName__Group__1__Impl )
-            // InternalRdfMapping.g:3798:2: rule__QualifiedName__Group__1__Impl
+            // InternalRdfMapping.g:3818:1: ( rule__QualifiedName__Group__1__Impl )
+            // InternalRdfMapping.g:3819:2: rule__QualifiedName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group__1__Impl();
@@ -11527,33 +11644,33 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group__1__Impl"
-    // InternalRdfMapping.g:3804:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+    // InternalRdfMapping.g:3825:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
     public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3808:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-            // InternalRdfMapping.g:3809:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalRdfMapping.g:3829:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+            // InternalRdfMapping.g:3830:1: ( ( rule__QualifiedName__Group_1__0 )* )
             {
-            // InternalRdfMapping.g:3809:1: ( ( rule__QualifiedName__Group_1__0 )* )
-            // InternalRdfMapping.g:3810:2: ( rule__QualifiedName__Group_1__0 )*
+            // InternalRdfMapping.g:3830:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalRdfMapping.g:3831:2: ( rule__QualifiedName__Group_1__0 )*
             {
              before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
-            // InternalRdfMapping.g:3811:2: ( rule__QualifiedName__Group_1__0 )*
-            loop25:
+            // InternalRdfMapping.g:3832:2: ( rule__QualifiedName__Group_1__0 )*
+            loop28:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA25_0==39) ) {
-                    alt25=1;
+                if ( (LA28_0==39) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt28) {
             	case 1 :
-            	    // InternalRdfMapping.g:3811:3: rule__QualifiedName__Group_1__0
+            	    // InternalRdfMapping.g:3832:3: rule__QualifiedName__Group_1__0
             	    {
             	    pushFollow(FOLLOW_32);
             	    rule__QualifiedName__Group_1__0();
@@ -11565,7 +11682,7 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop28;
                 }
             } while (true);
 
@@ -11592,14 +11709,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0"
-    // InternalRdfMapping.g:3820:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+    // InternalRdfMapping.g:3841:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
     public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3824:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-            // InternalRdfMapping.g:3825:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            // InternalRdfMapping.g:3845:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+            // InternalRdfMapping.g:3846:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
             {
             pushFollow(FOLLOW_13);
             rule__QualifiedName__Group_1__0__Impl();
@@ -11630,17 +11747,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-    // InternalRdfMapping.g:3832:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+    // InternalRdfMapping.g:3853:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
     public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3836:1: ( ( '.' ) )
-            // InternalRdfMapping.g:3837:1: ( '.' )
+            // InternalRdfMapping.g:3857:1: ( ( '.' ) )
+            // InternalRdfMapping.g:3858:1: ( '.' )
             {
-            // InternalRdfMapping.g:3837:1: ( '.' )
-            // InternalRdfMapping.g:3838:2: '.'
+            // InternalRdfMapping.g:3858:1: ( '.' )
+            // InternalRdfMapping.g:3859:2: '.'
             {
              before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             match(input,39,FOLLOW_2); 
@@ -11667,14 +11784,14 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1"
-    // InternalRdfMapping.g:3847:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+    // InternalRdfMapping.g:3868:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
     public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3851:1: ( rule__QualifiedName__Group_1__1__Impl )
-            // InternalRdfMapping.g:3852:2: rule__QualifiedName__Group_1__1__Impl
+            // InternalRdfMapping.g:3872:1: ( rule__QualifiedName__Group_1__1__Impl )
+            // InternalRdfMapping.g:3873:2: rule__QualifiedName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group_1__1__Impl();
@@ -11700,17 +11817,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-    // InternalRdfMapping.g:3858:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    // InternalRdfMapping.g:3879:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3862:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:3863:1: ( RULE_ID )
+            // InternalRdfMapping.g:3883:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:3884:1: ( RULE_ID )
             {
-            // InternalRdfMapping.g:3863:1: ( RULE_ID )
-            // InternalRdfMapping.g:3864:2: RULE_ID
+            // InternalRdfMapping.g:3884:1: ( RULE_ID )
+            // InternalRdfMapping.g:3885:2: RULE_ID
             {
              before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11737,17 +11854,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Domainmodel__ElementsAssignment"
-    // InternalRdfMapping.g:3874:1: rule__Domainmodel__ElementsAssignment : ( ruleElement ) ;
+    // InternalRdfMapping.g:3895:1: rule__Domainmodel__ElementsAssignment : ( ruleElement ) ;
     public final void rule__Domainmodel__ElementsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3878:1: ( ( ruleElement ) )
-            // InternalRdfMapping.g:3879:2: ( ruleElement )
+            // InternalRdfMapping.g:3899:1: ( ( ruleElement ) )
+            // InternalRdfMapping.g:3900:2: ( ruleElement )
             {
-            // InternalRdfMapping.g:3879:2: ( ruleElement )
-            // InternalRdfMapping.g:3880:3: ruleElement
+            // InternalRdfMapping.g:3900:2: ( ruleElement )
+            // InternalRdfMapping.g:3901:3: ruleElement
             {
              before(grammarAccess.getDomainmodelAccess().getElementsElementParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -11778,17 +11895,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SourceTypesDefinition__TypesAssignment_3"
-    // InternalRdfMapping.g:3889:1: rule__SourceTypesDefinition__TypesAssignment_3 : ( ruleSourceType ) ;
+    // InternalRdfMapping.g:3910:1: rule__SourceTypesDefinition__TypesAssignment_3 : ( ruleSourceType ) ;
     public final void rule__SourceTypesDefinition__TypesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3893:1: ( ( ruleSourceType ) )
-            // InternalRdfMapping.g:3894:2: ( ruleSourceType )
+            // InternalRdfMapping.g:3914:1: ( ( ruleSourceType ) )
+            // InternalRdfMapping.g:3915:2: ( ruleSourceType )
             {
-            // InternalRdfMapping.g:3894:2: ( ruleSourceType )
-            // InternalRdfMapping.g:3895:3: ruleSourceType
+            // InternalRdfMapping.g:3915:2: ( ruleSourceType )
+            // InternalRdfMapping.g:3916:3: ruleSourceType
             {
              before(grammarAccess.getSourceTypesDefinitionAccess().getTypesSourceTypeParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -11819,17 +11936,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SourceType__NameAssignment_0"
-    // InternalRdfMapping.g:3904:1: rule__SourceType__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalRdfMapping.g:3925:1: rule__SourceType__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__SourceType__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3908:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:3909:2: ( RULE_ID )
+            // InternalRdfMapping.g:3929:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:3930:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:3909:2: ( RULE_ID )
-            // InternalRdfMapping.g:3910:3: RULE_ID
+            // InternalRdfMapping.g:3930:2: ( RULE_ID )
+            // InternalRdfMapping.g:3931:3: RULE_ID
             {
              before(grammarAccess.getSourceTypeAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11856,17 +11973,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SourceType__ReferenceFormulationAssignment_2"
-    // InternalRdfMapping.g:3919:1: rule__SourceType__ReferenceFormulationAssignment_2 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:3940:1: rule__SourceType__ReferenceFormulationAssignment_2 : ( RULE_STRING ) ;
     public final void rule__SourceType__ReferenceFormulationAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3923:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:3924:2: ( RULE_STRING )
+            // InternalRdfMapping.g:3944:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:3945:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:3924:2: ( RULE_STRING )
-            // InternalRdfMapping.g:3925:3: RULE_STRING
+            // InternalRdfMapping.g:3945:2: ( RULE_STRING )
+            // InternalRdfMapping.g:3946:3: RULE_STRING
             {
              before(grammarAccess.getSourceTypeAccess().getReferenceFormulationSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11893,17 +12010,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DatatypesDefinition__PrefixAssignment_3"
-    // InternalRdfMapping.g:3934:1: rule__DatatypesDefinition__PrefixAssignment_3 : ( rulePrefix ) ;
+    // InternalRdfMapping.g:3955:1: rule__DatatypesDefinition__PrefixAssignment_3 : ( rulePrefix ) ;
     public final void rule__DatatypesDefinition__PrefixAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3938:1: ( ( rulePrefix ) )
-            // InternalRdfMapping.g:3939:2: ( rulePrefix )
+            // InternalRdfMapping.g:3959:1: ( ( rulePrefix ) )
+            // InternalRdfMapping.g:3960:2: ( rulePrefix )
             {
-            // InternalRdfMapping.g:3939:2: ( rulePrefix )
-            // InternalRdfMapping.g:3940:3: rulePrefix
+            // InternalRdfMapping.g:3960:2: ( rulePrefix )
+            // InternalRdfMapping.g:3961:3: rulePrefix
             {
              before(grammarAccess.getDatatypesDefinitionAccess().getPrefixPrefixParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -11934,17 +12051,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DatatypesDefinition__TypesAssignment_4"
-    // InternalRdfMapping.g:3949:1: rule__DatatypesDefinition__TypesAssignment_4 : ( ruleDatatype ) ;
+    // InternalRdfMapping.g:3970:1: rule__DatatypesDefinition__TypesAssignment_4 : ( ruleDatatype ) ;
     public final void rule__DatatypesDefinition__TypesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3953:1: ( ( ruleDatatype ) )
-            // InternalRdfMapping.g:3954:2: ( ruleDatatype )
+            // InternalRdfMapping.g:3974:1: ( ( ruleDatatype ) )
+            // InternalRdfMapping.g:3975:2: ( ruleDatatype )
             {
-            // InternalRdfMapping.g:3954:2: ( ruleDatatype )
-            // InternalRdfMapping.g:3955:3: ruleDatatype
+            // InternalRdfMapping.g:3975:2: ( ruleDatatype )
+            // InternalRdfMapping.g:3976:3: ruleDatatype
             {
              before(grammarAccess.getDatatypesDefinitionAccess().getTypesDatatypeParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -11975,17 +12092,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Datatype__NameAssignment"
-    // InternalRdfMapping.g:3964:1: rule__Datatype__NameAssignment : ( RULE_ID ) ;
+    // InternalRdfMapping.g:3985:1: rule__Datatype__NameAssignment : ( RULE_ID ) ;
     public final void rule__Datatype__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3968:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:3969:2: ( RULE_ID )
+            // InternalRdfMapping.g:3989:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:3990:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:3969:2: ( RULE_ID )
-            // InternalRdfMapping.g:3970:3: RULE_ID
+            // InternalRdfMapping.g:3990:2: ( RULE_ID )
+            // InternalRdfMapping.g:3991:3: RULE_ID
             {
              before(grammarAccess.getDatatypeAccess().getNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12012,17 +12129,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LanguageTagDefinition__LanguageTagsAssignment_3"
-    // InternalRdfMapping.g:3979:1: rule__LanguageTagDefinition__LanguageTagsAssignment_3 : ( ruleLanguageTag ) ;
+    // InternalRdfMapping.g:4000:1: rule__LanguageTagDefinition__LanguageTagsAssignment_3 : ( ruleLanguageTag ) ;
     public final void rule__LanguageTagDefinition__LanguageTagsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3983:1: ( ( ruleLanguageTag ) )
-            // InternalRdfMapping.g:3984:2: ( ruleLanguageTag )
+            // InternalRdfMapping.g:4004:1: ( ( ruleLanguageTag ) )
+            // InternalRdfMapping.g:4005:2: ( ruleLanguageTag )
             {
-            // InternalRdfMapping.g:3984:2: ( ruleLanguageTag )
-            // InternalRdfMapping.g:3985:3: ruleLanguageTag
+            // InternalRdfMapping.g:4005:2: ( ruleLanguageTag )
+            // InternalRdfMapping.g:4006:3: ruleLanguageTag
             {
              before(grammarAccess.getLanguageTagDefinitionAccess().getLanguageTagsLanguageTagParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -12053,17 +12170,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LanguageTag__NameAssignment"
-    // InternalRdfMapping.g:3994:1: rule__LanguageTag__NameAssignment : ( RULE_ID ) ;
+    // InternalRdfMapping.g:4015:1: rule__LanguageTag__NameAssignment : ( RULE_ID ) ;
     public final void rule__LanguageTag__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:3998:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:3999:2: ( RULE_ID )
+            // InternalRdfMapping.g:4019:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4020:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:3999:2: ( RULE_ID )
-            // InternalRdfMapping.g:4000:3: RULE_ID
+            // InternalRdfMapping.g:4020:2: ( RULE_ID )
+            // InternalRdfMapping.g:4021:3: RULE_ID
             {
              before(grammarAccess.getLanguageTagAccess().getNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12090,17 +12207,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SourceGroup__NameAssignment_1"
-    // InternalRdfMapping.g:4009:1: rule__SourceGroup__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRdfMapping.g:4030:1: rule__SourceGroup__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__SourceGroup__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4013:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4014:2: ( RULE_ID )
+            // InternalRdfMapping.g:4034:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4035:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:4014:2: ( RULE_ID )
-            // InternalRdfMapping.g:4015:3: RULE_ID
+            // InternalRdfMapping.g:4035:2: ( RULE_ID )
+            // InternalRdfMapping.g:4036:3: RULE_ID
             {
              before(grammarAccess.getSourceGroupAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12127,21 +12244,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SourceGroup__TypeAssignment_4"
-    // InternalRdfMapping.g:4024:1: rule__SourceGroup__TypeAssignment_4 : ( ( RULE_ID ) ) ;
+    // InternalRdfMapping.g:4045:1: rule__SourceGroup__TypeAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__SourceGroup__TypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4028:1: ( ( ( RULE_ID ) ) )
-            // InternalRdfMapping.g:4029:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4049:1: ( ( ( RULE_ID ) ) )
+            // InternalRdfMapping.g:4050:2: ( ( RULE_ID ) )
             {
-            // InternalRdfMapping.g:4029:2: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4030:3: ( RULE_ID )
+            // InternalRdfMapping.g:4050:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4051:3: ( RULE_ID )
             {
              before(grammarAccess.getSourceGroupAccess().getTypeSourceTypeCrossReference_4_0()); 
-            // InternalRdfMapping.g:4031:3: ( RULE_ID )
-            // InternalRdfMapping.g:4032:4: RULE_ID
+            // InternalRdfMapping.g:4052:3: ( RULE_ID )
+            // InternalRdfMapping.g:4053:4: RULE_ID
             {
              before(grammarAccess.getSourceGroupAccess().getTypeSourceTypeIDTerminalRuleCall_4_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12172,17 +12289,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SourceGroup__SourceAssignment_6_1"
-    // InternalRdfMapping.g:4043:1: rule__SourceGroup__SourceAssignment_6_1 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:4064:1: rule__SourceGroup__SourceAssignment_6_1 : ( RULE_STRING ) ;
     public final void rule__SourceGroup__SourceAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4047:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:4048:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4068:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:4069:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:4048:2: ( RULE_STRING )
-            // InternalRdfMapping.g:4049:3: RULE_STRING
+            // InternalRdfMapping.g:4069:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4070:3: RULE_STRING
             {
              before(grammarAccess.getSourceGroupAccess().getSourceSTRINGTerminalRuleCall_6_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12209,17 +12326,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SourceGroup__LogicalSourcesAssignment_7"
-    // InternalRdfMapping.g:4058:1: rule__SourceGroup__LogicalSourcesAssignment_7 : ( ruleLogicalSource ) ;
+    // InternalRdfMapping.g:4079:1: rule__SourceGroup__LogicalSourcesAssignment_7 : ( ruleLogicalSource ) ;
     public final void rule__SourceGroup__LogicalSourcesAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4062:1: ( ( ruleLogicalSource ) )
-            // InternalRdfMapping.g:4063:2: ( ruleLogicalSource )
+            // InternalRdfMapping.g:4083:1: ( ( ruleLogicalSource ) )
+            // InternalRdfMapping.g:4084:2: ( ruleLogicalSource )
             {
-            // InternalRdfMapping.g:4063:2: ( ruleLogicalSource )
-            // InternalRdfMapping.g:4064:3: ruleLogicalSource
+            // InternalRdfMapping.g:4084:2: ( ruleLogicalSource )
+            // InternalRdfMapping.g:4085:3: ruleLogicalSource
             {
              before(grammarAccess.getSourceGroupAccess().getLogicalSourcesLogicalSourceParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -12250,17 +12367,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalSource__NameAssignment_1"
-    // InternalRdfMapping.g:4073:1: rule__LogicalSource__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRdfMapping.g:4094:1: rule__LogicalSource__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__LogicalSource__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4077:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4078:2: ( RULE_ID )
+            // InternalRdfMapping.g:4098:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4099:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:4078:2: ( RULE_ID )
-            // InternalRdfMapping.g:4079:3: RULE_ID
+            // InternalRdfMapping.g:4099:2: ( RULE_ID )
+            // InternalRdfMapping.g:4100:3: RULE_ID
             {
              before(grammarAccess.getLogicalSourceAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12287,21 +12404,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalSource__TypeAssignment_3_1"
-    // InternalRdfMapping.g:4088:1: rule__LogicalSource__TypeAssignment_3_1 : ( ( RULE_ID ) ) ;
+    // InternalRdfMapping.g:4109:1: rule__LogicalSource__TypeAssignment_3_1 : ( ( RULE_ID ) ) ;
     public final void rule__LogicalSource__TypeAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4092:1: ( ( ( RULE_ID ) ) )
-            // InternalRdfMapping.g:4093:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4113:1: ( ( ( RULE_ID ) ) )
+            // InternalRdfMapping.g:4114:2: ( ( RULE_ID ) )
             {
-            // InternalRdfMapping.g:4093:2: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4094:3: ( RULE_ID )
+            // InternalRdfMapping.g:4114:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4115:3: ( RULE_ID )
             {
              before(grammarAccess.getLogicalSourceAccess().getTypeSourceTypeCrossReference_3_1_0()); 
-            // InternalRdfMapping.g:4095:3: ( RULE_ID )
-            // InternalRdfMapping.g:4096:4: RULE_ID
+            // InternalRdfMapping.g:4116:3: ( RULE_ID )
+            // InternalRdfMapping.g:4117:4: RULE_ID
             {
              before(grammarAccess.getLogicalSourceAccess().getTypeSourceTypeIDTerminalRuleCall_3_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12332,17 +12449,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalSource__SourceAssignment_4_1"
-    // InternalRdfMapping.g:4107:1: rule__LogicalSource__SourceAssignment_4_1 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:4128:1: rule__LogicalSource__SourceAssignment_4_1 : ( RULE_STRING ) ;
     public final void rule__LogicalSource__SourceAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4111:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:4112:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4132:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:4133:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:4112:2: ( RULE_STRING )
-            // InternalRdfMapping.g:4113:3: RULE_STRING
+            // InternalRdfMapping.g:4133:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4134:3: RULE_STRING
             {
              before(grammarAccess.getLogicalSourceAccess().getSourceSTRINGTerminalRuleCall_4_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12369,17 +12486,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalSource__IteratorAssignment_5_1"
-    // InternalRdfMapping.g:4122:1: rule__LogicalSource__IteratorAssignment_5_1 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:4143:1: rule__LogicalSource__IteratorAssignment_5_1 : ( RULE_STRING ) ;
     public final void rule__LogicalSource__IteratorAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4126:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:4127:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4147:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:4148:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:4127:2: ( RULE_STRING )
-            // InternalRdfMapping.g:4128:3: RULE_STRING
+            // InternalRdfMapping.g:4148:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4149:3: RULE_STRING
             {
              before(grammarAccess.getLogicalSourceAccess().getIteratorSTRINGTerminalRuleCall_5_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12406,17 +12523,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalSource__ReferencablesAssignment_8"
-    // InternalRdfMapping.g:4137:1: rule__LogicalSource__ReferencablesAssignment_8 : ( ruleReferenceable ) ;
+    // InternalRdfMapping.g:4158:1: rule__LogicalSource__ReferencablesAssignment_8 : ( ruleReferenceable ) ;
     public final void rule__LogicalSource__ReferencablesAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4141:1: ( ( ruleReferenceable ) )
-            // InternalRdfMapping.g:4142:2: ( ruleReferenceable )
+            // InternalRdfMapping.g:4162:1: ( ( ruleReferenceable ) )
+            // InternalRdfMapping.g:4163:2: ( ruleReferenceable )
             {
-            // InternalRdfMapping.g:4142:2: ( ruleReferenceable )
-            // InternalRdfMapping.g:4143:3: ruleReferenceable
+            // InternalRdfMapping.g:4163:2: ( ruleReferenceable )
+            // InternalRdfMapping.g:4164:3: ruleReferenceable
             {
              before(grammarAccess.getLogicalSourceAccess().getReferencablesReferenceableParserRuleCall_8_0()); 
             pushFollow(FOLLOW_2);
@@ -12447,17 +12564,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Referenceable__NameAssignment_0"
-    // InternalRdfMapping.g:4152:1: rule__Referenceable__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalRdfMapping.g:4173:1: rule__Referenceable__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Referenceable__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4156:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4157:2: ( RULE_ID )
+            // InternalRdfMapping.g:4177:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4178:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:4157:2: ( RULE_ID )
-            // InternalRdfMapping.g:4158:3: RULE_ID
+            // InternalRdfMapping.g:4178:2: ( RULE_ID )
+            // InternalRdfMapping.g:4179:3: RULE_ID
             {
              before(grammarAccess.getReferenceableAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12484,17 +12601,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Referenceable__ValueAssignment_1"
-    // InternalRdfMapping.g:4167:1: rule__Referenceable__ValueAssignment_1 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:4188:1: rule__Referenceable__ValueAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Referenceable__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4171:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:4172:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4192:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:4193:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:4172:2: ( RULE_STRING )
-            // InternalRdfMapping.g:4173:3: RULE_STRING
+            // InternalRdfMapping.g:4193:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4194:3: RULE_STRING
             {
              before(grammarAccess.getReferenceableAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12521,17 +12638,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Vocabulary__NameAssignment_1"
-    // InternalRdfMapping.g:4182:1: rule__Vocabulary__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRdfMapping.g:4203:1: rule__Vocabulary__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Vocabulary__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4186:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4187:2: ( RULE_ID )
+            // InternalRdfMapping.g:4207:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4208:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:4187:2: ( RULE_ID )
-            // InternalRdfMapping.g:4188:3: RULE_ID
+            // InternalRdfMapping.g:4208:2: ( RULE_ID )
+            // InternalRdfMapping.g:4209:3: RULE_ID
             {
              before(grammarAccess.getVocabularyAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12558,17 +12675,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Vocabulary__PrefixAssignment_3"
-    // InternalRdfMapping.g:4197:1: rule__Vocabulary__PrefixAssignment_3 : ( rulePrefix ) ;
+    // InternalRdfMapping.g:4218:1: rule__Vocabulary__PrefixAssignment_3 : ( rulePrefix ) ;
     public final void rule__Vocabulary__PrefixAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4201:1: ( ( rulePrefix ) )
-            // InternalRdfMapping.g:4202:2: ( rulePrefix )
+            // InternalRdfMapping.g:4222:1: ( ( rulePrefix ) )
+            // InternalRdfMapping.g:4223:2: ( rulePrefix )
             {
-            // InternalRdfMapping.g:4202:2: ( rulePrefix )
-            // InternalRdfMapping.g:4203:3: rulePrefix
+            // InternalRdfMapping.g:4223:2: ( rulePrefix )
+            // InternalRdfMapping.g:4224:3: rulePrefix
             {
              before(grammarAccess.getVocabularyAccess().getPrefixPrefixParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -12599,17 +12716,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Vocabulary__ClassesAssignment_4_1"
-    // InternalRdfMapping.g:4212:1: rule__Vocabulary__ClassesAssignment_4_1 : ( ruleRdfClass ) ;
+    // InternalRdfMapping.g:4233:1: rule__Vocabulary__ClassesAssignment_4_1 : ( ruleRdfClass ) ;
     public final void rule__Vocabulary__ClassesAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4216:1: ( ( ruleRdfClass ) )
-            // InternalRdfMapping.g:4217:2: ( ruleRdfClass )
+            // InternalRdfMapping.g:4237:1: ( ( ruleRdfClass ) )
+            // InternalRdfMapping.g:4238:2: ( ruleRdfClass )
             {
-            // InternalRdfMapping.g:4217:2: ( ruleRdfClass )
-            // InternalRdfMapping.g:4218:3: ruleRdfClass
+            // InternalRdfMapping.g:4238:2: ( ruleRdfClass )
+            // InternalRdfMapping.g:4239:3: ruleRdfClass
             {
              before(grammarAccess.getVocabularyAccess().getClassesRdfClassParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12640,17 +12757,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Vocabulary__PropertiesAssignment_5_1"
-    // InternalRdfMapping.g:4227:1: rule__Vocabulary__PropertiesAssignment_5_1 : ( ruleRdfProperty ) ;
+    // InternalRdfMapping.g:4248:1: rule__Vocabulary__PropertiesAssignment_5_1 : ( ruleRdfProperty ) ;
     public final void rule__Vocabulary__PropertiesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4231:1: ( ( ruleRdfProperty ) )
-            // InternalRdfMapping.g:4232:2: ( ruleRdfProperty )
+            // InternalRdfMapping.g:4252:1: ( ( ruleRdfProperty ) )
+            // InternalRdfMapping.g:4253:2: ( ruleRdfProperty )
             {
-            // InternalRdfMapping.g:4232:2: ( ruleRdfProperty )
-            // InternalRdfMapping.g:4233:3: ruleRdfProperty
+            // InternalRdfMapping.g:4253:2: ( ruleRdfProperty )
+            // InternalRdfMapping.g:4254:3: ruleRdfProperty
             {
              before(grammarAccess.getVocabularyAccess().getPropertiesRdfPropertyParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12681,17 +12798,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Prefix__LabelAssignment_1"
-    // InternalRdfMapping.g:4242:1: rule__Prefix__LabelAssignment_1 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:4263:1: rule__Prefix__LabelAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Prefix__LabelAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4246:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:4247:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4267:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:4268:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:4247:2: ( RULE_STRING )
-            // InternalRdfMapping.g:4248:3: RULE_STRING
+            // InternalRdfMapping.g:4268:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4269:3: RULE_STRING
             {
              before(grammarAccess.getPrefixAccess().getLabelSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12718,17 +12835,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Prefix__IriAssignment_2"
-    // InternalRdfMapping.g:4257:1: rule__Prefix__IriAssignment_2 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:4278:1: rule__Prefix__IriAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Prefix__IriAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4261:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:4262:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4282:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:4283:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:4262:2: ( RULE_STRING )
-            // InternalRdfMapping.g:4263:3: RULE_STRING
+            // InternalRdfMapping.g:4283:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4284:3: RULE_STRING
             {
              before(grammarAccess.getPrefixAccess().getIriSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12755,17 +12872,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RdfProperty__NameAssignment"
-    // InternalRdfMapping.g:4272:1: rule__RdfProperty__NameAssignment : ( RULE_ID ) ;
+    // InternalRdfMapping.g:4293:1: rule__RdfProperty__NameAssignment : ( RULE_ID ) ;
     public final void rule__RdfProperty__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4276:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4277:2: ( RULE_ID )
+            // InternalRdfMapping.g:4297:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4298:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:4277:2: ( RULE_ID )
-            // InternalRdfMapping.g:4278:3: RULE_ID
+            // InternalRdfMapping.g:4298:2: ( RULE_ID )
+            // InternalRdfMapping.g:4299:3: RULE_ID
             {
              before(grammarAccess.getRdfPropertyAccess().getNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12792,17 +12909,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RdfClass__NameAssignment"
-    // InternalRdfMapping.g:4287:1: rule__RdfClass__NameAssignment : ( RULE_ID ) ;
+    // InternalRdfMapping.g:4308:1: rule__RdfClass__NameAssignment : ( RULE_ID ) ;
     public final void rule__RdfClass__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4291:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4292:2: ( RULE_ID )
+            // InternalRdfMapping.g:4312:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4313:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:4292:2: ( RULE_ID )
-            // InternalRdfMapping.g:4293:3: RULE_ID
+            // InternalRdfMapping.g:4313:2: ( RULE_ID )
+            // InternalRdfMapping.g:4314:3: RULE_ID
             {
              before(grammarAccess.getRdfClassAccess().getNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12829,17 +12946,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__NameAssignment_1"
-    // InternalRdfMapping.g:4302:1: rule__Mapping__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalRdfMapping.g:4323:1: rule__Mapping__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Mapping__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4306:1: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4307:2: ( RULE_ID )
+            // InternalRdfMapping.g:4327:1: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4328:2: ( RULE_ID )
             {
-            // InternalRdfMapping.g:4307:2: ( RULE_ID )
-            // InternalRdfMapping.g:4308:3: RULE_ID
+            // InternalRdfMapping.g:4328:2: ( RULE_ID )
+            // InternalRdfMapping.g:4329:3: RULE_ID
             {
              before(grammarAccess.getMappingAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12866,21 +12983,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__SourceAssignment_3"
-    // InternalRdfMapping.g:4317:1: rule__Mapping__SourceAssignment_3 : ( ( ruleQualifiedName ) ) ;
+    // InternalRdfMapping.g:4338:1: rule__Mapping__SourceAssignment_3 : ( ( ruleQualifiedName ) ) ;
     public final void rule__Mapping__SourceAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4321:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalRdfMapping.g:4322:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4342:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRdfMapping.g:4343:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRdfMapping.g:4322:2: ( ( ruleQualifiedName ) )
-            // InternalRdfMapping.g:4323:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4343:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4344:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getMappingAccess().getSourceLogicalSourceCrossReference_3_0()); 
-            // InternalRdfMapping.g:4324:3: ( ruleQualifiedName )
-            // InternalRdfMapping.g:4325:4: ruleQualifiedName
+            // InternalRdfMapping.g:4345:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4346:4: ruleQualifiedName
             {
              before(grammarAccess.getMappingAccess().getSourceLogicalSourceQualifiedNameParserRuleCall_3_0_1()); 
             pushFollow(FOLLOW_2);
@@ -12915,17 +13032,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__PatternAssignment_7"
-    // InternalRdfMapping.g:4336:1: rule__Mapping__PatternAssignment_7 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:4357:1: rule__Mapping__PatternAssignment_7 : ( RULE_STRING ) ;
     public final void rule__Mapping__PatternAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4340:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:4341:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4361:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:4362:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:4341:2: ( RULE_STRING )
-            // InternalRdfMapping.g:4342:3: RULE_STRING
+            // InternalRdfMapping.g:4362:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4363:3: RULE_STRING
             {
              before(grammarAccess.getMappingAccess().getPatternSTRINGTerminalRuleCall_7_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -12951,34 +13068,34 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Mapping__PatternAssignment_7"
 
 
-    // $ANTLR start "rule__Mapping__ReferenceAssignment_9"
-    // InternalRdfMapping.g:4351:1: rule__Mapping__ReferenceAssignment_9 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__Mapping__ReferenceAssignment_9() throws RecognitionException {
+    // $ANTLR start "rule__Mapping__ReferencesAssignment_9"
+    // InternalRdfMapping.g:4372:1: rule__Mapping__ReferencesAssignment_9 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__Mapping__ReferencesAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4355:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalRdfMapping.g:4356:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4376:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRdfMapping.g:4377:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRdfMapping.g:4356:2: ( ( ruleQualifiedName ) )
-            // InternalRdfMapping.g:4357:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4377:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4378:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getMappingAccess().getReferenceReferenceableCrossReference_9_0()); 
-            // InternalRdfMapping.g:4358:3: ( ruleQualifiedName )
-            // InternalRdfMapping.g:4359:4: ruleQualifiedName
+             before(grammarAccess.getMappingAccess().getReferencesReferenceableCrossReference_9_0()); 
+            // InternalRdfMapping.g:4379:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4380:4: ruleQualifiedName
             {
-             before(grammarAccess.getMappingAccess().getReferenceReferenceableQualifiedNameParserRuleCall_9_0_1()); 
+             before(grammarAccess.getMappingAccess().getReferencesReferenceableQualifiedNameParserRuleCall_9_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getMappingAccess().getReferenceReferenceableQualifiedNameParserRuleCall_9_0_1()); 
+             after(grammarAccess.getMappingAccess().getReferencesReferenceableQualifiedNameParserRuleCall_9_0_1()); 
 
             }
 
-             after(grammarAccess.getMappingAccess().getReferenceReferenceableCrossReference_9_0()); 
+             after(grammarAccess.getMappingAccess().getReferencesReferenceableCrossReference_9_0()); 
 
             }
 
@@ -12997,21 +13114,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Mapping__ReferenceAssignment_9"
+    // $ANTLR end "rule__Mapping__ReferencesAssignment_9"
 
 
     // $ANTLR start "rule__Mapping__SubjectTypeMappingsAssignment_10_1"
-    // InternalRdfMapping.g:4370:1: rule__Mapping__SubjectTypeMappingsAssignment_10_1 : ( ruleSubjectTypeMapping ) ;
+    // InternalRdfMapping.g:4391:1: rule__Mapping__SubjectTypeMappingsAssignment_10_1 : ( ruleSubjectTypeMapping ) ;
     public final void rule__Mapping__SubjectTypeMappingsAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4374:1: ( ( ruleSubjectTypeMapping ) )
-            // InternalRdfMapping.g:4375:2: ( ruleSubjectTypeMapping )
+            // InternalRdfMapping.g:4395:1: ( ( ruleSubjectTypeMapping ) )
+            // InternalRdfMapping.g:4396:2: ( ruleSubjectTypeMapping )
             {
-            // InternalRdfMapping.g:4375:2: ( ruleSubjectTypeMapping )
-            // InternalRdfMapping.g:4376:3: ruleSubjectTypeMapping
+            // InternalRdfMapping.g:4396:2: ( ruleSubjectTypeMapping )
+            // InternalRdfMapping.g:4397:3: ruleSubjectTypeMapping
             {
              before(grammarAccess.getMappingAccess().getSubjectTypeMappingsSubjectTypeMappingParserRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13042,17 +13159,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Mapping__PoMappingsAssignment_11_1"
-    // InternalRdfMapping.g:4385:1: rule__Mapping__PoMappingsAssignment_11_1 : ( rulePredicateObjectMapping ) ;
+    // InternalRdfMapping.g:4406:1: rule__Mapping__PoMappingsAssignment_11_1 : ( rulePredicateObjectMapping ) ;
     public final void rule__Mapping__PoMappingsAssignment_11_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4389:1: ( ( rulePredicateObjectMapping ) )
-            // InternalRdfMapping.g:4390:2: ( rulePredicateObjectMapping )
+            // InternalRdfMapping.g:4410:1: ( ( rulePredicateObjectMapping ) )
+            // InternalRdfMapping.g:4411:2: ( rulePredicateObjectMapping )
             {
-            // InternalRdfMapping.g:4390:2: ( rulePredicateObjectMapping )
-            // InternalRdfMapping.g:4391:3: rulePredicateObjectMapping
+            // InternalRdfMapping.g:4411:2: ( rulePredicateObjectMapping )
+            // InternalRdfMapping.g:4412:3: rulePredicateObjectMapping
             {
              before(grammarAccess.getMappingAccess().getPoMappingsPredicateObjectMappingParserRuleCall_11_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13083,21 +13200,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SubjectTypeMapping__TypeAssignment"
-    // InternalRdfMapping.g:4400:1: rule__SubjectTypeMapping__TypeAssignment : ( ( ruleQualifiedName ) ) ;
+    // InternalRdfMapping.g:4421:1: rule__SubjectTypeMapping__TypeAssignment : ( ( ruleQualifiedName ) ) ;
     public final void rule__SubjectTypeMapping__TypeAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4404:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalRdfMapping.g:4405:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4425:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRdfMapping.g:4426:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRdfMapping.g:4405:2: ( ( ruleQualifiedName ) )
-            // InternalRdfMapping.g:4406:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4426:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4427:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getSubjectTypeMappingAccess().getTypeRdfClassCrossReference_0()); 
-            // InternalRdfMapping.g:4407:3: ( ruleQualifiedName )
-            // InternalRdfMapping.g:4408:4: ruleQualifiedName
+            // InternalRdfMapping.g:4428:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4429:4: ruleQualifiedName
             {
              before(grammarAccess.getSubjectTypeMappingAccess().getTypeRdfClassQualifiedNameParserRuleCall_0_1()); 
             pushFollow(FOLLOW_2);
@@ -13132,21 +13249,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PredicateObjectMapping__PropertyAssignment_0"
-    // InternalRdfMapping.g:4419:1: rule__PredicateObjectMapping__PropertyAssignment_0 : ( ( ruleQualifiedName ) ) ;
+    // InternalRdfMapping.g:4440:1: rule__PredicateObjectMapping__PropertyAssignment_0 : ( ( ruleQualifiedName ) ) ;
     public final void rule__PredicateObjectMapping__PropertyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4423:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalRdfMapping.g:4424:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4444:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRdfMapping.g:4445:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRdfMapping.g:4424:2: ( ( ruleQualifiedName ) )
-            // InternalRdfMapping.g:4425:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4445:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4446:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getPredicateObjectMappingAccess().getPropertyRdfPropertyCrossReference_0_0()); 
-            // InternalRdfMapping.g:4426:3: ( ruleQualifiedName )
-            // InternalRdfMapping.g:4427:4: ruleQualifiedName
+            // InternalRdfMapping.g:4447:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4448:4: ruleQualifiedName
             {
              before(grammarAccess.getPredicateObjectMappingAccess().getPropertyRdfPropertyQualifiedNameParserRuleCall_0_0_1()); 
             pushFollow(FOLLOW_2);
@@ -13181,17 +13298,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PredicateObjectMapping__TermAssignment_1"
-    // InternalRdfMapping.g:4438:1: rule__PredicateObjectMapping__TermAssignment_1 : ( ruleValuedTerm ) ;
+    // InternalRdfMapping.g:4459:1: rule__PredicateObjectMapping__TermAssignment_1 : ( ruleValuedTerm ) ;
     public final void rule__PredicateObjectMapping__TermAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4442:1: ( ( ruleValuedTerm ) )
-            // InternalRdfMapping.g:4443:2: ( ruleValuedTerm )
+            // InternalRdfMapping.g:4463:1: ( ( ruleValuedTerm ) )
+            // InternalRdfMapping.g:4464:2: ( ruleValuedTerm )
             {
-            // InternalRdfMapping.g:4443:2: ( ruleValuedTerm )
-            // InternalRdfMapping.g:4444:3: ruleValuedTerm
+            // InternalRdfMapping.g:4464:2: ( ruleValuedTerm )
+            // InternalRdfMapping.g:4465:3: ruleValuedTerm
             {
              before(grammarAccess.getPredicateObjectMappingAccess().getTermValuedTermParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13222,21 +13339,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__ReferenceAssignment_1"
-    // InternalRdfMapping.g:4453:1: rule__ReferenceValuedTerm__ReferenceAssignment_1 : ( ( ruleQualifiedName ) ) ;
+    // InternalRdfMapping.g:4474:1: rule__ReferenceValuedTerm__ReferenceAssignment_1 : ( ( ruleQualifiedName ) ) ;
     public final void rule__ReferenceValuedTerm__ReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4457:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalRdfMapping.g:4458:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4478:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRdfMapping.g:4479:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRdfMapping.g:4458:2: ( ( ruleQualifiedName ) )
-            // InternalRdfMapping.g:4459:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4479:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4480:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getReferenceValuedTermAccess().getReferenceReferenceableCrossReference_1_0()); 
-            // InternalRdfMapping.g:4460:3: ( ruleQualifiedName )
-            // InternalRdfMapping.g:4461:4: ruleQualifiedName
+            // InternalRdfMapping.g:4481:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4482:4: ruleQualifiedName
             {
              before(grammarAccess.getReferenceValuedTermAccess().getReferenceReferenceableQualifiedNameParserRuleCall_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -13271,21 +13388,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2"
-    // InternalRdfMapping.g:4472:1: rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 : ( ( RULE_ID ) ) ;
+    // InternalRdfMapping.g:4493:1: rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2 : ( ( RULE_ID ) ) ;
     public final void rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4476:1: ( ( ( RULE_ID ) ) )
-            // InternalRdfMapping.g:4477:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4497:1: ( ( ( RULE_ID ) ) )
+            // InternalRdfMapping.g:4498:2: ( ( RULE_ID ) )
             {
-            // InternalRdfMapping.g:4477:2: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4478:3: ( RULE_ID )
+            // InternalRdfMapping.g:4498:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4499:3: ( RULE_ID )
             {
              before(grammarAccess.getReferenceValuedTermAccess().getDatatypeDatatypeCrossReference_2_0_2_0()); 
-            // InternalRdfMapping.g:4479:3: ( RULE_ID )
-            // InternalRdfMapping.g:4480:4: RULE_ID
+            // InternalRdfMapping.g:4500:3: ( RULE_ID )
+            // InternalRdfMapping.g:4501:4: RULE_ID
             {
              before(grammarAccess.getReferenceValuedTermAccess().getDatatypeDatatypeIDTerminalRuleCall_2_0_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13316,21 +13433,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2"
-    // InternalRdfMapping.g:4491:1: rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 : ( ( RULE_ID ) ) ;
+    // InternalRdfMapping.g:4512:1: rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2 : ( ( RULE_ID ) ) ;
     public final void rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4495:1: ( ( ( RULE_ID ) ) )
-            // InternalRdfMapping.g:4496:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4516:1: ( ( ( RULE_ID ) ) )
+            // InternalRdfMapping.g:4517:2: ( ( RULE_ID ) )
             {
-            // InternalRdfMapping.g:4496:2: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4497:3: ( RULE_ID )
+            // InternalRdfMapping.g:4517:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4518:3: ( RULE_ID )
             {
              before(grammarAccess.getReferenceValuedTermAccess().getLanguageTagLanguageTagCrossReference_2_1_2_0()); 
-            // InternalRdfMapping.g:4498:3: ( RULE_ID )
-            // InternalRdfMapping.g:4499:4: RULE_ID
+            // InternalRdfMapping.g:4519:3: ( RULE_ID )
+            // InternalRdfMapping.g:4520:4: RULE_ID
             {
              before(grammarAccess.getReferenceValuedTermAccess().getLanguageTagLanguageTagIDTerminalRuleCall_2_1_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13361,17 +13478,17 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TemplateValuedTerm__PatternAssignment_1"
-    // InternalRdfMapping.g:4510:1: rule__TemplateValuedTerm__PatternAssignment_1 : ( RULE_STRING ) ;
+    // InternalRdfMapping.g:4531:1: rule__TemplateValuedTerm__PatternAssignment_1 : ( RULE_STRING ) ;
     public final void rule__TemplateValuedTerm__PatternAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4514:1: ( ( RULE_STRING ) )
-            // InternalRdfMapping.g:4515:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4535:1: ( ( RULE_STRING ) )
+            // InternalRdfMapping.g:4536:2: ( RULE_STRING )
             {
-            // InternalRdfMapping.g:4515:2: ( RULE_STRING )
-            // InternalRdfMapping.g:4516:3: RULE_STRING
+            // InternalRdfMapping.g:4536:2: ( RULE_STRING )
+            // InternalRdfMapping.g:4537:3: RULE_STRING
             {
              before(grammarAccess.getTemplateValuedTermAccess().getPatternSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -13397,34 +13514,34 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__TemplateValuedTerm__PatternAssignment_1"
 
 
-    // $ANTLR start "rule__TemplateValuedTerm__ReferenceAssignment_3"
-    // InternalRdfMapping.g:4525:1: rule__TemplateValuedTerm__ReferenceAssignment_3 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__TemplateValuedTerm__ReferenceAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__TemplateValuedTerm__ReferencesAssignment_3"
+    // InternalRdfMapping.g:4546:1: rule__TemplateValuedTerm__ReferencesAssignment_3 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__TemplateValuedTerm__ReferencesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4529:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalRdfMapping.g:4530:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4550:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRdfMapping.g:4551:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRdfMapping.g:4530:2: ( ( ruleQualifiedName ) )
-            // InternalRdfMapping.g:4531:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4551:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4552:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getTemplateValuedTermAccess().getReferenceReferenceableCrossReference_3_0()); 
-            // InternalRdfMapping.g:4532:3: ( ruleQualifiedName )
-            // InternalRdfMapping.g:4533:4: ruleQualifiedName
+             before(grammarAccess.getTemplateValuedTermAccess().getReferencesReferenceableCrossReference_3_0()); 
+            // InternalRdfMapping.g:4553:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4554:4: ruleQualifiedName
             {
-             before(grammarAccess.getTemplateValuedTermAccess().getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1()); 
+             before(grammarAccess.getTemplateValuedTermAccess().getReferencesReferenceableQualifiedNameParserRuleCall_3_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getTemplateValuedTermAccess().getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1()); 
+             after(grammarAccess.getTemplateValuedTermAccess().getReferencesReferenceableQualifiedNameParserRuleCall_3_0_1()); 
 
             }
 
-             after(grammarAccess.getTemplateValuedTermAccess().getReferenceReferenceableCrossReference_3_0()); 
+             after(grammarAccess.getTemplateValuedTermAccess().getReferencesReferenceableCrossReference_3_0()); 
 
             }
 
@@ -13443,25 +13560,25 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__TemplateValuedTerm__ReferenceAssignment_3"
+    // $ANTLR end "rule__TemplateValuedTerm__ReferencesAssignment_3"
 
 
     // $ANTLR start "rule__LinkedResourceTerm__MappingAssignment_1"
-    // InternalRdfMapping.g:4544:1: rule__LinkedResourceTerm__MappingAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalRdfMapping.g:4565:1: rule__LinkedResourceTerm__MappingAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__LinkedResourceTerm__MappingAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4548:1: ( ( ( RULE_ID ) ) )
-            // InternalRdfMapping.g:4549:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4569:1: ( ( ( RULE_ID ) ) )
+            // InternalRdfMapping.g:4570:2: ( ( RULE_ID ) )
             {
-            // InternalRdfMapping.g:4549:2: ( ( RULE_ID ) )
-            // InternalRdfMapping.g:4550:3: ( RULE_ID )
+            // InternalRdfMapping.g:4570:2: ( ( RULE_ID ) )
+            // InternalRdfMapping.g:4571:3: ( RULE_ID )
             {
              before(grammarAccess.getLinkedResourceTermAccess().getMappingMappingCrossReference_1_0()); 
-            // InternalRdfMapping.g:4551:3: ( RULE_ID )
-            // InternalRdfMapping.g:4552:4: RULE_ID
+            // InternalRdfMapping.g:4572:3: ( RULE_ID )
+            // InternalRdfMapping.g:4573:4: RULE_ID
             {
              before(grammarAccess.getLinkedResourceTermAccess().getMappingMappingIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -13491,34 +13608,34 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__LinkedResourceTerm__MappingAssignment_1"
 
 
-    // $ANTLR start "rule__LinkedResourceTerm__ReferenceAssignment_3"
-    // InternalRdfMapping.g:4563:1: rule__LinkedResourceTerm__ReferenceAssignment_3 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__LinkedResourceTerm__ReferenceAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__LinkedResourceTerm__ReferencesAssignment_3"
+    // InternalRdfMapping.g:4584:1: rule__LinkedResourceTerm__ReferencesAssignment_3 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__LinkedResourceTerm__ReferencesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4567:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalRdfMapping.g:4568:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4588:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalRdfMapping.g:4589:2: ( ( ruleQualifiedName ) )
             {
-            // InternalRdfMapping.g:4568:2: ( ( ruleQualifiedName ) )
-            // InternalRdfMapping.g:4569:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4589:2: ( ( ruleQualifiedName ) )
+            // InternalRdfMapping.g:4590:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getLinkedResourceTermAccess().getReferenceReferenceableCrossReference_3_0()); 
-            // InternalRdfMapping.g:4570:3: ( ruleQualifiedName )
-            // InternalRdfMapping.g:4571:4: ruleQualifiedName
+             before(grammarAccess.getLinkedResourceTermAccess().getReferencesReferenceableCrossReference_3_0()); 
+            // InternalRdfMapping.g:4591:3: ( ruleQualifiedName )
+            // InternalRdfMapping.g:4592:4: ruleQualifiedName
             {
-             before(grammarAccess.getLinkedResourceTermAccess().getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1()); 
+             before(grammarAccess.getLinkedResourceTermAccess().getReferencesReferenceableQualifiedNameParserRuleCall_3_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getLinkedResourceTermAccess().getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1()); 
+             after(grammarAccess.getLinkedResourceTermAccess().getReferencesReferenceableQualifiedNameParserRuleCall_3_0_1()); 
 
             }
 
-             after(grammarAccess.getLinkedResourceTermAccess().getReferenceReferenceableCrossReference_3_0()); 
+             after(grammarAccess.getLinkedResourceTermAccess().getReferencesReferenceableCrossReference_3_0()); 
 
             }
 
@@ -13537,21 +13654,21 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__LinkedResourceTerm__ReferenceAssignment_3"
+    // $ANTLR end "rule__LinkedResourceTerm__ReferencesAssignment_3"
 
 
     // $ANTLR start "rule__Import__ImportedNamespaceAssignment_1"
-    // InternalRdfMapping.g:4582:1: rule__Import__ImportedNamespaceAssignment_1 : ( ruleQualifiedNameWithWildcard ) ;
+    // InternalRdfMapping.g:4603:1: rule__Import__ImportedNamespaceAssignment_1 : ( ruleQualifiedNameWithWildcard ) ;
     public final void rule__Import__ImportedNamespaceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRdfMapping.g:4586:1: ( ( ruleQualifiedNameWithWildcard ) )
-            // InternalRdfMapping.g:4587:2: ( ruleQualifiedNameWithWildcard )
+            // InternalRdfMapping.g:4607:1: ( ( ruleQualifiedNameWithWildcard ) )
+            // InternalRdfMapping.g:4608:2: ( ruleQualifiedNameWithWildcard )
             {
-            // InternalRdfMapping.g:4587:2: ( ruleQualifiedNameWithWildcard )
-            // InternalRdfMapping.g:4588:3: ruleQualifiedNameWithWildcard
+            // InternalRdfMapping.g:4608:2: ( ruleQualifiedNameWithWildcard )
+            // InternalRdfMapping.g:4609:3: ruleQualifiedNameWithWildcard
             {
              before(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13583,6 +13700,66 @@ public class InternalRdfMappingParser extends AbstractInternalContentAssistParse
     // Delegated rules
 
 
+    protected DFA25 dfa25 = new DFA25(this);
+    protected DFA26 dfa26 = new DFA26(this);
+    static final String dfa_1s = "\6\uffff";
+    static final String dfa_2s = "\1\1\1\uffff\1\4\2\uffff\1\4";
+    static final String dfa_3s = "\1\4\1\uffff\2\4\1\uffff\1\4";
+    static final String dfa_4s = "\1\15\1\uffff\1\47\1\4\1\uffff\1\47";
+    static final String dfa_5s = "\1\uffff\1\2\2\uffff\1\1\1\uffff";
+    static final String dfa_6s = "\6\uffff}>";
+    static final String[] dfa_7s = {
+            "\1\2\10\uffff\1\1",
+            "",
+            "\1\4\10\uffff\1\4\17\uffff\1\1\1\uffff\1\1\4\uffff\1\1\2\uffff\1\3",
+            "\1\5",
+            "",
+            "\1\4\10\uffff\1\4\17\uffff\1\1\1\uffff\1\1\4\uffff\1\1\2\uffff\1\3"
+    };
+
+    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
+    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
+    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
+    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
+    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
+    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
+    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
+
+    class DFA25 extends DFA {
+
+        public DFA25(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 25;
+            this.eot = dfa_1;
+            this.eof = dfa_2;
+            this.min = dfa_3;
+            this.max = dfa_4;
+            this.accept = dfa_5;
+            this.special = dfa_6;
+            this.transition = dfa_7;
+        }
+        public String getDescription() {
+            return "()* loopback of 3554:3: ( rule__TemplateValuedTerm__ReferencesAssignment_3 )*";
+        }
+    }
+
+    class DFA26 extends DFA {
+
+        public DFA26(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 26;
+            this.eot = dfa_1;
+            this.eof = dfa_2;
+            this.min = dfa_3;
+            this.max = dfa_4;
+            this.accept = dfa_5;
+            this.special = dfa_6;
+            this.transition = dfa_7;
+        }
+        public String getDescription() {
+            return "()* loopback of 3669:3: ( rule__LinkedResourceTerm__ReferencesAssignment_3 )*";
+        }
+    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});

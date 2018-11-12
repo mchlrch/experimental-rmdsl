@@ -7,6 +7,7 @@ import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
 import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
 import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
+import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl#getReference <em>Reference</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.ReferenceValuedTermImpl#getLanguageTag <em>Language Tag</em>}</li>
  * </ul>
@@ -31,6 +33,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ReferenceValuedTermImpl extends ValuedTermImpl implements ReferenceValuedTerm
 {
+  /**
+   * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReference()
+   * @generated
+   * @ordered
+   */
+  protected Referenceable reference;
+
   /**
    * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
    * <!-- begin-user-doc -->
@@ -70,6 +82,49 @@ public class ReferenceValuedTermImpl extends ValuedTermImpl implements Reference
   protected EClass eStaticClass()
   {
     return RdfMappingPackage.Literals.REFERENCE_VALUED_TERM;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Referenceable getReference()
+  {
+    if (reference != null && reference.eIsProxy())
+    {
+      InternalEObject oldReference = (InternalEObject)reference;
+      reference = (Referenceable)eResolveProxy(oldReference);
+      if (reference != oldReference)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RdfMappingPackage.REFERENCE_VALUED_TERM__REFERENCE, oldReference, reference));
+      }
+    }
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Referenceable basicGetReference()
+  {
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReference(Referenceable newReference)
+  {
+    Referenceable oldReference = reference;
+    reference = newReference;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.REFERENCE_VALUED_TERM__REFERENCE, oldReference, reference));
   }
 
   /**
@@ -168,6 +223,9 @@ public class ReferenceValuedTermImpl extends ValuedTermImpl implements Reference
   {
     switch (featureID)
     {
+      case RdfMappingPackage.REFERENCE_VALUED_TERM__REFERENCE:
+        if (resolve) return getReference();
+        return basicGetReference();
       case RdfMappingPackage.REFERENCE_VALUED_TERM__DATATYPE:
         if (resolve) return getDatatype();
         return basicGetDatatype();
@@ -188,6 +246,9 @@ public class ReferenceValuedTermImpl extends ValuedTermImpl implements Reference
   {
     switch (featureID)
     {
+      case RdfMappingPackage.REFERENCE_VALUED_TERM__REFERENCE:
+        setReference((Referenceable)newValue);
+        return;
       case RdfMappingPackage.REFERENCE_VALUED_TERM__DATATYPE:
         setDatatype((Datatype)newValue);
         return;
@@ -208,6 +269,9 @@ public class ReferenceValuedTermImpl extends ValuedTermImpl implements Reference
   {
     switch (featureID)
     {
+      case RdfMappingPackage.REFERENCE_VALUED_TERM__REFERENCE:
+        setReference((Referenceable)null);
+        return;
       case RdfMappingPackage.REFERENCE_VALUED_TERM__DATATYPE:
         setDatatype((Datatype)null);
         return;
@@ -228,6 +292,8 @@ public class ReferenceValuedTermImpl extends ValuedTermImpl implements Reference
   {
     switch (featureID)
     {
+      case RdfMappingPackage.REFERENCE_VALUED_TERM__REFERENCE:
+        return reference != null;
       case RdfMappingPackage.REFERENCE_VALUED_TERM__DATATYPE:
         return datatype != null;
       case RdfMappingPackage.REFERENCE_VALUED_TERM__LANGUAGE_TAG:

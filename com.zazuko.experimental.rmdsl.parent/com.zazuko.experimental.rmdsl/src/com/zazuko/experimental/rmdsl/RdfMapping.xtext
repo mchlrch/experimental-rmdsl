@@ -72,7 +72,7 @@ RdfClass:
     
 Mapping:
 	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-		'subject' 'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName]
+		'subject' 'template' pattern=STRING 'with' (references+=[Referenceable|QualifiedName])+
 		 ('types' (subjectTypeMappings+=SubjectTypeMapping)+)?
 		 ('properties' (poMappings+=PredicateObjectMapping)+)?
 	'}';
@@ -93,10 +93,10 @@ ReferenceValuedTerm:
 	('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?;
 
 TemplateValuedTerm:
-	'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName];
+	'template' pattern=STRING 'with' (references+=[Referenceable|QualifiedName])+;
 	
 LinkedResourceTerm:
-	'link' mapping=[Mapping] 'with' reference=[Referenceable|QualifiedName];
+	'link' mapping=[Mapping] 'with' (references+=[Referenceable|QualifiedName])+;
 
 Import:
     'import' importedNamespace=QualifiedNameWithWildcard;

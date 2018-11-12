@@ -93,7 +93,7 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMappingAccess().getNameAssignment_1(), "rule__Mapping__NameAssignment_1");
 			builder.put(grammarAccess.getMappingAccess().getSourceAssignment_3(), "rule__Mapping__SourceAssignment_3");
 			builder.put(grammarAccess.getMappingAccess().getPatternAssignment_7(), "rule__Mapping__PatternAssignment_7");
-			builder.put(grammarAccess.getMappingAccess().getReferenceAssignment_9(), "rule__Mapping__ReferenceAssignment_9");
+			builder.put(grammarAccess.getMappingAccess().getReferencesAssignment_9(), "rule__Mapping__ReferencesAssignment_9");
 			builder.put(grammarAccess.getMappingAccess().getSubjectTypeMappingsAssignment_10_1(), "rule__Mapping__SubjectTypeMappingsAssignment_10_1");
 			builder.put(grammarAccess.getMappingAccess().getPoMappingsAssignment_11_1(), "rule__Mapping__PoMappingsAssignment_11_1");
 			builder.put(grammarAccess.getSubjectTypeMappingAccess().getTypeAssignment(), "rule__SubjectTypeMapping__TypeAssignment");
@@ -103,9 +103,9 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getReferenceValuedTermAccess().getDatatypeAssignment_2_0_2(), "rule__ReferenceValuedTerm__DatatypeAssignment_2_0_2");
 			builder.put(grammarAccess.getReferenceValuedTermAccess().getLanguageTagAssignment_2_1_2(), "rule__ReferenceValuedTerm__LanguageTagAssignment_2_1_2");
 			builder.put(grammarAccess.getTemplateValuedTermAccess().getPatternAssignment_1(), "rule__TemplateValuedTerm__PatternAssignment_1");
-			builder.put(grammarAccess.getTemplateValuedTermAccess().getReferenceAssignment_3(), "rule__TemplateValuedTerm__ReferenceAssignment_3");
+			builder.put(grammarAccess.getTemplateValuedTermAccess().getReferencesAssignment_3(), "rule__TemplateValuedTerm__ReferencesAssignment_3");
 			builder.put(grammarAccess.getLinkedResourceTermAccess().getMappingAssignment_1(), "rule__LinkedResourceTerm__MappingAssignment_1");
-			builder.put(grammarAccess.getLinkedResourceTermAccess().getReferenceAssignment_3(), "rule__LinkedResourceTerm__ReferenceAssignment_3");
+			builder.put(grammarAccess.getLinkedResourceTermAccess().getReferencesAssignment_3(), "rule__LinkedResourceTerm__ReferencesAssignment_3");
 			builder.put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 		}
 	}

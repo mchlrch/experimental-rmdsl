@@ -3,6 +3,7 @@
  */
 package com.zazuko.experimental.rmdsl.rdfMapping;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,7 @@ package com.zazuko.experimental.rmdsl.rdfMapping;
  * </p>
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm#getMapping <em>Mapping</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getLinkedResourceTerm()
@@ -47,5 +49,21 @@ public interface LinkedResourceTerm extends ValuedTerm
    * @generated
    */
   void setMapping(Mapping value);
+
+  /**
+   * Returns the value of the '<em><b>References</b></em>' reference list.
+   * The list contents are of type {@link com.zazuko.experimental.rmdsl.rdfMapping.Referenceable}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>References</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>References</em>' reference list.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getLinkedResourceTerm_References()
+   * @model
+   * @generated
+   */
+  EList<Referenceable> getReferences();
 
 } // LinkedResourceTerm

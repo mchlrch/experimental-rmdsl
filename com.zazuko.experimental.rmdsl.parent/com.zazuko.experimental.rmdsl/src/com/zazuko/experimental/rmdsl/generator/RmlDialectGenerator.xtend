@@ -4,11 +4,13 @@ import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping
 import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm
+import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable
 import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm
 import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm
-import java.text.MessageFormat
+import java.util.List
 
 import static extension com.zazuko.experimental.rmdsl.generator.ModelAccess.*
+import java.text.MessageFormat
 
 class RmlDialectGenerator {
 
@@ -99,15 +101,19 @@ class RmlDialectGenerator {
 	'''
 	
 	def subjectIri(Mapping m) {		
-		MessageFormat.format(m.pattern, '''{«m.reference.valueResolved»}''');
+		MessageFormat.format(m.pattern, m.references.toMessageFormatArguments());
 	}
 	
 	def toTemplateString(TemplateValuedTerm it) {		
-		MessageFormat.format(pattern, '''{«reference.valueResolved»}''');
+		MessageFormat.format(pattern, references.toMessageFormatArguments());
 	}
 	
 	def toTemplateString(LinkedResourceTerm it) {		
-		MessageFormat.format(mapping.pattern, '''{«reference.valueResolved»}''');
+		MessageFormat.format(mapping.pattern, references.toMessageFormatArguments());
 	}	
+	
+	def toMessageFormatArguments(List<Referenceable> refs) {
+		refs.map[ref | '''{«ref.valueResolved»}'''].toArray
+	}
 	
 }

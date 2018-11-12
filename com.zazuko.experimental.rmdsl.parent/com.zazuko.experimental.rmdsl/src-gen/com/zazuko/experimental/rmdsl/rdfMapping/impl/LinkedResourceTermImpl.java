@@ -6,13 +6,20 @@ package com.zazuko.experimental.rmdsl.rdfMapping.impl;
 import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
+import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LinkedResourceTermImpl#getMapping <em>Mapping</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.LinkedResourceTermImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,6 +46,16 @@ public class LinkedResourceTermImpl extends ValuedTermImpl implements LinkedReso
    * @ordered
    */
   protected Mapping mapping;
+
+  /**
+   * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReferences()
+   * @generated
+   * @ordered
+   */
+  protected EList<Referenceable> references;
 
   /**
    * <!-- begin-user-doc -->
@@ -108,6 +126,20 @@ public class LinkedResourceTermImpl extends ValuedTermImpl implements LinkedReso
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Referenceable> getReferences()
+  {
+    if (references == null)
+    {
+      references = new EObjectResolvingEList<Referenceable>(Referenceable.class, this, RdfMappingPackage.LINKED_RESOURCE_TERM__REFERENCES);
+    }
+    return references;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -116,6 +148,8 @@ public class LinkedResourceTermImpl extends ValuedTermImpl implements LinkedReso
       case RdfMappingPackage.LINKED_RESOURCE_TERM__MAPPING:
         if (resolve) return getMapping();
         return basicGetMapping();
+      case RdfMappingPackage.LINKED_RESOURCE_TERM__REFERENCES:
+        return getReferences();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,6 +159,7 @@ public class LinkedResourceTermImpl extends ValuedTermImpl implements LinkedReso
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -132,6 +167,10 @@ public class LinkedResourceTermImpl extends ValuedTermImpl implements LinkedReso
     {
       case RdfMappingPackage.LINKED_RESOURCE_TERM__MAPPING:
         setMapping((Mapping)newValue);
+        return;
+      case RdfMappingPackage.LINKED_RESOURCE_TERM__REFERENCES:
+        getReferences().clear();
+        getReferences().addAll((Collection<? extends Referenceable>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -150,6 +189,9 @@ public class LinkedResourceTermImpl extends ValuedTermImpl implements LinkedReso
       case RdfMappingPackage.LINKED_RESOURCE_TERM__MAPPING:
         setMapping((Mapping)null);
         return;
+      case RdfMappingPackage.LINKED_RESOURCE_TERM__REFERENCES:
+        getReferences().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -166,6 +208,8 @@ public class LinkedResourceTermImpl extends ValuedTermImpl implements LinkedReso
     {
       case RdfMappingPackage.LINKED_RESOURCE_TERM__MAPPING:
         return mapping != null;
+      case RdfMappingPackage.LINKED_RESOURCE_TERM__REFERENCES:
+        return references != null && !references.isEmpty();
     }
     return super.eIsSet(featureID);
   }

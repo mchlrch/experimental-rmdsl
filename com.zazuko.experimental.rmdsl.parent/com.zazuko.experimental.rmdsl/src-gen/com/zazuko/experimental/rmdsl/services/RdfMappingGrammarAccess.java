@@ -661,9 +661,9 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPatternAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cPatternSTRINGTerminalRuleCall_7_0 = (RuleCall)cPatternAssignment_7.eContents().get(0);
 		private final Keyword cWithKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cReferenceAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cReferenceReferenceableCrossReference_9_0 = (CrossReference)cReferenceAssignment_9.eContents().get(0);
-		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_9_0_1 = (RuleCall)cReferenceReferenceableCrossReference_9_0.eContents().get(1);
+		private final Assignment cReferencesAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final CrossReference cReferencesReferenceableCrossReference_9_0 = (CrossReference)cReferencesAssignment_9.eContents().get(0);
+		private final RuleCall cReferencesReferenceableQualifiedNameParserRuleCall_9_0_1 = (RuleCall)cReferencesReferenceableCrossReference_9_0.eContents().get(1);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cTypesKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cSubjectTypeMappingsAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -676,13 +676,13 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Mapping:
 		//	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-		//	'subject' 'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName] ('types'
+		//	'subject' 'template' pattern=STRING 'with' references+=[Referenceable|QualifiedName]+ ('types'
 		//	subjectTypeMappings+=SubjectTypeMapping+)? ('properties' poMappings+=PredicateObjectMapping+)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{' 'subject' 'template' pattern=STRING 'with'
-		//reference=[Referenceable|QualifiedName] ('types' subjectTypeMappings+=SubjectTypeMapping+)? ('properties'
+		//references+=[Referenceable|QualifiedName]+ ('types' subjectTypeMappings+=SubjectTypeMapping+)? ('properties'
 		//poMappings+=PredicateObjectMapping+)? '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -725,14 +725,14 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//'with'
 		public Keyword getWithKeyword_8() { return cWithKeyword_8; }
 		
-		//reference=[Referenceable|QualifiedName]
-		public Assignment getReferenceAssignment_9() { return cReferenceAssignment_9; }
+		//references+=[Referenceable|QualifiedName]+
+		public Assignment getReferencesAssignment_9() { return cReferencesAssignment_9; }
 		
 		//[Referenceable|QualifiedName]
-		public CrossReference getReferenceReferenceableCrossReference_9_0() { return cReferenceReferenceableCrossReference_9_0; }
+		public CrossReference getReferencesReferenceableCrossReference_9_0() { return cReferencesReferenceableCrossReference_9_0; }
 		
 		//QualifiedName
-		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_9_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_9_0_1; }
+		public RuleCall getReferencesReferenceableQualifiedNameParserRuleCall_9_0_1() { return cReferencesReferenceableQualifiedNameParserRuleCall_9_0_1; }
 		
 		//('types' subjectTypeMappings+=SubjectTypeMapping+)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -923,15 +923,15 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPatternAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPatternSTRINGTerminalRuleCall_1_0 = (RuleCall)cPatternAssignment_1.eContents().get(0);
 		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cReferenceAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cReferenceReferenceableCrossReference_3_0 = (CrossReference)cReferenceAssignment_3.eContents().get(0);
-		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cReferenceReferenceableCrossReference_3_0.eContents().get(1);
+		private final Assignment cReferencesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cReferencesReferenceableCrossReference_3_0 = (CrossReference)cReferencesAssignment_3.eContents().get(0);
+		private final RuleCall cReferencesReferenceableQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cReferencesReferenceableCrossReference_3_0.eContents().get(1);
 		
 		//TemplateValuedTerm:
-		//	'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName];
+		//	'template' pattern=STRING 'with' references+=[Referenceable|QualifiedName]+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName]
+		//'template' pattern=STRING 'with' references+=[Referenceable|QualifiedName]+
 		public Group getGroup() { return cGroup; }
 		
 		//'template'
@@ -946,14 +946,14 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//'with'
 		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
 		
-		//reference=[Referenceable|QualifiedName]
-		public Assignment getReferenceAssignment_3() { return cReferenceAssignment_3; }
+		//references+=[Referenceable|QualifiedName]+
+		public Assignment getReferencesAssignment_3() { return cReferencesAssignment_3; }
 		
 		//[Referenceable|QualifiedName]
-		public CrossReference getReferenceReferenceableCrossReference_3_0() { return cReferenceReferenceableCrossReference_3_0; }
+		public CrossReference getReferencesReferenceableCrossReference_3_0() { return cReferencesReferenceableCrossReference_3_0; }
 		
 		//QualifiedName
-		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_3_0_1; }
+		public RuleCall getReferencesReferenceableQualifiedNameParserRuleCall_3_0_1() { return cReferencesReferenceableQualifiedNameParserRuleCall_3_0_1; }
 	}
 	public class LinkedResourceTermElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.LinkedResourceTerm");
@@ -963,15 +963,15 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cMappingMappingCrossReference_1_0 = (CrossReference)cMappingAssignment_1.eContents().get(0);
 		private final RuleCall cMappingMappingIDTerminalRuleCall_1_0_1 = (RuleCall)cMappingMappingCrossReference_1_0.eContents().get(1);
 		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cReferenceAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cReferenceReferenceableCrossReference_3_0 = (CrossReference)cReferenceAssignment_3.eContents().get(0);
-		private final RuleCall cReferenceReferenceableQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cReferenceReferenceableCrossReference_3_0.eContents().get(1);
+		private final Assignment cReferencesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cReferencesReferenceableCrossReference_3_0 = (CrossReference)cReferencesAssignment_3.eContents().get(0);
+		private final RuleCall cReferencesReferenceableQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cReferencesReferenceableCrossReference_3_0.eContents().get(1);
 		
 		//LinkedResourceTerm:
-		//	'link' mapping=[Mapping] 'with' reference=[Referenceable|QualifiedName];
+		//	'link' mapping=[Mapping] 'with' references+=[Referenceable|QualifiedName]+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'link' mapping=[Mapping] 'with' reference=[Referenceable|QualifiedName]
+		//'link' mapping=[Mapping] 'with' references+=[Referenceable|QualifiedName]+
 		public Group getGroup() { return cGroup; }
 		
 		//'link'
@@ -989,14 +989,14 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//'with'
 		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
 		
-		//reference=[Referenceable|QualifiedName]
-		public Assignment getReferenceAssignment_3() { return cReferenceAssignment_3; }
+		//references+=[Referenceable|QualifiedName]+
+		public Assignment getReferencesAssignment_3() { return cReferencesAssignment_3; }
 		
 		//[Referenceable|QualifiedName]
-		public CrossReference getReferenceReferenceableCrossReference_3_0() { return cReferenceReferenceableCrossReference_3_0; }
+		public CrossReference getReferencesReferenceableCrossReference_3_0() { return cReferencesReferenceableCrossReference_3_0; }
 		
 		//QualifiedName
-		public RuleCall getReferenceReferenceableQualifiedNameParserRuleCall_3_0_1() { return cReferenceReferenceableQualifiedNameParserRuleCall_3_0_1; }
+		public RuleCall getReferencesReferenceableQualifiedNameParserRuleCall_3_0_1() { return cReferencesReferenceableQualifiedNameParserRuleCall_3_0_1; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Import");
@@ -1331,7 +1331,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Mapping:
 	//	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-	//	'subject' 'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName] ('types'
+	//	'subject' 'template' pattern=STRING 'with' references+=[Referenceable|QualifiedName]+ ('types'
 	//	subjectTypeMappings+=SubjectTypeMapping+)? ('properties' poMappings+=PredicateObjectMapping+)?
 	//	'}';
 	public MappingElements getMappingAccess() {
@@ -1385,7 +1385,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TemplateValuedTerm:
-	//	'template' pattern=STRING 'with' reference=[Referenceable|QualifiedName];
+	//	'template' pattern=STRING 'with' references+=[Referenceable|QualifiedName]+;
 	public TemplateValuedTermElements getTemplateValuedTermAccess() {
 		return pTemplateValuedTerm;
 	}
@@ -1395,7 +1395,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LinkedResourceTerm:
-	//	'link' mapping=[Mapping] 'with' reference=[Referenceable|QualifiedName];
+	//	'link' mapping=[Mapping] 'with' references+=[Referenceable|QualifiedName]+;
 	public LinkedResourceTermElements getLinkedResourceTermAccess() {
 		return pLinkedResourceTerm;
 	}
