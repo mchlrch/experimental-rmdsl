@@ -1,5 +1,4 @@
 // http://rml.io/spec.html#example-CSV
-import airport.*
 
 logical-source airport {
 	type csv;

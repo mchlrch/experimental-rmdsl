@@ -1,7 +1,5 @@
 //https://github.com/zazuko/fso-lod/blob/master/config/eCH0071.ttl
 
-import eCH0071.municipalities.*
-
 map MunicipalityVersion from eCH0071.municipalities {
 	subject template "http://classifications.data.admin.ch/municipalityversion/{0}" with historyMunicipalityId
 }

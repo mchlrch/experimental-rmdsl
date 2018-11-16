@@ -1,5 +1,4 @@
 //http://rml.io/spec.html#example-XML
-import transport.*
 
 logical-source transport {
 	type xml;

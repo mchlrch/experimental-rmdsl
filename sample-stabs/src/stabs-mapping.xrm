@@ -1,8 +1,5 @@
 //https://github.com/zazuko/staatsarchiv-bs/blob/master/pdstavs13t/oracle-mapping.ttl
 
-import WSD_STABS_SCP_ARCHIV_DBA.RECS_rico.*
-import WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS.*
-
 map RecordSet from WSD_STABS_SCP_ARCHIV_DBA.RECS_rico {
 	subject template "record/{0}" with P2
 	
