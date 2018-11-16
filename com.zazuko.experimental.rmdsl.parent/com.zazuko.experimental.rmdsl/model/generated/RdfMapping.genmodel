@@ -66,8 +66,8 @@
     <genClasses ecoreClass="RdfMapping.ecore#//Mapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//Mapping/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Mapping/source"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//Mapping/pattern"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Mapping/references"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Mapping/targetVocabularies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Mapping/subjectIriMapping"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Mapping/subjectTypeMappings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Mapping/poMappings"/>
     </genClasses>
@@ -85,7 +85,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//ReferenceValuedTerm/languageTag"/>
     </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//TemplateValuedTerm">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//TemplateValuedTerm/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//TemplateValuedTerm/template"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//TemplateValuedTerm/references"/>
     </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//LinkedResourceTerm">

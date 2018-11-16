@@ -623,22 +623,22 @@ public interface RdfMappingPackage extends EPackage
   int MAPPING__SOURCE = ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Pattern</b></em>' attribute.
+   * The feature id for the '<em><b>Target Vocabularies</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPING__PATTERN = ELEMENT_FEATURE_COUNT + 2;
+  int MAPPING__TARGET_VOCABULARIES = ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>References</b></em>' reference list.
+   * The feature id for the '<em><b>Subject Iri Mapping</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPING__REFERENCES = ELEMENT_FEATURE_COUNT + 3;
+  int MAPPING__SUBJECT_IRI_MAPPING = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Subject Type Mappings</b></em>' containment reference list.
@@ -808,13 +808,13 @@ public interface RdfMappingPackage extends EPackage
   int TEMPLATE_VALUED_TERM = 20;
 
   /**
-   * The feature id for the '<em><b>Pattern</b></em>' attribute.
+   * The feature id for the '<em><b>Template</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEMPLATE_VALUED_TERM__PATTERN = VALUED_TERM_FEATURE_COUNT + 0;
+  int TEMPLATE_VALUED_TERM__TEMPLATE = VALUED_TERM_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>References</b></em>' reference list.
@@ -1391,26 +1391,26 @@ public interface RdfMappingPackage extends EPackage
   EReference getMapping_Source();
 
   /**
-   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPattern <em>Pattern</em>}'.
+   * Returns the meta object for the reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getTargetVocabularies <em>Target Vocabularies</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Pattern</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPattern()
+   * @return the meta object for the reference list '<em>Target Vocabularies</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getTargetVocabularies()
    * @see #getMapping()
    * @generated
    */
-  EAttribute getMapping_Pattern();
+  EReference getMapping_TargetVocabularies();
 
   /**
-   * Returns the meta object for the reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReferences <em>References</em>}'.
+   * Returns the meta object for the containment reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectIriMapping <em>Subject Iri Mapping</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>References</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReferences()
+   * @return the meta object for the containment reference '<em>Subject Iri Mapping</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectIriMapping()
    * @see #getMapping()
    * @generated
    */
-  EReference getMapping_References();
+  EReference getMapping_SubjectIriMapping();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectTypeMappings <em>Subject Type Mappings</em>}'.
@@ -1551,15 +1551,15 @@ public interface RdfMappingPackage extends EPackage
   EClass getTemplateValuedTerm();
 
   /**
-   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getPattern <em>Pattern</em>}'.
+   * Returns the meta object for the attribute '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getTemplate <em>Template</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Pattern</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getPattern()
+   * @return the meta object for the attribute '<em>Template</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getTemplate()
    * @see #getTemplateValuedTerm()
    * @generated
    */
-  EAttribute getTemplateValuedTerm_Pattern();
+  EAttribute getTemplateValuedTerm_Template();
 
   /**
    * Returns the meta object for the reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getReferences <em>References</em>}'.
@@ -2049,20 +2049,20 @@ public interface RdfMappingPackage extends EPackage
     EReference MAPPING__SOURCE = eINSTANCE.getMapping_Source();
 
     /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Target Vocabularies</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MAPPING__PATTERN = eINSTANCE.getMapping_Pattern();
+    EReference MAPPING__TARGET_VOCABULARIES = eINSTANCE.getMapping_TargetVocabularies();
 
     /**
-     * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Subject Iri Mapping</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAPPING__REFERENCES = eINSTANCE.getMapping_References();
+    EReference MAPPING__SUBJECT_IRI_MAPPING = eINSTANCE.getMapping_SubjectIriMapping();
 
     /**
      * The meta object literal for the '<em><b>Subject Type Mappings</b></em>' containment reference list feature.
@@ -2179,12 +2179,12 @@ public interface RdfMappingPackage extends EPackage
     EClass TEMPLATE_VALUED_TERM = eINSTANCE.getTemplateValuedTerm();
 
     /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Template</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TEMPLATE_VALUED_TERM__PATTERN = eINSTANCE.getTemplateValuedTerm_Pattern();
+    EAttribute TEMPLATE_VALUED_TERM__TEMPLATE = eINSTANCE.getTemplateValuedTerm_Template();
 
     /**
      * The meta object literal for the '<em><b>References</b></em>' reference list feature.

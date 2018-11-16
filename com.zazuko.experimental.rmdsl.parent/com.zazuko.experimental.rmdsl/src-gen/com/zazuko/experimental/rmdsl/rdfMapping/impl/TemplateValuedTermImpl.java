@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.TemplateValuedTermImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.TemplateValuedTermImpl#getTemplate <em>Template</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.TemplateValuedTermImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
@@ -36,24 +36,24 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 public class TemplateValuedTermImpl extends ValuedTermImpl implements TemplateValuedTerm
 {
   /**
-   * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+   * The default value of the '{@link #getTemplate() <em>Template</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPattern()
+   * @see #getTemplate()
    * @generated
    * @ordered
    */
-  protected static final String PATTERN_EDEFAULT = null;
+  protected static final String TEMPLATE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+   * The cached value of the '{@link #getTemplate() <em>Template</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPattern()
+   * @see #getTemplate()
    * @generated
    * @ordered
    */
-  protected String pattern = PATTERN_EDEFAULT;
+  protected String template = TEMPLATE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
@@ -91,9 +91,9 @@ public class TemplateValuedTermImpl extends ValuedTermImpl implements TemplateVa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPattern()
+  public String getTemplate()
   {
-    return pattern;
+    return template;
   }
 
   /**
@@ -101,12 +101,12 @@ public class TemplateValuedTermImpl extends ValuedTermImpl implements TemplateVa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPattern(String newPattern)
+  public void setTemplate(String newTemplate)
   {
-    String oldPattern = pattern;
-    pattern = newPattern;
+    String oldTemplate = template;
+    template = newTemplate;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.TEMPLATE_VALUED_TERM__PATTERN, oldPattern, pattern));
+      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.TEMPLATE_VALUED_TERM__TEMPLATE, oldTemplate, template));
   }
 
   /**
@@ -133,8 +133,8 @@ public class TemplateValuedTermImpl extends ValuedTermImpl implements TemplateVa
   {
     switch (featureID)
     {
-      case RdfMappingPackage.TEMPLATE_VALUED_TERM__PATTERN:
-        return getPattern();
+      case RdfMappingPackage.TEMPLATE_VALUED_TERM__TEMPLATE:
+        return getTemplate();
       case RdfMappingPackage.TEMPLATE_VALUED_TERM__REFERENCES:
         return getReferences();
     }
@@ -152,8 +152,8 @@ public class TemplateValuedTermImpl extends ValuedTermImpl implements TemplateVa
   {
     switch (featureID)
     {
-      case RdfMappingPackage.TEMPLATE_VALUED_TERM__PATTERN:
-        setPattern((String)newValue);
+      case RdfMappingPackage.TEMPLATE_VALUED_TERM__TEMPLATE:
+        setTemplate((String)newValue);
         return;
       case RdfMappingPackage.TEMPLATE_VALUED_TERM__REFERENCES:
         getReferences().clear();
@@ -173,8 +173,8 @@ public class TemplateValuedTermImpl extends ValuedTermImpl implements TemplateVa
   {
     switch (featureID)
     {
-      case RdfMappingPackage.TEMPLATE_VALUED_TERM__PATTERN:
-        setPattern(PATTERN_EDEFAULT);
+      case RdfMappingPackage.TEMPLATE_VALUED_TERM__TEMPLATE:
+        setTemplate(TEMPLATE_EDEFAULT);
         return;
       case RdfMappingPackage.TEMPLATE_VALUED_TERM__REFERENCES:
         getReferences().clear();
@@ -193,8 +193,8 @@ public class TemplateValuedTermImpl extends ValuedTermImpl implements TemplateVa
   {
     switch (featureID)
     {
-      case RdfMappingPackage.TEMPLATE_VALUED_TERM__PATTERN:
-        return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
+      case RdfMappingPackage.TEMPLATE_VALUED_TERM__TEMPLATE:
+        return TEMPLATE_EDEFAULT == null ? template != null : !TEMPLATE_EDEFAULT.equals(template);
       case RdfMappingPackage.TEMPLATE_VALUED_TERM__REFERENCES:
         return references != null && !references.isEmpty();
     }
@@ -212,8 +212,8 @@ public class TemplateValuedTermImpl extends ValuedTermImpl implements TemplateVa
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (pattern: ");
-    result.append(pattern);
+    result.append(" (template: ");
+    result.append(template);
     result.append(')');
     return result.toString();
   }

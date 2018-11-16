@@ -1157,63 +1157,62 @@ ruleMapping returns [EObject current=null]
 		{
 			newLeafNode(otherlv_4, grammarAccess.getMappingAccess().getLeftCurlyBracketKeyword_4());
 		}
-		otherlv_5='subject'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getMappingAccess().getSubjectKeyword_5());
-		}
-		otherlv_6='template'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getMappingAccess().getTemplateKeyword_6());
-		}
 		(
-			(
-				lv_pattern_7_0=RULE_STRING
-				{
-					newLeafNode(lv_pattern_7_0, grammarAccess.getMappingAccess().getPatternSTRINGTerminalRuleCall_7_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMappingRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"pattern",
-						lv_pattern_7_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_8='with'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getMappingAccess().getWithKeyword_8());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMappingRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getMappingAccess().getReferencesReferenceableCrossReference_9_0());
-				}
-				ruleQualifiedName
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)+
-		(
-			otherlv_10='types'
+			otherlv_5='use-vocabularies'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getMappingAccess().getTypesKeyword_10_0());
+				newLeafNode(otherlv_5, grammarAccess.getMappingAccess().getUseVocabulariesKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMappingAccess().getSubjectTypeMappingsSubjectTypeMappingParserRuleCall_10_1_0());
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getMappingRule());
+						}
 					}
-					lv_subjectTypeMappings_11_0=ruleSubjectTypeMapping
+					{
+						newCompositeNode(grammarAccess.getMappingAccess().getTargetVocabulariesVocabularyCrossReference_5_1_0());
+					}
+					ruleQualifiedName
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)+
+		)?
+		otherlv_7='subject'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getMappingAccess().getSubjectKeyword_6());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMappingAccess().getSubjectIriMappingTemplateValuedTermParserRuleCall_7_0());
+				}
+				lv_subjectIriMapping_8_0=ruleTemplateValuedTerm
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMappingRule());
+					}
+					set(
+						$current,
+						"subjectIriMapping",
+						lv_subjectIriMapping_8_0,
+						"com.zazuko.experimental.rmdsl.RdfMapping.TemplateValuedTerm");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_9='types'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getMappingAccess().getTypesKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMappingAccess().getSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_1_0());
+					}
+					lv_subjectTypeMappings_10_0=ruleSubjectTypeMapping
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMappingRule());
@@ -1221,7 +1220,7 @@ ruleMapping returns [EObject current=null]
 						add(
 							$current,
 							"subjectTypeMappings",
-							lv_subjectTypeMappings_11_0,
+							lv_subjectTypeMappings_10_0,
 							"com.zazuko.experimental.rmdsl.RdfMapping.SubjectTypeMapping");
 						afterParserOrEnumRuleCall();
 					}
@@ -1229,16 +1228,16 @@ ruleMapping returns [EObject current=null]
 			)+
 		)?
 		(
-			otherlv_12='properties'
+			otherlv_11='properties'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getMappingAccess().getPropertiesKeyword_11_0());
+				newLeafNode(otherlv_11, grammarAccess.getMappingAccess().getPropertiesKeyword_9_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMappingAccess().getPoMappingsPredicateObjectMappingParserRuleCall_11_1_0());
+						newCompositeNode(grammarAccess.getMappingAccess().getPoMappingsPredicateObjectMappingParserRuleCall_9_1_0());
 					}
-					lv_poMappings_13_0=rulePredicateObjectMapping
+					lv_poMappings_12_0=rulePredicateObjectMapping
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMappingRule());
@@ -1246,16 +1245,16 @@ ruleMapping returns [EObject current=null]
 						add(
 							$current,
 							"poMappings",
-							lv_poMappings_13_0,
+							lv_poMappings_12_0,
 							"com.zazuko.experimental.rmdsl.RdfMapping.PredicateObjectMapping");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 		)?
-		otherlv_14='}'
+		otherlv_13='}'
 		{
-			newLeafNode(otherlv_14, grammarAccess.getMappingAccess().getRightCurlyBracketKeyword_12());
+			newLeafNode(otherlv_13, grammarAccess.getMappingAccess().getRightCurlyBracketKeyword_10());
 		}
 	)
 ;
@@ -1419,12 +1418,9 @@ ruleReferenceValuedTerm returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getReferenceValuedTermRule());
 					}
 				}
+				otherlv_1=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getReferenceValuedTermAccess().getReferenceReferenceableCrossReference_1_0());
-				}
-				ruleQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_1, grammarAccess.getReferenceValuedTermAccess().getReferenceReferenceableCrossReference_1_0());
 				}
 			)
 		)
@@ -1502,9 +1498,9 @@ ruleTemplateValuedTerm returns [EObject current=null]
 		}
 		(
 			(
-				lv_pattern_1_0=RULE_STRING
+				lv_template_1_0=RULE_STRING
 				{
-					newLeafNode(lv_pattern_1_0, grammarAccess.getTemplateValuedTermAccess().getPatternSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_template_1_0, grammarAccess.getTemplateValuedTermAccess().getTemplateSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -1512,8 +1508,8 @@ ruleTemplateValuedTerm returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"pattern",
-						lv_pattern_1_0,
+						"template",
+						lv_template_1_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -1529,12 +1525,9 @@ ruleTemplateValuedTerm returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getTemplateValuedTermRule());
 					}
 				}
+				otherlv_3=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getTemplateValuedTermAccess().getReferencesReferenceableCrossReference_3_0());
-				}
-				ruleQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_3, grammarAccess.getTemplateValuedTermAccess().getReferencesReferenceableCrossReference_3_0());
 				}
 			)
 		)+
@@ -1585,12 +1578,9 @@ ruleLinkedResourceTerm returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getLinkedResourceTermRule());
 					}
 				}
+				otherlv_3=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getLinkedResourceTermAccess().getReferencesReferenceableCrossReference_3_0());
-				}
-				ruleQualifiedName
-				{
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_3, grammarAccess.getLinkedResourceTermAccess().getReferencesReferenceableCrossReference_3_0());
 				}
 			)
 		)+

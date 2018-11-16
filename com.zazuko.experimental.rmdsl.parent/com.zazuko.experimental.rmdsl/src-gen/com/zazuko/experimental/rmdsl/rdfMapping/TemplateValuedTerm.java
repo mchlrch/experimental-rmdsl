@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getTemplate <em>Template</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getReferences <em>References</em>}</li>
  * </ul>
  *
@@ -25,30 +25,30 @@ import org.eclipse.emf.common.util.EList;
 public interface TemplateValuedTerm extends ValuedTerm
 {
   /**
-   * Returns the value of the '<em><b>Pattern</b></em>' attribute.
+   * Returns the value of the '<em><b>Template</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Pattern</em>' attribute isn't clear,
+   * If the meaning of the '<em>Template</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pattern</em>' attribute.
-   * @see #setPattern(String)
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getTemplateValuedTerm_Pattern()
+   * @return the value of the '<em>Template</em>' attribute.
+   * @see #setTemplate(String)
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getTemplateValuedTerm_Template()
    * @model
    * @generated
    */
-  String getPattern();
+  String getTemplate();
 
   /**
-   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getPattern <em>Pattern</em>}' attribute.
+   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm#getTemplate <em>Template</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pattern</em>' attribute.
-   * @see #getPattern()
+   * @param value the new value of the '<em>Template</em>' attribute.
+   * @see #getTemplate()
    * @generated
    */
-  void setPattern(String value);
+  void setTemplate(String value);
 
   /**
    * Returns the value of the '<em><b>References</b></em>' reference list.

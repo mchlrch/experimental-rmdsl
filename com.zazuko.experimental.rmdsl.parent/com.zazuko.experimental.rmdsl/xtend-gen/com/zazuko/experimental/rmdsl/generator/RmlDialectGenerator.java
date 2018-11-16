@@ -248,16 +248,20 @@ public class RmlDialectGenerator {
     return _builder;
   }
   
-  public String subjectIri(final Mapping m) {
-    return MessageFormat.format(m.getPattern(), this.toMessageFormatArguments(m.getReferences()));
+  public String subjectIri(final Mapping it) {
+    return this.toTemplateString(it.getSubjectIriMapping());
   }
   
   public String toTemplateString(final TemplateValuedTerm it) {
-    return MessageFormat.format(it.getPattern(), this.toMessageFormatArguments(it.getReferences()));
+    return this.apply(it.getTemplate(), it.getReferences());
   }
   
   public String toTemplateString(final LinkedResourceTerm it) {
-    return MessageFormat.format(it.getMapping().getPattern(), this.toMessageFormatArguments(it.getReferences()));
+    return this.apply(it.getMapping().getSubjectIriMapping().getTemplate(), it.getReferences());
+  }
+  
+  public String apply(final String template, final List<Referenceable> refs) {
+    return MessageFormat.format(template, this.toMessageFormatArguments(refs));
   }
   
   public Object[] toMessageFormatArguments(final List<Referenceable> refs) {

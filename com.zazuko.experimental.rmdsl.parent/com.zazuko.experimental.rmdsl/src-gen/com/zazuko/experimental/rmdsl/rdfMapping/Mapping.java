@@ -16,8 +16,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getName <em>Name</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSource <em>Source</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPattern <em>Pattern</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getReferences <em>References</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getTargetVocabularies <em>Target Vocabularies</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectIriMapping <em>Subject Iri Mapping</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectTypeMappings <em>Subject Type Mappings</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPoMappings <em>Po Mappings</em>}</li>
  * </ul>
@@ -81,46 +81,46 @@ public interface Mapping extends Element
   void setSource(LogicalSource value);
 
   /**
-   * Returns the value of the '<em><b>Pattern</b></em>' attribute.
+   * Returns the value of the '<em><b>Target Vocabularies</b></em>' reference list.
+   * The list contents are of type {@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Pattern</em>' attribute isn't clear,
+   * If the meaning of the '<em>Target Vocabularies</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pattern</em>' attribute.
-   * @see #setPattern(String)
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping_Pattern()
+   * @return the value of the '<em>Target Vocabularies</em>' reference list.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping_TargetVocabularies()
    * @model
    * @generated
    */
-  String getPattern();
+  EList<Vocabulary> getTargetVocabularies();
 
   /**
-   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getPattern <em>Pattern</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pattern</em>' attribute.
-   * @see #getPattern()
-   * @generated
-   */
-  void setPattern(String value);
-
-  /**
-   * Returns the value of the '<em><b>References</b></em>' reference list.
-   * The list contents are of type {@link com.zazuko.experimental.rmdsl.rdfMapping.Referenceable}.
+   * Returns the value of the '<em><b>Subject Iri Mapping</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>References</em>' reference list isn't clear,
+   * If the meaning of the '<em>Subject Iri Mapping</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>References</em>' reference list.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping_References()
-   * @model
+   * @return the value of the '<em>Subject Iri Mapping</em>' containment reference.
+   * @see #setSubjectIriMapping(TemplateValuedTerm)
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getMapping_SubjectIriMapping()
+   * @model containment="true"
    * @generated
    */
-  EList<Referenceable> getReferences();
+  TemplateValuedTerm getSubjectIriMapping();
+
+  /**
+   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.Mapping#getSubjectIriMapping <em>Subject Iri Mapping</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Subject Iri Mapping</em>' containment reference.
+   * @see #getSubjectIriMapping()
+   * @generated
+   */
+  void setSubjectIriMapping(TemplateValuedTerm value);
 
   /**
    * Returns the value of the '<em><b>Subject Type Mappings</b></em>' containment reference list.

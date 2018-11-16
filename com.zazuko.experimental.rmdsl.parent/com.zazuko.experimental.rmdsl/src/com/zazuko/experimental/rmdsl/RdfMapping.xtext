@@ -72,7 +72,8 @@ RdfClass:
     
 Mapping:
 	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{'
-		'subject' 'template' pattern=STRING 'with' (references+=[Referenceable|QualifiedName])+
+		('use-vocabularies' (targetVocabularies+=[Vocabulary|QualifiedName])+)?
+		'subject' subjectIriMapping=TemplateValuedTerm
 		 ('types' (subjectTypeMappings+=SubjectTypeMapping)+)?
 		 ('properties' (poMappings+=PredicateObjectMapping)+)?
 	'}';
@@ -89,14 +90,14 @@ ValuedTerm:
 // TODO: ConstantValuedTerm
 	
 ReferenceValuedTerm:
-	'from' reference=[Referenceable|QualifiedName]
+	'from' reference=[Referenceable]
 	('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag' languageTag=[LanguageTag])?;
 
 TemplateValuedTerm:
-	'template' pattern=STRING 'with' (references+=[Referenceable|QualifiedName])+;
+	'template' template=STRING 'with' (references+=[Referenceable])+;
 	
 LinkedResourceTerm:
-	'link' mapping=[Mapping] 'with' (references+=[Referenceable|QualifiedName])+;
+	'link' mapping=[Mapping] 'with' (references+=[Referenceable])+;
 
 Import:
     'import' importedNamespace=QualifiedNameWithWildcard;

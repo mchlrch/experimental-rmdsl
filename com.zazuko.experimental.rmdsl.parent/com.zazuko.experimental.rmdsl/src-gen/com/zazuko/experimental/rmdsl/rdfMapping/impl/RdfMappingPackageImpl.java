@@ -733,9 +733,9 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMapping_Pattern()
+  public EReference getMapping_TargetVocabularies()
   {
-    return (EAttribute)mappingEClass.getEStructuralFeatures().get(2);
+    return (EReference)mappingEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -743,7 +743,7 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMapping_References()
+  public EReference getMapping_SubjectIriMapping()
   {
     return (EReference)mappingEClass.getEStructuralFeatures().get(3);
   }
@@ -883,7 +883,7 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTemplateValuedTerm_Pattern()
+  public EAttribute getTemplateValuedTerm_Template()
   {
     return (EAttribute)templateValuedTermEClass.getEStructuralFeatures().get(0);
   }
@@ -1039,8 +1039,8 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     mappingEClass = createEClass(MAPPING);
     createEAttribute(mappingEClass, MAPPING__NAME);
     createEReference(mappingEClass, MAPPING__SOURCE);
-    createEAttribute(mappingEClass, MAPPING__PATTERN);
-    createEReference(mappingEClass, MAPPING__REFERENCES);
+    createEReference(mappingEClass, MAPPING__TARGET_VOCABULARIES);
+    createEReference(mappingEClass, MAPPING__SUBJECT_IRI_MAPPING);
     createEReference(mappingEClass, MAPPING__SUBJECT_TYPE_MAPPINGS);
     createEReference(mappingEClass, MAPPING__PO_MAPPINGS);
 
@@ -1059,7 +1059,7 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     createEReference(referenceValuedTermEClass, REFERENCE_VALUED_TERM__LANGUAGE_TAG);
 
     templateValuedTermEClass = createEClass(TEMPLATE_VALUED_TERM);
-    createEAttribute(templateValuedTermEClass, TEMPLATE_VALUED_TERM__PATTERN);
+    createEAttribute(templateValuedTermEClass, TEMPLATE_VALUED_TERM__TEMPLATE);
     createEReference(templateValuedTermEClass, TEMPLATE_VALUED_TERM__REFERENCES);
 
     linkedResourceTermEClass = createEClass(LINKED_RESOURCE_TERM);
@@ -1173,8 +1173,8 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMapping_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapping_Source(), this.getLogicalSource(), null, "source", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMapping_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMapping_References(), this.getReferenceable(), null, "references", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMapping_TargetVocabularies(), this.getVocabulary(), null, "targetVocabularies", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMapping_SubjectIriMapping(), this.getTemplateValuedTerm(), null, "subjectIriMapping", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapping_SubjectTypeMappings(), this.getSubjectTypeMapping(), null, "subjectTypeMappings", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapping_PoMappings(), this.getPredicateObjectMapping(), null, "poMappings", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1193,7 +1193,7 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     initEReference(getReferenceValuedTerm_LanguageTag(), this.getLanguageTag(), null, "languageTag", null, 0, 1, ReferenceValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(templateValuedTermEClass, TemplateValuedTerm.class, "TemplateValuedTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTemplateValuedTerm_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, TemplateValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTemplateValuedTerm_Template(), ecorePackage.getEString(), "template", null, 0, 1, TemplateValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTemplateValuedTerm_References(), this.getReferenceable(), null, "references", null, 0, -1, TemplateValuedTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(linkedResourceTermEClass, LinkedResourceTerm.class, "LinkedResourceTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

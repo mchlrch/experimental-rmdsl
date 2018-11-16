@@ -7,8 +7,9 @@ import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
-import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm;
+import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 
 import java.util.Collection;
 
@@ -36,8 +37,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getSource <em>Source</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getTargetVocabularies <em>Target Vocabularies</em>}</li>
+ *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getSubjectIriMapping <em>Subject Iri Mapping</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getSubjectTypeMappings <em>Subject Type Mappings</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.MappingImpl#getPoMappings <em>Po Mappings</em>}</li>
  * </ul>
@@ -77,34 +78,24 @@ public class MappingImpl extends ElementImpl implements Mapping
   protected LogicalSource source;
 
   /**
-   * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+   * The cached value of the '{@link #getTargetVocabularies() <em>Target Vocabularies</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPattern()
+   * @see #getTargetVocabularies()
    * @generated
    * @ordered
    */
-  protected static final String PATTERN_EDEFAULT = null;
+  protected EList<Vocabulary> targetVocabularies;
 
   /**
-   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+   * The cached value of the '{@link #getSubjectIriMapping() <em>Subject Iri Mapping</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPattern()
+   * @see #getSubjectIriMapping()
    * @generated
    * @ordered
    */
-  protected String pattern = PATTERN_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReferences()
-   * @generated
-   * @ordered
-   */
-  protected EList<Referenceable> references;
+  protected TemplateValuedTerm subjectIriMapping;
 
   /**
    * The cached value of the '{@link #getSubjectTypeMappings() <em>Subject Type Mappings</em>}' containment reference list.
@@ -218,36 +209,61 @@ public class MappingImpl extends ElementImpl implements Mapping
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPattern()
+  public EList<Vocabulary> getTargetVocabularies()
   {
-    return pattern;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPattern(String newPattern)
-  {
-    String oldPattern = pattern;
-    pattern = newPattern;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.MAPPING__PATTERN, oldPattern, pattern));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Referenceable> getReferences()
-  {
-    if (references == null)
+    if (targetVocabularies == null)
     {
-      references = new EObjectResolvingEList<Referenceable>(Referenceable.class, this, RdfMappingPackage.MAPPING__REFERENCES);
+      targetVocabularies = new EObjectResolvingEList<Vocabulary>(Vocabulary.class, this, RdfMappingPackage.MAPPING__TARGET_VOCABULARIES);
     }
-    return references;
+    return targetVocabularies;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TemplateValuedTerm getSubjectIriMapping()
+  {
+    return subjectIriMapping;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSubjectIriMapping(TemplateValuedTerm newSubjectIriMapping, NotificationChain msgs)
+  {
+    TemplateValuedTerm oldSubjectIriMapping = subjectIriMapping;
+    subjectIriMapping = newSubjectIriMapping;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING, oldSubjectIriMapping, newSubjectIriMapping);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSubjectIriMapping(TemplateValuedTerm newSubjectIriMapping)
+  {
+    if (newSubjectIriMapping != subjectIriMapping)
+    {
+      NotificationChain msgs = null;
+      if (subjectIriMapping != null)
+        msgs = ((InternalEObject)subjectIriMapping).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING, null, msgs);
+      if (newSubjectIriMapping != null)
+        msgs = ((InternalEObject)newSubjectIriMapping).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING, null, msgs);
+      msgs = basicSetSubjectIriMapping(newSubjectIriMapping, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING, newSubjectIriMapping, newSubjectIriMapping));
   }
 
   /**
@@ -288,6 +304,8 @@ public class MappingImpl extends ElementImpl implements Mapping
   {
     switch (featureID)
     {
+      case RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING:
+        return basicSetSubjectIriMapping(null, msgs);
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         return ((InternalEList<?>)getSubjectTypeMappings()).basicRemove(otherEnd, msgs);
       case RdfMappingPackage.MAPPING__PO_MAPPINGS:
@@ -311,10 +329,10 @@ public class MappingImpl extends ElementImpl implements Mapping
       case RdfMappingPackage.MAPPING__SOURCE:
         if (resolve) return getSource();
         return basicGetSource();
-      case RdfMappingPackage.MAPPING__PATTERN:
-        return getPattern();
-      case RdfMappingPackage.MAPPING__REFERENCES:
-        return getReferences();
+      case RdfMappingPackage.MAPPING__TARGET_VOCABULARIES:
+        return getTargetVocabularies();
+      case RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING:
+        return getSubjectIriMapping();
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         return getSubjectTypeMappings();
       case RdfMappingPackage.MAPPING__PO_MAPPINGS:
@@ -340,12 +358,12 @@ public class MappingImpl extends ElementImpl implements Mapping
       case RdfMappingPackage.MAPPING__SOURCE:
         setSource((LogicalSource)newValue);
         return;
-      case RdfMappingPackage.MAPPING__PATTERN:
-        setPattern((String)newValue);
+      case RdfMappingPackage.MAPPING__TARGET_VOCABULARIES:
+        getTargetVocabularies().clear();
+        getTargetVocabularies().addAll((Collection<? extends Vocabulary>)newValue);
         return;
-      case RdfMappingPackage.MAPPING__REFERENCES:
-        getReferences().clear();
-        getReferences().addAll((Collection<? extends Referenceable>)newValue);
+      case RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING:
+        setSubjectIriMapping((TemplateValuedTerm)newValue);
         return;
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         getSubjectTypeMappings().clear();
@@ -375,11 +393,11 @@ public class MappingImpl extends ElementImpl implements Mapping
       case RdfMappingPackage.MAPPING__SOURCE:
         setSource((LogicalSource)null);
         return;
-      case RdfMappingPackage.MAPPING__PATTERN:
-        setPattern(PATTERN_EDEFAULT);
+      case RdfMappingPackage.MAPPING__TARGET_VOCABULARIES:
+        getTargetVocabularies().clear();
         return;
-      case RdfMappingPackage.MAPPING__REFERENCES:
-        getReferences().clear();
+      case RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING:
+        setSubjectIriMapping((TemplateValuedTerm)null);
         return;
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         getSubjectTypeMappings().clear();
@@ -405,10 +423,10 @@ public class MappingImpl extends ElementImpl implements Mapping
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RdfMappingPackage.MAPPING__SOURCE:
         return source != null;
-      case RdfMappingPackage.MAPPING__PATTERN:
-        return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
-      case RdfMappingPackage.MAPPING__REFERENCES:
-        return references != null && !references.isEmpty();
+      case RdfMappingPackage.MAPPING__TARGET_VOCABULARIES:
+        return targetVocabularies != null && !targetVocabularies.isEmpty();
+      case RdfMappingPackage.MAPPING__SUBJECT_IRI_MAPPING:
+        return subjectIriMapping != null;
       case RdfMappingPackage.MAPPING__SUBJECT_TYPE_MAPPINGS:
         return subjectTypeMappings != null && !subjectTypeMappings.isEmpty();
       case RdfMappingPackage.MAPPING__PO_MAPPINGS:
@@ -430,8 +448,6 @@ public class MappingImpl extends ElementImpl implements Mapping
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", pattern: ");
-    result.append(pattern);
     result.append(')');
     return result.toString();
   }

@@ -219,7 +219,7 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     LinkedResourceTerm returns LinkedResourceTerm
 	 *
 	 * Constraint:
-	 *     (mapping=[Mapping|ID] references+=[Referenceable|QualifiedName]+)
+	 *     (mapping=[Mapping|ID] references+=[Referenceable|ID]+)
 	 */
 	protected void sequence_LinkedResourceTerm(ISerializationContext context, LinkedResourceTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -248,8 +248,8 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         name=ID 
 	 *         source=[LogicalSource|QualifiedName] 
-	 *         pattern=STRING 
-	 *         references+=[Referenceable|QualifiedName]+ 
+	 *         targetVocabularies+=[Vocabulary|QualifiedName]* 
+	 *         subjectIriMapping=TemplateValuedTerm 
 	 *         subjectTypeMappings+=SubjectTypeMapping* 
 	 *         poMappings+=PredicateObjectMapping*
 	 *     )
@@ -343,7 +343,7 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ReferenceValuedTerm returns ReferenceValuedTerm
 	 *
 	 * Constraint:
-	 *     (reference=[Referenceable|QualifiedName] (datatype=[Datatype|ID] | languageTag=[LanguageTag|ID])?)
+	 *     (reference=[Referenceable|ID] (datatype=[Datatype|ID] | languageTag=[LanguageTag|ID])?)
 	 */
 	protected void sequence_ReferenceValuedTerm(ISerializationContext context, ReferenceValuedTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -433,7 +433,7 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TemplateValuedTerm returns TemplateValuedTerm
 	 *
 	 * Constraint:
-	 *     (pattern=STRING references+=[Referenceable|QualifiedName]+)
+	 *     (template=STRING references+=[Referenceable|ID]+)
 	 */
 	protected void sequence_TemplateValuedTerm(ISerializationContext context, TemplateValuedTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

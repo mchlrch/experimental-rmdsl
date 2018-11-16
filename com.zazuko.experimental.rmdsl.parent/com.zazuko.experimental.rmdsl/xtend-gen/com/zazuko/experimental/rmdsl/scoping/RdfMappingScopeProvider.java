@@ -3,7 +3,18 @@
  */
 package com.zazuko.experimental.rmdsl.scoping;
 
+import com.google.common.base.Objects;
+import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
+import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
+import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
+import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm;
 import com.zazuko.experimental.rmdsl.scoping.AbstractRdfMappingScopeProvider;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +24,44 @@ import com.zazuko.experimental.rmdsl.scoping.AbstractRdfMappingScopeProvider;
  */
 @SuppressWarnings("all")
 public class RdfMappingScopeProvider extends AbstractRdfMappingScopeProvider {
+  @Override
+  public IScope getScope(final EObject context, final EReference reference) {
+    if (((context instanceof ReferenceValuedTerm) && 
+      Objects.equal(reference, RdfMappingPackage.Literals.REFERENCE_VALUED_TERM__REFERENCE))) {
+      EObject _eContainer = context.eContainer().eContainer();
+      return this.scopeForReferenceables(((Mapping) _eContainer));
+    } else {
+      if (((context instanceof TemplateValuedTerm) && 
+        Objects.equal(reference, RdfMappingPackage.Literals.TEMPLATE_VALUED_TERM__REFERENCES))) {
+        Mapping _switchResult = null;
+        EObject _eContainer_1 = context.eContainer();
+        boolean _matched = false;
+        if (_eContainer_1 instanceof Mapping) {
+          _matched=true;
+          EObject _eContainer_2 = context.eContainer();
+          _switchResult = ((Mapping) _eContainer_2);
+        }
+        if (!_matched) {
+          if (_eContainer_1 instanceof PredicateObjectMapping) {
+            _matched=true;
+            EObject _eContainer_2 = context.eContainer().eContainer();
+            _switchResult = ((Mapping) _eContainer_2);
+          }
+        }
+        final Mapping mapping = _switchResult;
+        return this.scopeForReferenceables(mapping);
+      } else {
+        if (((context instanceof LinkedResourceTerm) && 
+          Objects.equal(reference, RdfMappingPackage.Literals.LINKED_RESOURCE_TERM__REFERENCES))) {
+          EObject _eContainer_2 = context.eContainer().eContainer();
+          return this.scopeForReferenceables(((Mapping) _eContainer_2));
+        }
+      }
+    }
+    return super.getScope(context, reference);
+  }
+  
+  public IScope scopeForReferenceables(final Mapping mapping) {
+    return Scopes.scopeFor(mapping.getSource().getReferencables());
+  }
 }

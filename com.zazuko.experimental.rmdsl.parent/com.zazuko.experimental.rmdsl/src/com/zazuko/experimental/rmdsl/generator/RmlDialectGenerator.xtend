@@ -100,17 +100,21 @@ class RmlDialectGenerator {
 		«ENDIF»
 	'''
 	
-	def subjectIri(Mapping m) {		
-		MessageFormat.format(m.pattern, m.references.toMessageFormatArguments());
+	def subjectIri(Mapping it) {
+		subjectIriMapping.toTemplateString
 	}
 	
 	def toTemplateString(TemplateValuedTerm it) {		
-		MessageFormat.format(pattern, references.toMessageFormatArguments());
+		template.apply(references);
 	}
 	
 	def toTemplateString(LinkedResourceTerm it) {		
-		MessageFormat.format(mapping.pattern, references.toMessageFormatArguments());
-	}	
+		mapping.subjectIriMapping.template.apply(references);
+	}
+	
+	def apply(String template, List<Referenceable> refs) {
+		MessageFormat.format(template, refs.toMessageFormatArguments());
+	}
 	
 	def toMessageFormatArguments(List<Referenceable> refs) {
 		refs.map[ref | '''{«ref.valueResolved»}'''].toArray
