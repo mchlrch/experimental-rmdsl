@@ -9,8 +9,8 @@
 	<properties>
 		<xtextVersion>2.14.0</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>9</maven.compiler.source>
-		<maven.compiler.target>9</maven.compiler.target>
+		<maven.compiler.source>8</maven.compiler.source>
+		<maven.compiler.target>8</maven.compiler.target>
 		<!-- Tycho settings -->
 		<!-- Java 10 and JUnit 5 support require Tycho 1.2.0, which was not released at release date of Xtext 2.14.0. When not available downgrade to Java 9, JUnit 4 and Tycho 1.1.0. -->
 		<tycho-version>1.2.0</tycho-version>

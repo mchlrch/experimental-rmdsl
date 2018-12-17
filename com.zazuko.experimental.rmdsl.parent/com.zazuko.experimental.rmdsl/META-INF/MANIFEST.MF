@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.util,
  org.eclipse.emf.common,
  org.eclipse.xtend.lib;bundle-version="2.14.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-9
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.zazuko.experimental.rmdsl.rdfMapping,
  com.zazuko.experimental.rmdsl.parser.antlr.internal,
  com.zazuko.experimental.rmdsl.scoping,
