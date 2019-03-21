@@ -349,6 +349,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRulePrefixHolder
+entryRulePrefixHolder
+:
+{ before(grammarAccess.getPrefixHolderRule()); }
+	 rulePrefixHolder
+{ after(grammarAccess.getPrefixHolderRule()); } 
+	 EOF 
+;
+
+// Rule PrefixHolder
+rulePrefixHolder 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getPrefixHolderAccess().getAlternatives()); }
+		(rule__PrefixHolder__Alternatives)
+		{ after(grammarAccess.getPrefixHolderAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRulePrefix
 entryRulePrefix
 :
@@ -692,9 +717,9 @@ rule__Element__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getElementAccess().getVocabularyParserRuleCall_2()); }
-		ruleVocabulary
-		{ after(grammarAccess.getElementAccess().getVocabularyParserRuleCall_2()); }
+		{ before(grammarAccess.getElementAccess().getPrefixHolderParserRuleCall_2()); }
+		rulePrefixHolder
+		{ after(grammarAccess.getElementAccess().getPrefixHolderParserRuleCall_2()); }
 	)
 	|
 	(
@@ -716,15 +741,30 @@ rule__Element__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getElementAccess().getDatatypesDefinitionParserRuleCall_6()); }
+		{ before(grammarAccess.getElementAccess().getLanguageTagDefinitionParserRuleCall_6()); }
+		ruleLanguageTagDefinition
+		{ after(grammarAccess.getElementAccess().getLanguageTagDefinitionParserRuleCall_6()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PrefixHolder__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPrefixHolderAccess().getDatatypesDefinitionParserRuleCall_0()); }
 		ruleDatatypesDefinition
-		{ after(grammarAccess.getElementAccess().getDatatypesDefinitionParserRuleCall_6()); }
+		{ after(grammarAccess.getPrefixHolderAccess().getDatatypesDefinitionParserRuleCall_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getElementAccess().getLanguageTagDefinitionParserRuleCall_7()); }
-		ruleLanguageTagDefinition
-		{ after(grammarAccess.getElementAccess().getLanguageTagDefinitionParserRuleCall_7()); }
+		{ before(grammarAccess.getPrefixHolderAccess().getVocabularyParserRuleCall_1()); }
+		ruleVocabulary
+		{ after(grammarAccess.getPrefixHolderAccess().getVocabularyParserRuleCall_1()); }
 	)
 ;
 finally {

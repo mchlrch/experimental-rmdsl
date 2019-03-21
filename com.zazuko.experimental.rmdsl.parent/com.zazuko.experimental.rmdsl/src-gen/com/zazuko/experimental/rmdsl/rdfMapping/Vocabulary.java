@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getName <em>Name</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getClasses <em>Classes</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getProperties <em>Properties</em>}</li>
  * </ul>
@@ -24,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Vocabulary extends Element
+public interface Vocabulary extends PrefixHolder
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -51,32 +50,6 @@ public interface Vocabulary extends Element
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Prefix</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Prefix</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Prefix</em>' containment reference.
-   * @see #setPrefix(Prefix)
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getVocabulary_Prefix()
-   * @model containment="true"
-   * @generated
-   */
-  Prefix getPrefix();
-
-  /**
-   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getPrefix <em>Prefix</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Prefix</em>' containment reference.
-   * @see #getPrefix()
-   * @generated
-   */
-  void setPrefix(Prefix value);
 
   /**
    * Returns the value of the '<em><b>Classes</b></em>' containment reference list.

@@ -7,12 +7,12 @@ import com.zazuko.experimental.rmdsl.rdfMapping.LanguageTag;
 import com.zazuko.experimental.rmdsl.rdfMapping.LinkedResourceTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder;
 import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.TemplateValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm;
-import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
@@ -53,13 +53,13 @@ public class RmlDialectGenerator {
     _builder.append(_staticPrefixes);
     _builder.newLineIfNotEmpty();
     {
-      List<Vocabulary> _inDeterministicOrder = ModelAccess.inDeterministicOrder(ModelAccess.vocabulariesUsed(mappings));
-      for(final Vocabulary voc : _inDeterministicOrder) {
+      List<PrefixHolder> _inDeterministicOrder = ModelAccess.inDeterministicOrder(ModelAccess.prefixesUsed(mappings));
+      for(final PrefixHolder prefixHolder : _inDeterministicOrder) {
         _builder.append("PREFIX ");
-        String _label = voc.getPrefix().getLabel();
+        String _label = prefixHolder.getPrefix().getLabel();
         _builder.append(_label);
         _builder.append(" <");
-        String _iri = voc.getPrefix().getIri();
+        String _iri = prefixHolder.getPrefix().getIri();
         _builder.append(_iri);
         _builder.append(">");
         _builder.newLineIfNotEmpty();

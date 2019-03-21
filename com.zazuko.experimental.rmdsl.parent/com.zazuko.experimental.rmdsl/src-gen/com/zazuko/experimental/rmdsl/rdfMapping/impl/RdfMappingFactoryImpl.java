@@ -77,6 +77,7 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
       case RdfMappingPackage.LOGICAL_SOURCE: return createLogicalSource();
       case RdfMappingPackage.REFERENCEABLE: return createReferenceable();
       case RdfMappingPackage.VOCABULARY: return createVocabulary();
+      case RdfMappingPackage.PREFIX_HOLDER: return createPrefixHolder();
       case RdfMappingPackage.PREFIX: return createPrefix();
       case RdfMappingPackage.RDF_PROPERTY: return createRdfProperty();
       case RdfMappingPackage.RDF_CLASS: return createRdfClass();
@@ -223,6 +224,17 @@ public class RdfMappingFactoryImpl extends EFactoryImpl implements RdfMappingFac
   {
     VocabularyImpl vocabulary = new VocabularyImpl();
     return vocabulary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PrefixHolder createPrefixHolder()
+  {
+    PrefixHolderImpl prefixHolder = new PrefixHolderImpl();
+    return prefixHolder;
   }
 
   /**

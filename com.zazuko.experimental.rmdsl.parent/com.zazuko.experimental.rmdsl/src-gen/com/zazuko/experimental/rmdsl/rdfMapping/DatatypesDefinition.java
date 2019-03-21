@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getTypes <em>Types</em>}</li>
  * </ul>
  *
@@ -22,34 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DatatypesDefinition extends Element
+public interface DatatypesDefinition extends PrefixHolder
 {
-  /**
-   * Returns the value of the '<em><b>Prefix</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Prefix</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Prefix</em>' containment reference.
-   * @see #setPrefix(Prefix)
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage#getDatatypesDefinition_Prefix()
-   * @model containment="true"
-   * @generated
-   */
-  Prefix getPrefix();
-
-  /**
-   * Sets the value of the '{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getPrefix <em>Prefix</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Prefix</em>' containment reference.
-   * @see #getPrefix()
-   * @generated
-   */
-  void setPrefix(Prefix value);
-
   /**
    * Returns the value of the '<em><b>Types</b></em>' containment reference list.
    * The list contents are of type {@link com.zazuko.experimental.rmdsl.rdfMapping.Datatype}.

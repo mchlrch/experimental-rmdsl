@@ -44,20 +44,17 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSourceGroupParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLogicalSourceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cVocabularyParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cPrefixHolderParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cMappingParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cImportParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cSourceTypesDefinitionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cDatatypesDefinitionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cLanguageTagDefinitionParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cLanguageTagDefinitionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Element:
-		//	SourceGroup | LogicalSource | Vocabulary | Mapping | Import | SourceTypesDefinition | DatatypesDefinition |
-		//	LanguageTagDefinition;
+		//	SourceGroup | LogicalSource | PrefixHolder | Mapping | Import | SourceTypesDefinition | LanguageTagDefinition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SourceGroup | LogicalSource | Vocabulary | Mapping | Import | SourceTypesDefinition | DatatypesDefinition |
-		//LanguageTagDefinition
+		//SourceGroup | LogicalSource | PrefixHolder | Mapping | Import | SourceTypesDefinition | LanguageTagDefinition
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//SourceGroup
@@ -66,8 +63,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//LogicalSource
 		public RuleCall getLogicalSourceParserRuleCall_1() { return cLogicalSourceParserRuleCall_1; }
 		
-		//Vocabulary
-		public RuleCall getVocabularyParserRuleCall_2() { return cVocabularyParserRuleCall_2; }
+		//PrefixHolder
+		public RuleCall getPrefixHolderParserRuleCall_2() { return cPrefixHolderParserRuleCall_2; }
 		
 		//Mapping
 		public RuleCall getMappingParserRuleCall_3() { return cMappingParserRuleCall_3; }
@@ -78,11 +75,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//SourceTypesDefinition
 		public RuleCall getSourceTypesDefinitionParserRuleCall_5() { return cSourceTypesDefinitionParserRuleCall_5; }
 		
-		//DatatypesDefinition
-		public RuleCall getDatatypesDefinitionParserRuleCall_6() { return cDatatypesDefinitionParserRuleCall_6; }
-		
 		//LanguageTagDefinition
-		public RuleCall getLanguageTagDefinitionParserRuleCall_7() { return cLanguageTagDefinitionParserRuleCall_7; }
+		public RuleCall getLanguageTagDefinitionParserRuleCall_6() { return cLanguageTagDefinitionParserRuleCall_6; }
 	}
 	public class SourceTypesDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.SourceTypesDefinition");
@@ -579,6 +573,25 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class PrefixHolderElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.PrefixHolder");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDatatypesDefinitionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cVocabularyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//PrefixHolder:
+		//	DatatypesDefinition | Vocabulary;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DatatypesDefinition | Vocabulary
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//DatatypesDefinition
+		public RuleCall getDatatypesDefinitionParserRuleCall_0() { return cDatatypesDefinitionParserRuleCall_0; }
+		
+		//Vocabulary
+		public RuleCall getVocabularyParserRuleCall_1() { return cVocabularyParserRuleCall_1; }
 	}
 	public class PrefixElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Prefix");
@@ -1082,6 +1095,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	private final LogicalSourceElements pLogicalSource;
 	private final ReferenceableElements pReferenceable;
 	private final VocabularyElements pVocabulary;
+	private final PrefixHolderElements pPrefixHolder;
 	private final PrefixElements pPrefix;
 	private final RdfPropertyElements pRdfProperty;
 	private final RdfClassElements pRdfClass;
@@ -1117,6 +1131,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		this.pLogicalSource = new LogicalSourceElements();
 		this.pReferenceable = new ReferenceableElements();
 		this.pVocabulary = new VocabularyElements();
+		this.pPrefixHolder = new PrefixHolderElements();
 		this.pPrefix = new PrefixElements();
 		this.pRdfProperty = new RdfPropertyElements();
 		this.pRdfClass = new RdfClassElements();
@@ -1170,8 +1185,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Element:
-	//	SourceGroup | LogicalSource | Vocabulary | Mapping | Import | SourceTypesDefinition | DatatypesDefinition |
-	//	LanguageTagDefinition;
+	//	SourceGroup | LogicalSource | PrefixHolder | Mapping | Import | SourceTypesDefinition | LanguageTagDefinition;
 	public ElementElements getElementAccess() {
 		return pElement;
 	}
@@ -1298,6 +1312,16 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getVocabularyRule() {
 		return getVocabularyAccess().getRule();
+	}
+	
+	//PrefixHolder:
+	//	DatatypesDefinition | Vocabulary;
+	public PrefixHolderElements getPrefixHolderAccess() {
+		return pPrefixHolder;
+	}
+	
+	public ParserRule getPrefixHolderRule() {
+		return getPrefixHolderAccess().getRule();
 	}
 	
 	//Prefix:

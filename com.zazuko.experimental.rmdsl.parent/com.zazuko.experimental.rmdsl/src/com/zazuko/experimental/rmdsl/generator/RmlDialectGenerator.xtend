@@ -35,8 +35,8 @@ class RmlDialectGenerator {
 	
 	def prefixes(Iterable<Mapping> mappings) '''
 		«staticPrefixes»
-		«FOR voc:mappings.vocabulariesUsed.inDeterministicOrder»
-			PREFIX «voc.prefix.label» <«voc.prefix.iri»>
+		«FOR prefixHolder:mappings.prefixesUsed.inDeterministicOrder»
+			PREFIX «prefixHolder.prefix.label» <«prefixHolder.prefix.iri»>
 		«ENDFOR»
 		
 		# debug output ..

@@ -132,6 +132,15 @@ public interface RdfMappingFactory extends EFactory
   Vocabulary createVocabulary();
 
   /**
+   * Returns a new object of class '<em>Prefix Holder</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Prefix Holder</em>'.
+   * @generated
+   */
+  PrefixHolder createPrefixHolder();
+
+  /**
    * Returns a new object of class '<em>Prefix</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -5,20 +5,16 @@ package com.zazuko.experimental.rmdsl.rdfMapping.impl;
 
 import com.zazuko.experimental.rmdsl.rdfMapping.Datatype;
 import com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition;
-import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,24 +27,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypesDefinitionImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypesDefinitionImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DatatypesDefinitionImpl extends ElementImpl implements DatatypesDefinition
+public class DatatypesDefinitionImpl extends PrefixHolderImpl implements DatatypesDefinition
 {
-  /**
-   * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrefix()
-   * @generated
-   * @ordered
-   */
-  protected Prefix prefix;
-
   /**
    * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -85,54 +70,6 @@ public class DatatypesDefinitionImpl extends ElementImpl implements DatatypesDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public Prefix getPrefix()
-  {
-    return prefix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPrefix(Prefix newPrefix, NotificationChain msgs)
-  {
-    Prefix oldPrefix = prefix;
-    prefix = newPrefix;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RdfMappingPackage.DATATYPES_DEFINITION__PREFIX, oldPrefix, newPrefix);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPrefix(Prefix newPrefix)
-  {
-    if (newPrefix != prefix)
-    {
-      NotificationChain msgs = null;
-      if (prefix != null)
-        msgs = ((InternalEObject)prefix).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RdfMappingPackage.DATATYPES_DEFINITION__PREFIX, null, msgs);
-      if (newPrefix != null)
-        msgs = ((InternalEObject)newPrefix).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RdfMappingPackage.DATATYPES_DEFINITION__PREFIX, null, msgs);
-      msgs = basicSetPrefix(newPrefix, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.DATATYPES_DEFINITION__PREFIX, newPrefix, newPrefix));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Datatype> getTypes()
   {
     if (types == null)
@@ -152,8 +89,6 @@ public class DatatypesDefinitionImpl extends ElementImpl implements DatatypesDef
   {
     switch (featureID)
     {
-      case RdfMappingPackage.DATATYPES_DEFINITION__PREFIX:
-        return basicSetPrefix(null, msgs);
       case RdfMappingPackage.DATATYPES_DEFINITION__TYPES:
         return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
     }
@@ -170,8 +105,6 @@ public class DatatypesDefinitionImpl extends ElementImpl implements DatatypesDef
   {
     switch (featureID)
     {
-      case RdfMappingPackage.DATATYPES_DEFINITION__PREFIX:
-        return getPrefix();
       case RdfMappingPackage.DATATYPES_DEFINITION__TYPES:
         return getTypes();
     }
@@ -189,9 +122,6 @@ public class DatatypesDefinitionImpl extends ElementImpl implements DatatypesDef
   {
     switch (featureID)
     {
-      case RdfMappingPackage.DATATYPES_DEFINITION__PREFIX:
-        setPrefix((Prefix)newValue);
-        return;
       case RdfMappingPackage.DATATYPES_DEFINITION__TYPES:
         getTypes().clear();
         getTypes().addAll((Collection<? extends Datatype>)newValue);
@@ -210,9 +140,6 @@ public class DatatypesDefinitionImpl extends ElementImpl implements DatatypesDef
   {
     switch (featureID)
     {
-      case RdfMappingPackage.DATATYPES_DEFINITION__PREFIX:
-        setPrefix((Prefix)null);
-        return;
       case RdfMappingPackage.DATATYPES_DEFINITION__TYPES:
         getTypes().clear();
         return;
@@ -230,8 +157,6 @@ public class DatatypesDefinitionImpl extends ElementImpl implements DatatypesDef
   {
     switch (featureID)
     {
-      case RdfMappingPackage.DATATYPES_DEFINITION__PREFIX:
-        return prefix != null;
       case RdfMappingPackage.DATATYPES_DEFINITION__TYPES:
         return types != null && !types.isEmpty();
     }

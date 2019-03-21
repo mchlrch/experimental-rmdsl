@@ -131,11 +131,11 @@ ruleElement returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getVocabularyParserRuleCall_2());
+			newCompositeNode(grammarAccess.getElementAccess().getPrefixHolderParserRuleCall_2());
 		}
-		this_Vocabulary_2=ruleVocabulary
+		this_PrefixHolder_2=rulePrefixHolder
 		{
-			$current = $this_Vocabulary_2.current;
+			$current = $this_PrefixHolder_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -167,20 +167,11 @@ ruleElement returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getDatatypesDefinitionParserRuleCall_6());
+			newCompositeNode(grammarAccess.getElementAccess().getLanguageTagDefinitionParserRuleCall_6());
 		}
-		this_DatatypesDefinition_6=ruleDatatypesDefinition
+		this_LanguageTagDefinition_6=ruleLanguageTagDefinition
 		{
-			$current = $this_DatatypesDefinition_6.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getElementAccess().getLanguageTagDefinitionParserRuleCall_7());
-		}
-		this_LanguageTagDefinition_7=ruleLanguageTagDefinition
-		{
-			$current = $this_LanguageTagDefinition_7.current;
+			$current = $this_LanguageTagDefinition_6.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -958,6 +949,42 @@ ruleVocabulary returns [EObject current=null]
 		otherlv_10='}'
 		{
 			newLeafNode(otherlv_10, grammarAccess.getVocabularyAccess().getRightCurlyBracketKeyword_6());
+		}
+	)
+;
+
+// Entry rule entryRulePrefixHolder
+entryRulePrefixHolder returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPrefixHolderRule()); }
+	iv_rulePrefixHolder=rulePrefixHolder
+	{ $current=$iv_rulePrefixHolder.current; }
+	EOF;
+
+// Rule PrefixHolder
+rulePrefixHolder returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getPrefixHolderAccess().getDatatypesDefinitionParserRuleCall_0());
+		}
+		this_DatatypesDefinition_0=ruleDatatypesDefinition
+		{
+			$current = $this_DatatypesDefinition_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPrefixHolderAccess().getVocabularyParserRuleCall_1());
+		}
+		this_Vocabulary_1=ruleVocabulary
+		{
+			$current = $this_Vocabulary_1.current;
+			afterParserOrEnumRuleCall();
 		}
 	)
 ;

@@ -6,8 +6,8 @@ Domainmodel :
     (elements+=Element)*;
   
 Element:
-    SourceGroup | LogicalSource | Vocabulary | Mapping | Import |
-    SourceTypesDefinition |  DatatypesDefinition | LanguageTagDefinition ;
+    SourceGroup | LogicalSource | PrefixHolder | Mapping | Import |
+    SourceTypesDefinition | LanguageTagDefinition ;
 
 SourceTypesDefinition: {SourceTypesDefinition}
 	'source-types' '{'
@@ -60,6 +60,9 @@ Vocabulary:
 		('classes' (classes+=RdfClass)* ';')?
 	    ('properties' (properties+=RdfProperty)* ';')?	
     '}';
+   
+PrefixHolder:
+    DatatypesDefinition | Vocabulary;   
     
 Prefix:
 	'prefix' label=STRING iri=STRING ';';

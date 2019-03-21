@@ -136,6 +136,11 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
         return createVocabularyAdapter();
       }
       @Override
+      public Adapter casePrefixHolder(PrefixHolder object)
+      {
+        return createPrefixHolderAdapter();
+      }
+      @Override
       public Adapter casePrefix(Prefix object)
       {
         return createPrefixAdapter();
@@ -388,6 +393,21 @@ public class RdfMappingAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVocabularyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder <em>Prefix Holder</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder
+   * @generated
+   */
+  public Adapter createPrefixHolderAdapter()
   {
     return null;
   }

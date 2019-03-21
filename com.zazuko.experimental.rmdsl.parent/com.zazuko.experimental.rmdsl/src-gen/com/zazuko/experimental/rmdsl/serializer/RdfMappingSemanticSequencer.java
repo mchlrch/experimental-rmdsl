@@ -142,6 +142,7 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Contexts:
 	 *     Element returns DatatypesDefinition
 	 *     DatatypesDefinition returns DatatypesDefinition
+	 *     PrefixHolder returns DatatypesDefinition
 	 *
 	 * Constraint:
 	 *     (prefix=Prefix types+=Datatype*)
@@ -444,6 +445,7 @@ public class RdfMappingSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Contexts:
 	 *     Element returns Vocabulary
 	 *     Vocabulary returns Vocabulary
+	 *     PrefixHolder returns Vocabulary
 	 *
 	 * Constraint:
 	 *     (name=ID prefix=Prefix classes+=RdfClass* properties+=RdfProperty*)

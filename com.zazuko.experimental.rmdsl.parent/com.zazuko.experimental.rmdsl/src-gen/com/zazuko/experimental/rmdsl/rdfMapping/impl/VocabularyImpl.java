@@ -3,7 +3,6 @@
  */
 package com.zazuko.experimental.rmdsl.rdfMapping.impl;
 
-import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
@@ -33,14 +32,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.VocabularyImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.VocabularyImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.VocabularyImpl#getClasses <em>Classes</em>}</li>
  *   <li>{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.VocabularyImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VocabularyImpl extends ElementImpl implements Vocabulary
+public class VocabularyImpl extends PrefixHolderImpl implements Vocabulary
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -61,16 +59,6 @@ public class VocabularyImpl extends ElementImpl implements Vocabulary
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrefix()
-   * @generated
-   * @ordered
-   */
-  protected Prefix prefix;
 
   /**
    * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
@@ -141,54 +129,6 @@ public class VocabularyImpl extends ElementImpl implements Vocabulary
    * <!-- end-user-doc -->
    * @generated
    */
-  public Prefix getPrefix()
-  {
-    return prefix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPrefix(Prefix newPrefix, NotificationChain msgs)
-  {
-    Prefix oldPrefix = prefix;
-    prefix = newPrefix;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RdfMappingPackage.VOCABULARY__PREFIX, oldPrefix, newPrefix);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPrefix(Prefix newPrefix)
-  {
-    if (newPrefix != prefix)
-    {
-      NotificationChain msgs = null;
-      if (prefix != null)
-        msgs = ((InternalEObject)prefix).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RdfMappingPackage.VOCABULARY__PREFIX, null, msgs);
-      if (newPrefix != null)
-        msgs = ((InternalEObject)newPrefix).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RdfMappingPackage.VOCABULARY__PREFIX, null, msgs);
-      msgs = basicSetPrefix(newPrefix, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RdfMappingPackage.VOCABULARY__PREFIX, newPrefix, newPrefix));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<RdfClass> getClasses()
   {
     if (classes == null)
@@ -222,8 +162,6 @@ public class VocabularyImpl extends ElementImpl implements Vocabulary
   {
     switch (featureID)
     {
-      case RdfMappingPackage.VOCABULARY__PREFIX:
-        return basicSetPrefix(null, msgs);
       case RdfMappingPackage.VOCABULARY__CLASSES:
         return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
       case RdfMappingPackage.VOCABULARY__PROPERTIES:
@@ -244,8 +182,6 @@ public class VocabularyImpl extends ElementImpl implements Vocabulary
     {
       case RdfMappingPackage.VOCABULARY__NAME:
         return getName();
-      case RdfMappingPackage.VOCABULARY__PREFIX:
-        return getPrefix();
       case RdfMappingPackage.VOCABULARY__CLASSES:
         return getClasses();
       case RdfMappingPackage.VOCABULARY__PROPERTIES:
@@ -267,9 +203,6 @@ public class VocabularyImpl extends ElementImpl implements Vocabulary
     {
       case RdfMappingPackage.VOCABULARY__NAME:
         setName((String)newValue);
-        return;
-      case RdfMappingPackage.VOCABULARY__PREFIX:
-        setPrefix((Prefix)newValue);
         return;
       case RdfMappingPackage.VOCABULARY__CLASSES:
         getClasses().clear();
@@ -296,9 +229,6 @@ public class VocabularyImpl extends ElementImpl implements Vocabulary
       case RdfMappingPackage.VOCABULARY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RdfMappingPackage.VOCABULARY__PREFIX:
-        setPrefix((Prefix)null);
-        return;
       case RdfMappingPackage.VOCABULARY__CLASSES:
         getClasses().clear();
         return;
@@ -321,8 +251,6 @@ public class VocabularyImpl extends ElementImpl implements Vocabulary
     {
       case RdfMappingPackage.VOCABULARY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RdfMappingPackage.VOCABULARY__PREFIX:
-        return prefix != null;
       case RdfMappingPackage.VOCABULARY__CLASSES:
         return classes != null && !classes.isEmpty();
       case RdfMappingPackage.VOCABULARY__PROPERTIES:

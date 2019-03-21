@@ -7,16 +7,20 @@ import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
+import com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfProperty;
+import com.zazuko.experimental.rmdsl.rdfMapping.ReferenceValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Referenceable;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceGroup;
 import com.zazuko.experimental.rmdsl.rdfMapping.SourceType;
 import com.zazuko.experimental.rmdsl.rdfMapping.SubjectTypeMapping;
+import com.zazuko.experimental.rmdsl.rdfMapping.ValuedTerm;
 import com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -78,40 +82,53 @@ public class ModelAccess {
     return ((Vocabulary) _eContainer);
   }
   
-  public static HashSet<Vocabulary> vocabulariesUsed(final Mapping it) {
-    HashSet<Vocabulary> _xblockexpression = null;
-    {
-      final HashSet<Vocabulary> result = new HashSet<Vocabulary>();
-      final Function1<SubjectTypeMapping, Vocabulary> _function = (SubjectTypeMapping m) -> {
-        return ModelAccess.vocabulary(m.getType());
-      };
-      result.addAll(ListExtensions.<SubjectTypeMapping, Vocabulary>map(it.getSubjectTypeMappings(), _function));
-      final Function1<PredicateObjectMapping, Vocabulary> _function_1 = (PredicateObjectMapping m) -> {
-        return ModelAccess.vocabulary(m.getProperty());
-      };
-      result.addAll(ListExtensions.<PredicateObjectMapping, Vocabulary>map(it.getPoMappings(), _function_1));
-      _xblockexpression = result;
-    }
-    return _xblockexpression;
-  }
-  
-  public static Set<Vocabulary> vocabulariesUsed(final Iterable<Mapping> mappings) {
-    final Function1<Mapping, HashSet<Vocabulary>> _function = (Mapping m) -> {
-      return ModelAccess.vocabulariesUsed(m);
+  public static HashSet<PrefixHolder> prefixesUsed(final Mapping it) {
+    final HashSet<PrefixHolder> result = new HashSet<PrefixHolder>();
+    final Function1<SubjectTypeMapping, Vocabulary> _function = (SubjectTypeMapping m) -> {
+      return ModelAccess.vocabulary(m.getType());
     };
-    return IterableExtensions.<Vocabulary>toSet(Iterables.<Vocabulary>concat(IterableExtensions.<Mapping, HashSet<Vocabulary>>map(mappings, _function)));
+    result.addAll(ListExtensions.<SubjectTypeMapping, Vocabulary>map(it.getSubjectTypeMappings(), _function));
+    final Function1<PredicateObjectMapping, Vocabulary> _function_1 = (PredicateObjectMapping m) -> {
+      return ModelAccess.vocabulary(m.getProperty());
+    };
+    result.addAll(ListExtensions.<PredicateObjectMapping, Vocabulary>map(it.getPoMappings(), _function_1));
+    EList<PredicateObjectMapping> _poMappings = it.getPoMappings();
+    for (final PredicateObjectMapping poMapping : _poMappings) {
+      {
+        final ValuedTerm term = poMapping.getTerm();
+        if ((term instanceof ReferenceValuedTerm)) {
+          Datatype _datatype = ((ReferenceValuedTerm)term).getDatatype();
+          boolean _tripleNotEquals = (_datatype != null);
+          if (_tripleNotEquals) {
+            result.add(ModelAccess.datatypesDefinition(((ReferenceValuedTerm)term).getDatatype()));
+          }
+        }
+      }
+    }
+    return result;
   }
   
-  public static List<Vocabulary> inDeterministicOrder(final Iterable<Vocabulary> vocabularies) {
-    final Function1<Vocabulary, String> _function = (Vocabulary s) -> {
+  public static Set<PrefixHolder> prefixesUsed(final Iterable<Mapping> mappings) {
+    final Function1<Mapping, HashSet<PrefixHolder>> _function = (Mapping m) -> {
+      return ModelAccess.prefixesUsed(m);
+    };
+    return IterableExtensions.<PrefixHolder>toSet(Iterables.<PrefixHolder>concat(IterableExtensions.<Mapping, HashSet<PrefixHolder>>map(mappings, _function)));
+  }
+  
+  public static List<PrefixHolder> inDeterministicOrder(final Iterable<PrefixHolder> prefixHolders) {
+    final Function1<PrefixHolder, String> _function = (PrefixHolder s) -> {
       return s.getPrefix().getLabel();
     };
-    return IterableExtensions.<Vocabulary, String>sortBy(IterableExtensions.<Vocabulary>toList(IterableExtensions.<Vocabulary>toSet(vocabularies)), _function);
+    return IterableExtensions.<PrefixHolder, String>sortBy(IterableExtensions.<PrefixHolder>toList(IterableExtensions.<PrefixHolder>toSet(prefixHolders)), _function);
+  }
+  
+  public static DatatypesDefinition datatypesDefinition(final Datatype it) {
+    EObject _eContainer = it.eContainer();
+    return ((DatatypesDefinition) _eContainer);
   }
   
   public static Prefix prefix(final Datatype it) {
-    EObject _eContainer = it.eContainer();
-    return ((DatatypesDefinition) _eContainer).getPrefix();
+    return ModelAccess.datatypesDefinition(it).getPrefix();
   }
   
   public static String valueResolved(final Referenceable it) {

@@ -18,7 +18,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//SourceType/referenceFormulation"/>
     </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//DatatypesDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//DatatypesDefinition/prefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//DatatypesDefinition/types"/>
     </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//Datatype">
@@ -49,9 +48,11 @@
     </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//Vocabulary">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//Vocabulary/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Vocabulary/prefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Vocabulary/classes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//Vocabulary/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="RdfMapping.ecore#//PrefixHolder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RdfMapping.ecore#//PrefixHolder/prefix"/>
     </genClasses>
     <genClasses ecoreClass="RdfMapping.ecore#//Prefix">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RdfMapping.ecore#//Prefix/label"/>

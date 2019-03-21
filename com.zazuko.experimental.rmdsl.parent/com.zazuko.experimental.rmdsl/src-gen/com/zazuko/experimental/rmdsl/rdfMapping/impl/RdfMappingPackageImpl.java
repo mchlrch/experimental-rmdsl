@@ -15,6 +15,7 @@ import com.zazuko.experimental.rmdsl.rdfMapping.LogicalSource;
 import com.zazuko.experimental.rmdsl.rdfMapping.Mapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.PredicateObjectMapping;
 import com.zazuko.experimental.rmdsl.rdfMapping.Prefix;
+import com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfClass;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingFactory;
 import com.zazuko.experimental.rmdsl.rdfMapping.RdfMappingPackage;
@@ -127,6 +128,13 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * @generated
    */
   private EClass vocabularyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass prefixHolderEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -363,19 +371,9 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDatatypesDefinition_Prefix()
-  {
-    return (EReference)datatypesDefinitionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getDatatypesDefinition_Types()
   {
-    return (EReference)datatypesDefinitionEClass.getEStructuralFeatures().get(1);
+    return (EReference)datatypesDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -603,7 +601,7 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVocabulary_Prefix()
+  public EReference getVocabulary_Classes()
   {
     return (EReference)vocabularyEClass.getEStructuralFeatures().get(1);
   }
@@ -613,7 +611,7 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVocabulary_Classes()
+  public EReference getVocabulary_Properties()
   {
     return (EReference)vocabularyEClass.getEStructuralFeatures().get(2);
   }
@@ -623,9 +621,19 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVocabulary_Properties()
+  public EClass getPrefixHolder()
   {
-    return (EReference)vocabularyEClass.getEStructuralFeatures().get(3);
+    return prefixHolderEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrefixHolder_Prefix()
+  {
+    return (EReference)prefixHolderEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -991,7 +999,6 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     createEAttribute(sourceTypeEClass, SOURCE_TYPE__REFERENCE_FORMULATION);
 
     datatypesDefinitionEClass = createEClass(DATATYPES_DEFINITION);
-    createEReference(datatypesDefinitionEClass, DATATYPES_DEFINITION__PREFIX);
     createEReference(datatypesDefinitionEClass, DATATYPES_DEFINITION__TYPES);
 
     datatypeEClass = createEClass(DATATYPE);
@@ -1022,9 +1029,11 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
 
     vocabularyEClass = createEClass(VOCABULARY);
     createEAttribute(vocabularyEClass, VOCABULARY__NAME);
-    createEReference(vocabularyEClass, VOCABULARY__PREFIX);
     createEReference(vocabularyEClass, VOCABULARY__CLASSES);
     createEReference(vocabularyEClass, VOCABULARY__PROPERTIES);
+
+    prefixHolderEClass = createEClass(PREFIX_HOLDER);
+    createEReference(prefixHolderEClass, PREFIX_HOLDER__PREFIX);
 
     prefixEClass = createEClass(PREFIX);
     createEAttribute(prefixEClass, PREFIX__LABEL);
@@ -1100,11 +1109,12 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
 
     // Add supertypes to classes
     sourceTypesDefinitionEClass.getESuperTypes().add(this.getElement());
-    datatypesDefinitionEClass.getESuperTypes().add(this.getElement());
+    datatypesDefinitionEClass.getESuperTypes().add(this.getPrefixHolder());
     languageTagDefinitionEClass.getESuperTypes().add(this.getElement());
     sourceGroupEClass.getESuperTypes().add(this.getElement());
     logicalSourceEClass.getESuperTypes().add(this.getElement());
-    vocabularyEClass.getESuperTypes().add(this.getElement());
+    vocabularyEClass.getESuperTypes().add(this.getPrefixHolder());
+    prefixHolderEClass.getESuperTypes().add(this.getElement());
     mappingEClass.getESuperTypes().add(this.getElement());
     referenceValuedTermEClass.getESuperTypes().add(this.getValuedTerm());
     templateValuedTermEClass.getESuperTypes().add(this.getValuedTerm());
@@ -1125,7 +1135,6 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
     initEAttribute(getSourceType_ReferenceFormulation(), ecorePackage.getEString(), "referenceFormulation", null, 0, 1, SourceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(datatypesDefinitionEClass, DatatypesDefinition.class, "DatatypesDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDatatypesDefinition_Prefix(), this.getPrefix(), null, "prefix", null, 0, 1, DatatypesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDatatypesDefinition_Types(), this.getDatatype(), null, "types", null, 0, -1, DatatypesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(datatypeEClass, Datatype.class, "Datatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1156,9 +1165,11 @@ public class RdfMappingPackageImpl extends EPackageImpl implements RdfMappingPac
 
     initEClass(vocabularyEClass, Vocabulary.class, "Vocabulary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVocabulary_Name(), ecorePackage.getEString(), "name", null, 0, 1, Vocabulary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVocabulary_Prefix(), this.getPrefix(), null, "prefix", null, 0, 1, Vocabulary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVocabulary_Classes(), this.getRdfClass(), null, "classes", null, 0, -1, Vocabulary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVocabulary_Properties(), this.getRdfProperty(), null, "properties", null, 0, -1, Vocabulary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(prefixHolderEClass, PrefixHolder.class, "PrefixHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPrefixHolder_Prefix(), this.getPrefix(), null, "prefix", null, 0, 1, PrefixHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(prefixEClass, Prefix.class, "Prefix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrefix_Label(), ecorePackage.getEString(), "label", null, 0, 1, Prefix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

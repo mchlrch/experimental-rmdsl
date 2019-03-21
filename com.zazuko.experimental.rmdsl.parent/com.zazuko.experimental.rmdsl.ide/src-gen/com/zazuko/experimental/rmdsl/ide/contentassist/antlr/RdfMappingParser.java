@@ -32,6 +32,7 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, RdfMappingGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
+			builder.put(grammarAccess.getPrefixHolderAccess().getAlternatives(), "rule__PrefixHolder__Alternatives");
 			builder.put(grammarAccess.getValuedTermAccess().getAlternatives(), "rule__ValuedTerm__Alternatives");
 			builder.put(grammarAccess.getReferenceValuedTermAccess().getAlternatives_2(), "rule__ReferenceValuedTerm__Alternatives_2");
 			builder.put(grammarAccess.getSourceTypesDefinitionAccess().getGroup(), "rule__SourceTypesDefinition__Group__0");

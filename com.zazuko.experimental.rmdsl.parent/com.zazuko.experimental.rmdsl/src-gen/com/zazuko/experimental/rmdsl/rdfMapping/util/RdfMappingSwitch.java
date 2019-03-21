@@ -106,6 +106,7 @@ public class RdfMappingSwitch<T> extends Switch<T>
       {
         DatatypesDefinition datatypesDefinition = (DatatypesDefinition)theEObject;
         T result = caseDatatypesDefinition(datatypesDefinition);
+        if (result == null) result = casePrefixHolder(datatypesDefinition);
         if (result == null) result = caseElement(datatypesDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -159,7 +160,16 @@ public class RdfMappingSwitch<T> extends Switch<T>
       {
         Vocabulary vocabulary = (Vocabulary)theEObject;
         T result = caseVocabulary(vocabulary);
+        if (result == null) result = casePrefixHolder(vocabulary);
         if (result == null) result = caseElement(vocabulary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RdfMappingPackage.PREFIX_HOLDER:
+      {
+        PrefixHolder prefixHolder = (PrefixHolder)theEObject;
+        T result = casePrefixHolder(prefixHolder);
+        if (result == null) result = caseElement(prefixHolder);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -437,6 +447,22 @@ public class RdfMappingSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseVocabulary(Vocabulary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Prefix Holder</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Prefix Holder</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrefixHolder(PrefixHolder object)
   {
     return null;
   }

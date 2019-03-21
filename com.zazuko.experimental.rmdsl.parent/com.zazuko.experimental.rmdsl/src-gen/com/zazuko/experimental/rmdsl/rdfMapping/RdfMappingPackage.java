@@ -170,6 +170,34 @@ public interface RdfMappingPackage extends EPackage
   int SOURCE_TYPE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixHolderImpl <em>Prefix Holder</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixHolderImpl
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPrefixHolder()
+   * @generated
+   */
+  int PREFIX_HOLDER = 12;
+
+  /**
+   * The feature id for the '<em><b>Prefix</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREFIX_HOLDER__PREFIX = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Prefix Holder</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREFIX_HOLDER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypesDefinitionImpl <em>Datatypes Definition</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -186,7 +214,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATATYPES_DEFINITION__PREFIX = ELEMENT_FEATURE_COUNT + 0;
+  int DATATYPES_DEFINITION__PREFIX = PREFIX_HOLDER__PREFIX;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -195,7 +223,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATATYPES_DEFINITION__TYPES = ELEMENT_FEATURE_COUNT + 1;
+  int DATATYPES_DEFINITION__TYPES = PREFIX_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Datatypes Definition</em>' class.
@@ -204,7 +232,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATATYPES_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+  int DATATYPES_DEFINITION_FEATURE_COUNT = PREFIX_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.DatatypeImpl <em>Datatype</em>}' class.
@@ -457,22 +485,22 @@ public interface RdfMappingPackage extends EPackage
   int VOCABULARY = 11;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VOCABULARY__NAME = ELEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Prefix</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VOCABULARY__PREFIX = ELEMENT_FEATURE_COUNT + 1;
+  int VOCABULARY__PREFIX = PREFIX_HOLDER__PREFIX;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VOCABULARY__NAME = PREFIX_HOLDER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Classes</b></em>' containment reference list.
@@ -481,7 +509,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VOCABULARY__CLASSES = ELEMENT_FEATURE_COUNT + 2;
+  int VOCABULARY__CLASSES = PREFIX_HOLDER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -490,7 +518,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VOCABULARY__PROPERTIES = ELEMENT_FEATURE_COUNT + 3;
+  int VOCABULARY__PROPERTIES = PREFIX_HOLDER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Vocabulary</em>' class.
@@ -499,7 +527,7 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VOCABULARY_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+  int VOCABULARY_FEATURE_COUNT = PREFIX_HOLDER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixImpl <em>Prefix</em>}' class.
@@ -509,7 +537,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPrefix()
    * @generated
    */
-  int PREFIX = 12;
+  int PREFIX = 13;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -546,7 +574,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getRdfProperty()
    * @generated
    */
-  int RDF_PROPERTY = 13;
+  int RDF_PROPERTY = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -574,7 +602,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getRdfClass()
    * @generated
    */
-  int RDF_CLASS = 14;
+  int RDF_CLASS = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -602,7 +630,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getMapping()
    * @generated
    */
-  int MAPPING = 15;
+  int MAPPING = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -675,7 +703,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getSubjectTypeMapping()
    * @generated
    */
-  int SUBJECT_TYPE_MAPPING = 16;
+  int SUBJECT_TYPE_MAPPING = 17;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -703,7 +731,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPredicateObjectMapping()
    * @generated
    */
-  int PREDICATE_OBJECT_MAPPING = 17;
+  int PREDICATE_OBJECT_MAPPING = 18;
 
   /**
    * The feature id for the '<em><b>Property</b></em>' reference.
@@ -740,7 +768,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getValuedTerm()
    * @generated
    */
-  int VALUED_TERM = 18;
+  int VALUED_TERM = 19;
 
   /**
    * The number of structural features of the '<em>Valued Term</em>' class.
@@ -759,7 +787,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getReferenceValuedTerm()
    * @generated
    */
-  int REFERENCE_VALUED_TERM = 19;
+  int REFERENCE_VALUED_TERM = 20;
 
   /**
    * The feature id for the '<em><b>Reference</b></em>' reference.
@@ -805,7 +833,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getTemplateValuedTerm()
    * @generated
    */
-  int TEMPLATE_VALUED_TERM = 20;
+  int TEMPLATE_VALUED_TERM = 21;
 
   /**
    * The feature id for the '<em><b>Template</b></em>' attribute.
@@ -842,7 +870,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getLinkedResourceTerm()
    * @generated
    */
-  int LINKED_RESOURCE_TERM = 21;
+  int LINKED_RESOURCE_TERM = 22;
 
   /**
    * The feature id for the '<em><b>Mapping</b></em>' reference.
@@ -879,7 +907,7 @@ public interface RdfMappingPackage extends EPackage
    * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getImport()
    * @generated
    */
-  int IMPORT = 22;
+  int IMPORT = 23;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -993,17 +1021,6 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    */
   EClass getDatatypesDefinition();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getPrefix <em>Prefix</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Prefix</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getPrefix()
-   * @see #getDatatypesDefinition()
-   * @generated
-   */
-  EReference getDatatypesDefinition_Prefix();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.DatatypesDefinition#getTypes <em>Types</em>}'.
@@ -1252,17 +1269,6 @@ public interface RdfMappingPackage extends EPackage
   EAttribute getVocabulary_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getPrefix <em>Prefix</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Prefix</em>'.
-   * @see com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getPrefix()
-   * @see #getVocabulary()
-   * @generated
-   */
-  EReference getVocabulary_Prefix();
-
-  /**
    * Returns the meta object for the containment reference list '{@link com.zazuko.experimental.rmdsl.rdfMapping.Vocabulary#getClasses <em>Classes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1283,6 +1289,27 @@ public interface RdfMappingPackage extends EPackage
    * @generated
    */
   EReference getVocabulary_Properties();
+
+  /**
+   * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder <em>Prefix Holder</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Prefix Holder</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder
+   * @generated
+   */
+  EClass getPrefixHolder();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder#getPrefix <em>Prefix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Prefix</em>'.
+   * @see com.zazuko.experimental.rmdsl.rdfMapping.PrefixHolder#getPrefix()
+   * @see #getPrefixHolder()
+   * @generated
+   */
+  EReference getPrefixHolder_Prefix();
 
   /**
    * Returns the meta object for class '{@link com.zazuko.experimental.rmdsl.rdfMapping.Prefix <em>Prefix</em>}'.
@@ -1731,14 +1758,6 @@ public interface RdfMappingPackage extends EPackage
     EClass DATATYPES_DEFINITION = eINSTANCE.getDatatypesDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Prefix</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DATATYPES_DEFINITION__PREFIX = eINSTANCE.getDatatypesDefinition_Prefix();
-
-    /**
      * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1937,14 +1956,6 @@ public interface RdfMappingPackage extends EPackage
     EAttribute VOCABULARY__NAME = eINSTANCE.getVocabulary_Name();
 
     /**
-     * The meta object literal for the '<em><b>Prefix</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VOCABULARY__PREFIX = eINSTANCE.getVocabulary_Prefix();
-
-    /**
      * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1959,6 +1970,24 @@ public interface RdfMappingPackage extends EPackage
      * @generated
      */
     EReference VOCABULARY__PROPERTIES = eINSTANCE.getVocabulary_Properties();
+
+    /**
+     * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixHolderImpl <em>Prefix Holder</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixHolderImpl
+     * @see com.zazuko.experimental.rmdsl.rdfMapping.impl.RdfMappingPackageImpl#getPrefixHolder()
+     * @generated
+     */
+    EClass PREFIX_HOLDER = eINSTANCE.getPrefixHolder();
+
+    /**
+     * The meta object literal for the '<em><b>Prefix</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PREFIX_HOLDER__PREFIX = eINSTANCE.getPrefixHolder_Prefix();
 
     /**
      * The meta object literal for the '{@link com.zazuko.experimental.rmdsl.rdfMapping.impl.PrefixImpl <em>Prefix</em>}' class.
