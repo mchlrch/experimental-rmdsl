@@ -4,8 +4,10 @@
 package com.zazuko.experimental.rmdsl.ui;
 
 import com.zazuko.experimental.rmdsl.ui.AbstractRdfMappingUiModule;
+import com.zazuko.experimental.rmdsl.ui.contentassist.RdfMappingPrefixMatcher;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
+import org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -13,6 +15,11 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class RdfMappingUiModule extends AbstractRdfMappingUiModule {
+  @Override
+  public Class<? extends PrefixMatcher> bindPrefixMatcher() {
+    return RdfMappingPrefixMatcher.class;
+  }
+  
   public RdfMappingUiModule(final AbstractUIPlugin plugin) {
     super(plugin);
   }

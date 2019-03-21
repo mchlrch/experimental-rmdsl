@@ -3,11 +3,17 @@
  */
 package com.zazuko.experimental.rmdsl.ui
 
+import com.zazuko.experimental.rmdsl.ui.contentassist.RdfMappingPrefixMatcher
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
+import org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 class RdfMappingUiModule extends AbstractRdfMappingUiModule {
+	
+	override Class<? extends PrefixMatcher> bindPrefixMatcher() {
+		return RdfMappingPrefixMatcher;
+	}
 }
