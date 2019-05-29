@@ -555,20 +555,16 @@ ruleSourceGroup returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_5=';'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getSourceGroupAccess().getSemicolonKeyword_5());
-		}
 		(
-			otherlv_6='source'
+			otherlv_5='source'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getSourceGroupAccess().getSourceKeyword_6_0());
+				newLeafNode(otherlv_5, grammarAccess.getSourceGroupAccess().getSourceKeyword_5_0());
 			}
 			(
 				(
-					lv_source_7_0=RULE_STRING
+					lv_source_6_0=RULE_STRING
 					{
-						newLeafNode(lv_source_7_0, grammarAccess.getSourceGroupAccess().getSourceSTRINGTerminalRuleCall_6_1_0());
+						newLeafNode(lv_source_6_0, grammarAccess.getSourceGroupAccess().getSourceSTRINGTerminalRuleCall_5_1_0());
 					}
 					{
 						if ($current==null) {
@@ -577,22 +573,18 @@ ruleSourceGroup returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"source",
-							lv_source_7_0,
+							lv_source_6_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
-			otherlv_8=';'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getSourceGroupAccess().getSemicolonKeyword_6_2());
-			}
 		)?
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSourceGroupAccess().getLogicalSourcesLogicalSourceParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getSourceGroupAccess().getLogicalSourcesLogicalSourceParserRuleCall_6_0());
 				}
-				lv_logicalSources_9_0=ruleLogicalSource
+				lv_logicalSources_7_0=ruleLogicalSource
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSourceGroupRule());
@@ -600,15 +592,15 @@ ruleSourceGroup returns [EObject current=null]
 					add(
 						$current,
 						"logicalSources",
-						lv_logicalSources_9_0,
+						lv_logicalSources_7_0,
 						"com.zazuko.experimental.rmdsl.RdfMapping.LogicalSource");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_10='}'
+		otherlv_8='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getSourceGroupAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_8, grammarAccess.getSourceGroupAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -673,21 +665,17 @@ ruleLogicalSource returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_5=';'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getLogicalSourceAccess().getSemicolonKeyword_3_2());
-			}
 		)?
 		(
-			otherlv_6='source'
+			otherlv_5='source'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getLogicalSourceAccess().getSourceKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getLogicalSourceAccess().getSourceKeyword_4_0());
 			}
 			(
 				(
-					lv_source_7_0=RULE_STRING
+					lv_source_6_0=RULE_STRING
 					{
-						newLeafNode(lv_source_7_0, grammarAccess.getLogicalSourceAccess().getSourceSTRINGTerminalRuleCall_4_1_0());
+						newLeafNode(lv_source_6_0, grammarAccess.getLogicalSourceAccess().getSourceSTRINGTerminalRuleCall_4_1_0());
 					}
 					{
 						if ($current==null) {
@@ -696,26 +684,22 @@ ruleLogicalSource returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"source",
-							lv_source_7_0,
+							lv_source_6_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
-			otherlv_8=';'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getLogicalSourceAccess().getSemicolonKeyword_4_2());
-			}
 		)?
 		(
-			otherlv_9='iterator'
+			otherlv_7='iterator'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getLogicalSourceAccess().getIteratorKeyword_5_0());
+				newLeafNode(otherlv_7, grammarAccess.getLogicalSourceAccess().getIteratorKeyword_5_0());
 			}
 			(
 				(
-					lv_iterator_10_0=RULE_STRING
+					lv_iterator_8_0=RULE_STRING
 					{
-						newLeafNode(lv_iterator_10_0, grammarAccess.getLogicalSourceAccess().getIteratorSTRINGTerminalRuleCall_5_1_0());
+						newLeafNode(lv_iterator_8_0, grammarAccess.getLogicalSourceAccess().getIteratorSTRINGTerminalRuleCall_5_1_0());
 					}
 					{
 						if ($current==null) {
@@ -724,30 +708,26 @@ ruleLogicalSource returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"iterator",
-							lv_iterator_10_0,
+							lv_iterator_8_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
-			otherlv_11=';'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getLogicalSourceAccess().getSemicolonKeyword_5_2());
-			}
 		)?
-		otherlv_12='referenceables'
+		otherlv_9='referenceables'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getLogicalSourceAccess().getReferenceablesKeyword_6());
+			newLeafNode(otherlv_9, grammarAccess.getLogicalSourceAccess().getReferenceablesKeyword_6());
 		}
-		otherlv_13='{'
+		otherlv_10='{'
 		{
-			newLeafNode(otherlv_13, grammarAccess.getLogicalSourceAccess().getLeftCurlyBracketKeyword_7());
+			newLeafNode(otherlv_10, grammarAccess.getLogicalSourceAccess().getLeftCurlyBracketKeyword_7());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getLogicalSourceAccess().getReferencablesReferenceableParserRuleCall_8_0());
 				}
-				lv_referencables_14_0=ruleReferenceable
+				lv_referencables_11_0=ruleReferenceable
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLogicalSourceRule());
@@ -755,19 +735,19 @@ ruleLogicalSource returns [EObject current=null]
 					add(
 						$current,
 						"referencables",
-						lv_referencables_14_0,
+						lv_referencables_11_0,
 						"com.zazuko.experimental.rmdsl.RdfMapping.Referenceable");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_15='}'
+		otherlv_12='}'
 		{
-			newLeafNode(otherlv_15, grammarAccess.getLogicalSourceAccess().getRightCurlyBracketKeyword_9());
+			newLeafNode(otherlv_12, grammarAccess.getLogicalSourceAccess().getRightCurlyBracketKeyword_9());
 		}
-		otherlv_16='}'
+		otherlv_13='}'
 		{
-			newLeafNode(otherlv_16, grammarAccess.getLogicalSourceAccess().getRightCurlyBracketKeyword_10());
+			newLeafNode(otherlv_13, grammarAccess.getLogicalSourceAccess().getRightCurlyBracketKeyword_10());
 		}
 	)
 ;
@@ -912,22 +892,18 @@ ruleVocabulary returns [EObject current=null]
 					}
 				)
 			)*
-			otherlv_6=';'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getVocabularyAccess().getSemicolonKeyword_4_2());
-			}
 		)?
 		(
-			otherlv_7='properties'
+			otherlv_6='properties'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getVocabularyAccess().getPropertiesKeyword_5_0());
+				newLeafNode(otherlv_6, grammarAccess.getVocabularyAccess().getPropertiesKeyword_5_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getVocabularyAccess().getPropertiesRdfPropertyParserRuleCall_5_1_0());
 					}
-					lv_properties_8_0=ruleRdfProperty
+					lv_properties_7_0=ruleRdfProperty
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getVocabularyRule());
@@ -935,20 +911,16 @@ ruleVocabulary returns [EObject current=null]
 						add(
 							$current,
 							"properties",
-							lv_properties_8_0,
+							lv_properties_7_0,
 							"com.zazuko.experimental.rmdsl.RdfMapping.RdfProperty");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
-			otherlv_9=';'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getVocabularyAccess().getSemicolonKeyword_5_2());
-			}
 		)?
-		otherlv_10='}'
+		otherlv_8='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getVocabularyAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_8, grammarAccess.getVocabularyAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -1045,10 +1017,6 @@ rulePrefix returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_3=';'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getPrefixAccess().getSemicolonKeyword_3());
-		}
 	)
 ;
 

@@ -1,9 +1,9 @@
 source-group eCH0071 {
-	type xml;
-    source "input/eCH0071/eCH0071_170402.xml";
+	type xml
+    source "input/eCH0071/eCH0071_170402.xml"
 
     logical-source municipalities {
-        iterator "/eCH-0071:nomenclature/municipalities/municipality";
+        iterator "/eCH-0071:nomenclature/municipalities/municipality"
 
         referenceables {
             historyMunicipalityId "/municipality/historyMunicipalityId"
@@ -16,7 +16,7 @@ source-group eCH0071 {
     }
 
     logical-source districts {
-        iterator "/eCH-0071:nomenclature/districts/district";
+        iterator "/eCH-0071:nomenclature/districts/district"
 
         referenceables {
             districtAdmissionDate "/district/districtAdmissionDate"

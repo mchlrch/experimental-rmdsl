@@ -1,8 +1,8 @@
 source-group WSD_STABS_SCP_ARCHIV_DBA {
-	type rdb;
+	type rdb
 
     logical-source RECS_rico {
-        source "WSD_STABS_SCP_ARCHIV_DBA.RECS_rico";
+        source "WSD_STABS_SCP_ARCHIV_DBA.RECS_rico"
 
         referenceables {
             P2 "RIC_P2"
@@ -22,7 +22,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
     }
     
     logical-source DESCRIPTORS {
-    	source "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS";
+    	source "WSD_STABS_SCP_ARCHIV_DBA.DESCRIPTORS"
     	
     	referenceables {
     		ID "DESC_ID"

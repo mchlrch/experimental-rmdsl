@@ -273,24 +273,22 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cTypeSourceTypeCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
 		private final RuleCall cTypeSourceTypeIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeSourceTypeCrossReference_4_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cSourceKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cSourceAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cSourceSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cSourceAssignment_6_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Assignment cLogicalSourcesAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cLogicalSourcesLogicalSourceParserRuleCall_7_0 = (RuleCall)cLogicalSourcesAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cSourceKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cSourceAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cSourceSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cSourceAssignment_5_1.eContents().get(0);
+		private final Assignment cLogicalSourcesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cLogicalSourcesLogicalSourceParserRuleCall_6_0 = (RuleCall)cLogicalSourcesAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//SourceGroup:
 		//	'source-group' name=ID '{'
-		//	'type' type=[SourceType] ';' ('source' source=STRING ';')?
+		//	'type' type=[SourceType] ('source' source=STRING)?
 		//	logicalSources+=LogicalSource*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'source-group' name=ID '{' 'type' type=[SourceType] ';' ('source' source=STRING ';')? logicalSources+=LogicalSource* '}'
+		//'source-group' name=ID '{' 'type' type=[SourceType] ('source' source=STRING)? logicalSources+=LogicalSource* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'source-group'
@@ -317,32 +315,26 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getTypeSourceTypeIDTerminalRuleCall_4_0_1() { return cTypeSourceTypeIDTerminalRuleCall_4_0_1; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
-		
-		//('source' source=STRING ';')?
-		public Group getGroup_6() { return cGroup_6; }
+		//('source' source=STRING)?
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//'source'
-		public Keyword getSourceKeyword_6_0() { return cSourceKeyword_6_0; }
+		public Keyword getSourceKeyword_5_0() { return cSourceKeyword_5_0; }
 		
 		//source=STRING
-		public Assignment getSourceAssignment_6_1() { return cSourceAssignment_6_1; }
+		public Assignment getSourceAssignment_5_1() { return cSourceAssignment_5_1; }
 		
 		//STRING
-		public RuleCall getSourceSTRINGTerminalRuleCall_6_1_0() { return cSourceSTRINGTerminalRuleCall_6_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_6_2() { return cSemicolonKeyword_6_2; }
+		public RuleCall getSourceSTRINGTerminalRuleCall_5_1_0() { return cSourceSTRINGTerminalRuleCall_5_1_0; }
 		
 		//logicalSources+=LogicalSource*
-		public Assignment getLogicalSourcesAssignment_7() { return cLogicalSourcesAssignment_7; }
+		public Assignment getLogicalSourcesAssignment_6() { return cLogicalSourcesAssignment_6; }
 		
 		//LogicalSource
-		public RuleCall getLogicalSourcesLogicalSourceParserRuleCall_7_0() { return cLogicalSourcesLogicalSourceParserRuleCall_7_0; }
+		public RuleCall getLogicalSourcesLogicalSourceParserRuleCall_6_0() { return cLogicalSourcesLogicalSourceParserRuleCall_6_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class LogicalSourceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.LogicalSource");
@@ -356,17 +348,14 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final CrossReference cTypeSourceTypeCrossReference_3_1_0 = (CrossReference)cTypeAssignment_3_1.eContents().get(0);
 		private final RuleCall cTypeSourceTypeIDTerminalRuleCall_3_1_0_1 = (RuleCall)cTypeSourceTypeCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cSourceKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cSourceAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cSourceSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cSourceAssignment_4_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIteratorKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIteratorAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cIteratorSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cIteratorAssignment_5_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
 		private final Keyword cReferenceablesKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cReferencablesAssignment_8 = (Assignment)cGroup.eContents().get(8);
@@ -375,16 +364,15 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//LogicalSource:
-		//	'logical-source' name=ID '{' ('type' type=[SourceType] ';')? ('source' source=STRING ';')? ('iterator' iterator=STRING
-		//	';')?
+		//	'logical-source' name=ID '{' ('type' type=[SourceType])? ('source' source=STRING)? ('iterator' iterator=STRING)?
 		//	'referenceables' '{'
 		//	referencables+=Referenceable*
 		//	'}'
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'logical-source' name=ID '{' ('type' type=[SourceType] ';')? ('source' source=STRING ';')? ('iterator' iterator=STRING
-		//';')? 'referenceables' '{' referencables+=Referenceable* '}' '}'
+		//'logical-source' name=ID '{' ('type' type=[SourceType])? ('source' source=STRING)? ('iterator' iterator=STRING)?
+		//'referenceables' '{' referencables+=Referenceable* '}' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'logical-source'
@@ -399,7 +387,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('type' type=[SourceType] ';')?
+		//('type' type=[SourceType])?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'type'
@@ -414,10 +402,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getTypeSourceTypeIDTerminalRuleCall_3_1_0_1() { return cTypeSourceTypeIDTerminalRuleCall_3_1_0_1; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
-		
-		//('source' source=STRING ';')?
+		//('source' source=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'source'
@@ -429,10 +414,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getSourceSTRINGTerminalRuleCall_4_1_0() { return cSourceSTRINGTerminalRuleCall_4_1_0; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_4_2() { return cSemicolonKeyword_4_2; }
-		
-		//('iterator' iterator=STRING ';')?
+		//('iterator' iterator=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'iterator'
@@ -443,9 +425,6 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getIteratorSTRINGTerminalRuleCall_5_1_0() { return cIteratorSTRINGTerminalRuleCall_5_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_5_2() { return cSemicolonKeyword_5_2; }
 		
 		//'referenceables'
 		public Keyword getReferenceablesKeyword_6() { return cReferenceablesKeyword_6; }
@@ -505,22 +484,19 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cClassesKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cClassesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cClassesRdfClassParserRuleCall_4_1_0 = (RuleCall)cClassesAssignment_4_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cPropertiesKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cPropertiesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cPropertiesRdfPropertyParserRuleCall_5_1_0 = (RuleCall)cPropertiesAssignment_5_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Vocabulary:
 		//	'vocabulary' name=ID '{'
-		//	prefix=Prefix ('classes' classes+=RdfClass* ';')? ('properties' properties+=RdfProperty* ';')?
+		//	prefix=Prefix ('classes' classes+=RdfClass*)? ('properties' properties+=RdfProperty*)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'vocabulary' name=ID '{' prefix=Prefix ('classes' classes+=RdfClass* ';')? ('properties' properties+=RdfProperty* ';')?
-		//'}'
+		//'vocabulary' name=ID '{' prefix=Prefix ('classes' classes+=RdfClass*)? ('properties' properties+=RdfProperty*)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'vocabulary'
@@ -541,7 +517,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//Prefix
 		public RuleCall getPrefixPrefixParserRuleCall_3_0() { return cPrefixPrefixParserRuleCall_3_0; }
 		
-		//('classes' classes+=RdfClass* ';')?
+		//('classes' classes+=RdfClass*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'classes'
@@ -553,10 +529,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//RdfClass
 		public RuleCall getClassesRdfClassParserRuleCall_4_1_0() { return cClassesRdfClassParserRuleCall_4_1_0; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_4_2() { return cSemicolonKeyword_4_2; }
-		
-		//('properties' properties+=RdfProperty* ';')?
+		//('properties' properties+=RdfProperty*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'properties'
@@ -567,9 +540,6 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//RdfProperty
 		public RuleCall getPropertiesRdfPropertyParserRuleCall_5_1_0() { return cPropertiesRdfPropertyParserRuleCall_5_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_5_2() { return cSemicolonKeyword_5_2; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -601,13 +571,12 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLabelSTRINGTerminalRuleCall_1_0 = (RuleCall)cLabelAssignment_1.eContents().get(0);
 		private final Assignment cIriAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cIriSTRINGTerminalRuleCall_2_0 = (RuleCall)cIriAssignment_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Prefix:
-		//	'prefix' label=STRING iri=STRING ';';
+		//	'prefix' label=STRING iri=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'prefix' label=STRING iri=STRING ';'
+		//'prefix' label=STRING iri=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'prefix'
@@ -624,9 +593,6 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getIriSTRINGTerminalRuleCall_2_0() { return cIriSTRINGTerminalRuleCall_2_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 	public class RdfPropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.RdfProperty");
@@ -1266,7 +1232,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//SourceGroup:
 	//	'source-group' name=ID '{'
-	//	'type' type=[SourceType] ';' ('source' source=STRING ';')?
+	//	'type' type=[SourceType] ('source' source=STRING)?
 	//	logicalSources+=LogicalSource*
 	//	'}';
 	public SourceGroupElements getSourceGroupAccess() {
@@ -1278,8 +1244,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LogicalSource:
-	//	'logical-source' name=ID '{' ('type' type=[SourceType] ';')? ('source' source=STRING ';')? ('iterator' iterator=STRING
-	//	';')?
+	//	'logical-source' name=ID '{' ('type' type=[SourceType])? ('source' source=STRING)? ('iterator' iterator=STRING)?
 	//	'referenceables' '{'
 	//	referencables+=Referenceable*
 	//	'}'
@@ -1304,7 +1269,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Vocabulary:
 	//	'vocabulary' name=ID '{'
-	//	prefix=Prefix ('classes' classes+=RdfClass* ';')? ('properties' properties+=RdfProperty* ';')?
+	//	prefix=Prefix ('classes' classes+=RdfClass*)? ('properties' properties+=RdfProperty*)?
 	//	'}';
 	public VocabularyElements getVocabularyAccess() {
 		return pVocabulary;
@@ -1325,7 +1290,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Prefix:
-	//	'prefix' label=STRING iri=STRING ';';
+	//	'prefix' label=STRING iri=STRING;
 	public PrefixElements getPrefixAccess() {
 		return pPrefix;
 	}

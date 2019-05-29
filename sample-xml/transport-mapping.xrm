@@ -1,9 +1,9 @@
 //http://rml.io/spec.html#example-XML
 
 logical-source transport {
-	type xml;
-	source "http://www.example.com/Transport.xml";
-    iterator "/transport/bus";
+	type xml
+	source "http://www.example.com/Transport.xml"
+    iterator "/transport/bus"
 
 	referenceables {
 		busId "/transport/bus@id"
@@ -13,19 +13,19 @@ logical-source transport {
 }
 
 datatypes {
-	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#";
+	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#"
 	int
 }
 
 vocabulary transit {
-	prefix "transit:" "http://vocab.org/transit/terms/";	
-	classes Stop;
-	properties stop;
+	prefix "transit:" "http://vocab.org/transit/terms/"	
+	classes Stop
+	properties stop
 }
 
 vocabulary rdfs {
-	prefix "rdfs:" "http://www.w3.org/2000/01/rdf-schema#";
-	properties label;
+	prefix "rdfs:" "http://www.w3.org/2000/01/rdf-schema#"
+	properties label
 }
 
 map TransportMapping from transport {
@@ -34,6 +34,6 @@ map TransportMapping from transport {
 	types transit.Stop
 		
 	properties
-	transit.stop from stopId with datatype int 
-	rdfs.label from stop	
+	transit.stop from stopId with datatype int
+	rdfs.label from stop
 }

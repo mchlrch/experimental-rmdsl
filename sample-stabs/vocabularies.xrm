@@ -3,20 +3,20 @@ language-tags {
 }
 
 vocabulary skos {
-	prefix "skos:" "http://www.w3.org/2004/02/skos/core#";	
+	prefix "skos:" "http://www.w3.org/2004/02/skos/core#"
 	classes
-		Concept;
+		Concept
 		
 	properties
 		notation
 		prefLabel
-		inScheme;	
+		inScheme	
 }
 
 vocabulary ric {
-    prefix "ric:" "http://www.ica.org/standards/RiC/ontology#";
+    prefix "ric:" "http://www.ica.org/standards/RiC/ontology#"
     classes
-    	RecordSet;
+    	RecordSet
     	
     properties
     	title
@@ -24,13 +24,13 @@ vocabulary ric {
     	contentType
     	qualityOfInformation
     	date
-    	characteristic_Physical;
+    	characteristic_Physical
 		// TODO '-' in IDs -> characteristic-Physical    
 }
 
 vocabulary stabs {
-	prefix "stabs:" "http://data.staatsarchiv-bs.ch/vocab/";	
+	prefix "stabs:" "http://data.staatsarchiv-bs.ch/vocab/"	
 	properties
 		approval
-		retentionPeriod;
+		retentionPeriod
 }

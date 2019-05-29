@@ -1,8 +1,8 @@
 // http://rml.io/spec.html#example-CSV
 
 logical-source airport {
-	type csv;
-	source "http://www.example.com/Airport.csv";
+	type csv
+	source "http://www.example.com/Airport.csv"
 	
 	referenceables {
 		id "id"

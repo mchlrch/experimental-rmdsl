@@ -36,16 +36,16 @@ LanguageTag:
   
 SourceGroup:
     'source-group' name=ID '{'
-    	'type' type=[SourceType] ';'
-    	('source' source=STRING ';')?
+    	'type' type=[SourceType]
+    	('source' source=STRING)?
     	(logicalSources+=LogicalSource)*
     '}';
     
 LogicalSource:
 	'logical-source' name=ID '{'
-		('type' type=[SourceType] ';')?
-		('source' source=STRING ';')?
-		('iterator' iterator=STRING ';')?
+		('type' type=[SourceType])?
+		('source' source=STRING)?
+		('iterator' iterator=STRING)?
 		'referenceables' '{'
 			(referencables+=Referenceable)*
 	    '}'
@@ -57,15 +57,15 @@ Referenceable:
 Vocabulary:	
 	'vocabulary' name=ID '{'
     	prefix=Prefix
-		('classes' (classes+=RdfClass)* ';')?
-	    ('properties' (properties+=RdfProperty)* ';')?	
+		('classes' (classes+=RdfClass)*)?
+	    ('properties' (properties+=RdfProperty)*)?	
     '}';
    
 PrefixHolder:
     DatatypesDefinition | Vocabulary;   
     
 Prefix:
-	'prefix' label=STRING iri=STRING ';';
+	'prefix' label=STRING iri=STRING;
     
 RdfProperty:
 	name=ID;

@@ -40,7 +40,7 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDatatypesDefinitionAccess().getGroup(), "rule__DatatypesDefinition__Group__0");
 			builder.put(grammarAccess.getLanguageTagDefinitionAccess().getGroup(), "rule__LanguageTagDefinition__Group__0");
 			builder.put(grammarAccess.getSourceGroupAccess().getGroup(), "rule__SourceGroup__Group__0");
-			builder.put(grammarAccess.getSourceGroupAccess().getGroup_6(), "rule__SourceGroup__Group_6__0");
+			builder.put(grammarAccess.getSourceGroupAccess().getGroup_5(), "rule__SourceGroup__Group_5__0");
 			builder.put(grammarAccess.getLogicalSourceAccess().getGroup(), "rule__LogicalSource__Group__0");
 			builder.put(grammarAccess.getLogicalSourceAccess().getGroup_3(), "rule__LogicalSource__Group_3__0");
 			builder.put(grammarAccess.getLogicalSourceAccess().getGroup_4(), "rule__LogicalSource__Group_4__0");
@@ -75,8 +75,8 @@ public class RdfMappingParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLanguageTagAccess().getNameAssignment(), "rule__LanguageTag__NameAssignment");
 			builder.put(grammarAccess.getSourceGroupAccess().getNameAssignment_1(), "rule__SourceGroup__NameAssignment_1");
 			builder.put(grammarAccess.getSourceGroupAccess().getTypeAssignment_4(), "rule__SourceGroup__TypeAssignment_4");
-			builder.put(grammarAccess.getSourceGroupAccess().getSourceAssignment_6_1(), "rule__SourceGroup__SourceAssignment_6_1");
-			builder.put(grammarAccess.getSourceGroupAccess().getLogicalSourcesAssignment_7(), "rule__SourceGroup__LogicalSourcesAssignment_7");
+			builder.put(grammarAccess.getSourceGroupAccess().getSourceAssignment_5_1(), "rule__SourceGroup__SourceAssignment_5_1");
+			builder.put(grammarAccess.getSourceGroupAccess().getLogicalSourcesAssignment_6(), "rule__SourceGroup__LogicalSourcesAssignment_6");
 			builder.put(grammarAccess.getLogicalSourceAccess().getNameAssignment_1(), "rule__LogicalSource__NameAssignment_1");
 			builder.put(grammarAccess.getLogicalSourceAccess().getTypeAssignment_3_1(), "rule__LogicalSource__TypeAssignment_3_1");
 			builder.put(grammarAccess.getLogicalSourceAccess().getSourceAssignment_4_1(), "rule__LogicalSource__SourceAssignment_4_1");
