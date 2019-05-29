@@ -1173,17 +1173,23 @@ ruleMapping returns [EObject current=null]
 					}
 				)
 			)+
+			(
+				otherlv_7=';'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getMappingAccess().getSemicolonKeyword_5_2());
+				}
+			)?
 		)?
-		otherlv_7='subject'
+		otherlv_8='subject'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getMappingAccess().getSubjectKeyword_6());
+			newLeafNode(otherlv_8, grammarAccess.getMappingAccess().getSubjectKeyword_6());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getMappingAccess().getSubjectIriMappingTemplateValuedTermParserRuleCall_7_0());
 				}
-				lv_subjectIriMapping_8_0=ruleTemplateValuedTerm
+				lv_subjectIriMapping_9_0=ruleTemplateValuedTerm
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMappingRule());
@@ -1191,23 +1197,23 @@ ruleMapping returns [EObject current=null]
 					set(
 						$current,
 						"subjectIriMapping",
-						lv_subjectIriMapping_8_0,
+						lv_subjectIriMapping_9_0,
 						"com.zazuko.experimental.rmdsl.RdfMapping.TemplateValuedTerm");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_9='types'
+			otherlv_10='types'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getMappingAccess().getTypesKeyword_8_0());
+				newLeafNode(otherlv_10, grammarAccess.getMappingAccess().getTypesKeyword_8_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getMappingAccess().getSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_1_0());
 					}
-					lv_subjectTypeMappings_10_0=ruleSubjectTypeMapping
+					lv_subjectTypeMappings_11_0=ruleSubjectTypeMapping
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMappingRule());
@@ -1215,24 +1221,30 @@ ruleMapping returns [EObject current=null]
 						add(
 							$current,
 							"subjectTypeMappings",
-							lv_subjectTypeMappings_10_0,
+							lv_subjectTypeMappings_11_0,
 							"com.zazuko.experimental.rmdsl.RdfMapping.SubjectTypeMapping");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
+			(
+				otherlv_12=';'
+				{
+					newLeafNode(otherlv_12, grammarAccess.getMappingAccess().getSemicolonKeyword_8_2());
+				}
+			)?
 		)?
 		(
-			otherlv_11='properties'
+			otherlv_13='properties'
 			{
-				newLeafNode(otherlv_11, grammarAccess.getMappingAccess().getPropertiesKeyword_9_0());
+				newLeafNode(otherlv_13, grammarAccess.getMappingAccess().getPropertiesKeyword_9_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getMappingAccess().getPoMappingsPredicateObjectMappingParserRuleCall_9_1_0());
 					}
-					lv_poMappings_12_0=rulePredicateObjectMapping
+					lv_poMappings_14_0=rulePredicateObjectMapping
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMappingRule());
@@ -1240,16 +1252,16 @@ ruleMapping returns [EObject current=null]
 						add(
 							$current,
 							"poMappings",
-							lv_poMappings_12_0,
+							lv_poMappings_14_0,
 							"com.zazuko.experimental.rmdsl.RdfMapping.PredicateObjectMapping");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
 		)?
-		otherlv_13='}'
+		otherlv_15='}'
 		{
-			newLeafNode(otherlv_13, grammarAccess.getMappingAccess().getRightCurlyBracketKeyword_10());
+			newLeafNode(otherlv_15, grammarAccess.getMappingAccess().getRightCurlyBracketKeyword_10());
 		}
 	)
 ;
@@ -1468,6 +1480,12 @@ ruleReferenceValuedTerm returns [EObject current=null]
 				)
 			)
 		)?
+		(
+			otherlv_8=';'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getReferenceValuedTermAccess().getSemicolonKeyword_3());
+			}
+		)?
 	)
 ;
 
@@ -1526,6 +1544,12 @@ ruleTemplateValuedTerm returns [EObject current=null]
 				}
 			)
 		)+
+		(
+			otherlv_4=';'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getTemplateValuedTermAccess().getSemicolonKeyword_4());
+			}
+		)?
 	)
 ;
 
@@ -1579,6 +1603,12 @@ ruleLinkedResourceTerm returns [EObject current=null]
 				}
 			)
 		)+
+		(
+			otherlv_4=';'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getLinkedResourceTermAccess().getSemicolonKeyword_4());
+			}
+		)?
 	)
 ;
 

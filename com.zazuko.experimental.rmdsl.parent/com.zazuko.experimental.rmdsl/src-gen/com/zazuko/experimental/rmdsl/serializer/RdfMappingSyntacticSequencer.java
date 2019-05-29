@@ -20,12 +20,22 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class RdfMappingSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RdfMappingGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_LinkedResourceTerm_SemicolonKeyword_4_q;
+	protected AbstractElementAlias match_Mapping_SemicolonKeyword_5_2_q;
+	protected AbstractElementAlias match_Mapping_SemicolonKeyword_8_2_q;
+	protected AbstractElementAlias match_ReferenceValuedTerm_SemicolonKeyword_3_q;
+	protected AbstractElementAlias match_TemplateValuedTerm_SemicolonKeyword_4_q;
 	protected AbstractElementAlias match_Vocabulary_ClassesKeyword_4_0_q;
 	protected AbstractElementAlias match_Vocabulary_PropertiesKeyword_5_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RdfMappingGrammarAccess) access;
+		match_LinkedResourceTerm_SemicolonKeyword_4_q = new TokenAlias(false, true, grammarAccess.getLinkedResourceTermAccess().getSemicolonKeyword_4());
+		match_Mapping_SemicolonKeyword_5_2_q = new TokenAlias(false, true, grammarAccess.getMappingAccess().getSemicolonKeyword_5_2());
+		match_Mapping_SemicolonKeyword_8_2_q = new TokenAlias(false, true, grammarAccess.getMappingAccess().getSemicolonKeyword_8_2());
+		match_ReferenceValuedTerm_SemicolonKeyword_3_q = new TokenAlias(false, true, grammarAccess.getReferenceValuedTermAccess().getSemicolonKeyword_3());
+		match_TemplateValuedTerm_SemicolonKeyword_4_q = new TokenAlias(false, true, grammarAccess.getTemplateValuedTermAccess().getSemicolonKeyword_4());
 		match_Vocabulary_ClassesKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getVocabularyAccess().getClassesKeyword_4_0());
 		match_Vocabulary_PropertiesKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getVocabularyAccess().getPropertiesKeyword_5_0());
 	}
@@ -42,7 +52,17 @@ public class RdfMappingSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Vocabulary_ClassesKeyword_4_0_q.equals(syntax))
+			if (match_LinkedResourceTerm_SemicolonKeyword_4_q.equals(syntax))
+				emit_LinkedResourceTerm_SemicolonKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Mapping_SemicolonKeyword_5_2_q.equals(syntax))
+				emit_Mapping_SemicolonKeyword_5_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Mapping_SemicolonKeyword_8_2_q.equals(syntax))
+				emit_Mapping_SemicolonKeyword_8_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ReferenceValuedTerm_SemicolonKeyword_3_q.equals(syntax))
+				emit_ReferenceValuedTerm_SemicolonKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_TemplateValuedTerm_SemicolonKeyword_4_q.equals(syntax))
+				emit_TemplateValuedTerm_SemicolonKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Vocabulary_ClassesKeyword_4_0_q.equals(syntax))
 				emit_Vocabulary_ClassesKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Vocabulary_PropertiesKeyword_5_0_q.equals(syntax))
 				emit_Vocabulary_PropertiesKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -50,6 +70,64 @@ public class RdfMappingSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     references+=[Referenceable|ID] (ambiguity) (rule end)
+	 */
+	protected void emit_LinkedResourceTerm_SemicolonKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     targetVocabularies+=[Vocabulary|QualifiedName] (ambiguity) 'subject' subjectIriMapping=TemplateValuedTerm
+	 */
+	protected void emit_Mapping_SemicolonKeyword_5_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     subjectTypeMappings+=SubjectTypeMapping (ambiguity) 'properties' poMappings+=PredicateObjectMapping
+	 *     subjectTypeMappings+=SubjectTypeMapping (ambiguity) '}' (rule end)
+	 */
+	protected void emit_Mapping_SemicolonKeyword_8_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     datatype=[Datatype|ID] (ambiguity) (rule end)
+	 *     languageTag=[LanguageTag|ID] (ambiguity) (rule end)
+	 *     reference=[Referenceable|ID] (ambiguity) (rule end)
+	 */
+	protected void emit_ReferenceValuedTerm_SemicolonKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     references+=[Referenceable|ID] (ambiguity) (rule end)
+	 */
+	protected void emit_TemplateValuedTerm_SemicolonKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     'classes'?

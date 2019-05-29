@@ -2823,6 +2823,7 @@ rule__Mapping__Group_5__1
 	}
 :
 	rule__Mapping__Group_5__1__Impl
+	rule__Mapping__Group_5__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2844,6 +2845,32 @@ rule__Mapping__Group_5__1__Impl
 		(rule__Mapping__TargetVocabulariesAssignment_5_1)*
 		{ after(grammarAccess.getMappingAccess().getTargetVocabulariesAssignment_5_1()); }
 	)
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Mapping__Group_5__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Mapping__Group_5__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Mapping__Group_5__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getMappingAccess().getSemicolonKeyword_5_2()); }
+	(';')?
+	{ after(grammarAccess.getMappingAccess().getSemicolonKeyword_5_2()); }
 )
 ;
 finally {
@@ -2884,6 +2911,7 @@ rule__Mapping__Group_8__1
 	}
 :
 	rule__Mapping__Group_8__1__Impl
+	rule__Mapping__Group_8__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2905,6 +2933,32 @@ rule__Mapping__Group_8__1__Impl
 		(rule__Mapping__SubjectTypeMappingsAssignment_8_1)*
 		{ after(grammarAccess.getMappingAccess().getSubjectTypeMappingsAssignment_8_1()); }
 	)
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Mapping__Group_8__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Mapping__Group_8__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Mapping__Group_8__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getMappingAccess().getSemicolonKeyword_8_2()); }
+	(';')?
+	{ after(grammarAccess.getMappingAccess().getSemicolonKeyword_8_2()); }
 )
 ;
 finally {
@@ -3087,6 +3141,7 @@ rule__ReferenceValuedTerm__Group__2
 	}
 :
 	rule__ReferenceValuedTerm__Group__2__Impl
+	rule__ReferenceValuedTerm__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3101,6 +3156,32 @@ rule__ReferenceValuedTerm__Group__2__Impl
 	{ before(grammarAccess.getReferenceValuedTermAccess().getAlternatives_2()); }
 	(rule__ReferenceValuedTerm__Alternatives_2)?
 	{ after(grammarAccess.getReferenceValuedTermAccess().getAlternatives_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ReferenceValuedTerm__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ReferenceValuedTerm__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ReferenceValuedTerm__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getReferenceValuedTermAccess().getSemicolonKeyword_3()); }
+	(';')?
+	{ after(grammarAccess.getReferenceValuedTermAccess().getSemicolonKeyword_3()); }
 )
 ;
 finally {
@@ -3357,6 +3438,7 @@ rule__TemplateValuedTerm__Group__3
 	}
 :
 	rule__TemplateValuedTerm__Group__3__Impl
+	rule__TemplateValuedTerm__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3378,6 +3460,32 @@ rule__TemplateValuedTerm__Group__3__Impl
 		(rule__TemplateValuedTerm__ReferencesAssignment_3)*
 		{ after(grammarAccess.getTemplateValuedTermAccess().getReferencesAssignment_3()); }
 	)
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TemplateValuedTerm__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__TemplateValuedTerm__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TemplateValuedTerm__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTemplateValuedTermAccess().getSemicolonKeyword_4()); }
+	(';')?
+	{ after(grammarAccess.getTemplateValuedTermAccess().getSemicolonKeyword_4()); }
 )
 ;
 finally {
@@ -3472,6 +3580,7 @@ rule__LinkedResourceTerm__Group__3
 	}
 :
 	rule__LinkedResourceTerm__Group__3__Impl
+	rule__LinkedResourceTerm__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3493,6 +3602,32 @@ rule__LinkedResourceTerm__Group__3__Impl
 		(rule__LinkedResourceTerm__ReferencesAssignment_3)*
 		{ after(grammarAccess.getLinkedResourceTermAccess().getReferencesAssignment_3()); }
 	)
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LinkedResourceTerm__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__LinkedResourceTerm__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LinkedResourceTerm__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getLinkedResourceTermAccess().getSemicolonKeyword_4()); }
+	(';')?
+	{ after(grammarAccess.getLinkedResourceTermAccess().getSemicolonKeyword_4()); }
 )
 ;
 finally {

@@ -640,6 +640,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTargetVocabulariesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final CrossReference cTargetVocabulariesVocabularyCrossReference_5_1_0 = (CrossReference)cTargetVocabulariesAssignment_5_1.eContents().get(0);
 		private final RuleCall cTargetVocabulariesVocabularyQualifiedNameParserRuleCall_5_1_0_1 = (RuleCall)cTargetVocabulariesVocabularyCrossReference_5_1_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
 		private final Keyword cSubjectKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cSubjectIriMappingAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cSubjectIriMappingTemplateValuedTermParserRuleCall_7_0 = (RuleCall)cSubjectIriMappingAssignment_7.eContents().get(0);
@@ -647,6 +648,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypesKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cSubjectTypeMappingsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
 		private final RuleCall cSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_1_0 = (RuleCall)cSubjectTypeMappingsAssignment_8_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cPropertiesKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cPoMappingsAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
@@ -655,15 +657,15 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Mapping:
 		//	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{' ('use-vocabularies'
-		//	targetVocabularies+=[Vocabulary|QualifiedName]+)?
-		//	'subject' subjectIriMapping=TemplateValuedTerm ('types' subjectTypeMappings+=SubjectTypeMapping+)? ('properties'
+		//	targetVocabularies+=[Vocabulary|QualifiedName]+ ';'?)?
+		//	'subject' subjectIriMapping=TemplateValuedTerm ('types' subjectTypeMappings+=SubjectTypeMapping+ ';'?)? ('properties'
 		//	poMappings+=PredicateObjectMapping+)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{' ('use-vocabularies'
-		//targetVocabularies+=[Vocabulary|QualifiedName]+)? 'subject' subjectIriMapping=TemplateValuedTerm ('types'
-		//subjectTypeMappings+=SubjectTypeMapping+)? ('properties' poMappings+=PredicateObjectMapping+)? '}'
+		//targetVocabularies+=[Vocabulary|QualifiedName]+ ';'?)? 'subject' subjectIriMapping=TemplateValuedTerm ('types'
+		//subjectTypeMappings+=SubjectTypeMapping+ ';'?)? ('properties' poMappings+=PredicateObjectMapping+)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'map'
@@ -690,7 +692,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 		
-		//('use-vocabularies' targetVocabularies+=[Vocabulary|QualifiedName]+)?
+		//('use-vocabularies' targetVocabularies+=[Vocabulary|QualifiedName]+ ';'?)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'use-vocabularies'
@@ -705,6 +707,9 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getTargetVocabulariesVocabularyQualifiedNameParserRuleCall_5_1_0_1() { return cTargetVocabulariesVocabularyQualifiedNameParserRuleCall_5_1_0_1; }
 		
+		//';'?
+		public Keyword getSemicolonKeyword_5_2() { return cSemicolonKeyword_5_2; }
+		
 		//'subject'
 		public Keyword getSubjectKeyword_6() { return cSubjectKeyword_6; }
 		
@@ -714,7 +719,7 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		//TemplateValuedTerm
 		public RuleCall getSubjectIriMappingTemplateValuedTermParserRuleCall_7_0() { return cSubjectIriMappingTemplateValuedTermParserRuleCall_7_0; }
 		
-		//('types' subjectTypeMappings+=SubjectTypeMapping+)?
+		//('types' subjectTypeMappings+=SubjectTypeMapping+ ';'?)?
 		public Group getGroup_8() { return cGroup_8; }
 		
 		//'types'
@@ -725,6 +730,9 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SubjectTypeMapping
 		public RuleCall getSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_1_0() { return cSubjectTypeMappingsSubjectTypeMappingParserRuleCall_8_1_0; }
+		
+		//';'?
+		public Keyword getSemicolonKeyword_8_2() { return cSemicolonKeyword_8_2; }
 		
 		//('properties' poMappings+=PredicateObjectMapping+)?
 		public Group getGroup_9() { return cGroup_9; }
@@ -834,15 +842,17 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLanguageTagAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
 		private final CrossReference cLanguageTagLanguageTagCrossReference_2_1_2_0 = (CrossReference)cLanguageTagAssignment_2_1_2.eContents().get(0);
 		private final RuleCall cLanguageTagLanguageTagIDTerminalRuleCall_2_1_2_0_1 = (RuleCall)cLanguageTagLanguageTagCrossReference_2_1_2_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//// TODO: ConstantValuedTerm
 		//ReferenceValuedTerm:
 		//	'from' reference=[Referenceable] ('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag'
-		//	languageTag=[LanguageTag])?;
+		//	languageTag=[LanguageTag])?
+		//	';'?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'from' reference=[Referenceable] ('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag'
-		//languageTag=[LanguageTag])?
+		//languageTag=[LanguageTag])? ';'?
 		public Group getGroup() { return cGroup; }
 		
 		//'from'
@@ -895,6 +905,9 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getLanguageTagLanguageTagIDTerminalRuleCall_2_1_2_0_1() { return cLanguageTagLanguageTagIDTerminalRuleCall_2_1_2_0_1; }
+		
+		//';'?
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 	public class TemplateValuedTermElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.TemplateValuedTerm");
@@ -906,12 +919,14 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cReferencesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cReferencesReferenceableCrossReference_3_0 = (CrossReference)cReferencesAssignment_3.eContents().get(0);
 		private final RuleCall cReferencesReferenceableIDTerminalRuleCall_3_0_1 = (RuleCall)cReferencesReferenceableCrossReference_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//TemplateValuedTerm:
-		//	'template' template=STRING 'with' references+=[Referenceable]+;
+		//	'template' template=STRING 'with' references+=[Referenceable]+
+		//	';'?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'template' template=STRING 'with' references+=[Referenceable]+
+		//'template' template=STRING 'with' references+=[Referenceable]+ ';'?
 		public Group getGroup() { return cGroup; }
 		
 		//'template'
@@ -934,6 +949,9 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getReferencesReferenceableIDTerminalRuleCall_3_0_1() { return cReferencesReferenceableIDTerminalRuleCall_3_0_1; }
+		
+		//';'?
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 	public class LinkedResourceTermElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.LinkedResourceTerm");
@@ -946,12 +964,14 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cReferencesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cReferencesReferenceableCrossReference_3_0 = (CrossReference)cReferencesAssignment_3.eContents().get(0);
 		private final RuleCall cReferencesReferenceableIDTerminalRuleCall_3_0_1 = (RuleCall)cReferencesReferenceableCrossReference_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//LinkedResourceTerm:
-		//	'link' mapping=[Mapping] 'with' references+=[Referenceable]+;
+		//	'link' mapping=[Mapping] 'with' references+=[Referenceable]+
+		//	';'?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'link' mapping=[Mapping] 'with' references+=[Referenceable]+
+		//'link' mapping=[Mapping] 'with' references+=[Referenceable]+ ';'?
 		public Group getGroup() { return cGroup; }
 		
 		//'link'
@@ -977,6 +997,9 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getReferencesReferenceableIDTerminalRuleCall_3_0_1() { return cReferencesReferenceableIDTerminalRuleCall_3_0_1; }
+		
+		//';'?
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.zazuko.experimental.rmdsl.RdfMapping.Import");
@@ -1321,8 +1344,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Mapping:
 	//	'map' name=ID 'from' source=[LogicalSource|QualifiedName] '{' ('use-vocabularies'
-	//	targetVocabularies+=[Vocabulary|QualifiedName]+)?
-	//	'subject' subjectIriMapping=TemplateValuedTerm ('types' subjectTypeMappings+=SubjectTypeMapping+)? ('properties'
+	//	targetVocabularies+=[Vocabulary|QualifiedName]+ ';'?)?
+	//	'subject' subjectIriMapping=TemplateValuedTerm ('types' subjectTypeMappings+=SubjectTypeMapping+ ';'?)? ('properties'
 	//	poMappings+=PredicateObjectMapping+)?
 	//	'}';
 	public MappingElements getMappingAccess() {
@@ -1366,7 +1389,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	//// TODO: ConstantValuedTerm
 	//ReferenceValuedTerm:
 	//	'from' reference=[Referenceable] ('with' 'datatype' datatype=[Datatype] | 'with' 'language-tag'
-	//	languageTag=[LanguageTag])?;
+	//	languageTag=[LanguageTag])?
+	//	';'?;
 	public ReferenceValuedTermElements getReferenceValuedTermAccess() {
 		return pReferenceValuedTerm;
 	}
@@ -1376,7 +1400,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TemplateValuedTerm:
-	//	'template' template=STRING 'with' references+=[Referenceable]+;
+	//	'template' template=STRING 'with' references+=[Referenceable]+
+	//	';'?;
 	public TemplateValuedTermElements getTemplateValuedTermAccess() {
 		return pTemplateValuedTerm;
 	}
@@ -1386,7 +1411,8 @@ public class RdfMappingGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LinkedResourceTerm:
-	//	'link' mapping=[Mapping] 'with' references+=[Referenceable]+;
+	//	'link' mapping=[Mapping] 'with' references+=[Referenceable]+
+	//	';'?;
 	public LinkedResourceTermElements getLinkedResourceTermAccess() {
 		return pLinkedResourceTerm;
 	}
